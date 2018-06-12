@@ -1,0 +1,40 @@
+06/08/2018 16:01:32 [INFO] generic_utils: init logging file [py.log]
+06/08/2018 16:02:05 [INFO] grammar: num. rules: 108
+06/08/2018 16:02:05 [INFO] grammar: num. types: 57
+06/08/2018 16:02:05 [INFO] grammar: root: (root)
+06/08/2018 16:02:05 [INFO] grammar: terminals: (And), (Add), (LtE), (Gt), (GtE), (epsilon), (str), (Is), (Lt), (In), (NotEq), (Not), (IsNot), (int), (Eq), (Or), (Sub), (Break)
+06/08/2018 16:02:05 [INFO] parse: num. rules: 108
+06/08/2018 16:02:29 [INFO] py_dataset: examples that can be fully reconstructed: 507/665=0.762406
+06/08/2018 16:02:29 [INFO] py_dataset: empty_actions_count: 0
+06/08/2018 16:02:29 [INFO] py_dataset: max_query_len: 53
+06/08/2018 16:02:29 [INFO] py_dataset: max_actions_len: 665
+06/08/2018 16:02:29 [INFO] dataset: init data matrices for [hs.train_data] dataset
+06/08/2018 16:02:32 [INFO] dataset: init data matrices for [hs.dev_data] dataset
+06/08/2018 16:02:32 [INFO] dataset: init data matrices for [hs.test_data] dataset
+06/08/2018 16:03:12 [INFO] generic_utils: init logging file [py.log]
+06/08/2018 16:03:45 [INFO] grammar: num. rules: 108
+06/08/2018 16:03:45 [INFO] grammar: num. types: 57
+06/08/2018 16:03:45 [INFO] grammar: root: (root)
+06/08/2018 16:03:45 [INFO] grammar: terminals: (Not), (Gt), (int), (LtE), (epsilon), (Or), (Sub), (Lt), (In), (And), (Add), (NotEq), (IsNot), (Eq), (Is), (Break), (str), (GtE)
+06/08/2018 16:03:45 [INFO] parse: num. rules: 108
+06/08/2018 16:04:08 [INFO] py_dataset: examples that can be fully reconstructed: 507/665=0.762406
+06/08/2018 16:04:08 [INFO] py_dataset: empty_actions_count: 0
+06/08/2018 16:04:08 [INFO] py_dataset: max_query_len: 53
+06/08/2018 16:04:08 [INFO] py_dataset: max_actions_len: 665
+06/08/2018 16:04:08 [INFO] dataset: init data matrices for [hs.train_data] dataset
+06/08/2018 16:04:11 [INFO] dataset: init data matrices for [hs.dev_data] dataset
+06/08/2018 16:04:11 [INFO] dataset: init data matrices for [hs.test_data] dataset
+06/08/2018 16:13:40 [INFO] generic_utils: init logging file [py.log]
+06/08/2018 16:14:15 [INFO] grammar: num. rules: 108
+06/08/2018 16:14:15 [INFO] grammar: num. types: 57
+06/08/2018 16:14:15 [INFO] grammar: root: (root)
+06/08/2018 16:14:15 [INFO] grammar: terminals: (Or), (Sub), (Lt), (Break), (In), (And), (Add), (NotEq), (epsilon), (IsNot), (str), (Eq), (int), (Not), (GtE), (Gt), (Is), (LtE)
+06/08/2018 16:14:15 [INFO] parse: num. rules: 108
+06/08/2018 16:14:38 [INFO] py_dataset: examples that can be fully reconstructed: 507/665=0.762406
+06/08/2018 16:14:38 [INFO] py_dataset: empty_actions_count: 0
+06/08/2018 16:14:38 [INFO] py_dataset: max_query_len: 53
+06/08/2018 16:14:38 [INFO] py_dataset: max_actions_len: 665
+06/08/2018 16:14:38 [INFO] dataset: init data matrices for [hs.train_data] dataset
+06/08/2018 16:14:41 [INFO] dataset: init data matrices for [hs.dev_data] dataset
+06/08/2018 16:14:42 [INFO] dataset: init data matrices for [hs.test_data] dataset
+06/08/2018 16:15:22 [INFO] generic_utils: init logging file [py.log]
