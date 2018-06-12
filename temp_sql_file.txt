@@ -1,0 +1,2 @@
+SELECT anything FROM THIS_TABLE WHERE my_column LIKE "%3" and col_two="2" order by other_col asc limit 3;
+SELECT End_Date FROM THETABLE WHERE Season LIKE "12";
