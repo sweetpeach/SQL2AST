@@ -11,10 +11,10 @@ class ASTNode(object):
         self.label = label
         self.value = value
 
-        print("node type:" + str(node_type))
-        print("label:" + str(label))
-        print("value:" + str(value))
-        print("children: " + str(children))
+        #print("node type:" + str(node_type))
+        #print("label:" + str(label))
+        #print("value:" + str(value))
+        #print("children: " + str(children))
 
         if type(self) is not Rule:
             self.parent = None
