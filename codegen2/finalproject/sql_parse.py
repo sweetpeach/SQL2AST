@@ -11,36 +11,49 @@ from lang.util import escape
 from lang.util import typename
 from lang.sqlp.parser import SQLParser
 from lang.sqlp.sqlpyacc import _lr_productions
+from lang.sqlp.sqlplex import _lextokens
 import pprint
+import json
+import yaml
 
-def sql_ast_to_parse_tree(node):
-    assert isinstance(node, ast.AST)
+def sql_rules_to_tree(query, rule_file_path):
+    with open(rule_file_path, 'r') as input_file:
+        rule_list = yaml.safe_load(input_file)
 
-    node_type = type(node)
-    tree = ASTNode(node_type)
+    rule_list = list(reversed(rule_list))
+    print("rule list : " + str(rule_list))
+    tree = sql_ast_to_parse_tree(rule_list, rule_list[0], 0, -1)
+    #print(tree)
+    return None
 
-    # it's a leaf AST node, e.g., ADD, Break, etc.
-    if len(node._fields) == 0:
+def sql_ast_to_parse_tree(rule_list, current_list, current_line_no, prev_line_no):
+    tree = ASTNode(current_list[0])
+    if len(current_list) == 1:
+        empty_child = ASTNode('empty')
+        tree.add_child(empty_child)
         return tree
-
-    # if it's a compositional AST node with empty fields
-    if is_compositional_leaf(node):
-        epsilon = ASTNode('epsilon')
-        tree.add_child(epsilon)
-
-        return tree
-
-    fields_info = PY_AST_NODE_FIELDS[node_type.__name__]
+    
+    length = len(current_list)
+    print(length)
+    for i in range(1, length):
+        child_node = current_list[i]
+        if child_node[0:8] == "LexToken":
+            temp = child_node[9:len(child_node)-1].split(",")
+            first_child_node = ASTNode(temp[0])
+            node_type = type(temp[1])
+            node_value = temp[1]
+            second_child_node = ASTNode(node_type=node_type, value=node_value)
+            first_child_node.add_child(second_child_node)
+            tree.add_child(first_child_node)
+        else:
+            print "not lex: " + child_node
+            tree.add_child(sql_ast_to_parse_tree(rule_list, rule_list[current_line_no+1], current_line_no+1, current_line_no))
+    
+    print(tree)
+    return tree
+    '''
 
     for field_name, field_value in ast.iter_fields(node):
-        # remove ctx stuff
-        if field_name in NODE_FIELD_BLACK_LIST:
-            continue
-
-        # omit empty fields, including empty lists
-        if field_value is None or (isinstance(field_value, list) and len(field_value) == 0):
-            continue
-
         # now it's not empty!
         field_type = fields_info[field_name]['type']
         is_list_field = fields_info[field_name]['is_list']
@@ -74,6 +87,7 @@ def sql_ast_to_parse_tree(node):
         tree.add_child(child)
 
     return tree
+    '''
 
 def add_root(tree):
     root_node = ASTNode('root')
@@ -86,21 +100,23 @@ def parse_sql(query):
     parse an SQL code into a tree structure
     code -> AST tree -> AST tree to internal tree structure
     """
-    sql_ast = sql_parser.parse(query)
+    sql_parser = SQLParser()
+    result_file="/Users/shayati/Documents/summer_2018/sql_to_ast/SQL2AST/codegen2/finalproject/sql_rules.json"
+    parse_tree = sql_parser.parse(query, do_write=True, outfile=result_file)
+    pprint.pprint([parse_tree])
+    
+    tree = sql_rules_to_tree(query, result_file)
 
-    tree = sql_ast_to_parse_tree(sql_ast[0])
-
-    tree = add_root(tree)
-
-    return tree
+    #tree = add_root(tree)
+    #return tree
 
 if __name__ == '__main__':
-    from nn.utils.generic_utils import init_logging
-    init_logging('misc.log')
-
+    '''
     sql_parser = SQLParser()
-    query = "SELECT my_column FROM This_Table;"
-    parse_tree = sql_parser.parse(query)
-    #print(parse_tree[0][0])
-    pprint.pprint([parse_tree])
-    #print(_lr_productions[0])
+    query = "SELECT my_column FROM That_Table;"
+    parse_sql(query)
+
+    '''
+    fake_query = ""
+    result_file="/Users/shayati/Documents/summer_2018/sql_to_ast/SQL2AST/codegen2/finalproject/test_file.json"
+    sql_rules_to_tree(fake_query, result_file)

@@ -12,7 +12,7 @@
 import re
 import pprint
 import os, sys, re
-from ply import lex, yacc
+from my_ply import lex, yacc
 
 
 def after(l, start):
@@ -2662,7 +2662,7 @@ class SQLParser(object):
                             optimize=1)
                             #optimize=False)
 
-  def parse(self, sql, filename=None):
+  def parse(self, sql, filename=None, do_write=False, outfile=None):
     if filename is not None:
       self.lexer.filename = filename
     self.lexer.lineno = 1
@@ -2670,7 +2670,7 @@ class SQLParser(object):
     #print("test")
     #print("here: " + str(self.parser.parse(lexer=self)))
     #print("end of test")
-    return self.parser.parse(lexer=self)
+    return self.parser.parse(lexer=self, write_to_file=do_write, output_file=outfile)
 
   # public Optimizations ---------------------------------------------------
 

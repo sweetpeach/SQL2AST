@@ -13,7 +13,7 @@ from lang.util import typename
 
 def python_ast_to_parse_tree(node):
     assert isinstance(node, ast.AST)
-
+    print(node)
     node_type = type(node)
     tree = ASTNode(node_type)
 

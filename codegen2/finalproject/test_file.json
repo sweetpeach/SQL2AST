@@ -1,0 +1,19 @@
+[
+    [
+        "statement", 
+        "select"
+    ], 
+    [
+        "delim", 
+        "LexToken(DELIM,';',1,32)"
+    ], 
+    [
+        "statements"
+    ], 
+    [
+        "statements", 
+        "statement", 
+        "delim", 
+        "statements"
+    ]
+]
