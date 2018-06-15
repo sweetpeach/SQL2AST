@@ -20,52 +20,70 @@ def sql_rules_to_tree(query, rule_file_path):
     with open(rule_file_path, 'r') as input_file:
         rule_list = yaml.safe_load(input_file)
 
-    rule_list = list(reversed(rule_list))
+    #rule_list = list(reversed(rule_list))
     print("rule list : " + str(rule_list))
-    tree = sql_ast_to_parse_tree(rule_list, rule_list[0], 0, -1)
+    tree = sql_ast_to_parse_tree(rule_list)
     #print(tree)
     return tree
 
-def sql_ast_to_parse_tree(rule_list, current_list, current_rule_idx, prev_line_no):
-    tree = ASTNode(current_list[0])
-    if len(current_list) == 1:
-        print(" ----- empty tree -----")
-        empty_child = ASTNode('empty')
-        tree.add_child(empty_child)
-        print(tree)
-        print("current_rule_idx: " + str(current_rule_idx))
-        print(" ----- end of empty tree -----")
-        return tree
-    
-    length = len(current_list)
+def sql_ast_to_parse_tree(rule_list):
     print("----------------------------------")
-    print("current list length: " + str(length))
-    print("current_rule_idx: " + str(current_rule_idx))
-    print "current list: " + str(current_list)
-    hasLexToken = False
-    for i in range(1, length):
-        index = length - i
-        child_node = current_list[index]
-        if child_node[0:8] == "LexToken":
-            temp = child_node[9:len(child_node)-1].split(",")
-            first_child_node = ASTNode(temp[0])
-            node_type = type(temp[1])
-            node_value = temp[1]
-            second_child_node = ASTNode(node_type=node_type, value=node_value)
-            first_child_node.add_child(second_child_node)
-            tree.add_child(first_child_node)
-            hasLexToken = True
-        else:
-            print "not lex: " + child_node
-            print "i: " + str(i)
-            print "index: " + str(index)
-            if hasLexToken:
-                addition = i-1
+
+    queue = []
+    for rule_idx in range(len(rule_list)):
+    #while rule_list:
+        current_level = rule_list.pop()
+        parent = current_level[0]
+        print("parent: " + str(parent))
+        length = len(current_level)
+        
+        list_of_children = []
+        for node_idx in range(1, length):
+            child = current_level[node_idx]
+
+            if child[0:8] == "LexToken":
+                temp = child[9:len(child)-1].split(",")
+                first_child_node = ASTNode(temp[0])
+
+                node_type = type(temp[1])
+                node_value = temp[1]
+                second_child_node = ASTNode(node_type=node_type, value=node_value)
+                first_child_node.add_child(second_child_node)
+                list_of_children.append(first_child_node)
             else:
-                addition = i
-            print "addition: " + str(addition)
-            print("next rule: " + str(current_rule_idx+addition))
-            tree.add_child(sql_ast_to_parse_tree(rule_list, rule_list[current_rule_idx+addition], current_rule_idx+addition, current_rule_idx))
+                #print "not lex: " + child
+                child_node = create_node_with_empty_leaf(child)
+                list_of_children.append(child_node)
+        print("list of children: " + str(list_of_children))
+        if queue:
+            front = queue.pop(0)
+        else:
+            root = ASTNode(parent)
+            front = root
+        print "queue: " + str(queue)
+        while front.type != parent and queue:
+            front = queue.pop(0)
+            print("inside while")
+
+        print("old front: " + str(front))# + "rule_idx: " + str(rule_idx))
+        if rule_idx > 0:
+            #print "here"
+            front.__delitem__("empty")
+
+        for child in list_of_children:
+            front.add_child(child)
+
+        print("new front: " + str(front))
+        queue.extend(reversed(list_of_children))
+        print("root: " + str(root))
+        #pointer
+    #print root
+    return root
+
+def create_node_with_empty_leaf(node_name):
+    tree = ASTNode(node_name)
+    empty_child = ASTNode('empty')
+    tree.add_child(empty_child)
     return tree
 
 def add_root(tree):
@@ -84,10 +102,7 @@ def parse_sql(query):
     parse_tree = sql_parser.parse(query, do_write=True, outfile=result_file)
     pprint.pprint([parse_tree])
     
-    tree = sql_rules_to_tree(query, result_file)
-
-    #tree = add_root(tree)
-    #return tree
+    #tree = sql_rules_to_tree(query, result_file)
 
 if __name__ == '__main__':
     '''
@@ -96,8 +111,22 @@ if __name__ == '__main__':
     parse_sql(query)
 
     '''
+
     fake_query = ""
     result_file="/Users/shayati/Documents/summer_2018/sql_to_ast/SQL2AST/codegen2/finalproject/test_file_shorter.json"
     final_tree = sql_rules_to_tree(fake_query, result_file)
     print("****** FINAL TREE *******")
     print(final_tree)
+    '''
+    root = ASTNode("root")
+    child_a = ASTNode("child_a")
+    child_b = ASTNode("child_b")
+    child_c = ASTNode("child_a")
+    root.add_child(child_a)
+    root.add_child(child_b)
+    root.add_child(child_c)
+    child_a.add_child(ASTNode("hehe"))
+    print root
+    child_a.__delitem__("hehe")
+    print root
+    '''

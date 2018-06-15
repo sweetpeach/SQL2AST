@@ -1155,9 +1155,9 @@ class LRParser:
 
 
                         targ = [sym]
-                        if write_to_file:
-                            rules = map(str, targ)
-                            rule_list.append(rules)
+                        #if write_to_file:
+                        #    rules = map(str, targ)
+                        #    rule_list.append(rules)
                             #writer.write(str(targ[0]))
                             #writer.write("\n")
                             #print("target: " + str(targ))

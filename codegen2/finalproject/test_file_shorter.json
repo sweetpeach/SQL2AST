@@ -1,5 +1,38 @@
 [
     [
+        "select_into_10",
+        "select_from"
+    ],
+    [
+        "select_part2_8", 
+        "select_options", 
+        "select_item_list", 
+        "select_into_10", 
+        "select_lock_type_9"
+    ],
+    [
+        "select_init2", 
+        "select_part2_8", 
+        "union_clause"
+    ], 
+    [
+        "top_level_select_init", 
+        "LexToken(SELECT,'SELECT',1,0)", 
+        "select_init2"
+    ], 
+    [
+        "select", 
+        "top_level_select_init"
+    ], 
+    [
+        "statement", 
+        "select"
+    ], 
+    [
+        "delim", 
+        "LexToken(DELIM,';',1,32)"
+    ],
+    [
         "statements", 
         "statement", 
         "delim", 

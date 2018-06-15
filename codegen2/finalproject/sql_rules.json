@@ -1,8 +1,5 @@
 [
     [
-        "select_options"
-    ], 
-    [
         "simple_expr", 
         "LexToken(IDENT,'my_column',1,7)"
     ], 
@@ -27,9 +24,6 @@
         "expr"
     ], 
     [
-        "select_alias"
-    ], 
-    [
         "select_item", 
         "select_item2", 
         "select_alias"
@@ -37,12 +31,6 @@
     [
         "select_item_list", 
         "select_item"
-    ], 
-    [
-        "opt_table_alias"
-    ], 
-    [
-        "opt_index_hints_list"
     ], 
     [
         "opt_key_definition", 
@@ -71,21 +59,6 @@
         "derived_table_list"
     ], 
     [
-        "where_clause"
-    ], 
-    [
-        "group_clause"
-    ], 
-    [
-        "having_clause"
-    ], 
-    [
-        "opt_order_clause"
-    ], 
-    [
-        "opt_limit_clause"
-    ], 
-    [
         "select_from", 
         "LexToken(FROM,'FROM',1,17)", 
         "join_table_list", 
@@ -100,17 +73,11 @@
         "select_from"
     ], 
     [
-        "select_lock_type"
-    ], 
-    [
         "select_part2", 
         "select_options", 
         "select_item_list", 
         "select_into", 
         "select_lock_type"
-    ], 
-    [
-        "union_clause"
     ], 
     [
         "select_init2", 
@@ -133,9 +100,6 @@
     [
         "delim", 
         "LexToken(DELIM,';',1,32)"
-    ], 
-    [
-        "statements"
     ], 
     [
         "statements", 
