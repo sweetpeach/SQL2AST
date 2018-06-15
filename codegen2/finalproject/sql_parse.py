@@ -103,7 +103,7 @@ def parse_sql(query):
     parse_tree, rule_list = sql_parser.parse(query, do_write=True, outfile=result_file)
     pprint.pprint([parse_tree])
     
-    tree = sql_rules_to_tree(query, result_file)
+    #tree = sql_rules_to_tree(query, result_file)
     tree = sql_ast_to_parse_tree(rule_list)
     return tree
 
