@@ -1054,7 +1054,7 @@ class LRParser:
         state = 0
         if write_to_file:
              #writer = open(output_file, 'w')
-             json_writer = open(output_file, "w")
+             #json_writer = open(output_file, "w")
              rule_list = []
 
         while True:
@@ -1193,10 +1193,10 @@ class LRParser:
                 if t == 0:
                     n = symstack[-1]
                     result = getattr(n, 'value', None)
-                    if write_to_file:
+                    #if write_to_file:
                         #print("rule list: " + str(rule_list))
-                        json.dump(rule_list, json_writer,indent=4)
-                    return result
+                        #json.dump(rule_list, json_writer,indent=4)
+                    return result, rule_list
 
             if t is None:
 

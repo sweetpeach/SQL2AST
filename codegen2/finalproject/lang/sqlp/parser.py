@@ -416,12 +416,12 @@ class SQLParser(object):
   def p_expr_or(self, p):
     """expr : expr OR expr """
     p[0] = ('or',p[1],p[3])
-    print("expr : expr OR expr ")
+    #print("expr : expr OR expr ")
 
   def p_expr_and(self, p):
     """expr : expr AND expr """
     p[0] = ('and',p[1],p[3])
-    print("expr : expr AND expr ")
+    #print("expr : expr AND expr ")
 
   def p_expr_xor(self, p):
     """expr : expr XOR expr """
@@ -430,7 +430,7 @@ class SQLParser(object):
   def p_expr_not(self, p):
     """expr : NOT expr """
     p[0] = ('not',p[2])
-    print("expr : NOT expr ")
+    #print("expr : NOT expr ")
 
   def p_true_false_or_unknown1(self, p):
     """true_false_or_unknown : TRUE """
@@ -447,27 +447,27 @@ class SQLParser(object):
   def p_expr_boolean_primary_is(self, p):
     """expr : boolean_primary IS not_opt true_false_or_unknown """
     p[0] = ('is',p[1],p[3](p[4]))
-    print("expr : boolean_primary IS not_opt true_false_or_unknown ")
+    #print("expr : boolean_primary IS not_opt true_false_or_unknown ")
 
   def p_expr_boolean_primary(self, p):
     """expr : boolean_primary """
     p[0] = p[1]
-    print("expr : boolean_primary ")
+    #print("expr : boolean_primary ")
 
   def p_boolean_primary_is(self, p):
     """boolean_primary : boolean_primary IS not_opt NULL """
     p[0] = ('is',p[1],p[3](None))
-    print("boolean_primary : boolean_primary IS not_opt NULL ")
+    #print("boolean_primary : boolean_primary IS not_opt NULL ")
 
   def p_boolean_primary_imply(self, p):
     """boolean_primary : boolean_primary NULL_SAFE predicate """
     p[0] = ('<=>',p[1],p[3])
-    print("boolean_primary : boolean_primary NULL_SAFE predicate ")
+    #print("boolean_primary : boolean_primary NULL_SAFE predicate ")
 
   def p_boolean_primary_op(self, p):
     """boolean_primary : boolean_primary comparison_operator predicate """
     p[0] = (p[2],p[1],p[3])
-    print("boolean_primary : boolean_primary comparison_operator predicate ")
+    #print("boolean_primary : boolean_primary comparison_operator predicate ")
 
   def p_all_or_any1(self, p):
     """all_or_any : ALL """
@@ -481,12 +481,12 @@ class SQLParser(object):
   def p_boolean_primary_all_any(self, p):
     """boolean_primary : boolean_primary comparison_operator all_or_any '(' subquery ')' """
     p[0] = (p[2],p[1],(p[3],p[5]))
-    print("boolean_primary : boolean_primary comparison_operator all_or_any '(' subquery ')' ")
+    #print("boolean_primary : boolean_primary comparison_operator all_or_any '(' subquery ')' ")
 
   def p_boolean_primary_pred(self, p):
     """boolean_primary : predicate """
     p[0] = p[1]
-    print("boolean_primary : predicate ")
+    #print("boolean_primary : predicate ")
 
   def p_comparison_operator(self, p):
     """comparison_operator : EQ
@@ -508,7 +508,7 @@ class SQLParser(object):
   def p_predicate_in_subquery(self, p):
     """predicate : bit_expr not_opt IN '(' subquery ')' """
     p[0] = p[2](('in',p[1],p[5]))
-    print("predicate : bit_expr not_opt IN '(' subquery ')'")
+    #print("predicate : bit_expr not_opt IN '(' subquery ')'")
 
   def p_predicate_in(self, p):
     """predicate : bit_expr not_opt IN '(' expr_list ')' """
@@ -529,12 +529,12 @@ class SQLParser(object):
   def p_predicate_regexp(self, p):
     """predicate : bit_expr not_opt REGEXP bit_expr """
     p[0] = p[2](('regexp',p[1],p[4]))
-    print("predicate : bit_expr not_opt REGEXP bit_expr ")
+    #print("predicate : bit_expr not_opt REGEXP bit_expr ")
 
   def p_predicate_bit_expr(self, p):
     """predicate : bit_expr """
     p[0] = p[1]
-    print("predicate : bit_expr")
+    #print("predicate : bit_expr")
 
   def p_bit_expr_or(self, p):
     """bit_expr : bit_expr BITWISE_OR bit_expr """
@@ -579,7 +579,7 @@ class SQLParser(object):
   def p_bit_expr_simple_expr(self, p):
     """bit_expr : simple_expr """
     p[0] = p[1]
-    print("bit_expr : simple_expr")
+    #print("bit_expr : simple_expr")
 
   def p_literal(self, p):
     """literal : STRING
@@ -594,12 +594,12 @@ class SQLParser(object):
   def p_simple_expr_literal(self, p):
     """simple_expr : literal """
     p[0] = p[1]
-    print("simple_expr : literal")
+    #print("simple_expr : literal")
 
   def p_simple_expr_ident(self, p):
     """simple_expr : IDENT """
     p[0] = p[1]
-    print("simple_expr : IDENT ")
+    #print("simple_expr : IDENT ")
 
   def p_simple_expr_at_ident(self, p):
     """simple_expr : '@' IDENT """
@@ -1277,7 +1277,7 @@ class SQLParser(object):
   def p_table_name(self, p):
     """table_name : table_ident """
     p[0] = ('table_ref',p[1])
-    print("table_name : table_ident")
+    #print("table_name : table_ident")
 
   def p_insert_table(self, p):
     """insert_table : table_name """
@@ -1375,17 +1375,17 @@ class SQLParser(object):
   def p_select_lock_type_empty(self, p):
     """select_lock_type : """
     p[0] = {}
-    print("select_lock_type : ")
+    #print("select_lock_type : ")
 
   def p_select_lock_type1(self, p):
     """select_lock_type : FOR UPDATE """
     p[0] = {'lock':'for_update'}
-    print("select_lock_type : FOR UPDATE")
+    #print("select_lock_type : FOR UPDATE")
 
   def p_select_lock_type2(self, p):
     """select_lock_type : LOCK IN SHARE MODE """
     p[0] = {'lock':'in_share'}
-    print("select_lock_type : LOCK IN SHARE MODE ")
+    #print("select_lock_type : LOCK IN SHARE MODE ")
 
   def p_opt_create_from2(self, p):
     """opt_select_from : select_from select_lock_type """
@@ -1395,7 +1395,7 @@ class SQLParser(object):
     """create_select : SELECT select_options select_item_list opt_select_from """
     args = dict(p[2],**p[4])
     p[0] = ('select',p[3],args)
-    print("create select")
+    #print("create select")
 
   def p_union_option_empty(self, p):
     """union_option : """
@@ -1414,7 +1414,7 @@ class SQLParser(object):
     args = dict(p[1],**p[3])
     args.update(p[4])
     p[0] = ('select',p[2],args)
-    print("select_part2 : select_options select_item_list select_into select_lock_type")
+    #print("select_part2 : select_options select_item_list select_into select_lock_type")
 
 
 
@@ -1935,12 +1935,12 @@ class SQLParser(object):
   def p_select_options_empty(self, p):
     """select_options : """
     p[0] = {}
-    print("select_options_empty")
+    #print("select_options_empty")
 
   def p_select_options(self, p):
     """select_options : select_option_list """
     p[0] = p[1]
-    print("select options -> select_option_list")
+    #print("select options -> select_option_list")
 
   def p_select_option_distinct(self, p):
     """select_option : DISTINCT """
@@ -1957,33 +1957,33 @@ class SQLParser(object):
   def p_select_option_list(self, p):
     """select_option_list : select_option select_option_list """
     p[0] = dict(p[2],**p[1])
-    print("select_option_list -> select_option select_option_list")
+    #print("select_option_list -> select_option select_option_list")
 
   def p_select_alias_empty(self, p):
     """select_alias : """
     p[0] = {}
-    print("select_alias : ")
+    #print("select_alias : ")
 
   def p_select_alias_as(self, p):
     """select_alias : AS IDENT """
     p[0] = {'alias':p[2]}
-    print("select_alias : AS IDENT")
+    #print("select_alias : AS IDENT")
 
   def p_select_alias_no_as(self, p):
     """select_alias : IDENT """
     p[0] = {'alias':p[1]}
-    print("select_alias : IDENT")
+    #print("select_alias : IDENT")
 
   def p_table_wild(self, p):
     """table_wild : IDENT '*' """
     p[0] = '{0}*'.format(p[1])
-    print("table_wild : IDENT '*'")
+    #print("table_wild : IDENT '*'")
 
   def p_select_item2(self, p):
     """select_item2 : table_wild
                     | expr """
     p[0] = p[1]
-    print("select item2 -> table_wild \n\t\t expr")
+    #print("select item2 -> table_wild \n\t\t expr")
 
   def p_select_item(self, p):
     """select_item : select_item2 select_alias """
@@ -1991,42 +1991,42 @@ class SQLParser(object):
       p[0] = ('item',p[1])
     else:
       p[0] = ('item',p[1],p[2])
-    print("select item -> select_item2 select_alias")
+    #print("select item -> select_item2 select_alias")
 
   def p_select_item_list_single(self, p):
     """select_item_list : select_item """
     p[0] = [p[1]]
-    print("select item list -> select_item")
+    #print("select item list -> select_item")
 
   def p_select_item_list(self, p):
     """select_item_list : select_item ',' select_item_list """
     p[0] = [p[1]] + p[3]
-    print("select item list -> select_item, select_item_list")
+    #print("select item list -> select_item, select_item_list")
 
   def p_select_item_list_star(self, p):
     """select_item_list : '*' """
     p[0] = ['*']
-    print("select_item_list : '*' ")
+    #print("select_item_list : '*' ")
 
   def p_opt_order_clause_empty(self, p):
     """opt_order_clause : """
     p[0] = {}
-    print("opt_order_clause : ")
+    #print("opt_order_clause : ")
 
   def p_opt_order_clause(self, p):
     """opt_order_clause : order_clause """
     p[0] = p[1]
-    print("opt_order_clause : order_clause")
+    #print("opt_order_clause : order_clause")
 
   def p_order_clause(self, p):
     """order_clause : ORDER BY order_list """
     p[0] = {'order_by':p[3]}
-    print("order_clause : ORDER BY order_list ")
+    #print("order_clause : ORDER BY order_list ")
 
   def p_order_ident(self, p):
     """order_ident : expr """
     p[0] = p[1]
-    print("order_ident : expr ")
+    #print("order_ident : expr ")
 
   def p_order_dir_empty(self, p):
     """order_dir : """
@@ -2058,7 +2058,7 @@ class SQLParser(object):
   def p_opt_limit_clause_empty(self, p):
     """opt_limit_clause : """
     p[0] = {}
-    print("opt_limit_clause : ")
+    #print("opt_limit_clause : ")
 
   def p_opt_limit_clause(self, p):
     """opt_limit_clause : limit_clause """
@@ -2099,7 +2099,7 @@ class SQLParser(object):
   def p_select_var_list(self, p):
     """select_var_list : select_var_ident ',' select_var_list """
     p[0] = [p[1]] + p[3]
-    print("select var list")
+    #print("select var list")
 
   def p_select_var_ident1(self, p):
     """select_var_ident : '@' IDENT """
@@ -2116,12 +2116,12 @@ class SQLParser(object):
   def p_into(self, p):
     """into : INTO into_destination """
     p[0] = {'into':p[2]}
-    print("into : INTO into_destination ")
+    #print("into : INTO into_destination ")
 
   def p_select_into(self, p):
     """select_into : into """
     p[0] = p[1]
-    print("select_into : into ")
+    #print("select_into : into ")
 
   def p_table_alias_empty(self, p):
     """table_alias : """
@@ -2138,12 +2138,12 @@ class SQLParser(object):
   def p_opt_table_alias_empty(self, p):
     """opt_table_alias : """
     p[0] = {}
-    print("opt_table_alias : ")
+    #print("opt_table_alias : ")
 
   def p_opt_table_alias(self, p):
     """opt_table_alias : table_alias IDENT """
     p[0] = {'alias':p[2]}
-    print("opt_table_alias : table_alias IDENT ")
+    #print("opt_table_alias : table_alias IDENT ")
 
   def p_index_hint_clause_empty(self, p):
     """index_hint_clause : """
@@ -2212,7 +2212,7 @@ class SQLParser(object):
   def p_opt_index_hints_list_empty(self, p):
     """opt_index_hints_list : """
     p[0] = []
-    print("opt_index_hints_list : ")
+    #print("opt_index_hints_list : ")
 
   def p_opt_index_hints_list(self, p):
     """opt_index_hints_list : index_hints_list """
@@ -2221,7 +2221,7 @@ class SQLParser(object):
   def p_opt_key_definition(self, p):
     """opt_key_definition : opt_index_hints_list """
     p[0] = p[1]
-    print("opt_key_definition : opt_index_hints_list ")
+    #print("opt_key_definition : opt_index_hints_list ")
 
   def p_table_factor(self, p):
     """table_factor : IDENT opt_table_alias opt_key_definition """
@@ -2232,7 +2232,7 @@ class SQLParser(object):
       p[0] = ('table_ref',p[1])
     else:
       p[0] = ('table_ref',p[1],args)
-    print("table factor -> IDENT, opt_table_alias, opt_key_definition")
+    #print("table factor -> IDENT, opt_table_alias, opt_key_definition")
 
   def p_join_clause_inner(self, p):
     """join_clause : JOIN
@@ -2283,7 +2283,7 @@ class SQLParser(object):
   def p_table_ref_table_factor(self, p):
     """table_ref : table_factor """
     p[0] = p[1]
-    print("table_ref : table_factor")
+    #print("table_ref : table_factor")
 
   def p_table_ref_join_table(self, p):
     """table_ref : join_table """
@@ -2292,37 +2292,37 @@ class SQLParser(object):
   def p_esc_table_ref(self, p):
     """esc_table_ref : table_ref """
     p[0] = p[1]
-    print("esc_table_ref : table_ref")
+    #print("esc_table_ref : table_ref")
 
   def p_derived_table_list_single(self, p):
     """derived_table_list : esc_table_ref """
     p[0] = [p[1]]
-    print("derived_table_list : esc_table_ref ")
+    #print("derived_table_list : esc_table_ref ")
 
   def p_derived_table_list(self, p):
     """derived_table_list : esc_table_ref ',' derived_table_list """
     p[0] = [p[1]] + p[3]
-    print("derived_table_list : esc_table_ref, derived_table_list ")
+    #print("derived_table_list : esc_table_ref, derived_table_list ")
 
   def p_join_table_list(self, p):
     """join_table_list : derived_table_list """
     p[0] = p[1]
-    print("join_table_list : derived_table_list ")
+    #print("join_table_list : derived_table_list ")
 
   def p_where_clause_empty(self, p):
     """where_clause : """
     p[0] = {}
-    print("where_clause : ")
+    #print("where_clause : ")
 
   def p_where_clause(self, p):
     """where_clause : WHERE expr"""
     p[0] = {'where':p[2]}
-    print("where_clause : WHERE expr")
+    #print("where_clause : WHERE expr")
 
   def p_group_clause_empty(self, p):
     """group_clause : """
     p[0] = {}
-    print("group_clause : ")
+    #print("group_clause : ")
 
   def p_olap_opt_empty(self, p):
     """olap_opt : """
@@ -2358,7 +2358,7 @@ class SQLParser(object):
   def p_having_clause_empty(self, p):
     """having_clause : """
     p[0] = {}
-    print("having_clause : ")
+    #print("having_clause : ")
 
   def p_having_clause(self, p):
     """having_clause : HAVING expr """
@@ -2373,7 +2373,7 @@ class SQLParser(object):
     result.update(p[7])
     #result.update(p[8])
     p[0] = result
-    print("select_from : FROM join_table_list where_clause group_clause having_clause opt_order_clause opt_limit_clause")
+    #print("select_from : FROM join_table_list where_clause group_clause having_clause opt_order_clause opt_limit_clause")
 
   def p_select_from_dual(self, p):
     """select_from : FROM DUAL where_clause opt_limit_clause """
@@ -2383,17 +2383,17 @@ class SQLParser(object):
   def p_select_into_from(self, p):
     """select_into : select_from """
     p[0] = p[1]
-    print("select_into : select_from ")
+    #print("select_into : select_from ")
 
   def p_select_into_into_select_from(self, p):
     """select_into : into select_from """
     p[0] = dict(p[2],**p[1])
-    print("select into -> into select from")
+    #print("select into -> into select from")
 
   def p_select_into_select_from_into(self, p):
     """select_into : select_from into """
     p[0] = dict(p[1],**p[2])
-    print("select_into : select_from into ")
+    #print("select_into : select_from into ")
 
   def p_top_level_select_init(self, p):
     """top_level_select_init : SELECT select_init2 """
@@ -2670,7 +2670,8 @@ class SQLParser(object):
     #print("test")
     #print("here: " + str(self.parser.parse(lexer=self)))
     #print("end of test")
-    return self.parser.parse(lexer=self, write_to_file=do_write, output_file=outfile)
+    parsed_sql, rule_list = self.parser.parse(lexer=self, write_to_file=do_write, output_file=outfile)
+    return parsed_sql, rule_list
 
   # public Optimizations ---------------------------------------------------
 
