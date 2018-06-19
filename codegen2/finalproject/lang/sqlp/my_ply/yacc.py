@@ -1052,9 +1052,9 @@ class LRParser:
         sym.type = '$end'
         symstack.append(sym)
         state = 0
-        print "write to file is " + str(write_to_file)
+        #print "write to file is " + str(write_to_file)
         if write_to_file:
-            print("write to file")
+            #print("write to file")
             json_writer = open(output_file, "w")
         #if get_rules:
         rule_list = []
@@ -1157,8 +1157,8 @@ class LRParser:
 
 
                         targ = [sym]
-                        print "sym: " + str(sym)
-                        print "sym type: " + str(type(sym))
+                        #print "sym: " + str(sym)
+                        #print "sym type: " + str(type(sym))
                         #if write_to_file:
                         #    rules = map(str, targ)
                         #    rule_list.append(rules)
@@ -1200,11 +1200,13 @@ class LRParser:
                     if write_to_file:
                         #print("rule list: " + str(rule_list))
                         json.dump(rule_list, json_writer,indent=4)
+                    '''
                     print "symstack: " + str(symstack)
                     print "n type: " + str(type(n))
                     print "n: " + str(n)
                     print "n.value: " + str(n.value)
                     print "result: " + str(result)
+                    '''
                     return result, rule_list
 
             if t is None:
