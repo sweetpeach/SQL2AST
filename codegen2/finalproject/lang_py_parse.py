@@ -14,7 +14,7 @@ import astor
 
 def python_ast_to_parse_tree(node):
     assert isinstance(node, ast.AST)
-    print(node)
+    #print(node)
     node_type = type(node)
     tree = ASTNode(node_type)
 
@@ -288,6 +288,7 @@ def get_grammar(parse_trees):
             rules.add(rule)
 
     rules = list(sorted(rules, key=lambda x: x.__repr__()))
+    print rules
     grammar = PythonGrammar(rules)
 
     logging.info('num. rules: %d', len(rules))
@@ -381,7 +382,7 @@ if __name__ == '__main__':
     #
     #     if source1 != source2:
     #         pass
-    '''
+    
     code = """
 class Demonwrath(SpellCard):
     def __init__(self):
@@ -395,15 +396,16 @@ class Demonwrath(SpellCard):
             if minion.card.minion_type is not MINION_TYPE.DEMON:
                 minion.damage(player.effective_spell_damage(2), self)
 """
-    '''
+    
     #code = """sorted(mydict, key=mydict.get, reverse=True)"""
     #code = """sorted(mydict, reverse=True)"""
-    code = """a = 1"""
+    #code = """a = 1"""
     parse_tree = parse(code)
     # for leaf in parse_tree.get_leaves():
     #     if leaf.value: print escape(leaf.value)
     #
     print parse_tree
+    get_grammar([parse_tree])
     #ast_tree = parse_tree_to_python_ast(parse_tree)
     ast_tree_again = decode_tree_to_python_ast(parse_tree)
     print ast_tree_again

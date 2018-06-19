@@ -293,11 +293,11 @@ class DataHelper(object):
 def parse_django_dataset_nt_only():
     from parse import parse_django
 
-    annot_file = '/Users/yinpengcheng/Research/SemanticParsing/CodeGeneration/en-django/all.anno'
+    annot_file = 'all.anno'
 
     vocab = gen_vocab(annot_file, vocab_size=4500)
 
-    code_file = '/Users/yinpengcheng/Research/SemanticParsing/CodeGeneration/en-django/all.code'
+    code_file = 'all.code'
 
     grammar, all_parse_trees = parse_django(code_file)
 
@@ -362,8 +362,8 @@ def parse_django_dataset():
     MAX_QUERY_LENGTH = 70
     UNARY_CUTOFF_FREQ = 30
 
-    annot_file = '/Users/yinpengcheng/Research/SemanticParsing/CodeGeneration/en-django/all.anno'
-    code_file = '/Users/yinpengcheng/Research/SemanticParsing/CodeGeneration/en-django/all.code'
+    annot_file = 'all.anno'
+    code_file = 'all.code'
 
     data = preprocess_dataset(annot_file, code_file)
 
@@ -558,8 +558,8 @@ def parse_django_dataset():
 
 def check_terminals():
     from parse import parse_django, unescape
-    grammar, parse_trees = parse_django('/Users/yinpengcheng/Research/SemanticParsing/CodeGeneration/en-django/all.code')
-    annot_file = '/Users/yinpengcheng/Research/SemanticParsing/CodeGeneration/en-django/all.anno'
+    grammar, parse_trees = parse_django('all.code')
+    annot_file = 'all.anno'
 
     unique_terminals = set()
     invalid_terminals = set()
@@ -787,8 +787,8 @@ if __name__== '__main__':
     from nn.utils.generic_utils import init_logging
     init_logging('parse.log')
 
-    # annot_file = '/Users/yinpengcheng/Research/SemanticParsing/CodeGeneration/en-django/all.anno'
-    # code_file = '/Users/yinpengcheng/Research/SemanticParsing/CodeGeneration/en-django/all.code'
+    # annot_file = 'all.anno'
+    # code_file = 'all.code'
 
     # preprocess_dataset(annot_file, code_file)
 
@@ -797,7 +797,7 @@ if __name__== '__main__':
 
     # print process_query(""" ALLOWED_VARIABLE_CHARS is a string 'abcdefgh"ijklm" nop"%s"qrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_.'.""")
 
-    # for i, query in enumerate(open('/Users/yinpengcheng/Research/SemanticParsing/CodeGeneration/en-django/all.anno')):
+    # for i, query in enumerate(open('all.anno')):
     #     print i, process_query(query)
 
     # clean_dataset()

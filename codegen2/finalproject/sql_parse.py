@@ -12,6 +12,7 @@ from lang.util import typename
 from lang.sqlp.parser import SQLParser
 from lang.sqlp.sqlpyacc import _lr_productions
 from lang.sqlp.sqlplex import _lextokens
+from lang.grammar import Grammar
 import pprint
 import json
 import yaml
@@ -26,7 +27,7 @@ def sql_rules_to_tree(query, rule_file_path): #don't need this function anymore
     
     return tree
 
-def sql_ast_to_parse_tree(rule_list, debug=False):
+def sql_to_parse_tree(rule_list, debug=False):
     queue = []
     level = 0
     for rule_idx in range(len(rule_list)):
@@ -100,7 +101,7 @@ def sql_ast_to_parse_tree(rule_list, debug=False):
             print "last queue: " + str(queue)
         #print("root: " + str(root))
         #pointer
-    print root
+    #print root
     tree = add_root(root)
     return tree
 
@@ -131,6 +132,24 @@ def source_from_parse_tree(tree):
     
     return sql
 
+def get_grammar(parse_trees):
+    rules = set()
+    # rule_num_dist = defaultdict(int)
+
+    for parse_tree in parse_trees:
+        parse_tree_rules, rule_parents = parse_tree.get_productions()
+        for rule in parse_tree_rules:
+            rules.add(rule)
+
+    rules = list(sorted(rules, key=lambda x: x.__repr__()))
+    print rules
+    grammar = Grammar(rules)
+
+    logging.info('num. rules: %d', len(rules))
+    print "here"
+    #return grammar
+
+
 def parse_sql(query):
     """
     parse an SQL code into a tree structure
@@ -140,21 +159,26 @@ def parse_sql(query):
     #result_file="/Users/shayati/Documents/summer_2018/sql_to_ast/SQL2AST/codegen2/finalproject/sql_rules.json"
     parse_tree, rule_list = sql_parser.parse(query, get_rules=True)#, do_write=True, outfile=result_file)
     #parse_tree, rule_list = sql_parser.parse(query, get_rules=True, do_write=True, outfile=result_file)
-    pprint.pprint([parse_tree])
+    #pprint.pprint([parse_tree])
     
     #tree = sql_rules_to_tree(query, result_file)
-    tree = sql_ast_to_parse_tree(rule_list)
+    tree = sql_to_parse_tree(rule_list)
     return tree
 
 if __name__ == '__main__':
+    from nn.utils.generic_utils import init_logging
+    init_logging('misc.log')
     
     sql_parser = SQLParser()
-    query = 'SELECT my_column FROM That_Table limit 3;'
-    #query = 'SELECT * FROM That_Table as ALIAS_TABLE where x LIKE "hihi";'
+    #query = 'SELECT my_column FROM That_Table limit 3;'
+    query = 'SELECT * FROM That_Table as ALIAS_TABLE where x LIKE "%hihi%";'
+    #query ='SELECT  "Value" FROM Power_Transmitter  WHERE  "Property"  LIKE "%%Description%";'
     tree = parse_sql(query)
-    #print("=> TREE <=")
+    get_grammar([tree])
+    print("---------- => TREE <= ----------")
     print(tree)
     sql_query = source_from_parse_tree(tree)
+    print("---------- => QUERY <= ----------")
     print(sql_query)
 
     #parse the generated SQL query again and see if it is working
