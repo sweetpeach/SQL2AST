@@ -1,36 +1,16 @@
 [
     [
-        "simple_expr", 
-        "LexToken(IDENT,'my_column',1,7)"
-    ], 
-    [
-        "bit_expr", 
-        "simple_expr"
-    ], 
-    [
-        "predicate", 
-        "bit_expr"
-    ], 
-    [
-        "boolean_primary", 
-        "predicate"
-    ], 
-    [
-        "expr", 
-        "boolean_primary"
-    ], 
-    [
-        "select_item2", 
-        "expr"
-    ], 
-    [
-        "select_item", 
-        "select_item2", 
-        "select_alias"
-    ], 
-    [
         "select_item_list", 
-        "select_item"
+        "LexToken(*,'*',1,7)"
+    ], 
+    [
+        "table_alias", 
+        "LexToken(AS,'as',1,25)"
+    ], 
+    [
+        "opt_table_alias", 
+        "table_alias", 
+        "LexToken(IDENT,'ALIAS_TABLE',1,28)"
     ], 
     [
         "opt_key_definition", 
@@ -38,7 +18,7 @@
     ], 
     [
         "table_factor", 
-        "LexToken(IDENT,'That_Table',1,22)", 
+        "LexToken(IDENT,'That_Table',1,14)", 
         "opt_table_alias", 
         "opt_key_definition"
     ], 
@@ -59,8 +39,45 @@
         "derived_table_list"
     ], 
     [
+        "simple_expr", 
+        "LexToken(IDENT,'x',1,46)"
+    ], 
+    [
+        "bit_expr", 
+        "simple_expr"
+    ], 
+    [
+        "literal", 
+        "LexToken(STRING,'hihi',1,53)"
+    ], 
+    [
+        "simple_expr", 
+        "literal"
+    ], 
+    [
+        "predicate", 
+        "bit_expr", 
+        "not_opt", 
+        "LexToken(LIKE,'LIKE',1,48)", 
+        "simple_expr", 
+        "escape_opt"
+    ], 
+    [
+        "boolean_primary", 
+        "predicate"
+    ], 
+    [
+        "expr", 
+        "boolean_primary"
+    ], 
+    [
+        "where_clause", 
+        "LexToken(WHERE,'where',1,40)", 
+        "expr"
+    ], 
+    [
         "select_from", 
-        "LexToken(FROM,'FROM',1,17)", 
+        "LexToken(FROM,'FROM',1,9)", 
         "join_table_list", 
         "where_clause", 
         "group_clause", 
@@ -99,7 +116,7 @@
     ], 
     [
         "delim", 
-        "LexToken(DELIM,';',1,32)"
+        "LexToken(DELIM,';',1,59)"
     ], 
     [
         "statements", 

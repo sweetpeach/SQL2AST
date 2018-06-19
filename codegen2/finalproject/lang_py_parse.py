@@ -9,6 +9,7 @@ from astnode import ASTNode
 from lang.py.grammar import is_compositional_leaf, PY_AST_NODE_FIELDS, NODE_FIELD_BLACK_LIST, PythonGrammar
 from lang.util import escape
 from lang.util import typename
+import astor
 
 
 def python_ast_to_parse_tree(node):
@@ -396,12 +397,25 @@ class Demonwrath(SpellCard):
 """
     '''
     #code = """sorted(mydict, key=mydict.get, reverse=True)"""
-    code = """sorted(mydict, reverse=True)"""
-    # # code = """a = [1,2,3,4,'asdf', 234.3]"""
+    #code = """sorted(mydict, reverse=True)"""
+    code = """a = 1"""
     parse_tree = parse(code)
     # for leaf in parse_tree.get_leaves():
     #     if leaf.value: print escape(leaf.value)
     #
     print parse_tree
-    # ast_tree = parse_tree_to_python_ast(parse_tree)
-    # print astor.to_source(ast_tree)
+    #ast_tree = parse_tree_to_python_ast(parse_tree)
+    ast_tree_again = decode_tree_to_python_ast(parse_tree)
+    print ast_tree_again
+    print astor.to_source(ast_tree_again)
+    '''
+    import ast
+    t1 = ASTNode('root', children=[
+        ASTNode(ast.Assign, children=[ASTNode(ast.expr, children=[ASTNode(ast.expr, value=123)]),
+                                            ASTNode(ast.Name, children=[ASTNode(str, value='hahaha')])]
+                ),
+        ASTNode(ast.expr, children=[ASTNode(int, value='1')])
+    ])
+    print t1
+    ast_tree = decode_tree_to_python_ast(t1)
+    '''

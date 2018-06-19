@@ -2662,7 +2662,7 @@ class SQLParser(object):
                             optimize=1)
                             #optimize=False)
 
-  def parse(self, sql, filename=None, do_write=False, outfile=None):
+  def parse(self, sql, filename=None, get_rules=False, do_write=False, outfile=None):
     if filename is not None:
       self.lexer.filename = filename
     self.lexer.lineno = 1
@@ -2670,7 +2670,7 @@ class SQLParser(object):
     #print("test")
     #print("here: " + str(self.parser.parse(lexer=self)))
     #print("end of test")
-    parsed_sql, rule_list = self.parser.parse(lexer=self, write_to_file=do_write, output_file=outfile)
+    parsed_sql, rule_list = self.parser.parse(lexer=self, get_rules=get_rules, write_to_file=do_write, output_file=outfile)
     return parsed_sql, rule_list
 
   # public Optimizations ---------------------------------------------------

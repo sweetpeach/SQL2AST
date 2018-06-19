@@ -6,10 +6,11 @@ from cStringIO import StringIO
 from lang.util import typename
 
 class ASTNode(object):
-    def __init__(self, node_type, label=None, value=None, children=None):
+    def __init__(self, node_type, label=None, value=None, children=None, level=0):
         self.type = node_type
         self.label = label
         self.value = value
+        self.level = level
 
         #print("node type:" + str(node_type))
         #print("label:" + str(label))
@@ -77,6 +78,32 @@ class ASTNode(object):
 
         if self.value is not None:
             repr_str += '{val=%s}' % self.value
+
+        #if self.level > 0:
+        #    repr_str += '{level = %s}' % self.level
+
+        # if not self.is_leaf:
+        for child in self.children:
+            repr_str += ' ' + child.__repr__()
+        repr_str += ')'
+
+        return repr_str
+
+    def print_with_level(self):
+        repr_str = ''
+        # if not self.is_leaf:
+        repr_str += '('
+
+        repr_str += typename(self.type)
+
+        if self.label is not None:
+            repr_str += '{%s}' % self.label
+
+        if self.value is not None:
+            repr_str += '{val=%s}' % self.value
+
+        if self.level > 0:
+            repr_str += '{level = %s}' % self.level
 
         # if not self.is_leaf:
         for child in self.children:

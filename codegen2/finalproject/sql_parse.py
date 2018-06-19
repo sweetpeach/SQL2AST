@@ -16,7 +16,7 @@ import pprint
 import json
 import yaml
 
-def sql_rules_to_tree(query, rule_file_path):
+def sql_rules_to_tree(query, rule_file_path): #don't need this function anymore
     with open(rule_file_path, 'r') as input_file:
         rule_list = yaml.safe_load(input_file)
 
@@ -26,15 +26,15 @@ def sql_rules_to_tree(query, rule_file_path):
     
     return tree
 
-def sql_ast_to_parse_tree(rule_list):
-    print("----------------------------------")
-
+def sql_ast_to_parse_tree(rule_list, debug=False):
     queue = []
+    level = 0
     for rule_idx in range(len(rule_list)):
     #while rule_list:
         current_level = rule_list.pop()
         parent = current_level[0]
-        #print("parent: " + str(parent))
+        if debug:
+            print("parent: " + str(parent))
         length = len(current_level)
         
         list_of_children = []
@@ -43,6 +43,7 @@ def sql_ast_to_parse_tree(rule_list):
 
             if child[0:8] == "LexToken":
                 temp = child[9:len(child)-1].split(",")
+                '''
                 first_child_node = ASTNode(temp[0])
 
                 node_type = type(temp[1])
@@ -50,34 +51,56 @@ def sql_ast_to_parse_tree(rule_list):
                 second_child_node = ASTNode(node_type=node_type, value=node_value)
                 first_child_node.add_child(second_child_node)
                 list_of_children.append(first_child_node)
+                '''
+                child_node = ASTNode(node_type=temp[0], value=temp[1])
+                list_of_children.append(child_node)
             else:
                 #print "not lex: " + child
                 child_node = create_node_with_empty_leaf(child)
+                #child_node = ASTNode(child)
                 list_of_children.append(child_node)
-        #print("list of children: " + str(list_of_children))
+        if debug:
+            print("list of children: " + str(list_of_children))
         if queue:
             front = queue.pop(0)
+            if debug:
+                print("front if" + str(front.print_with_level()))
         else:
-            root = ASTNode(parent)
+            root = ASTNode(parent, level=1)
             front = root
-        #print "queue: " + str(queue)
+        if debug:
+            print "queue: " + str(queue)
         while front.type != parent and queue:
             front = queue.pop(0)
-            #print("inside while")
+            if debug:
+                print("front inside while:" + str(front.print_with_level()))
 
-        #print("old front: " + str(front))# + "rule_idx: " + str(rule_idx))
-        if rule_idx > 0:
-            #print "here"
-            front.__delitem__("empty")
+        if debug:
+            print("old front: " + str(front.print_with_level()))# + "rule_idx: " + str(rule_idx))
+        try:
+            if rule_idx > 0:
+                #print "here"
+                front.__delitem__("empty")
+        except:
+            pass
 
         for child in list_of_children:
+            level = front.level + 1
+            child.level = level
             front.add_child(child)
 
-        #print("new front: " + str(front))
-        queue.extend(reversed(list_of_children))
+        if debug:
+            print("new front: " + str(front.print_with_level()))
+            print("queue before extension: " + str(queue))
+        #queue.extend(reversed(list_of_children))
+        reversed_children = list(reversed(list_of_children))
+        queue = reversed_children + queue
+        
+        if debug:
+            print "last queue: " + str(queue)
         #print("root: " + str(root))
         #pointer
-    #print root
+    print root
     tree = add_root(root)
     return tree
 
@@ -93,14 +116,30 @@ def add_root(tree):
 
     return root_node
 
+def source_from_parse_tree(tree):
+    sql = ''
+    terminals = tree.get_leaves()
+    for terminal in terminals:
+        if terminal.type is not "empty":
+            token = terminal.value.replace("'","")
+            if terminal.type == "STRING":
+                sql += '"' + token + '" '
+            elif terminal.type == "DELIM":
+                sql = sql.strip() + token
+            else:
+                sql += token + " "
+    
+    return sql
+
 def parse_sql(query):
     """
     parse an SQL code into a tree structure
     code -> AST tree -> AST tree to internal tree structure
     """
     sql_parser = SQLParser()
-    result_file="/Users/shayati/Documents/summer_2018/sql_to_ast/SQL2AST/codegen2/finalproject/sql_rules.json"
-    parse_tree, rule_list = sql_parser.parse(query, do_write=True, outfile=result_file)
+    #result_file="/Users/shayati/Documents/summer_2018/sql_to_ast/SQL2AST/codegen2/finalproject/sql_rules.json"
+    parse_tree, rule_list = sql_parser.parse(query, get_rules=True)#, do_write=True, outfile=result_file)
+    #parse_tree, rule_list = sql_parser.parse(query, get_rules=True, do_write=True, outfile=result_file)
     pprint.pprint([parse_tree])
     
     #tree = sql_rules_to_tree(query, result_file)
@@ -110,13 +149,16 @@ def parse_sql(query):
 if __name__ == '__main__':
     
     sql_parser = SQLParser()
-    query = "SELECT my_column FROM That_Table;"
+    query = 'SELECT my_column FROM That_Table limit 3;'
+    #query = 'SELECT * FROM That_Table as ALIAS_TABLE where x LIKE "hihi";'
     tree = parse_sql(query)
-    print("=> TREE <=")
+    #print("=> TREE <=")
     print(tree)
+    sql_query = source_from_parse_tree(tree)
+    print(sql_query)
 
+    #parse the generated SQL query again and see if it is working
     '''
-
     fake_query = ""
     result_file="/Users/shayati/Documents/summer_2018/sql_to_ast/SQL2AST/codegen2/finalproject/test_file_shorter.json"
     final_tree = sql_rules_to_tree(fake_query, result_file)

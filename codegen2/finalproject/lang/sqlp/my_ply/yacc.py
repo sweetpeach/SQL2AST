@@ -323,7 +323,7 @@ class LRParser:
     def disable_defaulted_states(self):
         self.defaulted_states = {}
 
-    def parse(self, input=None, lexer=None, debug=False, tracking=False, tokenfunc=None,write_to_file=None, output_file=None):
+    def parse(self, input=None, lexer=None, debug=False, tracking=False, tokenfunc=None, get_rules=False, write_to_file=None, output_file=None):
         print("output file: " + str(output_file))
         if debug or yaccdevel:
             if isinstance(debug, int):
@@ -332,7 +332,7 @@ class LRParser:
         elif tracking:
             return self.parseopt(input, lexer, debug, tracking, tokenfunc)
         else:
-            return self.parseopt_notrack(input, lexer, debug, tracking, tokenfunc, write_to_file,output_file)
+            return self.parseopt_notrack(input, lexer, debug, tracking, tokenfunc, write_to_file,output_file, get_rules)
 
 
     # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -1002,7 +1002,7 @@ class LRParser:
     # by the ply/ygen.py script. Make changes to the parsedebug() method instead.
     # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-    def parseopt_notrack(self, input=None, lexer=None, debug=False, tracking=False, tokenfunc=None,write_to_file=False, output_file=None):
+    def parseopt_notrack(self, input=None, lexer=None, debug=False, tracking=False, tokenfunc=None,write_to_file=False, output_file=None, get_rules=False):
         #--! parseopt-notrack-start
         lookahead = None                         # Current lookahead symbol
         lookaheadstack = []                      # Stack of lookahead symbols
@@ -1052,10 +1052,12 @@ class LRParser:
         sym.type = '$end'
         symstack.append(sym)
         state = 0
+        print "write to file is " + str(write_to_file)
         if write_to_file:
-             #writer = open(output_file, 'w')
-             #json_writer = open(output_file, "w")
-             rule_list = []
+            print("write to file")
+            json_writer = open(output_file, "w")
+        #if get_rules:
+        rule_list = []
 
         while True:
             # Get the next symbol on the input.  If a lookahead symbol
@@ -1111,7 +1113,7 @@ class LRParser:
                     if plen:
                         targ = symstack[-plen-1:]
                         targ[0] = sym
-                        if write_to_file:
+                        if get_rules:
                             rules = map(str, targ)
                             rule_list.append(rules)
                             #for element in targ:
@@ -1155,6 +1157,8 @@ class LRParser:
 
 
                         targ = [sym]
+                        print "sym: " + str(sym)
+                        print "sym type: " + str(type(sym))
                         #if write_to_file:
                         #    rules = map(str, targ)
                         #    rule_list.append(rules)
@@ -1193,9 +1197,14 @@ class LRParser:
                 if t == 0:
                     n = symstack[-1]
                     result = getattr(n, 'value', None)
-                    #if write_to_file:
+                    if write_to_file:
                         #print("rule list: " + str(rule_list))
-                        #json.dump(rule_list, json_writer,indent=4)
+                        json.dump(rule_list, json_writer,indent=4)
+                    print "symstack: " + str(symstack)
+                    print "n type: " + str(type(n))
+                    print "n: " + str(n)
+                    print "n.value: " + str(n.value)
+                    print "result: " + str(result)
                     return result, rule_list
 
             if t is None:

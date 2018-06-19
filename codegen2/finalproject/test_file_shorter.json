@@ -1,41 +1,33 @@
 [
     [
-        "select_into_10",
-        "select_from"
+        "banana", 
+        "salak"
     ],
     [
-        "select_part2_8", 
-        "select_options", 
-        "select_item_list", 
-        "select_into_10", 
-        "select_lock_type_9"
+        "mango",
+        "peach",
     ],
     [
-        "select_init2", 
-        "select_part2_8", 
-        "union_clause"
-    ], 
-    [
-        "top_level_select_init", 
-        "LexToken(SELECT,'SELECT',1,0)", 
-        "select_init2"
-    ], 
-    [
-        "select", 
-        "top_level_select_init"
-    ], 
-    [
-        "statement", 
-        "select"
-    ], 
-    [
-        "delim", 
-        "LexToken(DELIM,';',1,32)"
+        "jackfruit",
+        "lemon",
     ],
     [
-        "statements", 
-        "statement", 
-        "delim", 
-        "change_name"
+        "nectarine",
+        "jackfruit",
+    ],
+    [
+        "guava",
+        "mango",
+        "nectarine"
+    ],
+    [
+        "coconut", 
+        "guava"
+    ],
+    [
+        "apple", 
+        "banana",
+        "coconut",
+        "mango"
     ]
 ]
