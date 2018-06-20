@@ -11,7 +11,8 @@ def process_dataset(input_path, nl_output_file, sql_output_file):
 
 	nl_writer = open(nl_output_file, 'w')
 	sql_writer = open(sql_output_file, 'w')
-
+	nl_dict = {}
+	sql_dict = {}
 	for index in data:
 		instance = data[index]
 		nl_question = instance['question'].strip()
@@ -20,9 +21,11 @@ def process_dataset(input_path, nl_output_file, sql_output_file):
 		if sql_query[len(sql_query)-1] != ";":
 			sql_query += ";"
 		is_executable = instance['query_execution']['preprocessed_query']
-		if is_executable == True:
+		if is_executable == True and nl_question not in nl_dict and sql_query not in sql_dict:
 			nl_writer.write(nl_question+"\n")
+			nl_dict[nl_question] = True
 			sql_writer.write(sql_query+"\n")
+			sql_dict[sql_query] = True
 
 if __name__ == '__main__':
 	input_path = "/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/questions_queries.json"
