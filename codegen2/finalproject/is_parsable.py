@@ -8,7 +8,7 @@ def read_sql_dataset(input_file):
 			query = line.strip()
 			try:
 				parse_tree, rule_list = sql_parser.parse(query, get_rules=True)
-				print("----- SUCCESS{} -----".format(counter))
+				#print("----- SUCCESS{} -----".format(counter))
 			except:
 				print("===== FAIL{} =====".format(counter))
 				print(query)

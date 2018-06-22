@@ -2645,7 +2645,7 @@ class SQLParser(object):
 
   def __init__(self, outputdir=os.path.join(os.path.dirname(__file__)), debug=0):
     outputdir = "/Users/shayati/Documents/summer_2018/sql_to_ast/SQL2AST/codegen2/finalproject"
-    print("output dir: " + str(outputdir))
+    #print("output dir: " + str(outputdir))
     self.delim = self.t_DELIM
     self.lexer = lex.lex(object=self,
                          debug=True if debug else False,

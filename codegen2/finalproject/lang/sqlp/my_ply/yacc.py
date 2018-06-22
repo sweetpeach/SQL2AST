@@ -324,7 +324,7 @@ class LRParser:
         self.defaulted_states = {}
 
     def parse(self, input=None, lexer=None, debug=False, tracking=False, tokenfunc=None, get_rules=False, write_to_file=None, output_file=None):
-        print("output file: " + str(output_file))
+        #print("output file: " + str(output_file))
         if debug or yaccdevel:
             if isinstance(debug, int):
                 debug = PlyLogger(sys.stderr)
