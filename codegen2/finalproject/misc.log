@@ -137,3 +137,92 @@
 06/18/2018 11:37:51 [INFO] generic_utils: init logging file [misc.log]
 06/18/2018 11:40:33 [INFO] generic_utils: init logging file [misc.log]
 06/18/2018 11:40:46 [INFO] generic_utils: init logging file [misc.log]
+06/19/2018 16:36:57 [INFO] generic_utils: init logging file [misc.log]
+06/19/2018 16:36:57 [INFO] grammar: num. rules: 38
+06/19/2018 16:36:57 [INFO] grammar: num. types: 46
+06/19/2018 16:36:57 [INFO] grammar: root: (root)
+06/19/2018 16:36:57 [INFO] grammar: terminals: (IDENT), (FROM), (STRING), (*), (DELIM), (AS), (SELECT), (WHERE), (empty), (LIKE)
+06/19/2018 16:36:57 [INFO] sql_parse: num. rules: 38
+06/21/2018 20:01:06 [INFO] generic_utils: init logging file [misc.log]
+06/21/2018 20:01:16 [INFO] generic_utils: init logging file [misc.log]
+06/21/2018 20:01:33 [INFO] generic_utils: init logging file [misc.log]
+06/21/2018 20:01:47 [INFO] generic_utils: init logging file [misc.log]
+06/21/2018 20:01:57 [INFO] generic_utils: init logging file [misc.log]
+06/21/2018 20:02:07 [INFO] generic_utils: init logging file [misc.log]
+06/21/2018 20:02:14 [INFO] generic_utils: init logging file [misc.log]
+06/21/2018 20:02:22 [INFO] generic_utils: init logging file [misc.log]
+06/21/2018 20:02:30 [INFO] generic_utils: init logging file [misc.log]
+06/21/2018 20:02:36 [INFO] generic_utils: init logging file [misc.log]
+06/21/2018 20:02:36 [INFO] grammar: num. rules: 39
+06/21/2018 20:02:36 [INFO] grammar: num. types: 45
+06/21/2018 20:02:36 [INFO] grammar: root: (root)
+06/21/2018 20:02:36 [INFO] grammar: terminals: (IDENT), (FROM), (DELIM), (NUMBER), (LIMIT), (SELECT), (empty)
+06/21/2018 20:02:36 [INFO] sql_parse: num. rules: 39
+06/21/2018 20:02:49 [INFO] generic_utils: init logging file [misc.log]
+06/21/2018 20:03:03 [INFO] generic_utils: init logging file [misc.log]
+06/21/2018 20:03:03 [INFO] grammar: num. rules: 36
+06/21/2018 20:03:03 [INFO] grammar: num. types: 40
+06/21/2018 20:03:03 [INFO] grammar: root: (root)
+06/21/2018 20:03:03 [INFO] grammar: terminals: (FROM), (IDENT), (DELIM), (empty), (SELECT)
+06/21/2018 20:03:03 [INFO] sql_parse: num. rules: 36
+06/21/2018 20:03:22 [INFO] generic_utils: init logging file [misc.log]
+06/21/2018 20:03:22 [INFO] grammar: num. rules: 36
+06/21/2018 20:03:22 [INFO] grammar: num. types: 40
+06/21/2018 20:03:22 [INFO] grammar: root: (root)
+06/21/2018 20:03:22 [INFO] grammar: terminals: (FROM), (IDENT), (DELIM), (empty), (SELECT)
+06/21/2018 20:03:22 [INFO] sql_parse: num. rules: 36
+06/21/2018 20:03:33 [INFO] generic_utils: init logging file [misc.log]
+06/21/2018 20:03:41 [INFO] generic_utils: init logging file [misc.log]
+06/21/2018 20:03:49 [INFO] generic_utils: init logging file [misc.log]
+06/21/2018 20:03:49 [INFO] grammar: num. rules: 36
+06/21/2018 20:03:49 [INFO] grammar: num. types: 40
+06/21/2018 20:03:49 [INFO] grammar: root: (root)
+06/21/2018 20:03:49 [INFO] grammar: terminals: (FROM), (IDENT), (DELIM), (empty), (SELECT)
+06/21/2018 20:03:49 [INFO] sql_parse: num. rules: 36
+06/21/2018 20:03:55 [INFO] generic_utils: init logging file [misc.log]
+06/21/2018 20:04:12 [INFO] generic_utils: init logging file [misc.log]
+06/21/2018 20:04:19 [INFO] generic_utils: init logging file [misc.log]
+06/21/2018 20:04:19 [INFO] grammar: num. rules: 36
+06/21/2018 20:04:19 [INFO] grammar: num. types: 40
+06/21/2018 20:04:19 [INFO] grammar: root: (root)
+06/21/2018 20:04:19 [INFO] grammar: terminals: (FROM), (IDENT), (DELIM), (empty), (SELECT)
+06/21/2018 20:04:19 [INFO] sql_parse: num. rules: 36
+06/21/2018 20:05:29 [INFO] generic_utils: init logging file [misc.log]
+06/21/2018 20:07:53 [INFO] generic_utils: init logging file [misc.log]
+06/21/2018 20:07:53 [INFO] grammar: num. rules: 47
+06/21/2018 20:07:53 [INFO] grammar: num. types: 55
+06/21/2018 20:07:53 [INFO] grammar: root: (root)
+06/21/2018 20:07:53 [INFO] grammar: terminals: (), (IDENT), (FROM), (STRING), (DELIM), (NUMBER), (BY), (LIMIT), (empty), (ORDER), (SELECT)
+06/21/2018 20:07:53 [INFO] sql_parse: num. rules: 47
+06/21/2018 20:08:30 [INFO] generic_utils: init logging file [misc.log]
+06/21/2018 20:08:36 [INFO] generic_utils: init logging file [misc.log]
+06/21/2018 20:08:36 [INFO] grammar: num. rules: 46
+06/21/2018 20:08:36 [INFO] grammar: num. types: 55
+06/21/2018 20:08:36 [INFO] grammar: root: (root)
+06/21/2018 20:08:36 [INFO] grammar: terminals: (IDENT), (FROM), (STRING), (DELIM), (NUMBER), (BY), (ASC), (LIMIT), (empty), (ORDER), (SELECT)
+06/21/2018 20:08:36 [INFO] sql_parse: num. rules: 46
+06/21/2018 20:11:40 [INFO] generic_utils: init logging file [misc.log]
+06/21/2018 20:11:40 [INFO] grammar: num. rules: 49
+06/21/2018 20:11:40 [INFO] grammar: num. types: 58
+06/21/2018 20:11:40 [INFO] grammar: root: (root)
+06/21/2018 20:11:40 [INFO] grammar: terminals: (IDENT), (FROM), (STRING), (DELIM), (NUMBER), (BY), (LIMIT), (empty), (WHERE), (ORDER), (SELECT), (LIKE)
+06/21/2018 20:11:40 [INFO] sql_parse: num. rules: 49
+06/21/2018 20:44:31 [INFO] generic_utils: init logging file [misc.log]
+06/21/2018 20:44:38 [INFO] generic_utils: init logging file [misc.log]
+06/21/2018 20:44:38 [INFO] grammar: num. rules: 40
+06/21/2018 20:44:38 [INFO] grammar: num. types: 47
+06/21/2018 20:44:38 [INFO] grammar: root: (root)
+06/21/2018 20:44:38 [INFO] grammar: terminals: (IDENT), (FROM), (STRING), ()), ((), (*), (DELIM), (WHERE), (SELECT), (EQ), (OR), (empty)
+06/21/2018 20:44:38 [INFO] sql_parse: num. rules: 40
+06/21/2018 21:08:17 [INFO] generic_utils: init logging file [misc.log]
+06/21/2018 21:08:17 [INFO] grammar: num. rules: 40
+06/21/2018 21:08:17 [INFO] grammar: num. types: 47
+06/21/2018 21:08:17 [INFO] grammar: root: (root)
+06/21/2018 21:08:17 [INFO] grammar: terminals: (IDENT), (FROM), (STRING), ()), ((), (*), (DELIM), (WHERE), (SELECT), (EQ), (OR), (empty)
+06/21/2018 21:08:17 [INFO] sql_parse: num. rules: 40
+06/22/2018 14:06:56 [INFO] generic_utils: init logging file [misc.log]
+06/22/2018 14:06:56 [INFO] grammar: num. rules: 36
+06/22/2018 14:06:56 [INFO] grammar: num. types: 40
+06/22/2018 14:06:56 [INFO] grammar: root: (root)
+06/22/2018 14:06:56 [INFO] grammar: terminals: (FROM), (IDENT), (DELIM), (empty), (SELECT)
+06/22/2018 14:06:56 [INFO] sql_parse: num. rules: 36

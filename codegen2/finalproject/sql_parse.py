@@ -171,8 +171,11 @@ if __name__ == '__main__':
     
     sql_parser = SQLParser()
     #query = 'SELECT my_column FROM That_Table limit 3;'
-    query = 'SELECT * FROM That_Table as ALIAS_TABLE where x LIKE "%hihi%";'
+    #query = 'SELECT * FROM That_Table as ALIAS_TABLE where x LIKE "%hihi%";'
+    #query = 'SELECT  "State/District/Territory" from Obesity_in_the_US  ORDER BY  "Obesity_Rank", "ASC" LIMIT 1;'
+    query = 'SELECT * FROM Customers WHERE ((Country="Argentina") OR (City="Campinas"));'
     #query ='SELECT  "Value" FROM Power_Transmitter  WHERE  "Property"  LIKE "%%Description%";'
+    
     tree = parse_sql(query)
     get_grammar([tree])
     print("---------- => TREE <= ----------")

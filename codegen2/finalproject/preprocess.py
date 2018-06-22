@@ -13,10 +13,12 @@ def preprocess_sql(input_sql):
 	line = re.sub(r'\"((MAX|AVG|MIN|COUNT|AVERAGE)\((.*)\))\"', r'\1', line)
 	line = re.sub(r'SELECT AVERAGE', r'SELECT AVG', line)
 	column_search = re.search(r'(SELECT|Select|select)( )*(\"[^\"]+\") (FROM|from|From)', line, re.IGNORECASE)
+	column = ""
 	if column_search:
 		column = column_search.group(3)
 	line = line.replace('ORDER BY  ASC', 'ORDER BY '+column+' ASC')
 	line = line.replace('ORDER BY  DESC', 'ORDER BY '+column+' DESC')
+	line = line.replace(', ASC', ' ASC')
 	return line
 
 def read_and_write_dataset(input_path, nl_output_file, sql_output_file, do_print=False, remove_duplicate=True):
@@ -37,6 +39,7 @@ def read_and_write_dataset(input_path, nl_output_file, sql_output_file, do_print
 		
 		if sql_query[len(sql_query)-1] != ";":
 			sql_query += ";"
+		sql_query = preprocess_sql(sql_query)
 		is_executable = instance['query_execution']['preprocessed_query']
 		if is_executable == True and not (nl_question in nl_dict and sql_query in sql_dict): #and nl_question not in nl_dict and sql_query not in sql_dict
 			nlNotInDict = True
@@ -136,9 +139,9 @@ def process_query(query, code):
 
 if __name__ == '__main__':
 	input_path = "/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/questions_queries.json"
-	nl_path = "/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/nl_question.txt"
-	sql_path = "/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/sql_query.txt"
-	#process_dataset(input_path, nl_path, sql_path, do_print=True)
+	nl_path = "/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/sql_generation.in"#nl_question.txt"
+	sql_path = "/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/sql_generation.out"#sql_query.txt"
+	read_and_write_dataset(input_path, nl_path, sql_path, do_print=True)
 
 	#input_sql = 'SELECT  "Price" FROM Price_Table  WHERE  "Item"  LIKE "%%Whole_Blends%" LIMIT 3;'
 	

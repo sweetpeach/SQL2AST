@@ -130,8 +130,7 @@ def process_heart_stone_dataset():
     print 'avg. nums of rules: %f' % (rule_num / example_num)
 
 
-def canonicalize_hs_example(query, code):
-    query = re.sub(r'<.*?>', '', query)
+def standardize_hs_example(query, code):
     query_tokens = nltk.word_tokenize(query)
 
     code = code.replace('§', '\n').strip()
@@ -148,8 +147,8 @@ def canonicalize_hs_example(query, code):
     return query_tokens, code, parse_tree
 
 
-def preprocess_hs_dataset(annot_file, code_file):
-    f = open('hs_dataset.examples.txt', 'w')
+def preprocess_sql_dataset(annot_file, code_file):
+    f = open('sql_dataset.examples', 'w')
 
     examples = []
 
@@ -157,7 +156,7 @@ def preprocess_hs_dataset(annot_file, code_file):
         annot = annot.strip()
         code = code.strip()
 
-        clean_query_tokens, clean_code, parse_tree = canonicalize_hs_example(annot, code)
+        clean_query_tokens, clean_code, parse_tree = standardize_sql_dataset(annot, code)
         example = {'id': idx, 'query_tokens': clean_query_tokens, 'code': clean_code, 'parse_tree': parse_tree,
                    'str_map': None, 'raw_code': code}
         examples.append(example)
@@ -182,10 +181,12 @@ def parse_sql_dataset():
     MAX_QUERY_LENGTH = 70 # FIXME: figure out the best config!
     WORD_FREQ_CUT_OFF = 3
 
-    annot_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/hearthstone/all_hs.mod.in'
-    code_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/hearthstone/all_hs.out'
+    annot_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/sql_generation.in'
+    code_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/sql_generation.out'
 
-    data = preprocess_hs_dataset(annot_file, code_file)
+    data = preprocess_sql_dataset(annot_file, code_file)
+
+    '''
     parse_trees = [e['parse_tree'] for e in data]
 
     # apply unary closures
@@ -391,6 +392,7 @@ def dump_data_for_evaluation(data_type='django', data_file='', max_query_length=
 
         f_source.close()
         f_target.close()
+    '''
 
 
 if __name__ == '__main__':

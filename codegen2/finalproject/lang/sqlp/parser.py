@@ -589,7 +589,7 @@ class SQLParser(object):
       p[0] = ('value',"'" + str(p[1]) + "'")
     else:
       p[0] = ('value',p[1])
-    print("literal : STRING\n \t\t NUMBER\n\t\tFLOAT_LIT ")
+    #print("literal : STRING\n \t\t NUMBER\n\t\tFLOAT_LIT ")
 
   def p_simple_expr_literal(self, p):
     """simple_expr : literal """
