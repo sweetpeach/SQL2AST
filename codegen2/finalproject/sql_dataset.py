@@ -15,7 +15,7 @@ from lang.py.parse import parse, parse_tree_to_python_ast, canonicalize_code, ge
     de_canonicalize_code, tokenize_code, tokenize_code_adv, de_canonicalize_code_for_seq2seq
 from lang.py.unaryclosure import get_top_unary_closures, apply_unary_closures
 
-
+'''
 def extract_grammar(code_file, prefix='py'):
     line_num = 0
     parse_trees = []
@@ -128,54 +128,58 @@ def process_heart_stone_dataset():
 
 
     print 'avg. nums of rules: %f' % (rule_num / example_num)
+'''
 
+def standardize_example(nl_input, sql):
+    from is_parsable import fix_table_name
 
-def standardize_hs_example(query, code):
-    query_tokens = nltk.word_tokenize(query)
+    nl_tokens = nltk.word_tokenize(nl_input)
+    preprocessed_sql, orig_table_name = fix_table_name(sql)
+    print(preprocessed_sql)
+    print(orig_table_name)
 
-    code = code.replace('§', '\n').strip()
-
-    # sanity check
-    parse_tree = parse_raw(code)
-    gold_ast_tree = ast.parse(code).body[0]
-    gold_source = astor.to_source(gold_ast_tree)
-    ast_tree = parse_tree_to_python_ast(parse_tree)
-    pred_source = astor.to_source(ast_tree)
-
-    assert gold_source == pred_source, 'sanity check fails: gold=[%s], actual=[%s]' % (gold_source, pred_source)
-
-    return query_tokens, code, parse_tree
-
-
-def preprocess_sql_dataset(annot_file, code_file):
-    f = open('sql_dataset.examples', 'w')
+'''
+def preprocess_dataset(annot_file, code_file):
+    f_annot = open('standardized_nl.txt', 'w')
+    f_code = open('standardized_sql.txt', 'w')
 
     examples = []
 
+    err_num = 0
     for idx, (annot, code) in enumerate(zip(open(annot_file), open(code_file))):
         annot = annot.strip()
         code = code.strip()
+        try:
+            clean_query_tokens, clean_code, str_map = standardize_sql_example(annot, code)
+            example = {'id': idx, 'query_tokens': clean_query_tokens, 'code': clean_code,
+                       'str_map': str_map, 'raw_code': code}
+            examples.append(example)
 
-        clean_query_tokens, clean_code, parse_tree = standardize_sql_dataset(annot, code)
-        example = {'id': idx, 'query_tokens': clean_query_tokens, 'code': clean_code, 'parse_tree': parse_tree,
-                   'str_map': None, 'raw_code': code}
-        examples.append(example)
+            f_annot.write('example# %d\n' % idx)
+            f_annot.write(' '.join(clean_query_tokens) + '\n')
+            f_annot.write('%d\n' % len(str_map))
+            for k, v in str_map.iteritems():
+                f_annot.write('%s ||| %s\n' % (k, v))
 
-        f.write('*' * 50 + '\n')
-        f.write('example# %d\n' % idx)
-        f.write(' '.join(clean_query_tokens) + '\n')
-        f.write('\n')
-        f.write(clean_code + '\n')
-        f.write('*' * 50 + '\n')
+            f_code.write('example# %d\n' % idx)
+            f_code.write(clean_code + '\n')
+        except:
+            print code
+            err_num += 1
 
         idx += 1
 
-    f.close()
+    f_annot.close()
+    f_annot.close()
 
+    # serialize_to_file(examples, 'django.cleaned.bin')
+
+    print 'error num: %d' % err_num
     print 'preprocess_dataset: cleaned example num: %d' % len(examples)
 
     return examples
 
+'''
 
 def parse_sql_dataset():
     MAX_QUERY_LENGTH = 70 # FIXME: figure out the best config!
@@ -184,7 +188,9 @@ def parse_sql_dataset():
     annot_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/sql_generation.in'
     code_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/sql_generation.out'
 
-    data = preprocess_sql_dataset(annot_file, code_file)
+    #data = preprocess_sql_dataset(annot_file, code_file)
+    sql = 'SELECT   * FROM Oscars_2018:_The_complete_list_of_winners_and_nominees_for_the_90th_Academy_Awards  WHERE  "Movie" = "It";'
+    standardize_example("Where can I buy stamps?", sql)
 
     '''
     parse_trees = [e['parse_tree'] for e in data]

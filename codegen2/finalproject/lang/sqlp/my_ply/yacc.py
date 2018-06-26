@@ -1232,6 +1232,9 @@ class LRParser:
                         if errtoken and not hasattr(errtoken, 'lexer'):
                             errtoken.lexer = lexer
                         self.state = state
+                        #print("ERRORTOKEN type: " + str(errtoken.type))
+                        #print("ERRORTOKEN: " + str(errtoken))
+                        
                         tok = call_errorfunc(self.errorfunc, errtoken, self)
                         if self.errorok:
                             # User must have done some kind of panic

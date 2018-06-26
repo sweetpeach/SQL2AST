@@ -10,7 +10,11 @@ import nltk
 def preprocess_sql(input_sql):
 	line = re.sub(r'(from|FROM|From) \"([^\"]+)\"', r'\1 \2', input_sql)
 	line = re.sub(r'\"(ASC|DESC)\"', r'\1', line)
-	line = re.sub(r'\"((MAX|AVG|MIN|COUNT|AVERAGE)\((.*)\))\"', r'\1', line)
+	line = re.sub(r'\"((COUNT)\((.*)\))\"', r'\1', line)
+	line = re.sub(r'\"((MAX)\((.*)\))\"', r'\1', line)
+	line = re.sub(r'\"((AVG)\((.*)\))\"', r'\1', line)
+	line = re.sub(r'\"((MIN)\((.*)\))\"', r'\1', line)
+	line = re.sub(r'\"((AVERAGE)\((.*)\))\"', r'\1', line)
 	line = re.sub(r'SELECT AVERAGE', r'SELECT AVG', line)
 	column_search = re.search(r'(SELECT|Select|select)( )*(\"[^\"]+\") (FROM|from|From)', line, re.IGNORECASE)
 	column = ""
@@ -19,9 +23,10 @@ def preprocess_sql(input_sql):
 	line = line.replace('ORDER BY  ASC', 'ORDER BY '+column+' ASC')
 	line = line.replace('ORDER BY  DESC', 'ORDER BY '+column+' DESC')
 	line = line.replace(', ASC', ' ASC')
+	line = line.replace('" is "', '" = "')
 	return line
 
-def read_and_write_dataset(input_path, nl_output_file, sql_output_file, do_print=False, remove_duplicate=True):
+def read_and_write_dataset(input_path, nl_output_file, sql_output_file, do_print=False, remove_duplicate=True, preprocess=True):
 	with open(input_path) as input_file:
 		data = json.load(input_file)
 
@@ -39,7 +44,8 @@ def read_and_write_dataset(input_path, nl_output_file, sql_output_file, do_print
 		
 		if sql_query[len(sql_query)-1] != ";":
 			sql_query += ";"
-		sql_query = preprocess_sql(sql_query)
+		if preprocess:
+			sql_query = preprocess_sql(sql_query)
 		is_executable = instance['query_execution']['preprocessed_query']
 		if is_executable == True and not (nl_question in nl_dict and sql_query in sql_dict): #and nl_question not in nl_dict and sql_query not in sql_dict
 			nlNotInDict = True
@@ -87,64 +93,19 @@ def read_and_write_dataset(input_path, nl_output_file, sql_output_file, do_print
 	print("#Duplicated instances: {}".format(counter))
 	print("#Instances: {}".format(len(nl_dict)))
 
-QUOTED_STRING_RE = re.compile(r"(?P<quote>['\"])(?P<string>.*?)(?<!\\)(?P=quote)")
-
-def process_query(query, code):
-    import astor
-    str_count = 0
-    str_map = dict()
-
-    match_count = 1
-    match = QUOTED_STRING_RE.search(query)
-    while match:
-        str_repr = '_STR:%d_' % str_count
-        str_literal = match.group(0)
-        str_string = match.group(2)
-
-        match_count += 1
-
-        # if match_count > 50:
-        #     return
-        #
-
-        query = QUOTED_STRING_RE.sub(str_repr, query, 1)
-        str_map[str_literal] = str_repr
-
-        str_count += 1
-        match = QUOTED_STRING_RE.search(query)
-
-        code = code.replace(str_literal, '\'' + str_repr + '\'')
-
-    # clean the annotation
-    # query = query.replace('.', ' . ')
-
-    for k, v in str_map.iteritems():
-        if k == '\'%s\'' or k == '\"%s\"':
-            query = query.replace(v, k)
-            code = code.replace('\'' + v + '\'', k)
-
-    # tokenize
-    query_tokens = nltk.word_tokenize(query)
-
-    new_query_tokens = []
-    # break up function calls
-    for token in query_tokens:
-        new_query_tokens.append(token)
-        i = token.find('.')
-        if 0 < i < len(token) - 1:
-            new_tokens = ['['] + token.replace('.', ' . ').split(' ') + [']']
-            new_query_tokens.extend(new_tokens)
-
-    return new_query_tokens, code, str_map
-
 if __name__ == '__main__':
 	input_path = "/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/questions_queries.json"
-	nl_path = "/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/sql_generation.in"#nl_question.txt"
-	sql_path = "/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/sql_generation.out"#sql_query.txt"
-	read_and_write_dataset(input_path, nl_path, sql_path, do_print=True)
+	nl_path = "/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/nl_question.txt"
+	sql_path = "/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/sql_query.txt"
+	read_and_write_dataset(input_path, nl_path, sql_path, do_print=True, preprocess=True)
 
-	#input_sql = 'SELECT  "Price" FROM Price_Table  WHERE  "Item"  LIKE "%%Whole_Blends%" LIMIT 3;'
-	
+	'''
+	line = 'SELECT  "Value"  WHERE  "Property"  LIKE "%%people%HIV%";'
+	table_name_search = re.search(r'(SELECT|Select|select)( )*\"([^\"]+)\" (FROM|From|from)', line, re.IGNORECASE)
+	if not table_name_search:
+		print("hehe")
+	'''
+
 	'''
 	query = 'it is just a "query" abc.efg "second string"'
 	code = """a = "hihi" """

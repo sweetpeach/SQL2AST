@@ -1,0 +1,16 @@
+===== FAILURE in QUERY 92 =====
+SELECT  COUNT(Zip_Codes), MIN(Zip_Codes), MAX(Zip_Codes) FROM Orlando_Florida_Zip_Codes;
+=======================
+===== FAILURE in QUERY 149 =====
+SELECT  "Product", "Price" FROM PriceTable  ORDER BY  ASC LIMIT 1;
+=======================
+===== FAILURE in QUERY 335 =====
+SELECT  "Weather" FROM Weather_in_Nashville Date LIMIT 7;
+=======================
+===== FAILURE in QUERY 359 =====
+SELECT  "Drug" FROM PDUFA_Calendar  WHERE  "20180201" <= DATE  AND  "DATE" <= 20180228;
+=======================
+===== FAILURE in QUERY 492 =====
+SELECT  AVG("price_1", "+", 0.01*"price_2") FROM air_fryers;
+=======================
+Num of non-parsable queries: 5
