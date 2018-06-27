@@ -20,6 +20,7 @@ def preprocess_sql(input_sql):
 	column = ""
 	if column_search:
 		column = column_search.group(3)
+		print(column)
 	line = line.replace('ORDER BY  ASC', 'ORDER BY '+column+' ASC')
 	line = line.replace('ORDER BY  DESC', 'ORDER BY '+column+' DESC')
 	line = line.replace(', ASC', ' ASC')
@@ -51,22 +52,22 @@ def read_and_write_dataset(input_path, nl_output_file, sql_output_file, do_print
 			nlNotInDict = True
 			sqlNotInDict = True
 			if nl_question in nl_dict and sql_query not in sql_dict:
-				print("================")
-				print("NL question in dict: " + nl_question)
-				print("SQL question not in dict: " + sql_query)
-				print("The SQL which is in dict: " + nl_dict[nl_question])
-				print("===============")
+				#print("================")
+				#print("NL question in dict: " + nl_question)
+				#print("SQL question not in dict: " + sql_query)
+				#print("The SQL which is in dict: " + nl_dict[nl_question])
+				#print("===============")
 				nlNotInDict = False
 				nl_counter[nl_question] += 1
 				nl_key = nl_question+"_"+str(nl_counter[nl_question])
 				nl_dict[nl_key] = sql_query
 				sql_dict[sql_query] = nl_question
 			if nl_question not in nl_dict and sql_query in sql_dict:
-				print("------------------------")
-				print("SQL query: " + sql_query)
-				print("NL question not in dict: " + nl_question)
-				print("Old NL in dict: " + sql_dict[sql_query])
-				print("------------------------")
+				#print("------------------------")
+				#print("SQL query: " + sql_query)
+				#print("NL question not in dict: " + nl_question)
+				#print("Old NL in dict: " + sql_dict[sql_query])
+				#print("------------------------")
 				sqlNotInDict = False
 				sql_counter[sql_query] += 1
 				sql_key = sql_query+"_"+str(sql_counter[sql_query])
@@ -97,14 +98,12 @@ if __name__ == '__main__':
 	input_path = "/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/questions_queries.json"
 	nl_path = "/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/nl_question.txt"
 	sql_path = "/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/sql_query.txt"
-	read_and_write_dataset(input_path, nl_path, sql_path, do_print=True, preprocess=True)
+	#read_and_write_dataset(input_path, nl_path, sql_path, do_print=True, preprocess=True)
 
-	'''
-	line = 'SELECT  "Value"  WHERE  "Property"  LIKE "%%people%HIV%";'
-	table_name_search = re.search(r'(SELECT|Select|select)( )*\"([^\"]+)\" (FROM|From|from)', line, re.IGNORECASE)
-	if not table_name_search:
-		print("hehe")
-	'''
+
+	sql = 'SELECT  "hehe" FROM X WHERE  "Property"  LIKE "%%people%HIV%" ORDER BY  "ASC";'
+	result = preprocess_sql(sql)
+	print(result)
 
 	'''
 	query = 'it is just a "query" abc.efg "second string"'

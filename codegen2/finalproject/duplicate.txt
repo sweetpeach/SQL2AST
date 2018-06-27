@@ -1,0 +1,106 @@
+--- Duplicated #0---
+What are the AR points for The Last Kids on Earth and the Zombie Parade
+SELECT  "Value" FROM The_Last_Kids_on_Earth_and_the_Zombie_Parade  WHERE  "Key"  LIKE "%%AR_Points%";
+----FINISH DUPLICATED----
+--- Duplicated #1---
+What are the AR points for The Last Kids on Earth and the Nightmare Kings
+SELECT  "Value" FROM The_Last_Kids_on_Earth_and_the_Nightmare_Kings  WHERE  "Key"  LIKE "%%AR_Points%";
+----FINISH DUPLICATED----
+--- Duplicated #2---
+Alexa, where are the Steeler on the NFL Power Rankings?
+SELECT  "Rank" FROM Table_1  WHERE  "Team"  LIKE "%%Steeler%";
+----FINISH DUPLICATED----
+--- Duplicated #3---
+Alexa, where are the Steeler on the NFL Power Rankings?
+SELECT  "Rank" FROM Table_1  WHERE  "Team"  LIKE "%%Steeler%";
+----FINISH DUPLICATED----
+--- Duplicated #4---
+Alexa, where are the Steeler on the NFL Power Rankings?
+SELECT  "Rank" FROM Table_1  WHERE  "Team"  LIKE "%%Steeler%";
+----FINISH DUPLICATED----
+--- Duplicated #5---
+Alexa, where are the Steeler on the NFL Power Rankings?
+SELECT  "Rank" FROM Table_1  WHERE  "Team"  LIKE "%%Steeler%";
+----FINISH DUPLICATED----
+--- Duplicated #6---
+Alexa, where are the Steeler on the NFL Power Rankings?
+SELECT  "Rank" FROM Table_1  WHERE  "Team"  LIKE "%%Steeler%";
+----FINISH DUPLICATED----
+--- Duplicated #7---
+Alexa, where are the Steeler on the NFL Power Rankings?
+SELECT  "Rank" FROM Table_1  WHERE  "Team"  LIKE "%%Steeler%";
+----FINISH DUPLICATED----
+--- Duplicated #8---
+Alexa, where are the Steeler on the NFL Power Rankings?
+SELECT  "Rank" FROM Table_1  WHERE  "Team"  LIKE "%%Steeler%";
+----FINISH DUPLICATED----
+--- Duplicated #9---
+Alexa, where are the Steeler on the NFL Power Rankings?
+SELECT  "Rank" FROM Table_1  WHERE  "Team"  LIKE "%%Steeler%";
+----FINISH DUPLICATED----
+--- Duplicated #10---
+Alexa, where are the Steeler on the NFL Power Rankings?
+SELECT  "Rank" FROM Table_1  WHERE  "Team"  LIKE "%%Steeler%";
+----FINISH DUPLICATED----
+--- Duplicated #11---
+Alexa, where are the Steeler on the NFL Power Rankings?
+SELECT  "Rank" FROM Table_1  WHERE  "Team"  LIKE "%%Steeler%";
+----FINISH DUPLICATED----
+--- Duplicated #12---
+Alexa, where are the Steeler on the NFL Power Rankings?
+SELECT  "Rank" FROM Table_1  WHERE  "Team"  LIKE "%%Steeler%";
+----FINISH DUPLICATED----
+--- Duplicated #13---
+Alexa, where are the Steeler on the NFL Power Rankings?
+SELECT  "Rank" FROM Table_1  WHERE  "Team"  LIKE "%%Steeler%";
+----FINISH DUPLICATED----
+--- Duplicated #14---
+How long do dogs live?
+SELECT  "Life_Expectancy" FROM The_Life_Span_of_Animals  WHERE  "Animal" = "Dog";
+----FINISH DUPLICATED----
+--- Duplicated #15---
+Alexa, how old is the earth?
+SELECT  "Value" from Earth  WHERE  "Key"  LIKE "%%Age%";
+----FINISH DUPLICATED----
+--- Duplicated #16---
+Alexa, how old is the earth?
+SELECT  "Value" from Earth  WHERE  "Key"  LIKE "%%Age%";
+----FINISH DUPLICATED----
+--- Duplicated #17---
+Alexa, how far is the moon?
+SELECT  "Value" FROM Table_1  WHERE  "Property"  LIKE "%%distance%";
+----FINISH DUPLICATED----
+--- Duplicated #18---
+How old is Donald Trump?
+SELECT   * FROM Table_1  WHERE  "attributes" = "Born";
+----FINISH DUPLICATED----
+--- Duplicated #19---
+How old is Donald Trump?
+SELECT   * FROM Table_1  WHERE  "attributes" = "Born";
+----FINISH DUPLICATED----
+--- Duplicated #20---
+How long do cats live?
+SELECT  "Value" FROM Cat_Info  WHERE  "Property"  LIKE "%%Lifespan%";
+----FINISH DUPLICATED----
+--- Duplicated #21---
+How long do dogs live?
+SELECT  "Value" FROM Dog_Info  WHERE  "Property"  LIKE "%%Lifespan%";
+----FINISH DUPLICATED----
+--- Duplicated #22---
+What is Bitcoin?
+SELECT  "Value" FROM Bitcoin  WHERE  "Key"  LIKE "%%definition%";
+----FINISH DUPLICATED----
+--- Duplicated #23---
+How many calories in a banana?
+SELECT  "Calories", "Amount" FROM Table_1  WHERE  "Fruit"  LIKE "%%banana%";
+----FINISH DUPLICATED----
+--- Duplicated #24---
+How many ounces are in a gallon?
+SELECT  "Ounces" from GallonsConversion  WHERE  "gallon" = 1;
+----FINISH DUPLICATED----
+--- Duplicated #25---
+alexa, what is the cost of a townhouse in michigan
+SELECT  AVERAGE(Price) FROM Table_1;
+----FINISH DUPLICATED----
+#Duplicated instances: 26
+#Instances: 505
