@@ -129,7 +129,7 @@ def source_from_parse_tree(tree):
                 sql = sql.strip() + token
             else:
                 sql += token + " "
-    
+    sql = sql.replace("  ", ", ")
     return sql
 
 def get_grammar(parse_trees):
@@ -173,9 +173,11 @@ if __name__ == '__main__':
     #query = 'SELECT my_column FROM That_Table limit 3;'
     #query = 'SELECT * FROM That_Table as ALIAS_TABLE where x LIKE "%hihi%";'
     #query = 'SELECT  "State/District/Territory" from Obesity_in_the_US  ORDER BY  "Obesity_Rank", "ASC" LIMIT 1;'
-    query = 'SELECT "2018" FROM Customers_0 WHERE ((Country="Argentina") OR (City="Campinas"));'
+    #query = 'SELECT "2018" FROM Customers_0 WHERE ((Country="Argentina") OR (City="Campinas"));'
     #query ='SELECT  "Value" FROM Power_Transmitter  WHERE  "Property"  LIKE "%%Description%";'
+    query = 'SELECT Battle, Unlock_Requirements FROM Table_1;'
 
+    print(query)
     tree = parse_sql(query)
     get_grammar([tree])
     print("---------- => TREE <= ----------")

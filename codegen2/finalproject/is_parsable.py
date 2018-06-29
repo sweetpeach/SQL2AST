@@ -19,19 +19,21 @@ def fix_table_name(query):
 		query = split_it[0].strip() + " FROM TABLE_1 WHERE " + split_it[1].strip()
 	return query, orig_table_name
 
-def read_sql_dataset(sql_input_file, nl_input_file, sql_out, nl_out):
+def read_sql_dataset(sql_input_file, nl_input_file, table_in, sql_out, nl_out, table_out):
 	failure = 0
 	nl_writer = open(nl_out, 'w')
 	sql_writer = open(sql_out, 'w')
-	with open(sql_input_file, "r") as sql_file, open(nl_input_file, "r") as nl_file:
+	table_writer = open(table_out, 'w')
+	with open(sql_input_file, "r") as sql_file, open(nl_input_file, "r") as nl_file, open(table_in, "r") as table_file:
 		counter = 1
-		for sql_line, nl_line in zip(sql_file, nl_file):
+		for sql_line, nl_line, table_line in zip(sql_file, nl_file, table_file):
 			sql_parser = SQLParser()
 			query = sql_line.strip()
 			try:
-				new_query, orig_table_name = fix_table_name(query)
-				parse_tree, rule_list = sql_parser.parse(new_query, get_rules=True)
+				#new_query, orig_table_name = fix_table_name(query)
+				parse_tree, rule_list = sql_parser.parse(query, get_rules=True)
 				nl_writer.write(nl_line)
+				table_writer.write(table_line)
 				sql_writer.write(str(query)+"\n")
 				#print("----- SUCCESS{} -----".format(counter))
 			except:
@@ -44,11 +46,13 @@ def read_sql_dataset(sql_input_file, nl_input_file, sql_out, nl_out):
 
 if __name__ == '__main__':
 	path = "/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/"
-	sql_path = path + "sql_query.txt"
-	nl_path = path + "nl_question.txt"
-	new_nl = path + "sql_generation.in"
-	new_sql = path + "sql_generation.out"
-	read_sql_dataset(sql_path, nl_path, new_sql, new_nl)
+	sql_path = path + "new_sql_query.txt"
+	nl_path = path + "new_nl_question.txt"
+	table_path = path + "new_table.txt"
+	new_nl = path + "new_sql_generation.in"
+	new_sql = path + "new_sql_generation.out"
+	new_table = path + "sql.table"
+	read_sql_dataset(sql_path, nl_path, table_path, new_sql, new_nl, new_table)
 
 #parse_tree, rule_list = sql_parser.parse('SELECT  AVG("price_1", "+", 0.01*"price_2") FROM air_fryers;', get_rules=True)
 #sql = 'SELECT bla2bla2 WHERE hihi = "1";'

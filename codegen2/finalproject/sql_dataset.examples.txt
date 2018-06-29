@@ -1,0 +1,2584 @@
+--------------------------------------------------
+example# 0
+Alexa , when does Diablo 3 season 12 end ?
+
+SELECT "End_Date" FROM Table_1 WHERE "Season" LIKE "%%12%";
+Table_1
+SELECT "End_Date" FROM Table_1 WHERE "Season" LIKE "%%12%";
+--------------------------------------------------
+--------------------------------------------------
+example# 1
+How does the power transmitter in the game Subnautica work ?
+
+SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Description%";
+Power_Transmitter
+SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Description%";
+--------------------------------------------------
+--------------------------------------------------
+example# 2
+Where can I buy stamps ?
+
+SELECT "Places" FROM Table_1 LIMIT 1;
+Table_1
+SELECT "Places" FROM Table_1 LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 3
+What is the population of Silt , CO ?
+
+SELECT "Population" FROM Table_1 WHERE "Location" LIKE "%%Silt%";
+SIlt_Demographics_Profile
+SELECT "Population" FROM Table_1 WHERE "Location" LIKE "%%Silt%";
+--------------------------------------------------
+--------------------------------------------------
+example# 4
+Alexa , when is spring equinox 2018 ?
+
+SELECT "Date" FROM Table_1 WHERE "Year" LIKE "%%2018%" LIMIT 1;
+EquinoxTable
+SELECT "Date" FROM Table_1 WHERE "Year" LIKE "%%2018%" LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 5
+where are recycling centers near Inverness Fl
+
+SELECT "Location" FROM Table_1;
+Table_1
+SELECT "Location" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 6
+What is a chinchilla ?
+
+SELECT "chinchilla" FROM Table_1 LIMIT 1;
+Table_1
+SELECT "chinchilla" FROM Table_1 LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 7
+How many calories are in a cup of brown rice ?
+
+SELECT "Calories" FROM Table_1 LIMIT 1;
+CalorieTable
+SELECT "Calories" FROM Table_1 LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 8
+Alexa , what is the most popular song by The Smiths ?
+
+SELECT "Title" FROM Table_1 ORDER BY "charts" DESC LIMIT 1;
+Table_1
+SELECT "Title" FROM Table_1 ORDER BY "charts" DESC LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 9
+Alexa , what year was Brock Lesnar 's last UFC fight ?
+
+SELECT "Date" FROM Table_1 WHERE (("Fighter_1" LIKE "%%Brock_Lesnar%" ) OR ("Fighter_2" LIKE "%%Brock_Lesnar%" ) ) AND "Event_Name_1" LIKE "%%UFC%" LIMIT 1;
+Brock_Lesnar_Tabe
+SELECT "Date" FROM Table_1 WHERE (("Fighter_1" LIKE "%%Brock_Lesnar%" ) OR ("Fighter_2" LIKE "%%Brock_Lesnar%" ) ) AND "Event_Name_1" LIKE "%%UFC%" LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 10
+what is the population of bangladesh
+
+SELECT "Bangladesh" FROM Table_1 ORDER BY "Date" DESC LIMIT 1;
+Table_1
+SELECT "Bangladesh" FROM Table_1 ORDER BY "Date" DESC LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 11
+what is the population of china
+
+SELECT "China" FROM Table_1 ORDER BY "Date" DESC LIMIT 1;
+Table_1
+SELECT "China" FROM Table_1 ORDER BY "Date" DESC LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 12
+What are the requirements for allied races in wow ?
+
+SELECT "Battle", "Unlock_Requirements" FROM Table_1;
+Allied_Races
+SELECT "Battle", "Unlock_Requirements" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 13
+How many ounces in 1 cup ?
+
+SELECT "Fluid_Ounces" FROM Table_1 WHERE "Cups" LIKE "%%1_cup%";
+Ounces_to_Cups
+SELECT "Fluid_Ounces" FROM Table_1 WHERE "Cups" LIKE "%%1_cup%";
+--------------------------------------------------
+--------------------------------------------------
+example# 14
+Alexa , when is Fordham University 's first baseball game of the spring 2018 season ?
+
+SELECT "Date" FROM Table_1 LIMIT 1;
+Fordham
+SELECT "Date" FROM Table_1 LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 15
+How do I make steel cut oats ?
+
+SELECT "instructions" FROM Table_1 ;
+make_steel_cut_oats
+SELECT "instructions" FROM Table_1 ;
+--------------------------------------------------
+--------------------------------------------------
+example# 16
+Alexa , how do you level a toilet ?
+
+SELECT * FROM Table_1 ;
+level_toilet
+SELECT * FROM Table_1 ;
+--------------------------------------------------
+--------------------------------------------------
+example# 17
+What is the meaning of `` the fool '' card in Rider Waite tarot ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Meaning%";
+The_Fool
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Meaning%";
+--------------------------------------------------
+--------------------------------------------------
+example# 18
+Siri , where is the Cheesecake Factory located at Barton Creek Mall
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Location%";
+Cheesecake_Factory_at_Barton_Creek_Mall
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Location%";
+--------------------------------------------------
+--------------------------------------------------
+example# 19
+Alexa , when is the premier of the Black Panther movie ?
+
+SELECT "value" FROM Table_1 WHERE "key" LIKE "%%Release_Date%";
+Black_Panther
+SELECT "value" FROM Table_1 WHERE "key" LIKE "%%Release_Date%";
+--------------------------------------------------
+--------------------------------------------------
+example# 20
+how many centimeters in an inch ?
+
+SELECT "Centimeter" FROM Table_1 WHERE "Units" LIKE "%%inch%";
+Distance_Convertion
+SELECT "Centimeter" FROM Table_1 WHERE "Units" LIKE "%%inch%";
+--------------------------------------------------
+--------------------------------------------------
+example# 21
+alexa , hows todays stock market ?
+
+SELECT "index", "increase" FROM Table_1 ;
+stock_market_today
+SELECT "index", "increase" FROM Table_1 ;
+--------------------------------------------------
+--------------------------------------------------
+example# 22
+Alexa , What did the dow jones close at today ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%close%";
+DOW_JONES_INDU_AVERAGE_NDX_-_Quote_Details
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%close%";
+--------------------------------------------------
+--------------------------------------------------
+example# 23
+What are alternative sites to mturk ?
+
+SELECT "Website_name" FROM Table_1 LIMIT 3;
+Top_10_Amazon_Mechanical_Turk_Alternatives
+SELECT "Website_name" FROM Table_1 LIMIT 3;
+--------------------------------------------------
+--------------------------------------------------
+example# 24
+Alexa , are platypus poisonous ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%poison%";
+Duck-billed_Platypus
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%poison%";
+--------------------------------------------------
+--------------------------------------------------
+example# 25
+Alexa , why is nutritional yeast important
+
+SELECT "Reason_to_feel_good" FROM Table_1;
+7_reasons_to_feel_good_about_your_nutritional_yeast_addiction
+SELECT "Reason_to_feel_good" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 26
+Alexa , what is the best Judas Priest album ?
+
+SELECT "Album" FROM Table_1 ORDER BY "Album" ASC LIMIT 1;
+Judas_Priest_Albums
+SELECT "Album" FROM Table_1 ORDER BY "Album" ASC LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 27
+Alexa , does Swagbucks work ?
+
+SELECT "value" FROM Table_1 WHERE "key" LIKE "%%VERDICT%";
+Swagbucks
+SELECT "value" FROM Table_1 WHERE "key" LIKE "%%VERDICT%";
+--------------------------------------------------
+--------------------------------------------------
+example# 28
+Where is the Willimantic Waste paper company ?
+
+SELECT "Address", "City" FROM Table_1 WHERE "Name" LIKE "%%Willimantic%";
+WilliWaste
+SELECT "Address", "City" FROM Table_1 WHERE "Name" LIKE "%%Willimantic%";
+--------------------------------------------------
+--------------------------------------------------
+example# 29
+What is the kelly green hex code ?
+
+SELECT "Color_Value" FROM Table_1 WHERE "Color_Model" LIKE "%%HEX%";
+Kelly_Green_Color
+SELECT "Color_Value" FROM Table_1 WHERE "Color_Model" LIKE "%%HEX%";
+--------------------------------------------------
+--------------------------------------------------
+example# 30
+What are the AR points for The Last Kids on Earth
+
+SELECT "Value" FROM Table_1 WHERE "KEY" LIKE "%%AR_points%";
+The_Last_Kids_on_Earth
+SELECT "Value" FROM Table_1 WHERE "KEY" LIKE "%%AR_points%";
+--------------------------------------------------
+--------------------------------------------------
+example# 31
+What are the AR points for The Last Kids on Earth and the Zombie Parade
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%AR_Points%";
+The_Last_Kids_on_Earth_and_the_Zombie_Parade
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%AR_Points%";
+--------------------------------------------------
+--------------------------------------------------
+example# 32
+What are the AR points for The Last Kids on Earth and the Nightmare Kings
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%AR_Points%";
+The_Last_Kids_on_Earth_and_the_Nightmare_Kings
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%AR_Points%";
+--------------------------------------------------
+--------------------------------------------------
+example# 33
+Alexa , what is the closest star after the sun ?
+
+SELECT "Common_Name" FROM Table_1 ORDER BY "Distance" DESC LIMIT 2;
+The_Closest_star_to_the_Earth
+SELECT "Common_Name" FROM Table_1 ORDER BY "Distance" DESC LIMIT 2;
+--------------------------------------------------
+--------------------------------------------------
+example# 34
+Who is the richest person in the world ?
+
+SELECT "Name" FROM Table_1 ORDER BY "Net_Worth" DESC LIMIT 1;
+50_Richest_People_in_the_World
+SELECT "Name" FROM Table_1 ORDER BY "Net_Worth" DESC LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 35
+Alexa , when is the next season of The Handmaid 's Tale to start ?
+
+SELECT "content" FROM Table_1 WHERE "title" LIKE "%%Release_Date%";
+Handmaids_Tale_Season_2
+SELECT "content" FROM Table_1 WHERE "title" LIKE "%%Release_Date%";
+--------------------------------------------------
+--------------------------------------------------
+example# 36
+What is a labor camp ?
+
+SELECT "Definition" FROM Table_1 WHERE "Number" LIKE "%%1%";
+Labor_Camp_Definitions
+SELECT "Definition" FROM Table_1 WHERE "Number" LIKE "%%1%";
+--------------------------------------------------
+--------------------------------------------------
+example# 37
+Alexa , what is the biggest dinosaur ever discovered ?
+
+SELECT "Name" FROM Table_1 ORDER BY "Weight" DESC;
+Dinosaur_Stats
+SELECT "Name" FROM Table_1 ORDER BY "Weight" DESC;
+--------------------------------------------------
+--------------------------------------------------
+example# 38
+Why are my ears always popping ?
+
+SELECT "Answers" FROM Table_1 WHERE "Questions" LIKE "%%Why_do_ears_pop%";
+Ears_and_Altitude
+SELECT "Answers" FROM Table_1 WHERE "Questions" LIKE "%%Why_do_ears_pop%";
+--------------------------------------------------
+--------------------------------------------------
+example# 39
+What is washington wizards record ?
+
+SELECT "W", "L" FROM Table_1 WHERE "Team" LIKE "%%Washington%";
+NBA_Southeast_Standings
+SELECT "W", "L" FROM Table_1 WHERE "Team" LIKE "%%Washington%";
+--------------------------------------------------
+--------------------------------------------------
+example# 40
+Alexa , what are tamales ?
+
+SELECT "Definition" FROM Table_1 WHERE "Term" LIKE "%%tamale%";
+Mexican_Food_Glossary
+SELECT "Definition" FROM Table_1 WHERE "Term" LIKE "%%tamale%";
+--------------------------------------------------
+--------------------------------------------------
+example# 41
+Alexa , how do I lose weight ?
+
+SELECT "ways" FROM Table_1;
+lose_weight
+SELECT "ways" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 42
+Alexa what is the best deep conditioner for color-treated hair ?
+
+SELECT "Title" FROM Table_1 LIMIT 1;
+Deep_Conditioners
+SELECT "Title" FROM Table_1 LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 43
+Alexa , what great apes are at the Jacksonville Zoo ?
+
+SELECT "Great_apes" FROM Table_1;
+Jacksonville_Zoo
+SELECT "Great_apes" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 44
+Where can I snorkel with moorish idol ?
+
+SELECT "Answer" FROM Table_1 WHERE "Question" LIKE "%%where%moorish_idol%";
+Moorish_Idols
+SELECT "Answer" FROM Table_1 WHERE "Question" LIKE "%%where%moorish_idol%";
+--------------------------------------------------
+--------------------------------------------------
+example# 45
+Alexa , what can you make with Ramen noodles ?
+
+SELECT "Noodle_Recipe" FROM Table_1 LIMIT 3;
+Ramen_Recipes
+SELECT "Noodle_Recipe" FROM Table_1 LIMIT 3;
+--------------------------------------------------
+--------------------------------------------------
+example# 46
+How to save money in switzerland ?
+
+SELECT "Save_money" FROM Table_1;
+6_ways_to_save_money_in_Switzerland
+SELECT "Save_money" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 47
+What is the address for the orlando office of sng labs ?
+
+SELECT "Address" FROM Table_1 WHERE "City" LIKE "%%Orlando%";
+SNG_LABS_Locations
+SELECT "Address" FROM Table_1 WHERE "City" LIKE "%%Orlando%";
+--------------------------------------------------
+--------------------------------------------------
+example# 48
+How long do dogs live ?
+
+SELECT "Life_Expectancy" FROM Table_1 WHERE "Animal" = "Dog";
+The_Life_Span_of_Animals
+SELECT "Life_Expectancy" FROM Table_1 WHERE "Animal" = "Dog";
+--------------------------------------------------
+--------------------------------------------------
+example# 49
+Alexa , when is taylor swift coming to dallas ?
+
+SELECT "Date", "Market" FROM Table_1 WHERE "Market" LIKE "%%TX%";
+Taylor_Swift
+SELECT "Date", "Market" FROM Table_1 WHERE "Market" LIKE "%%TX%";
+--------------------------------------------------
+--------------------------------------------------
+example# 50
+Alexa , when did groundhog day start ?
+
+SELECT "Year" FROM Table_1 ORDER BY "Year" ASC LIMIT 1;
+Groundhog_Day_Results
+SELECT "Year" FROM Table_1 ORDER BY "Year" ASC LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 51
+Alexa did the groundhog see its shadow today ?
+
+SELECT "Shadow" FROM Table_1 WHERE "Year" LIKE "%%2018%";
+Groundhog_Day
+SELECT "Shadow" FROM Table_1 WHERE "Year" LIKE "%%2018%";
+--------------------------------------------------
+--------------------------------------------------
+example# 52
+What is the capital of Louisiana ?
+
+SELECT "Capital" FROM Table_1 WHERE "State" LIKE "%%Louisiana%";
+State_Capitals_and_Nicknames
+SELECT "Capital" FROM Table_1 WHERE "State" LIKE "%%Louisiana%";
+--------------------------------------------------
+--------------------------------------------------
+example# 53
+Alexa , why do I feel more tired if I sleep longer ?
+
+SELECT * FROM Table_1;
+sleep
+SELECT * FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 54
+What is the phone number for tricounty ford ?
+
+SELECT "Phone_number" FROM Table_1;
+Tricounty_Ford
+SELECT "Phone_number" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 55
+What is the best cities to visit in Germany ?
+
+SELECT "Cities" FROM Table_1 ORDER BY "Cities" LIMIT 3;
+10_german_cites_you_need_to_visit
+SELECT "Cities" FROM Table_1 ORDER BY "Cities" LIMIT 3;
+--------------------------------------------------
+--------------------------------------------------
+example# 56
+What time is The Flash on ?
+
+SELECT "time" FROM Table_1 WHERE "show" LIKE "%%Flash%" ;
+cw_shows
+SELECT "time" FROM Table_1 WHERE "show" LIKE "%%Flash%" ;
+--------------------------------------------------
+--------------------------------------------------
+example# 57
+What is the quickest way to get rid of a cold ?
+
+SELECT "Ways" FROM Table_1;
+Ways_Table
+SELECT "Ways" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 58
+What is the street address of the Beltsville Agricultural Research Center ?
+
+SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Street_Address%";
+BELTSVILLE_AGRICULTURAL_RESEARCH_CENTER
+SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Street_Address%";
+--------------------------------------------------
+--------------------------------------------------
+example# 59
+what does gop stand for
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%abbreviation%" ;
+GOP
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%abbreviation%" ;
+--------------------------------------------------
+--------------------------------------------------
+example# 60
+Alexa , what 's the definition of verbiage ?
+
+SELECT "Definition" FROM Table_1;
+Verbiage
+SELECT "Definition" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 61
+Alexa , where is Area 51 ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Location%";
+Area_51_-_Homey_Airport
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Location%";
+--------------------------------------------------
+--------------------------------------------------
+example# 62
+What is Asking Alexandrias last album called ?
+
+SELECT "Title" FROM Table_1 ORDER BY "Released" DESC LIMIT 1;
+Table_1
+SELECT "Title" FROM Table_1 ORDER BY "Released" DESC LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 63
+Alexa , what was the name of Mike Farrell 's character on M*A*S*H ?
+
+SELECT "Character" FROM Table_1 WHERE "Actor" LIKE "%%Mike_Farrell%" LIMIT 1;
+MikeFarrellTable
+SELECT "Character" FROM Table_1 WHERE "Actor" LIKE "%%Mike_Farrell%" LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 64
+alexa what is the name of the lead singer in metallica ?
+
+SELECT "Artists" FROM Table_1 LIMIT 1;
+Table_1
+SELECT "Artists" FROM Table_1 LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 65
+Alexa , how old are the pyramids ?
+
+SELECT "Date_of_Construction" FROM Table_1 WHERE "Name" LIKE "%%Great_Pyramid_of_Giza%";
+Wonders
+SELECT "Date_of_Construction" FROM Table_1 WHERE "Name" LIKE "%%Great_Pyramid_of_Giza%";
+--------------------------------------------------
+--------------------------------------------------
+example# 66
+Alexa , what time is The Four on ?
+
+SELECT "Timeslot_(ET)" FROM Table_1 WHERE "Season" LIKE "%%1%";
+The_Four_Ratings
+SELECT "Timeslot_(ET)" FROM Table_1 WHERE "Season" LIKE "%%1%";
+--------------------------------------------------
+--------------------------------------------------
+example# 67
+what are the best classic wow addons
+
+SELECT "Addons" FROM Table_1;
+Table_1
+SELECT "Addons" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 68
+Where can I buy a Cricut ?
+
+SELECT "Where_To_Buy_The_Cricut_Maker" FROM Table_1;
+Table_1
+SELECT "Where_To_Buy_The_Cricut_Maker" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 69
+What time does Best Buy close ?
+
+SELECT "Close" FROM Table_1 WHERE "Weekday" LIKE "%%THU%";
+Store_Hours
+SELECT "Close" FROM Table_1 WHERE "Weekday" LIKE "%%THU%";
+--------------------------------------------------
+--------------------------------------------------
+example# 70
+Alexa , how do I write a skills resume ?
+
+SELECT "skills" FROM Table_1;
+Table_1
+SELECT "skills" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 71
+Alexa , how many pounds are in a stone ?
+
+SELECT "Pound" FROM Table_1 WHERE "Stone" LIKE "%%1%" LIMIT 1;
+Pound_To_Stone_Table
+SELECT "Pound" FROM Table_1 WHERE "Stone" LIKE "%%1%" LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 72
+What are nazca lines ?
+
+SELECT "Description" FROM Table_1 WHERE "Attraction" LIKE "%%Nazca_Lines%";
+Unusual_Attractions_in_Nazca
+SELECT "Description" FROM Table_1 WHERE "Attraction" LIKE "%%Nazca_Lines%";
+--------------------------------------------------
+--------------------------------------------------
+example# 73
+alexa why my baby wakes up crying ?
+
+SELECT "Reasons" FROM Table_1;
+Table_1
+SELECT "Reasons" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 74
+holidays 2018
+
+SELECT "Holiday", "Date" FROM Table_1;
+Table_1
+SELECT "Holiday", "Date" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 75
+What are the Cubot HAFURY UMAX smartphone specs ?
+
+SELECT "Property", "Specifications" FROM Table_1;
+Table_1
+SELECT "Property", "Specifications" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 76
+How much do tooth implants cost
+
+SELECT "Cost" FROM Table_1 LIMIT 1;
+Table_1
+SELECT "Cost" FROM Table_1 LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 77
+Google , what are some creative jobs for marketing majors ?
+
+SELECT "CreativeJobs" FROM Table_1;
+Table_1
+SELECT "CreativeJobs" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 78
+Google , what jobs can you get with an English degree ?
+
+SELECT "Job" FROM Table_1;
+Best_Jobs_for_English_Majors
+SELECT "Job" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 79
+Alexa , I need to find a new car insurance
+
+SELECT "Insurance" FROM Table_1 LIMIT 1;
+Table_1
+SELECT "Insurance" FROM Table_1 LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 80
+What kind of ratings did the book `` Why Buddhism is True '' get ?
+
+SELECT "Rating" FROM Table_1 LIMIT 1;
+Table_1
+SELECT "Rating" FROM Table_1 LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 81
+Alexa , how old is the earth ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Age%";
+Earth
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Age%";
+--------------------------------------------------
+--------------------------------------------------
+example# 82
+best time to buy a car
+
+SELECT "Day_of_Week" FROM Table_1 ORDER BY "Average_Savings" DESC LIMIT 1;
+Average_Car_Savings
+SELECT "Day_of_Week" FROM Table_1 ORDER BY "Average_Savings" DESC LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 83
+Alexa , how many apple shares are outstanding ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Shares_Outstanding%";
+Apple_Inc._Stock_Report
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Shares_Outstanding%";
+--------------------------------------------------
+--------------------------------------------------
+example# 84
+Alexa , how many microsoft shares are outstanding ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Shares_Outstanding%";
+Microsoft_Corporation_Stock_Report
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Shares_Outstanding%";
+--------------------------------------------------
+--------------------------------------------------
+example# 85
+Alexa , What does the Bible say about tattoos ?
+
+SELECT "Bible_Reference" FROM Table_1 LIMIT 1;
+Table_1
+SELECT "Bible_Reference" FROM Table_1 LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 86
+alexa what are the best laptops ?
+
+SELECT * FROM Table_1 WHERE "Feature" LIKE "%%Product%";
+The_Best_Laptops_of_2018
+SELECT * FROM Table_1 WHERE "Feature" LIKE "%%Product%";
+--------------------------------------------------
+--------------------------------------------------
+example# 87
+What is a synonym for hardworking ?
+
+SELECT "Word" FROM Table_1 LIMIT 1;
+Table_1
+SELECT "Word" FROM Table_1 LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 88
+Can i get rid of the smell in a metal water bottle ?
+
+SELECT "Steps" FROM Table_1;
+Steps_Table
+SELECT "Steps" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 89
+What is the treatment for Epstein-Barr virus ?
+
+SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%What_is_the_treatment_for_Epstein-Barr_virus?%";
+Questions_and_Answers
+SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%What_is_the_treatment_for_Epstein-Barr_virus?%";
+--------------------------------------------------
+--------------------------------------------------
+example# 90
+How long will it take to get to Mars ?
+
+SELECT "Time_Taken" FROM Table_1 LIMIT 1;
+MarsTable
+SELECT "Time_Taken" FROM Table_1 LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 91
+How many square feet are in an acre ?
+
+SELECT "Acre" FROM Table_1 WHERE "Acre" LIKE "%%square_feet%" LIMIT 1;
+AcreTable
+SELECT "Acre" FROM Table_1 WHERE "Acre" LIKE "%%square_feet%" LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 92
+Are there any chemical free laundry detergent ?
+
+SELECT "Brands" FROM Table_1;
+Detergent_Table
+SELECT "Brands" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 93
+what are the newest netflix series
+
+SELECT "Titles" FROM Table_1;
+Table_1
+SELECT "Titles" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 94
+How much are flat screen TVs at Walmart ?
+
+SELECT "discounted_price" FROM Table_1 LIMIT 1;
+Table_1
+SELECT "discounted_price" FROM Table_1 LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 95
+Alexa , what are the symptoms of depression ?
+
+SELECT "Symptom" FROM Table_1;
+Symptoms_of_Depression
+SELECT "Symptom" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 96
+Where is Bellingham ?
+
+SELECT "Country", "State" FROM Table_1 LIMIT 1;
+LocationTable
+SELECT "Country", "State" FROM Table_1 LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 97
+Alexa , what is the current price of Bitcoin ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Last_price%";
+Bitcoin
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Last_price%";
+--------------------------------------------------
+--------------------------------------------------
+example# 98
+When does Squashbusters gym close ?
+
+SELECT "Close_Time" FROM Table_1 WHERE "Day" LIKE "%%Mon%";
+SquashBusters_Hours
+SELECT "Close_Time" FROM Table_1 WHERE "Day" LIKE "%%Mon%";
+--------------------------------------------------
+--------------------------------------------------
+example# 99
+What 's the difference between a Siberian Husky and a Malamute ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%differences%";
+Siberian_Husky_vs_Malamute
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%differences%";
+--------------------------------------------------
+--------------------------------------------------
+example# 100
+what is the name of Ted Leo 's new album called ?
+
+SELECT "Title" FROM Table_1 ORDER BY "year" LIMIT 1;
+TedLeo
+SELECT "Title" FROM Table_1 ORDER BY "year" LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 101
+What should I buy my wife for our 5th anniversary ?
+
+SELECT "Gift" FROM Table_1 WHERE "Year" LIKE "%%5%";
+Anniversary_Gifts_By_Year
+SELECT "Gift" FROM Table_1 WHERE "Year" LIKE "%%5%";
+--------------------------------------------------
+--------------------------------------------------
+example# 102
+How big do horned nerite snails get ?
+
+SELECT "Description" FROM Table_1 WHERE "Info" LIKE "%%Max_Size%";
+Horned_Nerite_Snail
+SELECT "Description" FROM Table_1 WHERE "Info" LIKE "%%Max_Size%";
+--------------------------------------------------
+--------------------------------------------------
+example# 103
+How do you eat freeze dried food ?
+
+SELECT "Basic_Instructions" FROM Table_1 WHERE "Food_Type" LIKE "%%Freeze-Dried_Food%";
+Freeze-dried_vs._Dehydrated_Food
+SELECT "Basic_Instructions" FROM Table_1 WHERE "Food_Type" LIKE "%%Freeze-Dried_Food%";
+--------------------------------------------------
+--------------------------------------------------
+example# 104
+Google , what is the best computer desk on the market ?
+
+SELECT "Brand", "Desk" FROM Table_1 LIMIT 1;
+Best_Computer_Desks
+SELECT "Brand", "Desk" FROM Table_1 LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 105
+Alexa , what is the largest lego set ?
+
+SELECT "Name" FROM Table_1 ORDER BY "Pieces" DESC LIMIT 1;
+Largest_Lego_Sets
+SELECT "Name" FROM Table_1 ORDER BY "Pieces" DESC LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 106
+What is the fastest internet available in my area ?
+
+SELECT "Provider" FROM Table_1 ORDER BY "Fastest_Speed" LIMIT 1;
+Internet_providers_in_Pittsburgh,_Pennsylvania
+SELECT "Provider" FROM Table_1 ORDER BY "Fastest_Speed" LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 107
+Alexa , what is the best mid size sedan on the market ?
+
+SELECT "Car" FROM Table_1 WHERE "Ranking" LIKE "%%1%";
+Best_Midsize_Cars
+SELECT "Car" FROM Table_1 WHERE "Ranking" LIKE "%%1%";
+--------------------------------------------------
+--------------------------------------------------
+example# 108
+Alexa , what 's the cost for a new Nissan Rav4 ?
+
+SELECT MIN(Msrp), MAX(Msrp) FROM Table_1 ;
+rav4
+SELECT MIN(Msrp), MAX(Msrp) FROM Table_1 ;
+--------------------------------------------------
+--------------------------------------------------
+example# 109
+Alex , what are the benefits of flaxseed
+
+SELECT * FROM Table_1 LIMIT 3;
+FlexSeeds
+SELECT * FROM Table_1 LIMIT 3;
+--------------------------------------------------
+--------------------------------------------------
+example# 110
+Alexa , show me president Trump 's approval rating
+
+SELECT "Approve" FROM Table_1 WHERE "Poll" LIKE "%%Average%";
+President_Trump_Job_Approval
+SELECT "Approve" FROM Table_1 WHERE "Poll" LIKE "%%Average%";
+--------------------------------------------------
+--------------------------------------------------
+example# 111
+how much does amazon prime cost ?
+
+SELECT "Annual_Price" FROM Table_1 WHERE "Country" LIKE "%%United_States%";
+Amazon_Prime_Rates
+SELECT "Annual_Price" FROM Table_1 WHERE "Country" LIKE "%%United_States%";
+--------------------------------------------------
+--------------------------------------------------
+example# 112
+Is Jefe a Jewish name ?
+
+SELECT "Origin" FROM Table_1 WHERE "Word" LIKE "%%jefe%";
+Definition_of_Jefe
+SELECT "Origin" FROM Table_1 WHERE "Word" LIKE "%%jefe%";
+--------------------------------------------------
+--------------------------------------------------
+example# 113
+Alexa , What movie won best picture in 2011 ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Best_Picture%";
+83rd_Academy_Awards
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Best_Picture%";
+--------------------------------------------------
+--------------------------------------------------
+example# 114
+Alexa , when is Oscars 2018 ?
+
+SELECT "values" FROM Table_1 WHERE "keys" LIKE "%%Date%";
+Academy_Award
+SELECT "values" FROM Table_1 WHERE "keys" LIKE "%%Date%";
+--------------------------------------------------
+--------------------------------------------------
+example# 115
+Alexa , who produced the album Albert Einstein by Prodigy ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Producer%";
+Albert_Einstein
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Producer%";
+--------------------------------------------------
+--------------------------------------------------
+example# 116
+When does season 6 of Arrow start ?
+
+SELECT "First_Aired" FROM Table_1 WHERE "Season" = 6;
+Table_1
+SELECT "First_Aired" FROM Table_1 WHERE "Season" = 6;
+--------------------------------------------------
+--------------------------------------------------
+example# 117
+Alexa , what is the population of Bordeaux , France ?
+
+SELECT "values" FROM Table_1 WHERE "keys" LIKE "%%Population%";
+Bordeaux
+SELECT "values" FROM Table_1 WHERE "keys" LIKE "%%Population%";
+--------------------------------------------------
+--------------------------------------------------
+example# 118
+Siri , what are some books by Bukowski ?
+
+SELECT "Book" FROM Table_1;
+Table_1
+SELECT "Book" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 119
+Siri , where is Coomera ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%LGA%" OR "Key" LIKE "%%Location%";
+Coomera
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%LGA%" OR "Key" LIKE "%%Location%";
+--------------------------------------------------
+--------------------------------------------------
+example# 120
+What was the last movie that Daniel Day Lewis acted in ?
+
+SELECT "Title" FROM Table_1 ORDER BY "Year" DESC LIMIT 1;
+Daniel_Day_Lewis_Filmography
+SELECT "Title" FROM Table_1 ORDER BY "Year" DESC LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 121
+Alexa , what year did Jimi Hendrix die ?
+
+SELECT "values" FROM Table_1 WHERE "keys" LIKE "%%Date%";
+Death_of_Jimi_Hendrix
+SELECT "values" FROM Table_1 WHERE "keys" LIKE "%%Date%";
+--------------------------------------------------
+--------------------------------------------------
+example# 122
+When is the next presidential election ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%2020_date%";
+National_Election_Day
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%2020_date%";
+--------------------------------------------------
+--------------------------------------------------
+example# 123
+When is E3 2018 ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Begins%" OR "Key" LIKE "%%Ends%";
+E3_2018
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Begins%" OR "Key" LIKE "%%Ends%";
+--------------------------------------------------
+--------------------------------------------------
+example# 124
+Who is Gail Sheehy ?
+
+SELECT "value" FROM Table_1 WHERE "key" LIKE "%%Occupation%";
+Gail_Sheehy
+SELECT "value" FROM Table_1 WHERE "key" LIKE "%%Occupation%";
+--------------------------------------------------
+--------------------------------------------------
+example# 125
+Siri , what continent is scotland a part of ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Continent%";
+Geography_of_Scotland
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Continent%";
+--------------------------------------------------
+--------------------------------------------------
+example# 126
+what year did Gosford Park come out ?
+
+SELECT "Value" FROM Table_1 WHERE "key" LIKE "%%Release_date%";
+Gosford_Park
+SELECT "Value" FROM Table_1 WHERE "key" LIKE "%%Release_date%";
+--------------------------------------------------
+--------------------------------------------------
+example# 127
+Who has the most Grammys ?
+
+SELECT "Person" FROM Table_1 WHERE "Number_of_Awards" = ( SELECT MAX ( "Number_of_Awards") FROM Table_1 );
+Table_1
+SELECT "Person" FROM Table_1 WHERE "Number_of_Awards" = ( SELECT MAX ( "Number_of_Awards") FROM Table_1 );
+--------------------------------------------------
+--------------------------------------------------
+example# 128
+Alexa , what is the name of the last Harry Potter movie ?
+
+SELECT "Motion_picture" FROM Table_1 WHERE "Release_date" LIKE "%%2011%";
+Harry_Potter_Movies
+SELECT "Motion_picture" FROM Table_1 WHERE "Release_date" LIKE "%%2011%";
+--------------------------------------------------
+--------------------------------------------------
+example# 129
+Alexa , what are the key ingredients in Hummus ?
+
+SELECT "values" FROM Table_1 WHERE "keys" LIKE "%%Main_ingredients%";
+Hummus
+SELECT "values" FROM Table_1 WHERE "keys" LIKE "%%Main_ingredients%";
+--------------------------------------------------
+--------------------------------------------------
+example# 130
+Alexa , how old is Jane Fonda ?
+
+SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Born%";
+Jane_Fonda_Info
+SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Born%";
+--------------------------------------------------
+--------------------------------------------------
+example# 131
+How many movies has Johnny Depp been part of ?
+
+SELECT COUNT(Title) FROM Table_1;
+Johnny_Depp_Movies
+SELECT COUNT(Title) FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 132
+Alexa , who is Jordan Petterson ?
+
+SELECT * FROM Table_1;
+Jordan
+SELECT * FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 133
+Alexa , what year was Julia Roberts born ?
+
+SELECT "value" FROM Table_1 WHERE "Key" LIKE "%%Born%";
+Julia_Roberts
+SELECT "value" FROM Table_1 WHERE "Key" LIKE "%%Born%";
+--------------------------------------------------
+--------------------------------------------------
+example# 134
+What is the new album by justin timberlake album called ?
+
+SELECT "Title", MAX(Release_Date) FROM Table_1;
+Justin_Timberlake_Albums
+SELECT "Title", MAX(Release_Date) FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 135
+How old is Justin Timberlake ?
+
+SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Born%";
+Justin_Timberlake_Info
+SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Born%";
+--------------------------------------------------
+--------------------------------------------------
+example# 136
+Alexa , when was the moon landing ?
+
+SELECT "Lunar_EVA_dates" FROM Table_1 WHERE "#" LIKE "%%1%";
+Appollo_Astronauts_who_walked_on_the_Moon
+SELECT "Lunar_EVA_dates" FROM Table_1 WHERE "#" LIKE "%%1%";
+--------------------------------------------------
+--------------------------------------------------
+example# 137
+Alexa , what song was number one the longest ?
+
+SELECT "Song", "Artist(s)" FROM Table_1 ORDER BY "Number_of_Weeks" DESC LIMIT 1;
+Most_Weeks_at_Number_One_Billboard_Hot_100
+SELECT "Song", "Artist(s)" FROM Table_1 ORDER BY "Number_of_Weeks" DESC LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 138
+Alexa , what is a bitcoin ?
+
+SELECT "Description" FROM Table_1 WHERE "currency" = "Bitcoin";
+Cryptocurrencies
+SELECT "Description" FROM Table_1 WHERE "currency" = "Bitcoin";
+--------------------------------------------------
+--------------------------------------------------
+example# 139
+Alexa , what is the largest diamond in the world
+
+SELECT "Name" FROM Table_1 ORDER BY "Uncut_Weight_(carat)" DESC LIMIT 1;
+Diamonds
+SELECT "Name" FROM Table_1 ORDER BY "Uncut_Weight_(carat)" DESC LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 140
+Alexa , what presidents were impeached ?
+
+SELECT "Name", "Country" FROM Table_1;
+Successfully_impeached_Presidents
+SELECT "Name", "Country" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 141
+which is the most common language in the world
+
+SELECT "Language" FROM Table_1 WHERE "Rank" = 1;
+Native_Speaker_Ranking
+SELECT "Language" FROM Table_1 WHERE "Rank" = 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 142
+Alexa , where is the Mall of America located ?
+
+SELECT "Location" FROM Table_1 WHERE "Mall_Name" LIKE "%%Mall_of_America%";
+Largest_Shopping_Malls_in_America
+SELECT "Location" FROM Table_1 WHERE "Mall_Name" LIKE "%%Mall_of_America%";
+--------------------------------------------------
+--------------------------------------------------
+example# 143
+What is the capital of Portugal ?
+
+SELECT "Capital_City" FROM Table_1 WHERE "Country" LIKE "%%Portugal%";
+National_Capitals
+SELECT "Capital_City" FROM Table_1 WHERE "Country" LIKE "%%Portugal%";
+--------------------------------------------------
+--------------------------------------------------
+example# 144
+Who is the 34thpresident of the United states of America ?
+
+SELECT "Name" FROM Table_1 WHERE "Number" LIKE "%%34%";
+US_President
+SELECT "Name" FROM Table_1 WHERE "Number" LIKE "%%34%";
+--------------------------------------------------
+--------------------------------------------------
+example# 145
+which is the current president of United States ?
+
+SELECT "President" FROM Table_1 WHERE "Presidency" LIKE "%%Incumbent%";
+US_Presidents
+SELECT "President" FROM Table_1 WHERE "Presidency" LIKE "%%Incumbent%";
+--------------------------------------------------
+--------------------------------------------------
+example# 146
+When is the next star wars film released ?
+
+SELECT MIN(Release_Date) FROM Table_1 WHERE "Release_Date" > CURRENT_DATE;
+Star_Wars_Films
+SELECT MIN(Release_Date) FROM Table_1 WHERE "Release_Date" > CURRENT_DATE;
+--------------------------------------------------
+--------------------------------------------------
+example# 147
+Alexa , who is the actress that plays Sheldon 's mother ?
+
+SELECT "Portrayed_by" FROM Table_1 WHERE "Character" LIKE "%%Mary_Cooper%";
+Character_Appearances
+SELECT "Portrayed_by" FROM Table_1 WHERE "Character" LIKE "%%Mary_Cooper%";
+--------------------------------------------------
+--------------------------------------------------
+example# 148
+where is located the first public school of United States ?
+
+SELECT "Location", MIN(Creation_Year) FROM Table_1;
+US_Public_Schools
+SELECT "Location", MIN(Creation_Year) FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 149
+Alexa , which is the welathiest state ?
+
+SELECT "State", "2015" FROM Table_1 ORDER BY "2015" DESC LIMIT 1;
+States_Ranked_by_Median_Household_Income
+SELECT "State", "2015" FROM Table_1 ORDER BY "2015" DESC LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 150
+Alexa , where is Meek Mill from ?
+
+SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Born%";
+Meek_Mill_Info
+SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Born%";
+--------------------------------------------------
+--------------------------------------------------
+example# 151
+Alexa , what is the Meredith Corporation ?
+
+SELECT "values" FROM Table_1 WHERE "keys" LIKE "%%Industry%" OR "keys" LIKE "%%Products%";
+Meredith_Corporation
+SELECT "values" FROM Table_1 WHERE "keys" LIKE "%%Industry%" OR "keys" LIKE "%%Products%";
+--------------------------------------------------
+--------------------------------------------------
+example# 152
+Alexa , Who painted the Mona Lisa ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Artist%";
+Mona_Lisa
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Artist%";
+--------------------------------------------------
+--------------------------------------------------
+example# 153
+OK Google , Who is the queen of england ?
+
+SELECT "Incumbent" FROM Table_1 WHERE "State" LIKE "%%United_Kingdom%";
+Table_of_monarchies_in_Europe
+SELECT "Incumbent" FROM Table_1 WHERE "State" LIKE "%%United_Kingdom%";
+--------------------------------------------------
+--------------------------------------------------
+example# 154
+Google , who shot John Lennon
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Perpetrator%";
+Murder_of_John_Lennon
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Perpetrator%";
+--------------------------------------------------
+--------------------------------------------------
+example# 155
+Alexa , who is the director of the National Institute of Allergy and Infectious Diseases ?
+
+SELECT "value" FROM Table_1 WHERE "key" LIKE "%%Institute_executive%";
+National_Institute_of_Allergy_and_Infectious_Diseases
+SELECT "value" FROM Table_1 WHERE "key" LIKE "%%Institute_executive%";
+--------------------------------------------------
+--------------------------------------------------
+example# 156
+How many states have signed onto the 270 compact
+
+SELECT COUNT ( State ) FROM Table_1 WHERE "Outome" = "Law";
+National_Popular_Vote_-_Bills_receiving_floor_votes_in_previous_sessions
+SELECT COUNT ( State ) FROM Table_1 WHERE "Outome" = "Law";
+--------------------------------------------------
+--------------------------------------------------
+example# 157
+Alexa , which state has the largest obesity rate
+
+SELECT "State/District/Territory" FROM Table_1 ORDER BY "Obesity_Rank" ASC LIMIT 1;
+Obesity_in_the_US
+SELECT "State/District/Territory" FROM Table_1 ORDER BY "Obesity_Rank" ASC LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 158
+when paul walker dead ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Died%";
+Paul_Walker
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Died%";
+--------------------------------------------------
+--------------------------------------------------
+example# 159
+how old is pink the singer ?
+
+SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Born%";
+Pink_Information
+SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Born%";
+--------------------------------------------------
+--------------------------------------------------
+example# 160
+What is Pioneer Day ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Significance%";
+Pioneer_Day
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Significance%";
+--------------------------------------------------
+--------------------------------------------------
+example# 161
+What is the order of the new Planet of The Apes Movies ?
+
+SELECT * FROM Table_1;
+PlanetOfTheApes
+SELECT * FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 162
+Where was Capt Sir Richard Francis Burton born
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Born%";
+Sir_Richard_Francis_Burton
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Born%";
+--------------------------------------------------
+--------------------------------------------------
+example# 163
+Alexa , who won the last episode of RuPaul 's Drag Race All-Stars ?
+
+SELECT "Contestant" FROM Table_1 WHERE "Episode_8" LIKE "%%Winner%";
+RuPaul_Drag_Race
+SELECT "Contestant" FROM Table_1 WHERE "Episode_8" LIKE "%%Winner%";
+--------------------------------------------------
+--------------------------------------------------
+example# 164
+Alexa , what is the main ingredient in spam ?
+
+SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Main_ingredient%";
+Spam_Food
+SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Main_ingredient%";
+--------------------------------------------------
+--------------------------------------------------
+example# 165
+Alexa , what year did the first ever Spiderman movie come out ?
+
+SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Release_date%";
+Spiderman_Movie
+SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Release_date%";
+--------------------------------------------------
+--------------------------------------------------
+example# 166
+Alexa , who is the commander in chief of the military ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%commander%in%chief%";
+United_States_Armed_Forces
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%commander%in%chief%";
+--------------------------------------------------
+--------------------------------------------------
+example# 167
+How old is the sun ?
+
+SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Age%";
+Sun_Stats
+SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Age%";
+--------------------------------------------------
+--------------------------------------------------
+example# 168
+Alexa , where is the Super Bowl being played this year ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Stadium%";
+Super_Bowl_LII
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Stadium%";
+--------------------------------------------------
+--------------------------------------------------
+example# 169
+Alexa , who wrote the book Art of War ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Author%";
+The_art_of_War
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Author%";
+--------------------------------------------------
+--------------------------------------------------
+example# 170
+What season is The Flash on currently ?
+
+SELECT MAX(Season) FROM Table_1;
+Table_1
+SELECT MAX(Season) FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 171
+Who played the lead role in the shawshank redemption ?
+
+SELECT "Actor", "Character" FROM Table_1 LIMIT 1;
+Shawshank_Redemption_Cast
+SELECT "Actor", "Character" FROM Table_1 LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 172
+Where is ticonderoga
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%State%";
+Tincondegora,_New_York
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%State%";
+--------------------------------------------------
+--------------------------------------------------
+example# 173
+Alexa , president of the senate ?
+
+SELECT "Name" FROM Table_1 WHERE "Leadership" LIKE "%%President_of_the_Senate%";
+United_States_Senate
+SELECT "Name" FROM Table_1 WHERE "Leadership" LIKE "%%President_of_the_Senate%";
+--------------------------------------------------
+--------------------------------------------------
+example# 174
+Alexa , where is the University of Georgia located ?
+
+SELECT "value" FROM Table_1 WHERE "key" LIKE "%%Location%";
+University_of_Georgia
+SELECT "value" FROM Table_1 WHERE "key" LIKE "%%Location%";
+--------------------------------------------------
+--------------------------------------------------
+example# 175
+Alexa , when does season 3 of UnReal premiere on Lifetime ?
+
+SELECT "First_Aired" FROM Table_1 WHERE "Season" LIKE "%%3%";
+UnReal
+SELECT "First_Aired" FROM Table_1 WHERE "Season" LIKE "%%3%";
+--------------------------------------------------
+--------------------------------------------------
+example# 176
+Who is Valerie Plame ?
+
+SELECT "value" FROM Table_1 WHERE "key" LIKE "%%Occupation%";
+Valerie_Plame
+SELECT "value" FROM Table_1 WHERE "key" LIKE "%%Occupation%";
+--------------------------------------------------
+--------------------------------------------------
+example# 177
+Alexa , who was the designer for Vetements ?
+
+SELECT "value" FROM Table_1 WHERE "key" LIKE "%%Founder%";
+Vetements
+SELECT "value" FROM Table_1 WHERE "key" LIKE "%%Founder%";
+--------------------------------------------------
+--------------------------------------------------
+example# 178
+Alexa , When did Whitney Houston die ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Died%";
+Whitney_Houston
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Died%";
+--------------------------------------------------
+--------------------------------------------------
+example# 179
+How old is Whoopi Goldberg ?
+
+SELECT * FROM Table_1 WHERE "PersonalAttributes" = "Born";
+Whoopi
+SELECT * FROM Table_1 WHERE "PersonalAttributes" = "Born";
+--------------------------------------------------
+--------------------------------------------------
+example# 180
+Alexa , how is the stock exchange for Bitcoin ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Open%";
+Bitcoin
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Open%";
+--------------------------------------------------
+--------------------------------------------------
+example# 181
+What times are barbell club classes at Fit Factory Nashville ?
+
+SELECT * FROM Table_1;
+FitFactory
+SELECT * FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 182
+What is the housing forecast for 2018 ?
+
+SELECT * FROM Table_1;
+Outlook_on_the_Housing_Market
+SELECT * FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 183
+How do I whiten clothes without bleach
+
+SELECT "Step" FROM Table_1 LIMIT 3;
+WAYS_TO_WHITEN_CLOTHES_WITHOUT_BLEACH
+SELECT "Step" FROM Table_1 LIMIT 3;
+--------------------------------------------------
+--------------------------------------------------
+example# 184
+Alexa , which cell phones are compatible with MHL adaptors ?
+
+SELECT "Model" FROM Table_1 LIMIT 3;
+MHL
+SELECT "Model" FROM Table_1 LIMIT 3;
+--------------------------------------------------
+--------------------------------------------------
+example# 185
+Alexa , where does Princess Kate get her dresses ?
+
+SELECT "values" FROM Table_1 WHERE "keys" LIKE "%%STORES%";
+Kate_Middleton_Style
+SELECT "values" FROM Table_1 WHERE "keys" LIKE "%%STORES%";
+--------------------------------------------------
+--------------------------------------------------
+example# 186
+Alexa , what are some animal encounters for birthday parties ?
+
+SELECT "Name" FROM Table_1;
+Animal_Encounter_Business
+SELECT "Name" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 187
+Alexa , what are some birthday party packages at the long island aquarium ?
+
+SELECT "Parties" FROM Table_1;
+LongIslandVenues
+SELECT "Parties" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 188
+Alexa , what is hypertension ?
+
+SELECT "Definition" FROM Table_1 WHERE "Term" LIKE "%%Hypertension%";
+Hypertension_Glossary
+SELECT "Definition" FROM Table_1 WHERE "Term" LIKE "%%Hypertension%";
+--------------------------------------------------
+--------------------------------------------------
+example# 189
+what types of dinner ?
+
+SELECT COUNT(*) FROM Table_1;
+TypesOfDinner
+SELECT COUNT(*) FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 190
+Alexa , when is Maroon 5 coming to San Antonio for a concert ?
+
+SELECT "Date" FROM Table_1 WHERE "City" LIKE "%%San_Antonio%";
+Maroon_5
+SELECT "Date" FROM Table_1 WHERE "City" LIKE "%%San_Antonio%";
+--------------------------------------------------
+--------------------------------------------------
+example# 191
+How do you download Twitch videos ?
+
+SELECT "id", "step" FROM Table_1 ;
+download_twitch_videos
+SELECT "id", "step" FROM Table_1 ;
+--------------------------------------------------
+--------------------------------------------------
+example# 192
+Alexa , how do manatees mate ?
+
+SELECT "Description" FROM Table_1 WHERE "Title" LIKE "%%Mating%";
+Manatee
+SELECT "Description" FROM Table_1 WHERE "Title" LIKE "%%Mating%";
+--------------------------------------------------
+--------------------------------------------------
+example# 193
+Alexa , What year did the Civil War start ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Date%";
+American_Civil_War
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Date%";
+--------------------------------------------------
+--------------------------------------------------
+example# 194
+Alexa , what is the capital of Canada ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Capital%";
+Canada
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Capital%";
+--------------------------------------------------
+--------------------------------------------------
+example# 195
+Alexa , what is the best ergonomic mouse ?
+
+SELECT "mouses" FROM Table_1 WHERE "keys" LIKE "%%Our_pick%";
+Best_Ergonomic_Mouse
+SELECT "mouses" FROM Table_1 WHERE "keys" LIKE "%%Our_pick%";
+--------------------------------------------------
+--------------------------------------------------
+example# 196
+Alexa , what is the best ergonomic keyboard ?
+
+SELECT "keyboards" FROM Table_1 WHERE "keys" LIKE "%%Our_pick%";
+Best_Ergonomic_Keyboard
+SELECT "keyboards" FROM Table_1 WHERE "keys" LIKE "%%Our_pick%";
+--------------------------------------------------
+--------------------------------------------------
+example# 197
+What is the fertility rate in iran ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Fertility_rate%";
+Iran_-_Health
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Fertility_rate%";
+--------------------------------------------------
+--------------------------------------------------
+example# 198
+What is there to do in Dallas ?
+
+SELECT "Attraction" FROM Table_1 LIMIT 3;
+Best_Things_To_Do_in_Dallas
+SELECT "Attraction" FROM Table_1 LIMIT 3;
+--------------------------------------------------
+--------------------------------------------------
+example# 199
+What is the best cities in France to visit ?
+
+SELECT "Cities" FROM Table_1 ORDER BY "Ranking" LIMIT 3;
+Best_places_to_visit_in_France
+SELECT "Cities" FROM Table_1 ORDER BY "Ranking" LIMIT 3;
+--------------------------------------------------
+--------------------------------------------------
+example# 200
+what is the tax rate on short term capital gains for 2017 ?
+
+SELECT "Description" FROM Table_1 WHERE "Category" LIKE "%%short%term%capital%gains%";
+Capital_Gains_Tax
+SELECT "Description" FROM Table_1 WHERE "Category" LIKE "%%short%term%capital%gains%";
+--------------------------------------------------
+--------------------------------------------------
+example# 201
+Alexa , what IRA contributions will lower my taxes ?
+
+SELECT "Steps_to_lower_taxes" FROM Table_1 WHERE "Description" LIKE "%%contributions%" AND "Description" LIKE "%%IRA%";
+Tax_Tips
+SELECT "Steps_to_lower_taxes" FROM Table_1 WHERE "Description" LIKE "%%contributions%" AND "Description" LIKE "%%IRA%";
+--------------------------------------------------
+--------------------------------------------------
+example# 202
+Is there a unicode character for the fi ligature
+
+SELECT "Unicode_code_point", "character" FROM Table_1 WHERE "Unicode_character_name" LIKE "%%LIGATURE_FI%";
+Fi_Unicode_Search_Result
+SELECT "Unicode_code_point", "character" FROM Table_1 WHERE "Unicode_character_name" LIKE "%%LIGATURE_FI%";
+--------------------------------------------------
+--------------------------------------------------
+example# 203
+What is the weather in Ingleside , Il
+
+SELECT "Hight", "Low" FROM Table_1 WHERE "Day" LIKE "%%Tonight%";
+Ingleside_Il_Weather
+SELECT "Hight", "Low" FROM Table_1 WHERE "Day" LIKE "%%Tonight%";
+--------------------------------------------------
+--------------------------------------------------
+example# 204
+Siri , what is the capital of California ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Capital%";
+California
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Capital%";
+--------------------------------------------------
+--------------------------------------------------
+example# 205
+what type of leukemia is most common in kids ?
+
+SELECT "Full_Name" FROM Table_1 ORDER BY "Percent_of_Total_Leukemias" DESC LIMIT 1;
+Types_of_Leukemia_in_Kids
+SELECT "Full_Name" FROM Table_1 ORDER BY "Percent_of_Total_Leukemias" DESC LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 206
+Hey google , whats the weather like in the morning tomorrow ?
+
+SELECT * FROM Table_1 WHERE "hour" LIKE "%%am%";
+weather_tomorrow
+SELECT * FROM Table_1 WHERE "hour" LIKE "%%am%";
+--------------------------------------------------
+--------------------------------------------------
+example# 207
+Alexa , where is the biggest volcano ?
+
+SELECT "Highest" FROM Table_1 ORDER BY "Feet" DESC LIMIT 1;
+Volcanoes
+SELECT "Highest" FROM Table_1 ORDER BY "Feet" DESC LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 208
+Where is the 217 area code ?
+
+SELECT "State" FROM Table_1 WHERE "Area_code" LIKE "%%217%";
+United_States_Area_Codes
+SELECT "State" FROM Table_1 WHERE "Area_code" LIKE "%%217%";
+--------------------------------------------------
+--------------------------------------------------
+example# 209
+What is in carrot cake ?
+
+SELECT "Ingredients" FROM Table_1;
+Carrot_Cake_Ingredients
+SELECT "Ingredients" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 210
+What 's a good pad thai recipe ?
+
+SELECT * FROM Table_1 LIMIT 5;
+ThaiFood
+SELECT * FROM Table_1 LIMIT 5;
+--------------------------------------------------
+--------------------------------------------------
+example# 211
+Alex , when does spring start this year ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%spring%";
+Seasons_of_2018
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%spring%";
+--------------------------------------------------
+--------------------------------------------------
+example# 212
+Alexa , how much is Judy Moody and the Bucket List ?
+
+SELECT "Support", "Price" FROM Table_1;
+Judy_Moody_and_the_Bucket_List
+SELECT "Support", "Price" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 213
+What is the best eczema cream ?
+
+SELECT "Product" FROM Table_1 LIMIT 1;
+Best_Eczema_Cream
+SELECT "Product" FROM Table_1 LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 214
+Alexa , is there a passively cooled GTX 1060 ?
+
+SELECT Count ( "Product_Name" ) FROM Table_1 WHERE "NVIDIA" LIKE "%%GTX%" AND "NVIDIA" LIKE "%%1060%";
+Graphics_Card_Cooler
+SELECT Count ( "Product_Name" ) FROM Table_1 WHERE "NVIDIA" LIKE "%%GTX%" AND "NVIDIA" LIKE "%%1060%";
+--------------------------------------------------
+--------------------------------------------------
+example# 215
+how many yards in a meter ?
+
+SELECT "yard" FROM Table_1 WHERE "meter" LIKE "%%1%";
+Meters_to_Yard
+SELECT "yard" FROM Table_1 WHERE "meter" LIKE "%%1%";
+--------------------------------------------------
+--------------------------------------------------
+example# 216
+Alexa , how long do I cook a roast ?
+
+SELECT "StandardTime", "Temperature" FROM Table_1 LIMIT 1;
+cookingRoost
+SELECT "StandardTime", "Temperature" FROM Table_1 LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 217
+Alexa , what was the number 1 song in Billboard Top 100 song for 2017 ?
+
+SELECT "Song_title" FROM Table_1 ORDER BY "Rank" ASC LIMIT 1;
+Billboard
+SELECT "Song_title" FROM Table_1 ORDER BY "Rank" ASC LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 218
+where was Rihanna born ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Place_of_birth%";
+Rihanna_-_Quick_Facts
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Place_of_birth%";
+--------------------------------------------------
+--------------------------------------------------
+example# 219
+Alexa , how many books are in the Bible ?
+
+SELECT COUNT ( "Book_Title(s)" ) FROM Table_1;
+Bible
+SELECT COUNT ( "Book_Title(s)" ) FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 220
+What is the superbowl being televised on channel in new england
+
+SELECT "Value" FROM Table_1 WHERE "KEY" LIKE "%%TV%";
+How_to_Watch_Super_Bowl_LII
+SELECT "Value" FROM Table_1 WHERE "KEY" LIKE "%%TV%";
+--------------------------------------------------
+--------------------------------------------------
+example# 221
+What time does the super bowl start ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%time%";
+Superbowl_2018
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%time%";
+--------------------------------------------------
+--------------------------------------------------
+example# 222
+Alexa , how much is an HP Stream laptop ?
+
+SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Price%";
+HP_Stream_Info
+SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Price%";
+--------------------------------------------------
+--------------------------------------------------
+example# 223
+Alexa , what is the current Bitcoin price ?
+
+SELECT "Price" FROM Table_1 WHERE "Currency" = "Bitcoin";
+Cryptocurrency_Price
+SELECT "Price" FROM Table_1 WHERE "Currency" = "Bitcoin";
+--------------------------------------------------
+--------------------------------------------------
+example# 224
+what is the most fuel efficient mid size suv ?
+
+SELECT "Car_model" FROM Table_1 ORDER BY "Overall_mpg" DESC LIMIT 1;
+Fuel_Efficient_SUV
+SELECT "Car_model" FROM Table_1 ORDER BY "Overall_mpg" DESC LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 225
+what do you get for free on your birthday
+
+SELECT "Store", "Offer" FROM Table_1 LIMIT 3;
+The_101_Best_Birthday_Freebies_in_2018:_Get_Free_Stuff_Just_for_Showing_Up!
+SELECT "Store", "Offer" FROM Table_1 LIMIT 3;
+--------------------------------------------------
+--------------------------------------------------
+example# 226
+How do I make antipasto salad ?
+
+SELECT "directions" FROM Table_1 ;
+make_antipasto_salad
+SELECT "directions" FROM Table_1 ;
+--------------------------------------------------
+--------------------------------------------------
+example# 227
+Alexa , when does Disney on Ice perform in San Antonio ?
+
+SELECT "Date" FROM Table_1 WHERE "City" LIKE "%%San_Antonio%";
+Disney_on_Ice
+SELECT "Date" FROM Table_1 WHERE "City" LIKE "%%San_Antonio%";
+--------------------------------------------------
+--------------------------------------------------
+example# 228
+Google , How far is Yuma AZ ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Distance%";
+Pittsburgh,_PA_to_Yuma,_AZ
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Distance%";
+--------------------------------------------------
+--------------------------------------------------
+example# 229
+Alexa , what is the distance between England and the US ?
+
+SELECT "Distance_(mi)" FROM Table_1FROM Table_1 WHERE "Country" LIKE "%%United_Kingdom%";
+Distance_from_United_States_to_Other_Countries
+SELECT "Distance_(mi)" FROM Table_1FROM Table_1 WHERE "Country" LIKE "%%United_Kingdom%";
+--------------------------------------------------
+--------------------------------------------------
+example# 230
+How do you establish jurisdiction for divorce in Georgia ?
+
+SELECT "Residency" FROM Table_1 WHERE "State" LIKE "%%Georgia%";
+Divorce_Residency_Requirements
+SELECT "Residency" FROM Table_1 WHERE "State" LIKE "%%Georgia%";
+--------------------------------------------------
+--------------------------------------------------
+example# 231
+how do I sell plasma in broward county
+
+SELECT DISTINCT ( Center ) FROM Table_1;
+Donating_Plasma_in_Broward_County
+SELECT DISTINCT ( Center ) FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 232
+What does Levocetriizine look like ?
+
+SELECT "name", "shape", "color" FROM Table_1 ;
+levocetirizine
+SELECT "name", "shape", "color" FROM Table_1 ;
+--------------------------------------------------
+--------------------------------------------------
+example# 233
+What does predisone look like ?
+
+SELECT "name", "shape", "color" FROM Table_1 ;
+prednisone
+SELECT "name", "shape", "color" FROM Table_1 ;
+--------------------------------------------------
+--------------------------------------------------
+example# 234
+Alexa , when is the movie `` The Post '' coming to DVD ?
+
+SELECT "Release_Date" FROM Table_1 WHERE "Format" LIKE "%%DVD%";
+The_Post_Release
+SELECT "Release_Date" FROM Table_1 WHERE "Format" LIKE "%%DVD%";
+--------------------------------------------------
+--------------------------------------------------
+example# 235
+How many vitamins do you need a day ?
+
+SELECT "Nutriment", "Daily_requirements" FROM Table_1 WHERE "Nutriment" LIKE "%%Vitamin%";
+Daily_nutriment_requirements_calculator
+SELECT "Nutriment", "Daily_requirements" FROM Table_1 WHERE "Nutriment" LIKE "%%Vitamin%";
+--------------------------------------------------
+--------------------------------------------------
+example# 236
+Alexa , what 's the value of a Ditting KFA903 ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Winning_Bid%";
+Ditting_KFA903
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Winning_Bid%";
+--------------------------------------------------
+--------------------------------------------------
+example# 237
+What is a parent plus loan ?
+
+SELECT "attributes", "parentplus" FROM Table_1;
+ParentPlus
+SELECT "attributes", "parentplus" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 238
+Alexa what are examples of body language ?
+
+SELECT "gesture" FROM Table_1 LIMIT 5;
+BodyLanguage
+SELECT "gesture" FROM Table_1 LIMIT 5;
+--------------------------------------------------
+--------------------------------------------------
+example# 239
+Alexa , where is a good place to buy suites ?
+
+SELECT "Store_Name", "Website" FROM Table_1 ORDER BY "Ranking" ASC LIMIT 3;
+Top_10_sites_to_order_custom_made_suits_online
+SELECT "Store_Name", "Website" FROM Table_1 ORDER BY "Ranking" ASC LIMIT 3;
+--------------------------------------------------
+--------------------------------------------------
+example# 240
+Siri , how old is Tony Hawk ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Age%";
+Tony_Hawk
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Age%";
+--------------------------------------------------
+--------------------------------------------------
+example# 241
+Does a loan from my 401k count as taxable income ?
+
+SELECT "401kloan" FROM Table_1 WHERE "info" LIKE "%%Tax%";
+loans
+SELECT "401kloan" FROM Table_1 WHERE "info" LIKE "%%Tax%";
+--------------------------------------------------
+--------------------------------------------------
+example# 242
+How long do you cook steak for ?
+
+SELECT "Value" FROM Table_1 WHERE "KEY" LIKE "%%cook%";
+Steak
+SELECT "Value" FROM Table_1 WHERE "KEY" LIKE "%%cook%";
+--------------------------------------------------
+--------------------------------------------------
+example# 243
+What temperature is chicken done ?
+
+SELECT "temperature" FROM Table_1 WHERE "food" LIKE "%%chicken%" ;
+food_safety
+SELECT "temperature" FROM Table_1 WHERE "food" LIKE "%%chicken%" ;
+--------------------------------------------------
+--------------------------------------------------
+example# 244
+How much is a GTX 1080 ?
+
+SELECT "Value" FROM Table_1 WHERE "KEY" LIKE "%%Price%";
+NVIDIA_GEFORCE_GTX_1080
+SELECT "Value" FROM Table_1 WHERE "KEY" LIKE "%%Price%";
+--------------------------------------------------
+--------------------------------------------------
+example# 245
+How much does Gamestop trade persona 5 in for ?
+
+SELECT "Regular" FROM Table_1 WHERE "Value" LIKE "%%Cash_Value%";
+Persona_5
+SELECT "Regular" FROM Table_1 WHERE "Value" LIKE "%%Cash_Value%";
+--------------------------------------------------
+--------------------------------------------------
+example# 246
+When will battle for azeroth be released ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%release%";
+World_of_Warcraft:_Battle_for_Azeroth
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%release%";
+--------------------------------------------------
+--------------------------------------------------
+example# 247
+Alexa , when does the new Black Panther movie premiere in Los Angeles , California ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Release%";
+Black_Panther
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Release%";
+--------------------------------------------------
+--------------------------------------------------
+example# 248
+How long do cats live ?
+
+SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Lifespan%";
+Cat_Info
+SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Lifespan%";
+--------------------------------------------------
+--------------------------------------------------
+example# 249
+What is the nearest comic book store ?
+
+SELECT "Store_Name" FROM Table_1;
+Comics_Book_Stores_-_Pittsburgh
+SELECT "Store_Name" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 250
+Alexa , how long does it take to get from New York to Philly ?
+
+SELECT "Duration" FROM Table_1FROM Table_1 ORDER BY "Duration" ASC LIMIT 1;
+Flights_from_New_York_City_to_Philadelphia
+SELECT "Duration" FROM Table_1FROM Table_1 ORDER BY "Duration" ASC LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 251
+Alexa , how much does a 2016 ford fusion SE cost ?
+
+SELECT "Price" FROM Table_1 WHERE "Configuration" LIKE "%%SE%";
+2019_Ford_Fusion
+SELECT "Price" FROM Table_1 WHERE "Configuration" LIKE "%%SE%";
+--------------------------------------------------
+--------------------------------------------------
+example# 252
+Who is the founder of Google ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Founders%";
+Google
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Founders%";
+--------------------------------------------------
+--------------------------------------------------
+example# 253
+How deep is the Mariana trench
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Elevation%";
+Marina_Trench
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Elevation%";
+--------------------------------------------------
+--------------------------------------------------
+example# 254
+find vet hospitals in marion indiana
+
+SELECT "Name" FROM Table_1;
+marion_indiana_veterinarian
+SELECT "Name" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 255
+Alexa , where is the Ultra Music Festival held ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Location%";
+Ultra_Music_Festival
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Location%";
+--------------------------------------------------
+--------------------------------------------------
+example# 256
+Alexa , where can I but Fallout ?
+
+SELECT "Store" FROM Table_1 WHERE "Product" LIKE "%%Fallout_4%" LIMIT 1;
+Fallout_Search_Result
+SELECT "Store" FROM Table_1 WHERE "Product" LIKE "%%Fallout_4%" LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 257
+What dairy-free flavors does Halo Top Ice Cream have ?
+
+SELECT "Flavors" FROM Table_1;
+Table_1
+SELECT "Flavors" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 258
+What is a maternity support for ?
+
+SELECT "reason" FROM Table_1 ;
+pregnancy_belt
+SELECT "reason" FROM Table_1 ;
+--------------------------------------------------
+--------------------------------------------------
+example# 259
+What are the benefits of avocado
+
+SELECT "benefits" FROM Table_1 ;
+avocado
+SELECT "benefits" FROM Table_1 ;
+--------------------------------------------------
+--------------------------------------------------
+example# 260
+Astma and oatmeal
+
+SELECT * FROM Table_1 WHERE "benefits" LIKE "%%asthma%" ;
+oatmeal
+SELECT * FROM Table_1 WHERE "benefits" LIKE "%%asthma%" ;
+--------------------------------------------------
+--------------------------------------------------
+example# 261
+Which foods have salicylates in them ?
+
+SELECT "Type_of_food" FROM Table_1;
+Foods_highest_in_salicylates
+SELECT "Type_of_food" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 262
+How to make an extra 200 a month
+
+SELECT "Way" FROM Table_1 LIMIT 5;
+101_Ways_to_Make_an_Extra_$500_a_Month_While_Keeping_Your_Full_Time_Job
+SELECT "Way" FROM Table_1 LIMIT 5;
+--------------------------------------------------
+--------------------------------------------------
+example# 263
+Alexa , what is Jack White 's real name ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%birth%name%";
+Jack_White
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%birth%name%";
+--------------------------------------------------
+--------------------------------------------------
+example# 264
+Alexa , when was Groundhog Day released ?
+
+SELECT "Release_date" FROM Table_1 WHERE "Country" LIKE "%%USA%";
+Groundhog_Day_Release_Info
+SELECT "Release_date" FROM Table_1 WHERE "Country" LIKE "%%USA%";
+--------------------------------------------------
+--------------------------------------------------
+example# 265
+Who is the prime minister of the United Kingdom ?
+
+SELECT "Name" FROM Table_1 ORDER BY "Term" DESC;
+British_Prime_Ministers
+SELECT "Name" FROM Table_1 ORDER BY "Term" DESC;
+--------------------------------------------------
+--------------------------------------------------
+example# 266
+how gst helps in india ?
+
+SELECT "Impact_on" FROM Table_1 LIMIT 3;
+The_impact_of_GST_(goods_and_services_Tax)_in_India
+SELECT "Impact_on" FROM Table_1 LIMIT 3;
+--------------------------------------------------
+--------------------------------------------------
+example# 267
+Alexa what is the price of jio 4G Net pack 3Gb per day month Pack ?
+
+SELECT "price" FROM Table_1 WHERE "plan_heading" LIKE "%%3_GB/DAY%" ;
+jio
+SELECT "price" FROM Table_1 WHERE "plan_heading" LIKE "%%3_GB/DAY%" ;
+--------------------------------------------------
+--------------------------------------------------
+example# 268
+Alexa , what types of Hawaiian sweet rolls are there ?
+
+SELECT "Type" FROM Table_1;
+Table_1
+SELECT "Type" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 269
+What does the Tremont from lamps plus look like ?
+
+SELECT * FROM Table_1 ;
+tremont_lamp
+SELECT * FROM Table_1 ;
+--------------------------------------------------
+--------------------------------------------------
+example# 270
+Which artists sound like kiiara ?
+
+SELECT "artist" FROM Table_1 ;
+kiiara_similar_artists
+SELECT "artist" FROM Table_1 ;
+--------------------------------------------------
+--------------------------------------------------
+example# 271
+Alexa , what musical performer are coming to Las Vegas ?
+
+SELECT "Title" FROM Table_1 LIMIT 10;
+Las_Vegas_Shows
+SELECT "Title" FROM Table_1 LIMIT 10;
+--------------------------------------------------
+--------------------------------------------------
+example# 272
+Alexa , what is a substitute for eggs in brownies ?
+
+SELECT "Substitute" FROM Table_1;
+Table_1
+SELECT "Substitute" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 273
+Alexa , where can I find a high interest checking account ?
+
+SELECT "Institution" FROM Table_1 ORDER BY "APY" DESC LIMIT 3;
+Best_High_Yield_Checking_Accounts
+SELECT "Institution" FROM Table_1 ORDER BY "APY" DESC LIMIT 3;
+--------------------------------------------------
+--------------------------------------------------
+example# 274
+What is the top cause of death ?
+
+SELECT * FROM Table_1 ORDER BY "Number_of_deaths" LIMIT 1;
+The_top_10_leading_causes_of_death_in_the_United_States
+SELECT * FROM Table_1 ORDER BY "Number_of_deaths" LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 275
+What is Bitcoin ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%definition%";
+Bitcoin
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%definition%";
+--------------------------------------------------
+--------------------------------------------------
+example# 276
+What is a block chain ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Definition%";
+Blockchain
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Definition%";
+--------------------------------------------------
+--------------------------------------------------
+example# 277
+What is a c-section ?
+
+SELECT * FROM Table_1 WHERE "key" LIKE "%%Definition%" ;
+cesarean_section
+SELECT * FROM Table_1 WHERE "key" LIKE "%%Definition%" ;
+--------------------------------------------------
+--------------------------------------------------
+example# 278
+Siri , what is shiplap ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%definition%";
+shiplap
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%definition%";
+--------------------------------------------------
+--------------------------------------------------
+example# 279
+Alexa , what does socioeconomic mean ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%definition%";
+Socioeconomic
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%definition%";
+--------------------------------------------------
+--------------------------------------------------
+example# 280
+Alexa , what is the different between mold and mildew ?
+
+SELECT * FROM Table_1 ;
+mold_mildew
+SELECT * FROM Table_1 ;
+--------------------------------------------------
+--------------------------------------------------
+example# 281
+Alexa , who plays Pennywise on the 1990 version ?
+
+SELECT "Actor" FROM Table_1 WHERE "played" LIKE "%%Pennywise%";
+Cast_It_movie
+SELECT "Actor" FROM Table_1 WHERE "played" LIKE "%%Pennywise%";
+--------------------------------------------------
+--------------------------------------------------
+example# 282
+Were there any mistakes in Moana ?
+
+SELECT COUNT ( "Mistake_type" ) FROM Table_1;
+Moana_Movie_Mistakes
+SELECT COUNT ( "Mistake_type" ) FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 283
+when can i get masters on amazon turk
+
+SELECT "Answer" FROM Table_1 WHERE "Question" LIKE "%%how%receive%masters%";
+MTurk_Master_Worker
+SELECT "Answer" FROM Table_1 WHERE "Question" LIKE "%%how%receive%masters%";
+--------------------------------------------------
+--------------------------------------------------
+example# 284
+How much does a double bass cost ?
+
+SELECT "Product" FROM Table_1 WHERE "New_Price" = ( SELECT MIN ( "New_Price") FROM Table_1 );
+Table_1
+SELECT "Product" FROM Table_1 WHERE "New_Price" = ( SELECT MIN ( "New_Price") FROM Table_1 );
+--------------------------------------------------
+--------------------------------------------------
+example# 285
+where do I buy a cheap laptop
+
+SELECT "Answer" FROM Table_1 WHERE "Question" LIKE "%%where%buy%";
+Cheap_Laptops
+SELECT "Answer" FROM Table_1 WHERE "Question" LIKE "%%where%buy%";
+--------------------------------------------------
+--------------------------------------------------
+example# 286
+How much does Straight Talk cell phone service cost ?
+
+SELECT * FROM Table_1 WHERE "network" LIKE "%%Straight_Talk%";
+phone_networks
+SELECT * FROM Table_1 WHERE "network" LIKE "%%Straight_Talk%";
+--------------------------------------------------
+--------------------------------------------------
+example# 287
+Alexa , what is the cost for a lift ticket at Timberline Lodge ?
+
+SELECT "Day", "Adult_18-64" FROM Table_1;
+timberline_lodge_lift
+SELECT "Day", "Adult_18-64" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 288
+Best web hosting sites
+
+SELECT "Title" FROM Table_1;
+Table_1
+SELECT "Title" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 289
+How much does Gamestop trade persona 5 in for ?
+
+SELECT COUNT ( "Breed_Name" ) FROM Table_1;
+Dog_Breeds
+SELECT COUNT ( "Breed_Name" ) FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 290
+Alexa , what is the top tourist attraction to visit in Texas ?
+
+SELECT "Attraction" FROM Table_1 ORDER BY "Rank" ASC LIMIT 1;
+Texas_Attractions
+SELECT "Attraction" FROM Table_1 ORDER BY "Rank" ASC LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 291
+How do I know when baby is ready to be potty trained ?
+
+SELECT "signs" FROM Table_1 ;
+baby_potty_train
+SELECT "signs" FROM Table_1 ;
+--------------------------------------------------
+--------------------------------------------------
+example# 292
+Alexa , who is the lead singer of Rush ?
+
+SELECT "lead_singer" FROM Table_1 WHERE "Band" = "Rush";
+BandLeadSingers
+SELECT "lead_singer" FROM Table_1 WHERE "Band" = "Rush";
+--------------------------------------------------
+--------------------------------------------------
+example# 293
+Alexa , what is the funniest Family Guy season ?
+
+SELECT "Season" FROM Table_1 WHERE "RANK" = "1";
+Family_Guy_Ranking
+SELECT "Season" FROM Table_1 WHERE "RANK" = "1";
+--------------------------------------------------
+--------------------------------------------------
+example# 294
+What does / mean in math
+
+SELECT "Meaning_/_Definition" FROM Table_1 WHERE "Symbol" = "/";
+Basic_Math_Symbols
+SELECT "Meaning_/_Definition" FROM Table_1 WHERE "Symbol" = "/";
+--------------------------------------------------
+--------------------------------------------------
+example# 295
+promotion code for British airline ?
+
+SELECT "Coupon" FROM Table_1;
+British_Airways_Coupons
+SELECT "Coupon" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 296
+Alexa , what does my daughter 's cough mean ?
+
+SELECT "Reason" FROM Table_1 ORDER BY "Reason" LIMIT 3;
+8_causes_of_Chronic_Cough_in_Kids
+SELECT "Reason" FROM Table_1 ORDER BY "Reason" LIMIT 3;
+--------------------------------------------------
+--------------------------------------------------
+example# 297
+Who will be in the 2018 super bowl
+
+SELECT "Team_one", "Team_two" FROM Table_1 WHERE "Season" LIKE "%%52%";
+Super_Bowl
+SELECT "Team_one", "Team_two" FROM Table_1 WHERE "Season" LIKE "%%52%";
+--------------------------------------------------
+--------------------------------------------------
+example# 298
+Who is playing in 2018 Super Bowl ?
+
+SELECT MAX(Number), "Team_1", "Team_2" FROM Table_1;
+Super_Bowl_Results
+SELECT MAX(Number), "Team_1", "Team_2" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 299
+Alexa , where is the shoe station located in Pensacola ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Address%";
+Shoe_Station,_Pensacola
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Address%";
+--------------------------------------------------
+--------------------------------------------------
+example# 300
+What Super Bowl did Tom Brady perform the best in .
+
+SELECT "superbowl" FROM Table_1 WHERE "superbowl" LIKE "%%1.%" ;
+brady
+SELECT "superbowl" FROM Table_1 WHERE "superbowl" LIKE "%%1.%" ;
+--------------------------------------------------
+--------------------------------------------------
+example# 301
+How much does Spirit Airlines charge for bags ?
+
+SELECT "Price_Per_Bag" FROM Table_1;
+Spirit_Airlines_Baggage_Fees
+SELECT "Price_Per_Bag" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 302
+How much is an iPhone 8 ?
+
+SELECT * FROM Table_1;
+Iphone8
+SELECT * FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 303
+What is the highest grossing movie of 2017 ?
+
+SELECT "Movie" FROM Table_1 WHERE "2017_Gross" = ( SELECT MAX ( "2017_Gross") FROM Table_1 );
+Table_1
+SELECT "Movie" FROM Table_1 WHERE "2017_Gross" = ( SELECT MAX ( "2017_Gross") FROM Table_1 );
+--------------------------------------------------
+--------------------------------------------------
+example# 304
+Alexa , is there latex in baby diapers ?
+
+SELECT "brand", "latex_free" FROM Table_1 ;
+diapers
+SELECT "brand", "latex_free" FROM Table_1 ;
+--------------------------------------------------
+--------------------------------------------------
+example# 305
+How do I make paneer ?
+
+SELECT "steps" FROM Table_1 ;
+make_paneer
+SELECT "steps" FROM Table_1 ;
+--------------------------------------------------
+--------------------------------------------------
+example# 306
+What is the best of songs out there ?
+
+SELECT "Song" FROM Table_1 WHERE "Ranking" = 1;
+Best_Songs_of_All_Time
+SELECT "Song" FROM Table_1 WHERE "Ranking" = 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 307
+Why is marijuana illegal ?
+
+SELECT "Reason" FROM Table_1;
+Table_1
+SELECT "Reason" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 308
+Alexa , what day is easter on this year ?
+
+SELECT "Date" FROM Table_1 WHERE "Year" LIKE "%%2018%";
+Easter_Info
+SELECT "Date" FROM Table_1 WHERE "Year" LIKE "%%2018%";
+--------------------------------------------------
+--------------------------------------------------
+example# 309
+When are taxes due ?
+
+SELECT "Date" FROM Table_1 WHERE "Year" LIKE "%%2018%";
+US_Tax_Day
+SELECT "Date" FROM Table_1 WHERE "Year" LIKE "%%2018%";
+--------------------------------------------------
+--------------------------------------------------
+example# 310
+Alexa , what time is it in Iran right now ?
+
+SELECT "Current_Time" FROM Table_1;
+Time_Zone_Currently_Being_Used_in_Iran
+SELECT "Current_Time" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 311
+Alexa : What 's the best homemade carpet cleaning solution ?
+
+SELECT * FROM Table_1 LIMIT 3;
+7_DIY_Homemade_Carpet_Shampoo_Recipes
+SELECT * FROM Table_1 LIMIT 3;
+--------------------------------------------------
+--------------------------------------------------
+example# 312
+Alexa , what does USB stand for ?
+
+SELECT "Full-nane" FROM Table_1 WHERE "Abbreviation" = "USB";
+Computer_Science:_Abbreviations
+SELECT "Full-nane" FROM Table_1 WHERE "Abbreviation" = "USB";
+--------------------------------------------------
+--------------------------------------------------
+example# 313
+Alexa , when does the new Shadow of the Colossus come out ?
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Release_Date%";
+Shadow_of_Colossus_PS4_Remake_Essential_Information
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Release_Date%";
+--------------------------------------------------
+--------------------------------------------------
+example# 314
+Alexa , what time does the Super Bowl start
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%time%";
+How_to_watch_Super_Bowl_52
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%time%";
+--------------------------------------------------
+--------------------------------------------------
+example# 315
+Alexa , name me a horror movie that recently came out .
+
+SELECT "Movie_Title" FROM Table_1 LIMIT 3;
+The_Best_Horror_Films_of_2017_(So_Far)
+SELECT "Movie_Title" FROM Table_1 LIMIT 3;
+--------------------------------------------------
+--------------------------------------------------
+example# 316
+Alexa : Are vitamins on sale at Walgreens this week ?
+
+SELECT * FROM Table_1 LIMIT 3;
+Vitamins_and_Supplements_-_Weekly_Deals
+SELECT * FROM Table_1 LIMIT 3;
+--------------------------------------------------
+--------------------------------------------------
+example# 317
+How does sleep deprivation affect you ?
+
+SELECT "Name" FROM Table_1;
+sleep_deprivation_consequences
+SELECT "Name" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 318
+Alexa , what is the tallest building in the world ?
+
+SELECT "Building" FROM Table_1 WHERE "Rank" LIKE "%%1%";
+The_Tallest_Buildings_in_the_World
+SELECT "Building" FROM Table_1 WHERE "Rank" LIKE "%%1%";
+--------------------------------------------------
+--------------------------------------------------
+example# 319
+How much is a bitcoin worth
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Last_price%";
+Bitcoin
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Last_price%";
+--------------------------------------------------
+--------------------------------------------------
+example# 320
+What food delivery services are near me ?
+
+SELECT "Name" FROM Table_1;
+The_Best_10_Food_Delivery_Services_in_Pittsburgh,_PA
+SELECT "Name" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 321
+Alexa , where can I get the best cuban food in Gainesville ?
+
+SELECT "Restaurant" FROM Table_1 ORDER BY "Index" ASC LIMIT 1;
+Best_Cuban_Food_in_Gainesville_Yelp
+SELECT "Restaurant" FROM Table_1 ORDER BY "Index" ASC LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 322
+Alexa , what are the vegan pizza spots in St. Charles ?
+
+SELECT "Name" FROM Table_1 WHERE "Category_List_Text" LIKE "%%Vegetarian%" AND "Snippet" LIKE "%%Pizza%";
+St_Charles_Vegan
+SELECT "Name" FROM Table_1 WHERE "Category_List_Text" LIKE "%%Vegetarian%" AND "Snippet" LIKE "%%Pizza%";
+--------------------------------------------------

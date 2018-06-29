@@ -129,106 +129,146 @@ def process_heart_stone_dataset():
 
     print 'avg. nums of rules: %f' % (rule_num / example_num)
 '''
+QUOTED_STRING_RE = re.compile(r"(?P<quote>['\"])(?P<string>.*?)(?<!\\)(?P=quote)")
 
-def standardize_example(nl_input, sql):
-    from is_parsable import fix_table_name
+def standardize_example(nl_input, sql_query):
+    #from lang.sqlp.parser import SQLParser
+    from sql_parse import parse_sql, source_from_parse_tree
+    import re
 
     nl_tokens = nltk.word_tokenize(nl_input)
-    preprocessed_sql, orig_table_name = fix_table_name(sql)
+
+    '''
+        Replace quoted string in SQL Query with STR
+    '''
+    str_count = 0
+    str_map = dict()
+
+    match_count = 1
+    preprocessed_sql_query = sql_query
+    match = QUOTED_STRING_RE.search(preprocessed_sql_query)
+    while match:
+        str_repr = 'STR%d' % str_count
+        str_literal = match.group(0)
+        str_string = match.group(2)
+
+        match_count += 1
+
+        preprocessed_sql_query = QUOTED_STRING_RE.sub(str_repr, preprocessed_sql_query, 1)
+        str_map[str_repr] = str_literal
+
+        str_count += 1
+        match = QUOTED_STRING_RE.search(preprocessed_sql_query)
+
+    #sanity check
+    tree = parse_sql(preprocessed_sql_query)
+    output_sql = source_from_parse_tree(tree)
+    gold_sql = re.sub(' +',' ',sql_query)
+
+    print("---------------------")
+    preprocessed_sql = output_sql
+    for element in str_map:
+        output_sql = output_sql.replace(element, str_map[element])
+    
     print(preprocessed_sql)
-    print(orig_table_name)
+    print(output_sql)
+    print(gold_sql)
 
-'''
-def preprocess_dataset(annot_file, code_file):
-    f_annot = open('standardized_nl.txt', 'w')
-    f_code = open('standardized_sql.txt', 'w')
+    assert nltk.word_tokenize(gold_sql) == nltk.word_tokenize(output_sql), 'sanity check fails: gold=[%s], actual=[%s]' % (gold_sql, output_sql)
 
+    return nl_tokens, gold_sql, preprocessed_sql, str_map
+
+
+def preprocess_sql_dataset(annot_file, code_file, table_name_file):
+    file_writer = open('sql_dataset.examples.txt', 'w')
     examples = []
 
     err_num = 0
-    for idx, (annot, code) in enumerate(zip(open(annot_file), open(code_file))):
+    for idx, (annot, code, table_name) in enumerate(zip(open(annot_file), open(code_file), open(table_name_file))):
         annot = annot.strip()
         code = code.strip()
-        try:
-            clean_query_tokens, clean_code, str_map = standardize_sql_example(annot, code)
-            example = {'id': idx, 'query_tokens': clean_query_tokens, 'code': clean_code,
-                       'str_map': str_map, 'raw_code': code}
-            examples.append(example)
+        table_name = table_name.strip()
 
-            f_annot.write('example# %d\n' % idx)
-            f_annot.write(' '.join(clean_query_tokens) + '\n')
-            f_annot.write('%d\n' % len(str_map))
-            for k, v in str_map.iteritems():
-                f_annot.write('%s ||| %s\n' % (k, v))
+        nl_tokens, sql_query, preprocessed_sql, str_map = standardize_example(annot, code)
+        raw_code = sql_query.replace("Table_1", table_name)
+        example = {'id': idx, 'query_tokens': nl_tokens, 'code': preprocessed_sql,
+                   'table_name': table_name, 'raw_code': raw_code, 'str_map': str_map}
+        examples.append(example)
 
-            f_code.write('example# %d\n' % idx)
-            f_code.write(clean_code + '\n')
-        except:
-            print code
-            err_num += 1
+        file_writer.write('-' * 50 + '\n')
+        file_writer.write('example# %d\n' % idx)
+        file_writer.write(' '.join(nl_tokens) + '\n')
+        file_writer.write('\n')
+        file_writer.write(sql_query + '\n')
+        file_writer.write(table_name + '\n')
+        file_writer.write(raw_code + '\n')
+        file_writer.write('-' * 50 + '\n')
 
         idx += 1
 
-    f_annot.close()
-    f_annot.close()
-
-    # serialize_to_file(examples, 'django.cleaned.bin')
-
-    print 'error num: %d' % err_num
-    print 'preprocess_dataset: cleaned example num: %d' % len(examples)
+    file_writer.close()
 
     return examples
-
-'''
 
 def parse_sql_dataset():
     MAX_QUERY_LENGTH = 70 # FIXME: figure out the best config!
     WORD_FREQ_CUT_OFF = 3
 
-    annot_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/sql_generation.in'
-    code_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/sql_generation.out'
+    annot_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/new_sql_generation.in'
+    code_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/new_sql_generation.out'
+    table_name_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/sql.table'
 
-    #data = preprocess_sql_dataset(annot_file, code_file)
-    sql = 'SELECT   * FROM Oscars_2018:_The_complete_list_of_winners_and_nominees_for_the_90th_Academy_Awards  WHERE  "Movie" = "It";'
-    standardize_example("Where can I buy stamps?", sql)
+    data = preprocess_sql_dataset(annot_file, code_file, table_name_file)
+    #query = 'SELECT "Battle", "huhu" FROM Table_1;'
+    #print(standardize_example("Where can I buy stamps?", query))
 
-    '''
+    #from dataset import canonicalize_example
+    #print(canonicalize_example('hehe hihi huhuhu "this is a string" "another string"', "a=1"))
+
+    for e in data:
+        e['parse_tree'] = parse_raw(e['code'])
+
     parse_trees = [e['parse_tree'] for e in data]
 
-    # apply unary closures
-    unary_closures = get_top_unary_closures(parse_trees, k=20)
-    for parse_tree in parse_trees:
-        apply_unary_closures(parse_tree, unary_closures)
-
-    # build the grammar
     grammar = get_grammar(parse_trees)
 
-    with open('hs.grammar.unary_closure.txt', 'w') as f:
+    # write grammar
+    with open('sql.grammar.txt', 'w') as f:
         for rule in grammar:
             f.write(rule.__repr__() + '\n')
 
-    annot_tokens = list(chain(*[e['query_tokens'] for e in data]))
-    annot_vocab = gen_vocab(annot_tokens, vocab_size=5000, freq_cutoff=WORD_FREQ_CUT_OFF)
+    # # build grammar ...
+    # from lang.py.py_dataset import extract_grammar
+    # grammar, all_parse_trees = extract_grammar(code_file)
 
+    annot_tokens = list(chain(*[e['query_tokens'] for e in data]))
+    annot_vocab = gen_vocab(annot_tokens, vocab_size=5000, freq_cutoff=3) # gen_vocab(annot_tokens, vocab_size=5980)
+
+    terminal_token_seq = []
+    empty_actions_count = 0
+
+    # helper function begins
     def get_terminal_tokens(_terminal_str):
-        """
-        get terminal tokens
-        break words like MinionCards into [Minion, Cards]
-        """
-        tmp_terminal_tokens = [t for t in _terminal_str.split(' ') if len(t) > 0]
+        # _terminal_tokens = filter(None, re.split('([, .?!])', _terminal_str)) # _terminal_str.split('-SP-')
+        # _terminal_tokens = filter(None, re.split('( )', _terminal_str))  # _terminal_str.split('-SP-')
+        tmp_terminal_tokens = _terminal_str.split(' ')
         _terminal_tokens = []
         for token in tmp_terminal_tokens:
-            sub_tokens = re.sub(r'([a-z])([A-Z])', r'\1 \2', token).split(' ')
-            _terminal_tokens.extend(sub_tokens)
-
+            if token:
+                _terminal_tokens.append(token)
             _terminal_tokens.append(' ')
 
         return _terminal_tokens[:-1]
+        # return _terminal_tokens
+    # helper function ends
 
-    # enumerate all terminal tokens to build up the terminal tokens vocabulary
-    all_terminal_tokens = []
+    # first pass
     for entry in data:
+        idx = entry['id']
+        query_tokens = entry['query_tokens']
+        code = entry['code']
         parse_tree = entry['parse_tree']
+
         for node in parse_tree.get_leaves():
             if grammar.is_value_node(node):
                 terminal_val = node.value
@@ -238,31 +278,31 @@ def parse_sql_dataset():
 
                 for terminal_token in terminal_tokens:
                     assert len(terminal_token) > 0
-                    all_terminal_tokens.append(terminal_token)
+                    terminal_token_seq.append(terminal_token)
 
-    terminal_vocab = gen_vocab(all_terminal_tokens, vocab_size=5000, freq_cutoff=WORD_FREQ_CUT_OFF)
+    terminal_vocab = gen_vocab(terminal_token_seq, vocab_size=5000, freq_cutoff=3)
+    assert '_STR:0_' in terminal_vocab
 
-    # now generate the dataset!
-
-    train_data = DataSet(annot_vocab, terminal_vocab, grammar, 'hs.train_data')
-    dev_data = DataSet(annot_vocab, terminal_vocab, grammar, 'hs.dev_data')
-    test_data = DataSet(annot_vocab, terminal_vocab, grammar, 'hs.test_data')
+    train_data = DataSet(annot_vocab, terminal_vocab, grammar, 'train_data')
+    dev_data = DataSet(annot_vocab, terminal_vocab, grammar, 'dev_data')
+    test_data = DataSet(annot_vocab, terminal_vocab, grammar, 'test_data')
 
     all_examples = []
 
-    can_fully_reconstructed_examples_num = 0
-    examples_with_empty_actions_num = 0
+    can_fully_gen_num = 0
 
+    # second pass
     for entry in data:
         idx = entry['id']
         query_tokens = entry['query_tokens']
         code = entry['code']
+        str_map = entry['str_map']
         parse_tree = entry['parse_tree']
 
         rule_list, rule_parents = parse_tree.get_productions(include_value_node=True)
 
         actions = []
-        can_fully_reconstructed = True
+        can_fully_gen = True
         rule_pos_map = dict()
 
         for rule_count, rule in enumerate(rule_list):
@@ -309,7 +349,7 @@ def parse_sql_dataset():
                         if terminal_token not in terminal_vocab:
                             if terminal_token not in query_tokens:
                                 # print terminal_token
-                                can_fully_reconstructed = False
+                                can_fully_gen = False
                     else:  # copy
                         if term_tok_id != terminal_vocab.unk:
                             d['source_idx'] = tok_src_idx
@@ -324,18 +364,19 @@ def parse_sql_dataset():
                 actions.append(Action(GEN_TOKEN, d))
 
         if len(actions) == 0:
-            examples_with_empty_actions_num += 1
+            empty_actions_count += 1
             continue
 
-        example = DataEntry(idx, query_tokens, parse_tree, code, actions, {'str_map': None, 'raw_code': entry['raw_code']})
+        example = DataEntry(idx, query_tokens, parse_tree, code, actions,
+                            {'raw_code': entry['raw_code'], 'str_map': entry['str_map']})
 
-        if can_fully_reconstructed:
-            can_fully_reconstructed_examples_num += 1
+        if can_fully_gen:
+            can_fully_gen_num += 1
 
-        # train, valid, test splits
-        if 0 <= idx < 533:
+        # train, valid, test
+        if 0 <= idx < 16000:
             train_data.add(example)
-        elif idx < 599:
+        elif 16000 <= idx < 17000:
             dev_data.add(example)
         else:
             test_data.add(example)
@@ -346,61 +387,28 @@ def parse_sql_dataset():
     max_query_len = max(len(e.query) for e in all_examples)
     max_actions_len = max(len(e.actions) for e in all_examples)
 
-    # serialize_to_file([len(e.query) for e in all_examples], 'query.len')
-    # serialize_to_file([len(e.actions) for e in all_examples], 'actions.len')
+    serialize_to_file([len(e.query) for e in all_examples], 'query.len')
+    serialize_to_file([len(e.actions) for e in all_examples], 'actions.len')
 
     logging.info('examples that can be fully reconstructed: %d/%d=%f',
-                 can_fully_reconstructed_examples_num, len(all_examples),
-                 can_fully_reconstructed_examples_num / len(all_examples))
-    logging.info('empty_actions_count: %d', examples_with_empty_actions_num)
-
+                 can_fully_gen_num, len(all_examples),
+                 can_fully_gen_num / len(all_examples))
+    logging.info('empty_actions_count: %d', empty_actions_count)
     logging.info('max_query_len: %d', max_query_len)
     logging.info('max_actions_len: %d', max_actions_len)
 
-    train_data.init_data_matrices(max_query_length=70, max_example_action_num=350)
-    dev_data.init_data_matrices(max_query_length=70, max_example_action_num=350)
-    test_data.init_data_matrices(max_query_length=70, max_example_action_num=350)
+    train_data.init_data_matrices()
+    dev_data.init_data_matrices()
+    test_data.init_data_matrices()
 
     serialize_to_file((train_data, dev_data, test_data),
-                      'data/hs.freq{WORD_FREQ_CUT_OFF}.max_action350.pre_suf.unary_closure.bin'.format(WORD_FREQ_CUT_OFF=WORD_FREQ_CUT_OFF))
+                      'data/django.cleaned.dataset.freq3.par_info.refact.space_only.order_by_ulink_len.bin')
+                      # 'data/django.cleaned.dataset.freq5.par_info.refact.space_only.unary_closure.freq{UNARY_CUTOFF_FREQ}.order_by_ulink_len.bin'.format(UNARY_CUTOFF_FREQ=UNARY_CUTOFF_FREQ))
 
     return train_data, dev_data, test_data
-
-
-def dump_data_for_evaluation(data_type='django', data_file='', max_query_length=70):
-    train_data, dev_data, test_data = deserialize_from_file(data_file)
-    prefix = ''
-    for dataset, output in [(train_data, prefix + '%s.train' % data_type),
-                            (dev_data, prefix + '%s.dev' % data_type),
-                            (test_data, prefix + '%s.test' % data_type)]:
-        f_source = open(output + '.desc', 'w')
-        f_target = open(output + '.code', 'w')
-
-        for e in dataset.examples:
-            query_tokens = e.query[:max_query_length]
-            code = e.code
-            if data_type == 'django':
-                target_code = de_canonicalize_code_for_seq2seq(code, e.meta_data['raw_code'])
-            else:
-                target_code = code
-
-            # tokenize code
-            target_code = target_code.strip()
-            tokenized_target = tokenize_code_adv(target_code, breakCamelStr=False if data_type=='django' else True)
-            tokenized_target = [tk.replace('\n', '#NEWLINE#') for tk in tokenized_target]
-            tokenized_target = [tk for tk in tokenized_target if tk is not None]
-
-            while tokenized_target[-1] == '#INDENT#':
-                tokenized_target = tokenized_target[:-1]
-
-            f_source.write(' '.join(query_tokens) + '\n')
-            f_target.write(' '.join(tokenized_target) + '\n')
-
-        f_source.close()
-        f_target.close()
     '''
 
 
 if __name__ == '__main__':
-    init_logging('sql_dataset.log')
+    #init_logging('sql_dataset.log')
     parse_sql_dataset()
