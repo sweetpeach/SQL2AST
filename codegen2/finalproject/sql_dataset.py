@@ -146,6 +146,7 @@ def standardize_example(nl_input, sql_query):
 
     match_count = 1
     preprocessed_sql_query = sql_query
+    '''
     match = QUOTED_STRING_RE.search(preprocessed_sql_query)
     while match:
         str_repr = 'STR%d' % str_count
@@ -160,23 +161,31 @@ def standardize_example(nl_input, sql_query):
         str_count += 1
         match = QUOTED_STRING_RE.search(preprocessed_sql_query)
 
+    '''
     #sanity check
     tree = parse_sql(preprocessed_sql_query)
     output_sql = source_from_parse_tree(tree)
     gold_sql = re.sub(' +',' ',sql_query)
 
     print("---------------------")
-    preprocessed_sql = output_sql
-    for element in str_map:
-        output_sql = output_sql.replace(element, str_map[element])
+    # preprocessed_sql = output_sql
+    # for element in str_map:
+    #     output_sql = output_sql.replace(element, str_map[element])
     
-    print(preprocessed_sql)
+    #print(preprocessed_sql)
+    #----- WITHOUR STR REPLACEMENT FOR COLUMN NAMES -----
+    temp = gold_sql.split("FROM")
+    gold_sql = temp[0].replace('"','') + "FROM" + temp[1]
+    temp = output_sql.split("FROM")
+    output_sql = temp[0].replace('"','') + "FROM" + temp[1]
+
+
     print(output_sql)
     print(gold_sql)
 
     assert nltk.word_tokenize(gold_sql) == nltk.word_tokenize(output_sql), 'sanity check fails: gold=[%s], actual=[%s]' % (gold_sql, output_sql)
 
-    return nl_tokens, gold_sql, preprocessed_sql, str_map
+    return nl_tokens, gold_sql, output_sql, str_map
 
 
 def preprocess_sql_dataset(annot_file, code_file, table_name_file):
@@ -192,7 +201,7 @@ def preprocess_sql_dataset(annot_file, code_file, table_name_file):
         nl_tokens, sql_query, preprocessed_sql, str_map = standardize_example(annot, code)
         raw_code = sql_query.replace("Table_1", table_name)
         example = {'id': idx, 'query_tokens': nl_tokens, 'code': preprocessed_sql,
-                   'table_name': table_name, 'raw_code': raw_code, 'str_map': str_map}
+                   'table_name': table_name, 'raw_code': raw_code}#, 'str_map': str_map}
         examples.append(example)
 
         file_writer.write('-' * 50 + '\n')
@@ -225,6 +234,7 @@ def parse_sql_dataset():
     #from dataset import canonicalize_example
     #print(canonicalize_example('hehe hihi huhuhu "this is a string" "another string"', "a=1"))
 
+    '''
     for e in data:
         e['parse_tree'] = parse_raw(e['code'])
 
