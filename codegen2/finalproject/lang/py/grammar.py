@@ -834,4 +834,8 @@ class PythonGrammar(Grammar):
         super(PythonGrammar, self).__init__(rules)
 
     def is_value_node(self, node):
+        print("---- goes here ----")
+        print(node)
+        print(is_builtin_type(node.type))
+        print("----------------")
         return is_builtin_type(node.type)

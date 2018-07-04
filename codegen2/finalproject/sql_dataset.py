@@ -6,12 +6,12 @@ import logging
 from itertools import chain
 import nltk
 import re
-
+from sql_parse import parse_sql, source_from_parse_tree, get_sql_grammar
 from nn.utils.io_utils import serialize_to_file, deserialize_from_file
 from nn.utils.generic_utils import init_logging
 
 from dataset import gen_vocab, DataSet, DataEntry, Action, APPLY_RULE, GEN_TOKEN, COPY_TOKEN, GEN_COPY_TOKEN, Vocab
-from lang.py.parse import parse, parse_tree_to_python_ast, canonicalize_code, get_grammar, parse_raw, \
+from lang.py.parse import parse, parse_tree_to_python_ast, canonicalize_code, parse_raw, \
     de_canonicalize_code, tokenize_code, tokenize_code_adv, de_canonicalize_code_for_seq2seq
 from lang.py.unaryclosure import get_top_unary_closures, apply_unary_closures
 
@@ -133,7 +133,7 @@ QUOTED_STRING_RE = re.compile(r"(?P<quote>['\"])(?P<string>.*?)(?<!\\)(?P=quote)
 
 def standardize_example(nl_input, sql_query):
     #from lang.sqlp.parser import SQLParser
-    from sql_parse import parse_sql, source_from_parse_tree
+    
     import re
 
     nl_tokens = nltk.word_tokenize(nl_input)
@@ -167,23 +167,23 @@ def standardize_example(nl_input, sql_query):
     output_sql = source_from_parse_tree(tree)
     gold_sql = re.sub(' +',' ',sql_query)
 
-    print("---------------------")
+    #print("---------------------")
     # preprocessed_sql = output_sql
     # for element in str_map:
     #     output_sql = output_sql.replace(element, str_map[element])
     
     #print(preprocessed_sql)
     #----- WITHOUR STR REPLACEMENT FOR COLUMN NAMES -----
-    temp = gold_sql.split("FROM")
-    gold_sql = temp[0].replace('"','') + "FROM" + temp[1]
-    temp = output_sql.split("FROM")
-    output_sql = temp[0].replace('"','') + "FROM" + temp[1]
+    #temp = gold_sql.split("FROM")
+    #gold_sql = temp[0].replace('"','') + "FROM" + temp[1]
+    #temp = output_sql.split("FROM")
+    #output_sql = temp[0].replace('"','') + "FROM" + temp[1]
 
 
-    print(output_sql)
-    print(gold_sql)
+    #print(output_sql)
+    #print(gold_sql)
 
-    assert nltk.word_tokenize(gold_sql) == nltk.word_tokenize(output_sql), 'sanity check fails: gold=[%s], actual=[%s]' % (gold_sql, output_sql)
+    #assert nltk.word_tokenize(gold_sql) == nltk.word_tokenize(output_sql), 'sanity check fails: gold=[%s], actual=[%s]' % (gold_sql, output_sql)
 
     return nl_tokens, gold_sql, output_sql, str_map
 
@@ -221,11 +221,15 @@ def preprocess_sql_dataset(annot_file, code_file, table_name_file):
 
 def parse_sql_dataset():
     MAX_QUERY_LENGTH = 70 # FIXME: figure out the best config!
-    WORD_FREQ_CUT_OFF = 3
+    WORD_FREQ_CUT_OFF = 2
 
     annot_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/new_sql_generation.in'
     code_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/new_sql_generation.out'
     table_name_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/sql.table'
+
+    #annot_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/just_two.in'
+    #code_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/just_two.out'
+    #table_name_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/just_two.table'
 
     data = preprocess_sql_dataset(annot_file, code_file, table_name_file)
     #query = 'SELECT "Battle", "huhu" FROM Table_1;'
@@ -234,13 +238,13 @@ def parse_sql_dataset():
     #from dataset import canonicalize_example
     #print(canonicalize_example('hehe hihi huhuhu "this is a string" "another string"', "a=1"))
 
-    '''
-    for e in data:
-        e['parse_tree'] = parse_raw(e['code'])
+    
+    for example in data:
+        example['parse_tree'] = parse_sql(example['code'])
+    
+    parse_trees = [example['parse_tree'] for example in data]
 
-    parse_trees = [e['parse_tree'] for e in data]
-
-    grammar = get_grammar(parse_trees)
+    grammar = get_sql_grammar(parse_trees)
 
     # write grammar
     with open('sql.grammar.txt', 'w') as f:
@@ -252,15 +256,14 @@ def parse_sql_dataset():
     # grammar, all_parse_trees = extract_grammar(code_file)
 
     annot_tokens = list(chain(*[e['query_tokens'] for e in data]))
-    annot_vocab = gen_vocab(annot_tokens, vocab_size=5000, freq_cutoff=3) # gen_vocab(annot_tokens, vocab_size=5980)
+
+    annot_vocab = gen_vocab(annot_tokens, vocab_size=5000, freq_cutoff=WORD_FREQ_CUT_OFF)
 
     terminal_token_seq = []
     empty_actions_count = 0
 
     # helper function begins
     def get_terminal_tokens(_terminal_str):
-        # _terminal_tokens = filter(None, re.split('([, .?!])', _terminal_str)) # _terminal_str.split('-SP-')
-        # _terminal_tokens = filter(None, re.split('( )', _terminal_str))  # _terminal_str.split('-SP-')
         tmp_terminal_tokens = _terminal_str.split(' ')
         _terminal_tokens = []
         for token in tmp_terminal_tokens:
@@ -269,8 +272,6 @@ def parse_sql_dataset():
             _terminal_tokens.append(' ')
 
         return _terminal_tokens[:-1]
-        # return _terminal_tokens
-    # helper function ends
 
     # first pass
     for entry in data:
@@ -280,7 +281,9 @@ def parse_sql_dataset():
         parse_tree = entry['parse_tree']
 
         for node in parse_tree.get_leaves():
-            if grammar.is_value_node(node):
+            #print(node)
+            if grammar.is_sql_lextoken(node):
+                #print("here again: " + str(node))
                 terminal_val = node.value
                 terminal_str = str(terminal_val)
 
@@ -290,9 +293,8 @@ def parse_sql_dataset():
                     assert len(terminal_token) > 0
                     terminal_token_seq.append(terminal_token)
 
-    terminal_vocab = gen_vocab(terminal_token_seq, vocab_size=5000, freq_cutoff=3)
-    assert '_STR:0_' in terminal_vocab
-
+    terminal_vocab = gen_vocab(terminal_token_seq, vocab_size=5000, freq_cutoff=WORD_FREQ_CUT_OFF)
+    
     train_data = DataSet(annot_vocab, terminal_vocab, grammar, 'train_data')
     dev_data = DataSet(annot_vocab, terminal_vocab, grammar, 'dev_data')
     test_data = DataSet(annot_vocab, terminal_vocab, grammar, 'test_data')
@@ -300,24 +302,29 @@ def parse_sql_dataset():
     all_examples = []
 
     can_fully_gen_num = 0
-
+    
     # second pass
     for entry in data:
         idx = entry['id']
         query_tokens = entry['query_tokens']
         code = entry['code']
-        str_map = entry['str_map']
+        #str_map = entry['str_map']
         parse_tree = entry['parse_tree']
-
         rule_list, rule_parents = parse_tree.get_productions(include_value_node=True)
-
+        
         actions = []
         can_fully_gen = True
         rule_pos_map = dict()
-
         for rule_count, rule in enumerate(rule_list):
-            if not grammar.is_value_node(rule.parent):
+            #if not grammar.is_value_node(rule.parent):
+            if not grammar.is_sql_lextoken(rule.parent):
+                # print("-------")
+                # print("rule value: " + str(rule.value))
+                # print(rule)
+                # print(rule.parent)
+                # print idx
                 assert rule.value is None
+                
                 parent_rule = rule_parents[(rule_count, rule)][0]
                 if parent_rule:
                     parent_t = rule_pos_map[parent_rule]
@@ -378,15 +385,15 @@ def parse_sql_dataset():
             continue
 
         example = DataEntry(idx, query_tokens, parse_tree, code, actions,
-                            {'raw_code': entry['raw_code'], 'str_map': entry['str_map']})
+                            {'raw_code': entry['raw_code'], 'str_map': None})
 
         if can_fully_gen:
             can_fully_gen_num += 1
 
         # train, valid, test
-        if 0 <= idx < 16000:
+        if 0 <= idx < 200:
             train_data.add(example)
-        elif 16000 <= idx < 17000:
+        elif 200 <= idx < 250:
             dev_data.add(example)
         else:
             test_data.add(example)
@@ -412,12 +419,10 @@ def parse_sql_dataset():
     test_data.init_data_matrices()
 
     serialize_to_file((train_data, dev_data, test_data),
-                      'data/django.cleaned.dataset.freq3.par_info.refact.space_only.order_by_ulink_len.bin')
+                      '/Users/shayati/Documents/summer_2018/sql_to_ast/data/sql_dataset.bin')
                       # 'data/django.cleaned.dataset.freq5.par_info.refact.space_only.unary_closure.freq{UNARY_CUTOFF_FREQ}.order_by_ulink_len.bin'.format(UNARY_CUTOFF_FREQ=UNARY_CUTOFF_FREQ))
 
     return train_data, dev_data, test_data
-    '''
-
 
 if __name__ == '__main__':
     #init_logging('sql_dataset.log')

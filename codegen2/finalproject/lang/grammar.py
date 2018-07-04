@@ -3,6 +3,7 @@ import logging
 
 from astnode import ASTNode
 from lang.util import typename
+from lang.sqlp.sqlplex import _lextokens
 
 class Grammar(object):
     def __init__(self, rules):
@@ -78,3 +79,7 @@ class Grammar(object):
 
     def is_value_node(self, node):
         raise NotImplementedError
+
+    def is_sql_lextoken(self, node):
+        parenthesis = set(('(',')','','*'))
+        return node.type in _lextokens or node.type in parenthesis

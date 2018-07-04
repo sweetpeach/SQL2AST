@@ -1,4 +1,4 @@
-# -*- coding: UTF-8 -*-
+ # -*- coding: UTF-8 -*-
 from __future__ import division
 import ast
 import astor
@@ -223,7 +223,9 @@ def parse_hs_dataset():
     for entry in data:
         parse_tree = entry['parse_tree']
         for node in parse_tree.get_leaves():
+            print(node)
             if grammar.is_value_node(node):
+                print(grammar.is_value_node(node))
                 terminal_val = node.value
                 terminal_str = str(terminal_val)
 
@@ -260,6 +262,7 @@ def parse_hs_dataset():
 
         for rule_count, rule in enumerate(rule_list):
             if not grammar.is_value_node(rule.parent):
+                #print(rule.value)
                 assert rule.value is None
                 parent_rule = rule_parents[(rule_count, rule)][0]
                 if parent_rule:
@@ -354,8 +357,9 @@ def parse_hs_dataset():
     dev_data.init_data_matrices(max_query_length=70, max_example_action_num=350)
     test_data.init_data_matrices(max_query_length=70, max_example_action_num=350)
 
+    data_path = '/Users/shayati/Documents/summer_2018/sql_to_ast/'
     serialize_to_file((train_data, dev_data, test_data),
-                      'data/hs.freq{WORD_FREQ_CUT_OFF}.max_action350.pre_suf.unary_closure.bin'.format(WORD_FREQ_CUT_OFF=WORD_FREQ_CUT_OFF))
+                      (data_path + 'data/new_hs.freq{WORD_FREQ_CUT_OFF}.max_action350.pre_suf.unary_closure.bin').format(WORD_FREQ_CUT_OFF=WORD_FREQ_CUT_OFF))
 
     return train_data, dev_data, test_data
 

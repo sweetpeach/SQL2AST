@@ -14,7 +14,12 @@ class ASTNode(object):
 
         #print("node type:" + str(node_type))
         #print("label:" + str(label))
-        #print("value:" + str(value))
+        '''
+        if value is not None:
+            print("node type:" + str(node_type))
+            print("label:" + str(label))
+            print("value:" + str(value))
+        '''
         #print("children: " + str(children))
 
         if type(self) is not Rule:

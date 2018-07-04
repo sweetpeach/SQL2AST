@@ -29,7 +29,7 @@ parser.add_argument('-output_dir', default='../../files/outputs')
 parser.add_argument('-model', default=None)
 
 # model's main configuration
-parser.add_argument('-data_type', default='django', choices=['django', 'ifttt', 'hs'])
+parser.add_argument('-data_type', default='django', choices=['django', 'ifttt', 'hs','sql'])
 
 # neural model's parameters
 parser.add_argument('-source_vocab_size', default=0, type=int)

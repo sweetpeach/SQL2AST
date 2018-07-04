@@ -132,7 +132,7 @@ def source_from_parse_tree(tree):
     sql = sql.replace("  ", ", ")
     return sql
 
-def get_grammar(parse_trees):
+def get_sql_grammar(parse_trees):
     rules = set()
     # rule_num_dist = defaultdict(int)
 
@@ -142,12 +142,12 @@ def get_grammar(parse_trees):
             rules.add(rule)
 
     rules = list(sorted(rules, key=lambda x: x.__repr__()))
-    print rules
+    print "rules: " + str(rules)
     grammar = Grammar(rules)
 
     logging.info('num. rules: %d', len(rules))
-    print "here"
-    #return grammar
+    print "get sql grammar"
+    return grammar
 
 
 def parse_sql(query):
@@ -174,17 +174,27 @@ if __name__ == '__main__':
     #query = 'SELECT * FROM That_Table as ALIAS_TABLE where x LIKE "%hihi%";'
     #query = 'SELECT  "State/District/Territory" from Obesity_in_the_US  ORDER BY  "Obesity_Rank", "ASC" LIMIT 1;'
     #query = 'SELECT "2018" FROM Customers_0 WHERE ((Country="Argentina") OR (City="Campinas"));'
-    #query ='SELECT  "Value" FROM Power_Transmitter  WHERE  "Property"  LIKE "%%Description%";'
-    query = 'SELECT Battle, Unlock_Requirements FROM Table_1;'
-
+    query ='SELECT  "Value" FROM Power_Transmitter  WHERE  "Property"  LIKE "%%Description%" AND "huhu" LIKE "HIHI";'
+    query = 'SELECT "Battle", "Unlock_Requirements" FROM Table_1;'
+    #query = 'SELECT  "Date" FROM Table_1  WHERE  (("Fighter_1"  LIKE "%%Brock_Lesnar%" )  OR  ("Fighter_2"  LIKE "%%Brock_Lesnar%" ) )  AND  "Event_Name_1"  LIKE "%%UFC%" LIMIT 1;'
     print(query)
     tree = parse_sql(query)
-    get_grammar([tree])
+    grammar = get_sql_grammar([tree])
     print("---------- => TREE <= ----------")
     print(tree)
     sql_query = source_from_parse_tree(tree)
     print("---------- => QUERY <= ----------")
     print(sql_query)
+
+    rule_list, rule_parents = tree.get_productions(include_value_node=True)
+    for rule_count, rule in enumerate(rule_list):
+        #if not grammar.is_value_node(rule.parent):
+        if not grammar.is_sql_lextoken(rule.parent):
+            print("-------")
+            print("rule value: " + str(rule.value))
+            print(rule)
+            print(rule.parent)
+            assert rule.value is None
 
     #parse the generated SQL query again and see if it is working
     '''
