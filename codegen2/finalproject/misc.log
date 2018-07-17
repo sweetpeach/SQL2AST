@@ -426,3 +426,150 @@
 07/03/2018 13:34:34 [INFO] grammar: root: (root)
 07/03/2018 13:34:34 [INFO] grammar: terminals: (), (IDENT), (FROM), (STRING), (DELIM), (SELECT), (empty)
 07/03/2018 13:34:34 [INFO] sql_parse: num. rules: 39
+07/05/2018 12:32:07 [INFO] generic_utils: init logging file [misc.log]
+07/05/2018 12:32:07 [INFO] grammar: num. rules: 39
+07/05/2018 12:32:07 [INFO] grammar: num. types: 43
+07/05/2018 12:32:07 [INFO] grammar: root: (root)
+07/05/2018 12:32:07 [INFO] grammar: terminals: (), (IDENT), (FROM), (STRING), (DELIM), (SELECT), (empty)
+07/05/2018 12:32:07 [INFO] sql_parse: num. rules: 39
+07/06/2018 12:34:21 [INFO] generic_utils: init logging file [misc.log]
+07/06/2018 12:34:21 [INFO] grammar: num. rules: 39
+07/06/2018 12:34:21 [INFO] grammar: num. types: 43
+07/06/2018 12:34:21 [INFO] grammar: root: (root)
+07/06/2018 12:34:21 [INFO] grammar: terminals: (), (IDENT), (FROM), (STRING), (DELIM), (SELECT), (empty)
+07/06/2018 12:34:21 [INFO] sql_parse: num. rules: 39
+07/06/2018 12:34:47 [INFO] generic_utils: init logging file [misc.log]
+07/06/2018 12:34:47 [INFO] grammar: num. rules: 43
+07/06/2018 12:34:47 [INFO] grammar: num. types: 48
+07/06/2018 12:34:47 [INFO] grammar: root: (root)
+07/06/2018 12:34:47 [INFO] grammar: terminals: (), (AND), (IDENT), (FROM), (STRING), (DELIM), (SELECT), (WHERE), (empty), (LIKE)
+07/06/2018 12:34:47 [INFO] sql_parse: num. rules: 43
+07/06/2018 12:41:38 [INFO] generic_utils: init logging file [misc.log]
+07/06/2018 12:41:38 [INFO] grammar: num. rules: 43
+07/06/2018 12:41:38 [INFO] grammar: num. types: 48
+07/06/2018 12:41:38 [INFO] grammar: root: (root)
+07/06/2018 12:41:38 [INFO] grammar: terminals: (), (AND), (IDENT), (FROM), (STRING), (DELIM), (SELECT), (WHERE), (empty), (LIKE)
+07/06/2018 12:41:38 [INFO] sql_parse: num. rules: 43
+07/06/2018 12:42:41 [INFO] generic_utils: init logging file [misc.log]
+07/06/2018 12:42:41 [INFO] grammar: num. rules: 43
+07/06/2018 12:42:41 [INFO] grammar: num. types: 48
+07/06/2018 12:42:41 [INFO] grammar: root: (root)
+07/06/2018 12:42:41 [INFO] grammar: terminals: (), (AND), (IDENT), (FROM), (STRING), (DELIM), (SELECT), (WHERE), (empty), (LIKE)
+07/06/2018 12:42:41 [INFO] sql_parse: num. rules: 43
+07/06/2018 12:43:02 [INFO] generic_utils: init logging file [misc.log]
+07/06/2018 12:43:02 [INFO] grammar: num. rules: 43
+07/06/2018 12:43:02 [INFO] grammar: num. types: 48
+07/06/2018 12:43:02 [INFO] grammar: root: (root)
+07/06/2018 12:43:02 [INFO] grammar: terminals: (), (AND), (IDENT), (FROM), (STRING), (DELIM), (SELECT), (WHERE), (empty), (LIKE)
+07/06/2018 12:43:02 [INFO] sql_parse: num. rules: 43
+07/06/2018 12:43:09 [INFO] generic_utils: init logging file [misc.log]
+07/06/2018 12:43:09 [INFO] grammar: num. rules: 43
+07/06/2018 12:43:09 [INFO] grammar: num. types: 48
+07/06/2018 12:43:09 [INFO] grammar: root: (root)
+07/06/2018 12:43:09 [INFO] grammar: terminals: (), (AND), (IDENT), (FROM), (STRING), (DELIM), (SELECT), (WHERE), (empty), (LIKE)
+07/06/2018 12:43:09 [INFO] sql_parse: num. rules: 43
+07/06/2018 12:43:40 [INFO] generic_utils: init logging file [misc.log]
+07/06/2018 12:43:41 [INFO] grammar: num. rules: 43
+07/06/2018 12:43:41 [INFO] grammar: num. types: 48
+07/06/2018 12:43:41 [INFO] grammar: root: (root)
+07/06/2018 12:43:41 [INFO] grammar: terminals: (), (AND), (IDENT), (FROM), (STRING), (DELIM), (SELECT), (WHERE), (empty), (LIKE)
+07/06/2018 12:43:41 [INFO] sql_parse: num. rules: 43
+07/06/2018 12:43:58 [INFO] generic_utils: init logging file [misc.log]
+07/06/2018 12:43:58 [INFO] grammar: num. rules: 43
+07/06/2018 12:43:58 [INFO] grammar: num. types: 48
+07/06/2018 12:43:58 [INFO] grammar: root: (root)
+07/06/2018 12:43:58 [INFO] grammar: terminals: (), (AND), (IDENT), (FROM), (STRING), (DELIM), (SELECT), (WHERE), (empty), (LIKE)
+07/06/2018 12:43:58 [INFO] sql_parse: num. rules: 43
+07/06/2018 12:45:50 [INFO] generic_utils: init logging file [misc.log]
+07/06/2018 12:45:50 [INFO] grammar: num. rules: 43
+07/06/2018 12:45:50 [INFO] grammar: num. types: 48
+07/06/2018 12:45:50 [INFO] grammar: root: (root)
+07/06/2018 12:45:50 [INFO] grammar: terminals: (), (AND), (IDENT), (FROM), (STRING), (DELIM), (SELECT), (WHERE), (empty), (LIKE)
+07/06/2018 12:45:50 [INFO] sql_parse: num. rules: 43
+07/06/2018 12:46:08 [INFO] generic_utils: init logging file [misc.log]
+07/06/2018 12:46:09 [INFO] grammar: num. rules: 43
+07/06/2018 12:46:09 [INFO] grammar: num. types: 48
+07/06/2018 12:46:09 [INFO] grammar: root: (root)
+07/06/2018 12:46:09 [INFO] grammar: terminals: (), (AND), (IDENT), (FROM), (STRING), (DELIM), (SELECT), (WHERE), (empty), (LIKE)
+07/06/2018 12:46:09 [INFO] sql_parse: num. rules: 43
+07/06/2018 12:46:34 [INFO] generic_utils: init logging file [misc.log]
+07/06/2018 12:46:34 [INFO] grammar: num. rules: 43
+07/06/2018 12:46:34 [INFO] grammar: num. types: 48
+07/06/2018 12:46:34 [INFO] grammar: root: (root)
+07/06/2018 12:46:34 [INFO] grammar: terminals: (), (AND), (IDENT), (FROM), (STRING), (DELIM), (SELECT), (WHERE), (empty), (LIKE)
+07/06/2018 12:46:34 [INFO] sql_parse: num. rules: 43
+07/06/2018 12:46:40 [INFO] generic_utils: init logging file [misc.log]
+07/06/2018 12:46:40 [INFO] grammar: num. rules: 43
+07/06/2018 12:46:40 [INFO] grammar: num. types: 48
+07/06/2018 12:46:40 [INFO] grammar: root: (root)
+07/06/2018 12:46:40 [INFO] grammar: terminals: (), (AND), (IDENT), (FROM), (STRING), (DELIM), (SELECT), (WHERE), (empty), (LIKE)
+07/06/2018 12:46:40 [INFO] sql_parse: num. rules: 43
+07/06/2018 12:48:15 [INFO] generic_utils: init logging file [misc.log]
+07/06/2018 12:48:15 [INFO] grammar: num. rules: 43
+07/06/2018 12:48:15 [INFO] grammar: num. types: 48
+07/06/2018 12:48:15 [INFO] grammar: root: (root)
+07/06/2018 12:48:15 [INFO] grammar: terminals: (), (AND), (IDENT), (FROM), (STRING), (DELIM), (SELECT), (WHERE), (empty), (LIKE)
+07/06/2018 12:48:15 [INFO] sql_parse: num. rules: 43
+07/06/2018 12:48:24 [INFO] generic_utils: init logging file [misc.log]
+07/06/2018 12:48:24 [INFO] grammar: num. rules: 43
+07/06/2018 12:48:24 [INFO] grammar: num. types: 48
+07/06/2018 12:48:24 [INFO] grammar: root: (root)
+07/06/2018 12:48:24 [INFO] grammar: terminals: (), (AND), (IDENT), (FROM), (STRING), (DELIM), (SELECT), (WHERE), (empty), (LIKE)
+07/06/2018 12:48:24 [INFO] sql_parse: num. rules: 43
+07/06/2018 12:52:22 [INFO] generic_utils: init logging file [misc.log]
+07/06/2018 12:52:22 [INFO] grammar: num. rules: 43
+07/06/2018 12:52:22 [INFO] grammar: num. types: 48
+07/06/2018 12:52:22 [INFO] grammar: root: (root)
+07/06/2018 12:52:22 [INFO] grammar: terminals: (), (AND), (IDENT), (FROM), (STRING), (DELIM), (SELECT), (WHERE), (empty), (LIKE)
+07/06/2018 12:52:22 [INFO] sql_parse: num. rules: 43
+07/06/2018 12:52:56 [INFO] generic_utils: init logging file [misc.log]
+07/06/2018 12:52:56 [INFO] grammar: num. rules: 43
+07/06/2018 12:52:56 [INFO] grammar: num. types: 48
+07/06/2018 12:52:56 [INFO] grammar: root: (root)
+07/06/2018 12:52:56 [INFO] grammar: terminals: (), (AND), (IDENT), (FROM), (STRING), (DELIM), (SELECT), (WHERE), (empty), (LIKE)
+07/06/2018 12:52:56 [INFO] sql_parse: num. rules: 43
+07/06/2018 12:53:10 [INFO] generic_utils: init logging file [misc.log]
+07/06/2018 12:53:10 [INFO] grammar: num. rules: 43
+07/06/2018 12:53:10 [INFO] grammar: num. types: 48
+07/06/2018 12:53:10 [INFO] grammar: root: (root)
+07/06/2018 12:53:10 [INFO] grammar: terminals: (), (AND), (IDENT), (FROM), (STRING), (DELIM), (SELECT), (WHERE), (empty), (LIKE)
+07/06/2018 12:53:10 [INFO] sql_parse: num. rules: 43
+07/06/2018 12:53:24 [INFO] generic_utils: init logging file [misc.log]
+07/06/2018 12:53:24 [INFO] grammar: num. rules: 43
+07/06/2018 12:53:24 [INFO] grammar: num. types: 48
+07/06/2018 12:53:24 [INFO] grammar: root: (root)
+07/06/2018 12:53:24 [INFO] grammar: terminals: (), (AND), (IDENT), (FROM), (STRING), (DELIM), (SELECT), (WHERE), (empty), (LIKE)
+07/06/2018 12:53:24 [INFO] sql_parse: num. rules: 43
+07/06/2018 12:53:33 [INFO] generic_utils: init logging file [misc.log]
+07/06/2018 12:53:33 [INFO] grammar: num. rules: 43
+07/06/2018 12:53:33 [INFO] grammar: num. types: 48
+07/06/2018 12:53:33 [INFO] grammar: root: (root)
+07/06/2018 12:53:33 [INFO] grammar: terminals: (), (AND), (IDENT), (FROM), (STRING), (DELIM), (SELECT), (WHERE), (empty), (LIKE)
+07/06/2018 12:53:33 [INFO] sql_parse: num. rules: 43
+07/06/2018 12:53:49 [INFO] generic_utils: init logging file [misc.log]
+07/06/2018 12:53:49 [INFO] grammar: num. rules: 43
+07/06/2018 12:53:49 [INFO] grammar: num. types: 48
+07/06/2018 12:53:49 [INFO] grammar: root: (root)
+07/06/2018 12:53:49 [INFO] grammar: terminals: (), (AND), (IDENT), (FROM), (STRING), (DELIM), (SELECT), (WHERE), (empty), (LIKE)
+07/06/2018 12:53:49 [INFO] sql_parse: num. rules: 43
+07/06/2018 13:06:41 [INFO] generic_utils: init logging file [misc.log]
+07/06/2018 13:06:41 [INFO] grammar: num. rules: 43
+07/06/2018 13:06:41 [INFO] grammar: num. types: 48
+07/06/2018 13:06:41 [INFO] grammar: root: (root)
+07/06/2018 13:06:41 [INFO] grammar: terminals: (), (AND), (IDENT), (FROM), (STRING), (DELIM), (SELECT), (WHERE), (empty), (LIKE)
+07/06/2018 13:06:41 [INFO] sql_parse: num. rules: 43
+07/06/2018 13:07:43 [INFO] generic_utils: init logging file [misc.log]
+07/06/2018 13:07:43 [INFO] grammar: num. rules: 43
+07/06/2018 13:07:43 [INFO] grammar: num. types: 48
+07/06/2018 13:07:43 [INFO] grammar: root: (root)
+07/06/2018 13:07:43 [INFO] grammar: terminals: (), (AND), (IDENT), (FROM), (STRING), (DELIM), (SELECT), (WHERE), (empty), (LIKE)
+07/06/2018 13:07:43 [INFO] sql_parse: num. rules: 43
+07/06/2018 13:08:07 [INFO] generic_utils: init logging file [misc.log]
+07/06/2018 13:08:07 [INFO] grammar: num. rules: 45
+07/06/2018 13:08:07 [INFO] grammar: num. types: 53
+07/06/2018 13:08:07 [INFO] grammar: root: (root)
+07/06/2018 13:08:07 [INFO] grammar: terminals: (), (COUNT), (IDENT), (FROM), (STRING), ()), ((), (DELIM), (AND), (SELECT), (WHERE), (empty), (LIKE)
+07/06/2018 13:08:07 [INFO] sql_parse: num. rules: 45
+07/06/2018 13:08:51 [INFO] generic_utils: init logging file [misc.log]
+07/06/2018 13:09:40 [INFO] generic_utils: init logging file [misc.log]
+07/06/2018 13:10:38 [INFO] generic_utils: init logging file [misc.log]

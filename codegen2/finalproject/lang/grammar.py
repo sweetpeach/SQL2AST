@@ -78,7 +78,9 @@ class Grammar(object):
         return node.type in self.terminal_types
 
     def is_value_node(self, node):
-        raise NotImplementedError
+        parenthesis = set(('(',')','','*'))
+        return node.type in _lextokens or node.type in parenthesis
+        #raise NotImplementedError
 
     def is_sql_lextoken(self, node):
         parenthesis = set(('(',')','','*'))

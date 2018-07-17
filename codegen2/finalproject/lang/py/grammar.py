@@ -4,6 +4,7 @@ Python grammar and typing system
 import ast
 import inspect
 import astor
+from lang.sqlp.sqlplex import _lextokens
 
 from lang.grammar import Grammar
 
@@ -839,3 +840,11 @@ class PythonGrammar(Grammar):
         print(is_builtin_type(node.type))
         print("----------------")
         return is_builtin_type(node.type)
+
+class SQLGrammar(Grammar):
+    def __init__(self, rules):
+        super(SQLGrammar, self).__init__(rules)
+
+    def is_value_node(self, node):
+        parenthesis = set(('(',')','','*'))
+        return node.type in _lextokens or node.type in parenthesis

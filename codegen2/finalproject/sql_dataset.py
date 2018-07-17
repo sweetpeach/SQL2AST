@@ -209,6 +209,7 @@ def preprocess_sql_dataset(annot_file, code_file, table_name_file):
         file_writer.write(' '.join(nl_tokens) + '\n')
         file_writer.write('\n')
         file_writer.write(sql_query + '\n')
+        file_writer.write(preprocessed_sql + '\n')
         file_writer.write(table_name + '\n')
         file_writer.write(raw_code + '\n')
         file_writer.write('-' * 50 + '\n')
@@ -240,7 +241,7 @@ def parse_sql_dataset():
 
     
     for example in data:
-        example['parse_tree'] = parse_sql(example['code'])
+        example['parse_tree'] = parse_sql(str(example['code']))
     
     parse_trees = [example['parse_tree'] for example in data]
 
@@ -316,8 +317,8 @@ def parse_sql_dataset():
         can_fully_gen = True
         rule_pos_map = dict()
         for rule_count, rule in enumerate(rule_list):
-            #if not grammar.is_value_node(rule.parent):
-            if not grammar.is_sql_lextoken(rule.parent):
+            if not grammar.is_value_node(rule.parent):
+            #if not grammar.is_sql_lextoken(rule.parent):
                 # print("-------")
                 # print("rule value: " + str(rule.value))
                 # print(rule)

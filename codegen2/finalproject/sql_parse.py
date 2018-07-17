@@ -6,7 +6,7 @@ from cStringIO import StringIO
 from tokenize import generate_tokens
 
 from astnode import ASTNode
-from lang.py.grammar import is_compositional_leaf, PY_AST_NODE_FIELDS, NODE_FIELD_BLACK_LIST, PythonGrammar
+from lang.py.grammar import is_compositional_leaf, PY_AST_NODE_FIELDS, NODE_FIELD_BLACK_LIST, SQLGrammar
 from lang.util import escape
 from lang.util import typename
 from lang.sqlp.parser import SQLParser
@@ -119,17 +119,37 @@ def add_root(tree):
 
 def source_from_parse_tree(tree):
     sql = ''
-    terminals = tree.get_leaves()
-    for terminal in terminals:
-        if terminal.type is not "empty":
-            token = terminal.value.replace("'","")
+    terminal_list = tree.get_leaves()
+    '''
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=")
+    print(tree)
+    print "terminal: " + str(terminal_list)
+    '''
+    position = 0
+    #for terminal in terminal_list:
+    for i in range(0, len(terminal_list)):
+        terminal = terminal_list[i]
+        '''
+        print("i: " + str(i))
+        print(terminal.value)
+        print(terminal.type)
+        print " length: " + str(len(terminal_list))
+        '''
+        if str(terminal.type) != "empty":
+            #print("here: " + terminal.value)
+            token = terminal.value.replace("'","").replace("<eos>","")
             if terminal.type == "STRING":
                 sql += '"' + token + '" '
             elif terminal.type == "DELIM":
                 sql = sql.strip() + token
+            elif str(terminal.type) == "IDENT" and str(token) != "Table_1":
+                #print(token)
+                sql += '"' + token + '" '
             else:
                 sql += token + " "
+            position += 1
     sql = sql.replace("  ", ", ")
+    #print(sql)
     return sql
 
 def get_sql_grammar(parse_trees):
@@ -143,7 +163,7 @@ def get_sql_grammar(parse_trees):
 
     rules = list(sorted(rules, key=lambda x: x.__repr__()))
     print "rules: " + str(rules)
-    grammar = Grammar(rules)
+    grammar = SQLGrammar(rules)
 
     logging.info('num. rules: %d', len(rules))
     print "get sql grammar"
@@ -174,18 +194,18 @@ if __name__ == '__main__':
     #query = 'SELECT * FROM That_Table as ALIAS_TABLE where x LIKE "%hihi%";'
     #query = 'SELECT  "State/District/Territory" from Obesity_in_the_US  ORDER BY  "Obesity_Rank", "ASC" LIMIT 1;'
     #query = 'SELECT "2018" FROM Customers_0 WHERE ((Country="Argentina") OR (City="Campinas"));'
-    query ='SELECT  "Value" FROM Power_Transmitter  WHERE  "Property"  LIKE "%%Description%" AND "huhu" LIKE "HIHI";'
-    query = 'SELECT "Battle", "Unlock_Requirements" FROM Table_1;'
+    query ='SELECT  "Value", "COL FROM", "haha" FROM Power_Transmitter  WHERE  "Property"  LIKE "%%Description%" AND "huhu" LIKE "HIHI";'
+    #query = 'SELECT "Battle", "Unlock_Requirements" FROM Table_1;'
     #query = 'SELECT  "Date" FROM Table_1  WHERE  (("Fighter_1"  LIKE "%%Brock_Lesnar%" )  OR  ("Fighter_2"  LIKE "%%Brock_Lesnar%" ) )  AND  "Event_Name_1"  LIKE "%%UFC%" LIMIT 1;'
     print(query)
     tree = parse_sql(query)
     grammar = get_sql_grammar([tree])
     print("---------- => TREE <= ----------")
-    print(tree)
+    #print(tree)
     sql_query = source_from_parse_tree(tree)
     print("---------- => QUERY <= ----------")
     print(sql_query)
-
+    '''
     rule_list, rule_parents = tree.get_productions(include_value_node=True)
     for rule_count, rule in enumerate(rule_list):
         #if not grammar.is_value_node(rule.parent):
@@ -195,7 +215,7 @@ if __name__ == '__main__':
             print(rule)
             print(rule.parent)
             assert rule.value is None
-
+    '''
     #parse the generated SQL query again and see if it is working
     '''
     fake_query = ""

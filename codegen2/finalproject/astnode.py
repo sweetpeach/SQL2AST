@@ -217,7 +217,7 @@ class ASTNode(object):
         leaves = []
         for child in self.children:
             leaves.extend(child.get_leaves())
-
+        
         return leaves
 
     def to_rule(self, include_value=False):

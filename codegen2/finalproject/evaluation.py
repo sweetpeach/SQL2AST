@@ -64,6 +64,7 @@ def evaluate_decode_results(dataset, decode_results, verbose=True):
     from lang.py.parse import tokenize_code, de_canonicalize_code
     # tokenize_code = tokenize_for_bleu_eval
     import ast
+    from sql_parse import parse_sql, source_from_parse_tree
     print "DATASET COUNT"
     print dataset.count
     print len(decode_results)
@@ -102,24 +103,45 @@ def evaluate_decode_results(dataset, decode_results, verbose=True):
     for eid in range(dataset.count):
         example = dataset.examples[eid]
         ref_code = example.code
-        ref_ast_tree = ast.parse(ref_code).body[0]
-        refer_source = astor.to_source(ref_ast_tree).strip()
-        # refer_source = ref_code
-        refer_tokens = tokenize_code(refer_source)
-        cur_example_correct = False
+        if config.data_type == 'sql':
+            #print("---- SQL ----")
+            gold_ast = parse_sql(ref_code)
+            #print("gold ast: " + str(gold_ast))
+            gold_source = source_from_parse_tree(gold_ast).strip()
+            #print("gold source: " + str(gold_source))
+            
+            refer_tokens = tokenize_code(gold_source)
+            cur_example_correct = False
 
-        decode_cands = decode_results[eid]
-        if len(decode_cands) == 0:
-            continue
+            decode_cands = decode_results[eid]
+            if len(decode_cands) == 0:
+                continue
 
-        decode_cand = decode_cands[0]
+            decode_cand = decode_cands[0]
+            #print(decode_cand)
 
-        cid, cand, ast_tree, code = decode_cand
-        code = astor.to_source(ast_tree).strip()
+            cid, cand, predicted_ast, code = decode_cand
+            predicted_code = source_from_parse_tree(predicted_ast).strip()
+
+        else:
+            ref_ast_tree = ast.parse(ref_code).body[0]
+            refer_source = astor.to_source(ref_ast_tree).strip()
+            # refer_source = ref_code
+            refer_tokens = tokenize_code(refer_source)
+            cur_example_correct = False
+
+            decode_cands = decode_results[eid]
+            if len(decode_cands) == 0:
+                continue
+
+            decode_cand = decode_cands[0]
+
+            cid, cand, ast_tree, code = decode_cand
+            code = astor.to_source(ast_tree).strip()
 
         # simple_url_2_re = re.compile('_STR:0_', re.))
         try:
-            predict_tokens = tokenize_code(code)
+            predict_tokens = tokenize_code(predicted_code)
         except:
             logging.error('error in tokenizing [%s]', code)
             continue
@@ -146,6 +168,13 @@ def evaluate_decode_results(dataset, decode_results, verbose=True):
         elif config.data_type == 'hs':
             ref_code_for_bleu = ref_code
             pred_code_for_bleu = code
+        else:
+            ref_code_for_bleu = ref_code
+            pred_code_for_bleu = predicted_code
+            #print("====== result for SQL =======")
+            #print(ref_code_for_bleu)
+            #print(pred_code_for_bleu)
+            #print("===============")
 
         # we apply Ling Wang's trick when evaluating BLEU scores
         refer_tokens_for_bleu = tokenize_for_bleu_eval(ref_code_for_bleu)
@@ -189,14 +218,14 @@ def evaluate_decode_results(dataset, decode_results, verbose=True):
 
             if config.data_type == 'django':
                 f_decode.write(eid_to_annot[example.raw_id] + '\n')
-            elif config.data_type == 'hs':
+            else:
                 f_decode.write(' '.join(example.query) + '\n')
 
             f_bleu_eval_ref.write(' '.join(refer_tokens_for_bleu) + '\n')
             f_bleu_eval_hyp.write(' '.join(pred_tokens_for_bleu) + '\n')
 
             f_decode.write('canonicalized reference: \n')
-            f_decode.write(refer_source + '\n')
+            f_decode.write(gold_source + '\n')
             f_decode.write('canonicalized prediction: \n')
             f_decode.write(code + '\n')
             f_decode.write('reference code for bleu calculation: \n')
@@ -397,7 +426,7 @@ def analyze_decode_results(dataset, decode_results, verbose=True):
 
             if config.data_type == 'django':
                 f_decode.write(eid_to_annot[example.raw_id] + '\n')
-            elif config.data_type == 'hs':
+            else:
                 f_decode.write(' '.join(example.query) + '\n')
 
             f_bleu_eval_ref.write(' '.join(refer_tokens_for_bleu) + '\n')

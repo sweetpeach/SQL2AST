@@ -106,6 +106,25 @@ class Learner(object):
                         logging.info('channel accuracy: %f', channel_acc)
                         logging.info('channel+func accuracy: %f', channel_func_acc)
                         logging.info('prod F1: %f', prod_f1)
+                    elif config.data_type == 'sql':
+                        decode_results = decoder.decode_sql_dataset(self.model, self.val_data, verbose=False)
+                        bleu, accuracy = evaluation.evaluate_decode_results(self.val_data, decode_results, verbose=False)
+
+                        val_perf = eval(config.valid_metric)
+
+                        logging.info('avg. example bleu: %f', bleu)
+                        logging.info('accuracy: %f', accuracy)
+
+                        if len(history_valid_acc) == 0 or accuracy > np.array(history_valid_acc).max():
+                            best_model_by_acc = self.model.pull_params()
+                            # logging.info('current model has best accuracy')
+                        history_valid_acc.append(accuracy)
+
+                        if len(history_valid_bleu) == 0 or bleu > np.array(history_valid_bleu).max():
+                            best_model_by_bleu = self.model.pull_params()
+                            # logging.info('current model has best accuracy')
+                        history_valid_bleu.append(bleu)
+
                     else:
                         decode_results = decoder.decode_python_dataset(self.model, self.val_data, verbose=False)
                         bleu, accuracy = evaluation.evaluate_decode_results(self.val_data, decode_results, verbose=False)

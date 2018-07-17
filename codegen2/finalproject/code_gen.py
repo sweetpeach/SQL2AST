@@ -12,7 +12,7 @@ from dataset import DataEntry, DataSet, Vocab, Action
 import config
 from learner import Learner
 from evaluation import *
-from decoder import decode_python_dataset
+from decoder import decode_python_dataset, decode_sql_dataset, decode_sql_dataset_with_retrieval
 from components import Hyp
 from astnode import ASTNode
 from alignments import compute_alignments
@@ -208,6 +208,15 @@ if __name__ == '__main__':
         # from evaluation import decode_and_evaluate_ifttt
         if args.data_type == 'ifttt':
             decode_results = decode_and_evaluate_ifttt_by_split(model, test_data)
+        elif args.data_type == 'sql':
+            if not args.enable_retrieval:
+                dataset = eval(args.type)
+                decode_results = decode_sql_dataset(model, dataset)
+            else:
+                print args.type
+                print("sql here is with retrieval")
+                decode_results = decode_sql_dataset_with_retrieval(
+                model, train_data, dev_data, test_data, args.type, args.enable_retrieval)
         else:
             print args.type
             decode_results = decode_python_dataset(
