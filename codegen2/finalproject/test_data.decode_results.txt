@@ -1,0 +1,960 @@
+------------------------------------------------------------
+example_id: 250
+intent: 
+Alexa , where can I but Fallout ? COL_START url COL_END COL_START Product COL_END COL_START Product_link COL_END COL_START Price COL_END COL_START Store COL_END COL_START Reviews COL_END COL_START Reviews_link COL_END COL_START Description COL_END
+canonicalized reference: 
+SELECT "Store" FROM Table_1 WHERE "Product" LIKE "%%Fallout 4%" LIMIT 1;
+canonicalized prediction: 
+SELECT "Title" FROM Table_1 WHERE "Year" LIKE "%%2018%";
+reference code for bleu calculation: 
+SELECT "Store" FROM Table_1 WHERE "Product" LIKE "%%Fallout 4%" LIMIT 1;
+predicted code for bleu calculation: 
+SELECT "Title" FROM Table_1 WHERE "Year" LIKE "%%2018%";
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 251
+intent: 
+What dairy-free flavors does Halo Top Ice Cream have ? COL_START url COL_END COL_START Flavor COL_END COL_START Nutrition_Facts COL_END COL_START Nutrition_Facts_alt COL_END COL_START Ingredients COL_END
+canonicalized reference: 
+SELECT "Flavors" FROM Table_1;
+canonicalized prediction: 
+SELECT * FROM Table_1;
+reference code for bleu calculation: 
+SELECT "Flavors" FROM Table_1;
+predicted code for bleu calculation: 
+SELECT * FROM Table_1;
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 252
+intent: 
+What is a maternity support for ? COL_START reason COL_END COL_START details COL_END
+canonicalized reference: 
+SELECT "reason" FROM Table_1;
+canonicalized prediction: 
+SELECT * FROM Table_1;
+reference code for bleu calculation: 
+SELECT "reason" FROM Table_1;
+predicted code for bleu calculation: 
+SELECT * FROM Table_1;
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 253
+intent: 
+What are the benefits of avocado COL_START url COL_END COL_START benefits COL_END
+canonicalized reference: 
+SELECT "benefits" FROM Table_1;
+canonicalized prediction: 
+SELECT * FROM Table_1 LIMIT 3;
+reference code for bleu calculation: 
+SELECT "benefits" FROM Table_1;
+predicted code for bleu calculation: 
+SELECT * FROM Table_1 LIMIT 3;
+pred_shorter_than_ref: False
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 254
+intent: 
+Astma and oatmeal COL_START url COL_END COL_START benefits COL_END
+canonicalized reference: 
+SELECT * FROM Table_1 WHERE "benefits" LIKE "%%asthma%";
+canonicalized prediction: 
+SELECT "Location" FROM Table_1 LIMIT 1;
+reference code for bleu calculation: 
+SELECT * FROM Table_1 WHERE "benefits" LIKE "%%asthma%";
+predicted code for bleu calculation: 
+SELECT "Location" FROM Table_1 LIMIT 1;
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 255
+intent: 
+Which foods have salicylates in them ? COL_START Type of food COL_END COL_START Details COL_END
+canonicalized reference: 
+SELECT "Type_of_food" FROM Table_1;
+canonicalized prediction: 
+SELECT "Description" FROM Table_1 LIMIT 1;
+reference code for bleu calculation: 
+SELECT "Type_of_food" FROM Table_1;
+predicted code for bleu calculation: 
+SELECT "Description" FROM Table_1 LIMIT 1;
+pred_shorter_than_ref: False
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 256
+intent: 
+How to make an extra 200 a month COL_START Way COL_END COL_START Description COL_END
+canonicalized reference: 
+SELECT "Way" FROM Table_1 LIMIT 5;
+canonicalized prediction: 
+SELECT "Description" FROM Table_1;
+reference code for bleu calculation: 
+SELECT "Way" FROM Table_1 LIMIT 5;
+predicted code for bleu calculation: 
+SELECT "Description" FROM Table_1;
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 257
+intent: 
+Alexa , what is Jack White 's real name ? COL_START Key COL_END COL_START Value COL_END
+canonicalized reference: 
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%birth%name%";
+canonicalized prediction: 
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Capital%";
+reference code for bleu calculation: 
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%birth%name%";
+predicted code for bleu calculation: 
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Capital%";
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 258
+intent: 
+Alexa , when was Groundhog Day released ? COL_START url COL_END COL_START Country COL_END COL_START Release_date COL_END COL_START Notes COL_END
+canonicalized reference: 
+SELECT "Release_date" FROM Table_1 WHERE "Country" LIKE "%%USA%";
+canonicalized prediction: 
+SELECT "Date" FROM Table_1 WHERE "Year" LIKE "%%2018%" LIMIT 1;
+reference code for bleu calculation: 
+SELECT "Release_date" FROM Table_1 WHERE "Country" LIKE "%%USA%";
+predicted code for bleu calculation: 
+SELECT "Date" FROM Table_1 WHERE "Year" LIKE "%%2018%" LIMIT 1;
+pred_shorter_than_ref: False
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 259
+intent: 
+Who is the prime minister of the United Kingdom ? COL_START url COL_END COL_START Name COL_END COL_START Party COL_END COL_START Term COL_END
+canonicalized reference: 
+SELECT "Name" FROM Table_1 ORDER BY "Term" DESC;
+canonicalized prediction: 
+SELECT * FROM Table_1 LIMIT 1;
+reference code for bleu calculation: 
+SELECT "Name" FROM Table_1 ORDER BY "Term" DESC;
+predicted code for bleu calculation: 
+SELECT * FROM Table_1 LIMIT 1;
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 260
+intent: 
+how gst helps in india ? COL_START Impact on COL_END COL_START Details COL_END
+canonicalized reference: 
+SELECT "Impact_on" FROM Table_1 LIMIT 3;
+canonicalized prediction: 
+SELECT * FROM Table_1;
+reference code for bleu calculation: 
+SELECT "Impact_on" FROM Table_1 LIMIT 3;
+predicted code for bleu calculation: 
+SELECT * FROM Table_1;
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 261
+intent: 
+Alexa what is the price of jio 4G Net pack 3Gb per day month Pack ? COL_START url COL_END COL_START Plan_Heading COL_END COL_START price COL_END COL_START data COL_END COL_START validity COL_END
+canonicalized reference: 
+SELECT "price" FROM Table_1 WHERE "plan_heading" LIKE "%%3 GB/DAY%";
+canonicalized prediction: 
+SELECT "Character" FROM Table_1;
+reference code for bleu calculation: 
+SELECT "price" FROM Table_1 WHERE "plan_heading" LIKE "%%3 GB/DAY%";
+predicted code for bleu calculation: 
+SELECT "Character" FROM Table_1;
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 262
+intent: 
+Alexa , what types of Hawaiian sweet rolls are there ? COL_START url COL_END COL_START Type COL_END COL_START Description COL_END
+canonicalized reference: 
+SELECT "Type" FROM Table_1;
+canonicalized prediction: 
+SELECT "Description" FROM Table_1 LIMIT 3;
+reference code for bleu calculation: 
+SELECT "Type" FROM Table_1;
+predicted code for bleu calculation: 
+SELECT "Description" FROM Table_1 LIMIT 3;
+pred_shorter_than_ref: False
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 263
+intent: 
+What does the Tremont from lamps plus look like ? COL_START details COL_END
+canonicalized reference: 
+SELECT * FROM Table_1;
+canonicalized prediction: 
+
+reference code for bleu calculation: 
+SELECT * FROM Table_1;
+predicted code for bleu calculation: 
+
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 264
+intent: 
+Which artists sound like kiiara ? COL_START url COL_END COL_START artist COL_END COL_START artist_link COL_END COL_START bio COL_END
+canonicalized reference: 
+SELECT "artist" FROM Table_1;
+canonicalized prediction: 
+SELECT * FROM Table_1;
+reference code for bleu calculation: 
+SELECT "artist" FROM Table_1;
+predicted code for bleu calculation: 
+SELECT * FROM Table_1;
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 265
+intent: 
+Alexa , what musical performer are coming to Las Vegas ? COL_START url COL_END COL_START Previously_lowest_Price COL_END COL_START Lowest_Price COL_END COL_START Title COL_END COL_START Type COL_END COL_START Rating COL_END COL_START Review_number_and_links COL_END COL_START Location COL_END
+canonicalized reference: 
+SELECT "Title" FROM Table_1 LIMIT 10;
+canonicalized prediction: 
+SELECT "Title", "Date" FROM Table_1;
+reference code for bleu calculation: 
+SELECT "Title" FROM Table_1 LIMIT 10;
+predicted code for bleu calculation: 
+SELECT "Title", "Date" FROM Table_1;
+pred_shorter_than_ref: False
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 266
+intent: 
+Alexa , what is a substitute for eggs in brownies ? COL_START url COL_END COL_START Substitute COL_END COL_START Description COL_END
+canonicalized reference: 
+SELECT "Substitute" FROM Table_1;
+canonicalized prediction: 
+SELECT "Album" FROM Table_1 LIMIT 1;
+reference code for bleu calculation: 
+SELECT "Substitute" FROM Table_1;
+predicted code for bleu calculation: 
+SELECT "Album" FROM Table_1 LIMIT 1;
+pred_shorter_than_ref: False
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 267
+intent: 
+Alexa , where can I find a high interest checking account ? COL_START Institution COL_END COL_START APY COL_END COL_START Minimum Balance Amount COL_END
+canonicalized reference: 
+SELECT "Institution" FROM Table_1 ORDER BY "APY" DESC LIMIT 3;
+canonicalized prediction: 
+SELECT * FROM Table_1;
+reference code for bleu calculation: 
+SELECT "Institution" FROM Table_1 ORDER BY "APY" DESC LIMIT 3;
+predicted code for bleu calculation: 
+SELECT * FROM Table_1;
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 268
+intent: 
+What is the top cause of death ? COL_START Cause COL_END COL_START Number of deaths COL_END COL_START Date COL_END COL_START Age-adjusted rate COL_END COL_START Percentage of total deaths COL_END
+canonicalized reference: 
+SELECT * FROM Table_1 ORDER BY "Number_of_deaths" LIMIT 1;
+canonicalized prediction: 
+SELECT "Song", "State" FROM Table_1 LIMIT 1;
+reference code for bleu calculation: 
+SELECT * FROM Table_1 ORDER BY "Number_of_deaths" LIMIT 1;
+predicted code for bleu calculation: 
+SELECT "Song", "State" FROM Table_1 LIMIT 1;
+pred_shorter_than_ref: False
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 269
+intent: 
+What is Bitcoin ? COL_START Key COL_END COL_START Value COL_END
+canonicalized reference: 
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%definition%";
+canonicalized prediction: 
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Last_price%";
+reference code for bleu calculation: 
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%definition%";
+predicted code for bleu calculation: 
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Last_price%";
+pred_shorter_than_ref: False
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 270
+intent: 
+What is a block chain ? COL_START Key COL_END COL_START Value COL_END
+canonicalized reference: 
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Definition%";
+canonicalized prediction: 
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "a";
+reference code for bleu calculation: 
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Definition%";
+predicted code for bleu calculation: 
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "a";
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 271
+intent: 
+What is a c-section ? COL_START key COL_END COL_START value COL_END
+canonicalized reference: 
+SELECT * FROM Table_1 WHERE "key" LIKE "%%Definition%";
+canonicalized prediction: 
+SELECT "value" FROM Table_1 WHERE "key" LIKE "%%Occupation%";
+reference code for bleu calculation: 
+SELECT * FROM Table_1 WHERE "key" LIKE "%%Definition%";
+predicted code for bleu calculation: 
+SELECT "value" FROM Table_1 WHERE "key" LIKE "%%Occupation%";
+pred_shorter_than_ref: False
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 272
+intent: 
+Siri , what is shiplap ? COL_START Key COL_END COL_START Value COL_END
+canonicalized reference: 
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%definition%";
+canonicalized prediction: 
+SELECT "Value" FROM Table_1;
+reference code for bleu calculation: 
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%definition%";
+predicted code for bleu calculation: 
+SELECT "Value" FROM Table_1;
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 273
+intent: 
+Alexa , what does socioeconomic mean ? COL_START Key COL_END COL_START Value COL_END
+canonicalized reference: 
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%definition%";
+canonicalized prediction: 
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Capital%";
+reference code for bleu calculation: 
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%definition%";
+predicted code for bleu calculation: 
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Capital%";
+pred_shorter_than_ref: False
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 274
+intent: 
+Alexa , what is the different between mold and mildew ? COL_START url COL_END COL_START Key COL_END COL_START Mold COL_END COL_START Mildew COL_END
+canonicalized reference: 
+SELECT * FROM Table_1;
+canonicalized prediction: 
+SELECT "Value" FROM Table_1 WHERE "Character" LIKE "%%1%";
+reference code for bleu calculation: 
+SELECT * FROM Table_1;
+predicted code for bleu calculation: 
+SELECT "Value" FROM Table_1 WHERE "Character" LIKE "%%1%";
+pred_shorter_than_ref: False
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 275
+intent: 
+Alexa , who plays Pennywise on the 1990 version ? COL_START Actor COL_END COL_START played COL_END
+canonicalized reference: 
+SELECT "Actor" FROM Table_1 WHERE "played" LIKE "%%Pennywise%";
+canonicalized prediction: 
+SELECT "Description" FROM Table_1;
+reference code for bleu calculation: 
+SELECT "Actor" FROM Table_1 WHERE "played" LIKE "%%Pennywise%";
+predicted code for bleu calculation: 
+SELECT "Description" FROM Table_1;
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 276
+intent: 
+Were there any mistakes in Moana ? COL_START url COL_END COL_START Mistake_type COL_END COL_START Mistake_type_link COL_END COL_START Description COL_END
+canonicalized reference: 
+SELECT COUNT ( "Mistake_type" ) FROM Table_1;
+canonicalized prediction: 
+SELECT "Name" FROM Table_1;
+reference code for bleu calculation: 
+SELECT COUNT ( "Mistake_type" ) FROM Table_1;
+predicted code for bleu calculation: 
+SELECT "Name" FROM Table_1;
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 277
+intent: 
+when can i get masters on amazon turk COL_START Question COL_END COL_START Answer COL_END
+canonicalized reference: 
+SELECT "Answer" FROM Table_1 WHERE "Question" LIKE "%%how%receive%masters%";
+canonicalized prediction: 
+SELECT "Value" FROM Table_1 WHERE "key" LIKE "%%Release Date%";
+reference code for bleu calculation: 
+SELECT "Answer" FROM Table_1 WHERE "Question" LIKE "%%how%receive%masters%";
+predicted code for bleu calculation: 
+SELECT "Value" FROM Table_1 WHERE "key" LIKE "%%Release Date%";
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 278
+intent: 
+where do I buy a cheap laptop COL_START Question COL_END COL_START Answer COL_END
+canonicalized reference: 
+SELECT "Answer" FROM Table_1 WHERE "Question" LIKE "%%where%buy%";
+canonicalized prediction: 
+SELECT "value" FROM Table_1 WHERE "key" LIKE "%%Date%";
+reference code for bleu calculation: 
+SELECT "Answer" FROM Table_1 WHERE "Question" LIKE "%%where%buy%";
+predicted code for bleu calculation: 
+SELECT "value" FROM Table_1 WHERE "key" LIKE "%%Date%";
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 279
+intent: 
+How much does Straight Talk cell phone service cost ? COL_START url COL_END COL_START network COL_END COL_START 1GB_or_less COL_END COL_START 2-4GB COL_END COL_START 5-7GB COL_END COL_START 8-10GB COL_END COL_START Unlimited COL_END
+canonicalized reference: 
+SELECT * FROM Table_1 WHERE "network" LIKE "%%Straight Talk%";
+canonicalized prediction: 
+SELECT "does" FROM Table_1 LIMIT 1;
+reference code for bleu calculation: 
+SELECT * FROM Table_1 WHERE "network" LIKE "%%Straight Talk%";
+predicted code for bleu calculation: 
+SELECT "does" FROM Table_1 LIMIT 1;
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 280
+intent: 
+Alexa , what is the cost for a lift ticket at Timberline Lodge ? COL_START url COL_END COL_START Day COL_END COL_START Child_7-14 COL_END COL_START Junior_15-17 COL_END COL_START Adult_18-64 COL_END
+canonicalized reference: 
+SELECT "Day", "Adult_18-64" FROM Table_1;
+canonicalized prediction: 
+SELECT "Character" FROM Table_1;
+reference code for bleu calculation: 
+SELECT "Day", "Adult_18-64" FROM Table_1;
+predicted code for bleu calculation: 
+SELECT "Character" FROM Table_1;
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 281
+intent: 
+Best web hosting sites COL_START url COL_END COL_START Title COL_END COL_START Logo COL_END COL_START Logo_alt COL_END
+canonicalized reference: 
+SELECT "Title" FROM Table_1;
+canonicalized prediction: 
+SELECT * FROM Table_1 LIMIT 1;
+reference code for bleu calculation: 
+SELECT "Title" FROM Table_1;
+predicted code for bleu calculation: 
+SELECT * FROM Table_1 LIMIT 1;
+pred_shorter_than_ref: False
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 282
+intent: 
+How much does Gamestop trade persona 5 in for ? COL_START url COL_END COL_START Breed_Name COL_END COL_START Origin COL_END COL_START Description COL_END COL_START Picture COL_END COL_START Picture_alt COL_END COL_START Size COL_END
+canonicalized reference: 
+SELECT COUNT ( "Breed_Name" ) FROM Table_1;
+canonicalized prediction: 
+SELECT "Title" FROM Table_1 ORDER BY "Year" DESC LIMIT 1;
+reference code for bleu calculation: 
+SELECT COUNT ( "Breed_Name" ) FROM Table_1;
+predicted code for bleu calculation: 
+SELECT "Title" FROM Table_1 ORDER BY "Year" DESC LIMIT 1;
+pred_shorter_than_ref: False
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 283
+intent: 
+Alexa , what is the top tourist attraction to visit in Texas ? COL_START url COL_END COL_START Rank COL_END COL_START Attraction COL_END COL_START Description COL_END
+canonicalized reference: 
+SELECT "Attraction" FROM Table_1 ORDER BY "Rank" ASC LIMIT 1;
+canonicalized prediction: 
+SELECT "values" FROM Table_1 ORDER BY "keys" ASC LIMIT 1;
+reference code for bleu calculation: 
+SELECT "Attraction" FROM Table_1 ORDER BY "Rank" ASC LIMIT 1;
+predicted code for bleu calculation: 
+SELECT "values" FROM Table_1 ORDER BY "keys" ASC LIMIT 1;
+pred_shorter_than_ref: False
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 284
+intent: 
+How do I know when baby is ready to be potty trained ? COL_START url COL_END COL_START signs COL_END
+canonicalized reference: 
+SELECT "signs" FROM Table_1;
+canonicalized prediction: 
+SELECT "ready" FROM Table_1;
+reference code for bleu calculation: 
+SELECT "signs" FROM Table_1;
+predicted code for bleu calculation: 
+SELECT "ready" FROM Table_1;
+pred_shorter_than_ref: False
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 285
+intent: 
+Alexa , who is the lead singer of Rush ? COL_START url COL_END COL_START Lead_Singer COL_END COL_START Lead_Singer_link COL_END COL_START Band COL_END
+canonicalized reference: 
+SELECT "lead_singer" FROM Table_1 WHERE "Band" = "Rush";
+canonicalized prediction: 
+SELECT * FROM Table_1;
+reference code for bleu calculation: 
+SELECT "lead_singer" FROM Table_1 WHERE "Band" = "Rush";
+predicted code for bleu calculation: 
+SELECT * FROM Table_1;
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 286
+intent: 
+Alexa , what is the funniest Family Guy season ? COL_START url COL_END COL_START Rank COL_END COL_START Votes COL_END COL_START Season COL_END
+canonicalized reference: 
+SELECT "Season" FROM Table_1 WHERE "RANK" = "1";
+canonicalized prediction: 
+SELECT "Word" FROM Table_1 LIMIT 1;
+reference code for bleu calculation: 
+SELECT "Season" FROM Table_1 WHERE "RANK" = "1";
+predicted code for bleu calculation: 
+SELECT "Word" FROM Table_1 LIMIT 1;
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 287
+intent: 
+What does / mean in math COL_START url COL_END COL_START Symbol COL_END COL_START Symbol_Name COL_END COL_START Meaning_/_Definition COL_END COL_START Example COL_END
+canonicalized reference: 
+SELECT "Meaning_/_Definition" FROM Table_1 WHERE "Symbol" = "/";
+canonicalized prediction: 
+SELECT COUNT ( * ) FROM Table_1;
+reference code for bleu calculation: 
+SELECT "Meaning_/_Definition" FROM Table_1 WHERE "Symbol" = "/";
+predicted code for bleu calculation: 
+SELECT COUNT ( * ) FROM Table_1;
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 288
+intent: 
+promotion code for British airline ? COL_START Coupon COL_END COL_START Sale COL_END COL_START Description COL_END COL_START Uses COL_END
+canonicalized reference: 
+SELECT "Coupon" FROM Table_1;
+canonicalized prediction: 
+SELECT * FROM Table_1;
+reference code for bleu calculation: 
+SELECT "Coupon" FROM Table_1;
+predicted code for bleu calculation: 
+SELECT * FROM Table_1;
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 289
+intent: 
+Alexa , what does my daughter 's cough mean ? COL_START Reason COL_END COL_START Explanation Snippet COL_END
+canonicalized reference: 
+SELECT "Reason" FROM Table_1 ORDER BY "Reason" LIMIT 3;
+canonicalized prediction: 
+SELECT "Definition" FROM Table_1 LIMIT 1;
+reference code for bleu calculation: 
+SELECT "Reason" FROM Table_1 ORDER BY "Reason" LIMIT 3;
+predicted code for bleu calculation: 
+SELECT "Definition" FROM Table_1 LIMIT 1;
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 290
+intent: 
+Who will be in the 2018 super bowl COL_START url COL_END COL_START Season COL_END COL_START Team_one COL_END COL_START Scores COL_END COL_START Team_two COL_END
+canonicalized reference: 
+SELECT "Team_one", "Team_two" FROM Table_1 WHERE "Season" LIKE "%%52%";
+canonicalized prediction: 
+SELECT "Date" FROM Table_1 ORDER BY "Date" DESC LIMIT 1;
+reference code for bleu calculation: 
+SELECT "Team_one", "Team_two" FROM Table_1 WHERE "Season" LIKE "%%52%";
+predicted code for bleu calculation: 
+SELECT "Date" FROM Table_1 ORDER BY "Date" DESC LIMIT 1;
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 291
+intent: 
+Who is playing in 2018 Super Bowl ? COL_START url COL_END COL_START Number COL_END COL_START Team_1 COL_END COL_START Score COL_END COL_START Team_2 COL_END COL_START Location COL_END
+canonicalized reference: 
+SELECT "MAX" ( "Number" ), "Team_1", "Team_2" FROM Table_1;
+canonicalized prediction: 
+SELECT "Date" FROM Table_1 WHERE "Season" LIKE "%%1%";
+reference code for bleu calculation: 
+SELECT "MAX" ( "Number" ), "Team_1", "Team_2" FROM Table_1;
+predicted code for bleu calculation: 
+SELECT "Date" FROM Table_1 WHERE "Season" LIKE "%%1%";
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 292
+intent: 
+Alexa , where is the shoe station located in Pensacola ? COL_START Key COL_END COL_START Value COL_END
+canonicalized reference: 
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Address%";
+canonicalized prediction: 
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Location%";
+reference code for bleu calculation: 
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Address%";
+predicted code for bleu calculation: 
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Location%";
+pred_shorter_than_ref: False
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 293
+intent: 
+What Super Bowl did Tom Brady perform the best in . COL_START superbowl COL_END COL_START stats COL_END COL_START description COL_END
+canonicalized reference: 
+SELECT "superbowl" FROM Table_1 WHERE "superbowl" LIKE "%%1.%";
+canonicalized prediction: 
+SELECT "Name", MAX ( "Release_Date" ) FROM Table_1;
+reference code for bleu calculation: 
+SELECT "superbowl" FROM Table_1 WHERE "superbowl" LIKE "%%1.%";
+predicted code for bleu calculation: 
+SELECT "Name", MAX ( "Release_Date" ) FROM Table_1;
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 294
+intent: 
+How much does Spirit Airlines charge for bags ? COL_START url COL_END COL_START Size COL_END COL_START Price_Per_Bag COL_END
+canonicalized reference: 
+SELECT "Price_Per_Bag" FROM Table_1;
+canonicalized prediction: 
+SELECT "Description" FROM Table_1 LIMIT 1;
+reference code for bleu calculation: 
+SELECT "Price_Per_Bag" FROM Table_1;
+predicted code for bleu calculation: 
+SELECT "Description" FROM Table_1 LIMIT 1;
+pred_shorter_than_ref: False
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 295
+intent: 
+How much is an iPhone 8 ? COL_START url COL_END COL_START Seller COL_END COL_START Seller_alt COL_END COL_START Seller_link COL_END COL_START Cost COL_END
+canonicalized reference: 
+SELECT * FROM Table_1;
+canonicalized prediction: 
+SELECT "Name" FROM Table_1 LIMIT 1;
+reference code for bleu calculation: 
+SELECT * FROM Table_1;
+predicted code for bleu calculation: 
+SELECT "Name" FROM Table_1 LIMIT 1;
+pred_shorter_than_ref: False
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 296
+intent: 
+Alexa , is there latex in baby diapers ? COL_START url COL_END COL_START brand COL_END COL_START brand_link COL_END COL_START Chlorine_Free COL_END COL_START Average_Cost COL_END COL_START Biodegradable COL_END COL_START Ecofreindly COL_END COL_START Fragrance_free COL_END COL_START latex_free COL_END COL_START sodium_polyacrylate COL_END COL_START Wetness_indicator COL_END COL_START Made_In COL_END COL_START Additional_features COL_END
+canonicalized reference: 
+SELECT "brand", "latex_free" FROM Table_1;
+canonicalized prediction: 
+SELECT "Location" FROM Table_1 LIMIT 1;
+reference code for bleu calculation: 
+SELECT "brand", "latex_free" FROM Table_1;
+predicted code for bleu calculation: 
+SELECT "Location" FROM Table_1 LIMIT 1;
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 297
+intent: 
+How do I make paneer ? COL_START steps COL_END
+canonicalized reference: 
+SELECT "steps" FROM Table_1;
+canonicalized prediction: 
+SELECT * FROM Table_1 LIMIT 3;
+reference code for bleu calculation: 
+SELECT "steps" FROM Table_1;
+predicted code for bleu calculation: 
+SELECT * FROM Table_1 LIMIT 3;
+pred_shorter_than_ref: False
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 298
+intent: 
+What is the best of songs out there ? COL_START Ranking COL_END COL_START Song COL_END
+canonicalized reference: 
+SELECT "Song" FROM Table_1 WHERE "Ranking" = 1;
+canonicalized prediction: 
+SELECT "Cities" FROM Table_1 WHERE "Attraction" LIKE "%%1%";
+reference code for bleu calculation: 
+SELECT "Song" FROM Table_1 WHERE "Ranking" = 1;
+predicted code for bleu calculation: 
+SELECT "Cities" FROM Table_1 WHERE "Attraction" LIKE "%%1%";
+pred_shorter_than_ref: False
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 299
+intent: 
+Why is marijuana illegal ? COL_START url COL_END COL_START Reason COL_END COL_START Explanation COL_END
+canonicalized reference: 
+SELECT "Reason" FROM Table_1;
+canonicalized prediction: 
+SELECT "Country" FROM Table_1 LIMIT 1;
+reference code for bleu calculation: 
+SELECT "Reason" FROM Table_1;
+predicted code for bleu calculation: 
+SELECT "Country" FROM Table_1 LIMIT 1;
+pred_shorter_than_ref: False
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 300
+intent: 
+Alexa , what day is easter on this year ? COL_START url COL_END COL_START Weekday COL_END COL_START Date COL_END COL_START Year COL_END COL_START Name COL_END COL_START Holiday_Type COL_END
+canonicalized reference: 
+SELECT "Date" FROM Table_1 WHERE "Year" LIKE "%%2018%";
+canonicalized prediction: 
+SELECT "Date" FROM Table_1 ORDER BY "Year" DESC LIMIT 1;
+reference code for bleu calculation: 
+SELECT "Date" FROM Table_1 WHERE "Year" LIKE "%%2018%";
+predicted code for bleu calculation: 
+SELECT "Date" FROM Table_1 ORDER BY "Year" DESC LIMIT 1;
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 301
+intent: 
+When are taxes due ? COL_START url COL_END COL_START Weekday COL_END COL_START Date COL_END COL_START Year COL_END
+canonicalized reference: 
+SELECT "Date" FROM Table_1 WHERE "Year" LIKE "%%2018%";
+canonicalized prediction: 
+SELECT "Title", "State" FROM Table_1;
+reference code for bleu calculation: 
+SELECT "Date" FROM Table_1 WHERE "Year" LIKE "%%2018%";
+predicted code for bleu calculation: 
+SELECT "Title", "State" FROM Table_1;
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 302
+intent: 
+Alexa , what time is it in Iran right now ? COL_START Offset COL_END COL_START Time Zone Abbreviation COL_END COL_START Time Zone Name COL_END COL_START Example City COL_END COL_START Current Time COL_END
+canonicalized reference: 
+SELECT "Current_Time" FROM Table_1;
+canonicalized prediction: 
+SELECT "Name" FROM Table_1 LIMIT 1;
+reference code for bleu calculation: 
+SELECT "Current_Time" FROM Table_1;
+predicted code for bleu calculation: 
+SELECT "Name" FROM Table_1 LIMIT 1;
+pred_shorter_than_ref: False
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 303
+intent: 
+Alexa : What 's the best homemade carpet cleaning solution ? COL_START Recipe Name COL_END COL_START Recipes COL_END COL_START Snippet COL_END
+canonicalized reference: 
+SELECT * FROM Table_1 LIMIT 3;
+canonicalized prediction: 
+SELECT "Name" FROM Table_1;
+reference code for bleu calculation: 
+SELECT * FROM Table_1 LIMIT 3;
+predicted code for bleu calculation: 
+SELECT "Name" FROM Table_1;
+pred_shorter_than_ref: False
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 304
+intent: 
+Alexa , what does USB stand for ? COL_START url COL_END COL_START Abbreviation COL_END COL_START Full_Name COL_END
+canonicalized reference: 
+SELECT "Full-nane" FROM Table_1 WHERE "Abbreviation" = "USB";
+canonicalized prediction: 
+SELECT "Definition" FROM Table_1 LIMIT 1;
+reference code for bleu calculation: 
+SELECT "Full-nane" FROM Table_1 WHERE "Abbreviation" = "USB";
+predicted code for bleu calculation: 
+SELECT "Definition" FROM Table_1 LIMIT 1;
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 305
+intent: 
+Alexa , when does the new Shadow of the Colossus come out ? COL_START url COL_END COL_START Key COL_END COL_START Value COL_END
+canonicalized reference: 
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Release_Date%";
+canonicalized prediction: 
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Release date%";
+reference code for bleu calculation: 
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Release_Date%";
+predicted code for bleu calculation: 
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Release date%";
+pred_shorter_than_ref: False
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 306
+intent: 
+Alexa , name me a horror movie that recently came out . COL_START Movie title COL_END COL_START Snippet COL_END
+canonicalized reference: 
+SELECT "Movie_Title" FROM Table_1 LIMIT 3;
+canonicalized prediction: 
+SELECT "Definition" FROM Table_1 LIMIT 1;
+reference code for bleu calculation: 
+SELECT "Movie_Title" FROM Table_1 LIMIT 3;
+predicted code for bleu calculation: 
+SELECT "Definition" FROM Table_1 LIMIT 1;
+pred_shorter_than_ref: False
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 307
+intent: 
+Alexa : Are vitamins on sale at Walgreens this week ? COL_START url COL_END COL_START Product_Name COL_END COL_START Deal COL_END COL_START Type COL_END COL_START Description COL_END
+canonicalized reference: 
+SELECT * FROM Table_1 LIMIT 3;
+canonicalized prediction: 
+SELECT "Name" FROM Table_1;
+reference code for bleu calculation: 
+SELECT * FROM Table_1 LIMIT 3;
+predicted code for bleu calculation: 
+SELECT "Name" FROM Table_1;
+pred_shorter_than_ref: False
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 308
+intent: 
+How does sleep deprivation affect you ? COL_START Name COL_END COL_START Description COL_END
+canonicalized reference: 
+SELECT "Name" FROM Table_1;
+canonicalized prediction: 
+SELECT "Description" FROM Table_1 LIMIT 1;
+reference code for bleu calculation: 
+SELECT "Name" FROM Table_1;
+predicted code for bleu calculation: 
+SELECT "Description" FROM Table_1 LIMIT 1;
+pred_shorter_than_ref: False
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 309
+intent: 
+Alexa , what is the tallest building in the world ? COL_START url COL_END COL_START Rank COL_END COL_START Building COL_END COL_START Location COL_END COL_START Height_in_Feet COL_END COL_START Height_in_Meters COL_END COL_START Year_Completed COL_END
+canonicalized reference: 
+SELECT "Building" FROM Table_1 WHERE "Rank" LIKE "%%1%";
+canonicalized prediction: 
+SELECT "Title" FROM Table_1 ORDER BY "Ranking" DESC LIMIT 1;
+reference code for bleu calculation: 
+SELECT "Building" FROM Table_1 WHERE "Rank" LIKE "%%1%";
+predicted code for bleu calculation: 
+SELECT "Title" FROM Table_1 ORDER BY "Ranking" DESC LIMIT 1;
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 310
+intent: 
+How much is a bitcoin worth COL_START Key COL_END COL_START Value COL_END
+canonicalized reference: 
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Last_price%";
+canonicalized prediction: 
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Capital%";
+reference code for bleu calculation: 
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Last_price%";
+predicted code for bleu calculation: 
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Capital%";
+pred_shorter_than_ref: False
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 311
+intent: 
+What food delivery services are near me ? COL_START url COL_END COL_START Image COL_END COL_START Image_alt COL_END COL_START Image_link COL_END COL_START Search_Result COL_END COL_START Name COL_END COL_START Name_link COL_END COL_START Review_Count COL_END COL_START Service_provided COL_END COL_START Service_provided_link COL_END COL_START Tag_Deal COL_END COL_START Neighborhood COL_END COL_START Address COL_END COL_START Phone_Number COL_END COL_START Snippet COL_END COL_START Read_More COL_END COL_START Read_More_link COL_END
+canonicalized reference: 
+SELECT "Name" FROM Table_1;
+canonicalized prediction: 
+SELECT "Name" FROM Table_1 WHERE "State" LIKE "%%1%";
+reference code for bleu calculation: 
+SELECT "Name" FROM Table_1;
+predicted code for bleu calculation: 
+SELECT "Name" FROM Table_1 WHERE "State" LIKE "%%1%";
+pred_shorter_than_ref: False
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 312
+intent: 
+Alexa , where can I get the best cuban food in Gainesville ? COL_START url COL_END COL_START Analytics_Image COL_END COL_START Analytics_Image_alt COL_END COL_START Analytics_Image_link COL_END COL_START Index COL_END COL_START Restaurant COL_END COL_START Restaurant_link COL_END COL_START Review_Count COL_END COL_START Price COL_END COL_START Category_List_Text COL_END COL_START Category_List_Link COL_END COL_START Category_List_Link_link COL_END COL_START Search_Result COL_END COL_START Secondary_1 COL_END COL_START Secondary_2 COL_END COL_START Phone_Number COL_END COL_START Photo_Box_Image COL_END COL_START Photo_Box_Image_alt COL_END COL_START Photo_Box_Image_link COL_END COL_START Snippet_1 COL_END COL_START Snippet_2 COL_END COL_START Snippet_3 COL_END
+canonicalized reference: 
+SELECT "Restaurant" FROM Table_1 ORDER BY "Index" ASC LIMIT 1;
+canonicalized prediction: 
+SELECT COUNT ( "State" ) FROM Table_1;
+reference code for bleu calculation: 
+SELECT "Restaurant" FROM Table_1 ORDER BY "Index" ASC LIMIT 1;
+predicted code for bleu calculation: 
+SELECT COUNT ( "State" ) FROM Table_1;
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------
+------------------------------------------------------------
+example_id: 313
+intent: 
+Alexa , what are the vegan pizza spots in St. Charles ? COL_START url COL_END COL_START Rank COL_END COL_START Name COL_END COL_START Review_Count COL_END COL_START Price COL_END COL_START Category_List_Text COL_END COL_START Neighborhood COL_END COL_START Address_1 COL_END COL_START Address_2 COL_END COL_START Phone_Number COL_END COL_START Snippet COL_END
+canonicalized reference: 
+SELECT "Name" FROM Table_1 WHERE "Category_List_Text" LIKE "%%Vegetarian%" AND "Snippet" LIKE "%%Pizza%";
+canonicalized prediction: 
+SELECT "Title" FROM Table_1 LIMIT 1;
+reference code for bleu calculation: 
+SELECT "Name" FROM Table_1 WHERE "Category_List_Text" LIKE "%%Vegetarian%" AND "Snippet" LIKE "%%Pizza%";
+predicted code for bleu calculation: 
+SELECT "Title" FROM Table_1 LIMIT 1;
+pred_shorter_than_ref: True
+weired: False
+------------------------------------------------------------

@@ -1,6 +1,6 @@
 --------------------------------------------------
 example# 0
-Alexa , when does Diablo 3 season 12 end ?
+Alexa , when does Diablo 3 season 12 end ? COL_START url COL_END COL_START Season COL_END COL_START Start_Date COL_END COL_START End_Date COL_END COL_START Duration COL_END
 
 SELECT "End_Date" FROM Table_1 WHERE "Season" LIKE "%%12%";
 SELECT "End_Date" FROM Table_1 WHERE "Season" LIKE "%%12%";
@@ -9,7 +9,7 @@ SELECT "End_Date" FROM Table_1 WHERE "Season" LIKE "%%12%";
 --------------------------------------------------
 --------------------------------------------------
 example# 1
-How does the power transmitter in the game Subnautica work ?
+How does the power transmitter in the game Subnautica work ? COL_START Property COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Description%";
 SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Description%";
@@ -18,7 +18,7 @@ SELECT "Value" FROM Power_Transmitter WHERE "Property" LIKE "%%Description%";
 --------------------------------------------------
 --------------------------------------------------
 example# 2
-Where can I buy stamps ?
+Where can I buy stamps ? COL_START url COL_END COL_START Places COL_END
 
 SELECT "Places" FROM Table_1 LIMIT 1;
 SELECT "Places" FROM Table_1 LIMIT 1;
@@ -27,7 +27,7 @@ SELECT "Places" FROM Table_1 LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
 example# 3
-What is the population of Silt , CO ?
+What is the population of Silt , CO ? COL_START Location COL_END COL_START Population COL_END COL_START Population Density COL_END COL_START Median Age COL_END COL_START Male/Female Ration COL_END COL_START Married COL_END COL_START Speak English COL_END COL_START Speak Spanish COL_END
 
 SELECT "Population" FROM Table_1 WHERE "Location" LIKE "%%Silt%";
 SELECT "Population" FROM Table_1 WHERE "Location" LIKE "%%Silt%";
@@ -36,7 +36,7 @@ SELECT "Population" FROM SIlt_Demographics_Profile WHERE "Location" LIKE "%%Silt
 --------------------------------------------------
 --------------------------------------------------
 example# 4
-Alexa , when is spring equinox 2018 ?
+Alexa , when is spring equinox 2018 ? COL_START url COL_END COL_START Year COL_END COL_START Date COL_END COL_START Day COL_END COL_START Days_Ago COL_END
 
 SELECT "Date" FROM Table_1 WHERE "Year" LIKE "%%2018%" LIMIT 1;
 SELECT "Date" FROM Table_1 WHERE "Year" LIKE "%%2018%" LIMIT 1;
@@ -45,7 +45,7 @@ SELECT "Date" FROM EquinoxTable WHERE "Year" LIKE "%%2018%" LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
 example# 5
-where are recycling centers near Inverness Fl
+where are recycling centers near Inverness Fl COL_START url COL_END COL_START Location COL_END COL_START Directions COL_END COL_START Sponsor COL_END
 
 SELECT "Location" FROM Table_1;
 SELECT "Location" FROM Table_1;
@@ -54,7 +54,7 @@ SELECT "Location" FROM Table_1;
 --------------------------------------------------
 --------------------------------------------------
 example# 6
-What is a chinchilla ?
+What is a chinchilla ? COL_START url COL_END COL_START chinchilla COL_END
 
 SELECT "chinchilla" FROM Table_1 LIMIT 1;
 SELECT "chinchilla" FROM Table_1 LIMIT 1;
@@ -63,7 +63,7 @@ SELECT "chinchilla" FROM Table_1 LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
 example# 7
-How many calories are in a cup of brown rice ?
+How many calories are in a cup of brown rice ? COL_START url COL_END COL_START Calories COL_END COL_START Total_Fat COL_END COL_START Sodium COL_END COL_START Potassium COL_END COL_START Total_Carbs COL_END
 
 SELECT "Calories" FROM Table_1 LIMIT 1;
 SELECT "Calories" FROM Table_1 LIMIT 1;
@@ -72,7 +72,7 @@ SELECT "Calories" FROM CalorieTable LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
 example# 8
-Alexa , what is the most popular song by The Smiths ?
+Alexa , what is the most popular song by The Smiths ? COL_START url COL_END COL_START Date COL_END COL_START Cover COL_END COL_START Cover_alt COL_END COL_START Title COL_END COL_START Title_link COL_END COL_START Position COL_END COL_START Chart COL_END
 
 SELECT "Title" FROM Table_1 ORDER BY "charts" DESC LIMIT 1;
 SELECT "Title" FROM Table_1 ORDER BY "charts" DESC LIMIT 1;
@@ -81,16 +81,16 @@ SELECT "Title" FROM Table_1 ORDER BY "charts" DESC LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
 example# 9
-Alexa , what year was Brock Lesnar 's last UFC fight ?
+Alexa , what year was Brock Lesnar 's last UFC fight ? COL_START url COL_END COL_START Result COL_END COL_START Fighter_1 COL_END COL_START Fighter_2 COL_END COL_START Fighter_3 COL_END COL_START Fighter_3_link COL_END COL_START Event_Name_1 COL_END COL_START Event_Name_2 COL_END COL_START Event_Name_2_link COL_END COL_START Date COL_END COL_START Method COL_END
 
-SELECT "Date" FROM Table_1 WHERE (("Fighter_1" LIKE "%%Brock_Lesnar%" ) OR ("Fighter_2" LIKE "%%Brock_Lesnar%" ) ) AND "Event_Name_1" LIKE "%%UFC%" LIMIT 1;
-SELECT "Date" FROM Table_1 WHERE ( ( "Fighter_1" LIKE "%%Brock_Lesnar%" ) OR ( "Fighter_2" LIKE "%%Brock_Lesnar%" ) ) AND "Event_Name_1" LIKE "%%UFC%" LIMIT 1;
+SELECT "Date" FROM Table_1 WHERE (("Fighter_1" LIKE "%%Brock Lesnar%" ) OR ("Fighter_2" LIKE "%%Brock Lesnar%" ) ) AND "Event_Name_1" LIKE "%%UFC%" LIMIT 1;
+SELECT "Date" FROM Table_1 WHERE ( ( "Fighter_1" LIKE "%%Brock Lesnar%" ) OR ( "Fighter_2" LIKE "%%Brock Lesnar%" ) ) AND "Event_Name_1" LIKE "%%UFC%" LIMIT 1;
 Brock_Lesnar_Tabe
-SELECT "Date" FROM Brock_Lesnar_Tabe WHERE (("Fighter_1" LIKE "%%Brock_Lesnar%" ) OR ("Fighter_2" LIKE "%%Brock_Lesnar%" ) ) AND "Event_Name_1" LIKE "%%UFC%" LIMIT 1;
+SELECT "Date" FROM Brock_Lesnar_Tabe WHERE (("Fighter_1" LIKE "%%Brock Lesnar%" ) OR ("Fighter_2" LIKE "%%Brock Lesnar%" ) ) AND "Event_Name_1" LIKE "%%UFC%" LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
 example# 10
-what is the population of bangladesh
+what is the population of bangladesh COL_START url COL_END COL_START Date COL_END COL_START Bangladesh COL_END
 
 SELECT "Bangladesh" FROM Table_1 ORDER BY "Date" DESC LIMIT 1;
 SELECT "Bangladesh" FROM Table_1 ORDER BY "Date" DESC LIMIT 1;
@@ -99,7 +99,7 @@ SELECT "Bangladesh" FROM Table_1 ORDER BY "Date" DESC LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
 example# 11
-what is the population of china
+what is the population of china COL_START url COL_END COL_START Date COL_END COL_START China COL_END
 
 SELECT "China" FROM Table_1 ORDER BY "Date" DESC LIMIT 1;
 SELECT "China" FROM Table_1 ORDER BY "Date" DESC LIMIT 1;
@@ -108,7 +108,7 @@ SELECT "China" FROM Table_1 ORDER BY "Date" DESC LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
 example# 12
-What are the requirements for allied races in wow ?
+What are the requirements for allied races in wow ? COL_START Battle COL_END COL_START Customization Options COL_END COL_START Heritage Armor COL_END COL_START Mount COL_END COL_START Racials COL_END COL_START Tabard COL_END COL_START Unlock Requirements COL_END
 
 SELECT "Battle", "Unlock_Requirements" FROM Table_1;
 SELECT "Battle", "Unlock_Requirements" FROM Table_1;
@@ -117,16 +117,16 @@ SELECT "Battle", "Unlock_Requirements" FROM Allied_Races;
 --------------------------------------------------
 --------------------------------------------------
 example# 13
-How many ounces in 1 cup ?
+How many ounces in 1 cup ? COL_START url COL_END COL_START Cups COL_END COL_START Tablespoons COL_END COL_START Fluid_Ounces COL_END COL_START Milliliters COL_END
 
-SELECT "Fluid_Ounces" FROM Table_1 WHERE "Cups" LIKE "%%1_cup%";
-SELECT "Fluid_Ounces" FROM Table_1 WHERE "Cups" LIKE "%%1_cup%";
+SELECT "Fluid_Ounces" FROM Table_1 WHERE "Cups" LIKE "%%1 cup%";
+SELECT "Fluid_Ounces" FROM Table_1 WHERE "Cups" LIKE "%%1 cup%";
 Ounces_to_Cups
-SELECT "Fluid_Ounces" FROM Ounces_to_Cups WHERE "Cups" LIKE "%%1_cup%";
+SELECT "Fluid_Ounces" FROM Ounces_to_Cups WHERE "Cups" LIKE "%%1 cup%";
 --------------------------------------------------
 --------------------------------------------------
 example# 14
-Alexa , when is Fordham University 's first baseball game of the spring 2018 season ?
+Alexa , when is Fordham University 's first baseball game of the spring 2018 season ? COL_START url COL_END COL_START Date COL_END COL_START Time COL_END COL_START Opponent COL_END COL_START Opponent_link COL_END COL_START Home_away COL_END COL_START Location COL_END COL_START Score COL_END COL_START Win COL_END
 
 SELECT "Date" FROM Table_1 LIMIT 1;
 SELECT "Date" FROM Table_1 LIMIT 1;
@@ -135,7 +135,7 @@ SELECT "Date" FROM Fordham LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
 example# 15
-How do I make steel cut oats ?
+How do I make steel cut oats ? COL_START instructions COL_END
 
 SELECT "instructions" FROM Table_1 ;
 SELECT "instructions" FROM Table_1;
@@ -144,7 +144,7 @@ SELECT "instructions" FROM make_steel_cut_oats ;
 --------------------------------------------------
 --------------------------------------------------
 example# 16
-Alexa , how do you level a toilet ?
+Alexa , how do you level a toilet ? COL_START url COL_END COL_START Step COL_END COL_START Action COL_END
 
 SELECT * FROM Table_1 ;
 SELECT * FROM Table_1;
@@ -153,7 +153,7 @@ SELECT * FROM level_toilet ;
 --------------------------------------------------
 --------------------------------------------------
 example# 17
-What is the meaning of `` the fool '' card in Rider Waite tarot ?
+What is the meaning of `` the fool '' card in Rider Waite tarot ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Meaning%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Meaning%";
@@ -162,7 +162,7 @@ SELECT "Value" FROM The_Fool WHERE "Key" LIKE "%%Meaning%";
 --------------------------------------------------
 --------------------------------------------------
 example# 18
-Siri , where is the Cheesecake Factory located at Barton Creek Mall
+Siri , where is the Cheesecake Factory located at Barton Creek Mall COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Location%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Location%";
@@ -171,16 +171,16 @@ SELECT "Value" FROM Cheesecake_Factory_at_Barton_Creek_Mall WHERE "Key" LIKE "%%
 --------------------------------------------------
 --------------------------------------------------
 example# 19
-Alexa , when is the premier of the Black Panther movie ?
+Alexa , when is the premier of the Black Panther movie ? COL_START url COL_END COL_START key COL_END COL_START value COL_END COL_START value_link COL_END
 
-SELECT "value" FROM Table_1 WHERE "key" LIKE "%%Release_Date%";
-SELECT "value" FROM Table_1 WHERE "key" LIKE "%%Release_Date%";
+SELECT "value" FROM Table_1 WHERE "key" LIKE "%%Release Date%";
+SELECT "value" FROM Table_1 WHERE "key" LIKE "%%Release Date%";
 Black_Panther
-SELECT "value" FROM Black_Panther WHERE "key" LIKE "%%Release_Date%";
+SELECT "value" FROM Black_Panther WHERE "key" LIKE "%%Release Date%";
 --------------------------------------------------
 --------------------------------------------------
 example# 20
-how many centimeters in an inch ?
+how many centimeters in an inch ? COL_START url COL_END COL_START Units COL_END COL_START Millimeter COL_END COL_START Centimeter COL_END COL_START Meter COL_END COL_START Kilometer COL_END COL_START Inch COL_END COL_START Foot COL_END COL_START Yard COL_END COL_START Mile COL_END COL_START Nautical_Mile COL_END
 
 SELECT "Centimeter" FROM Table_1 WHERE "Units" LIKE "%%inch%";
 SELECT "Centimeter" FROM Table_1 WHERE "Units" LIKE "%%inch%";
@@ -189,7 +189,7 @@ SELECT "Centimeter" FROM Distance_Convertion WHERE "Units" LIKE "%%inch%";
 --------------------------------------------------
 --------------------------------------------------
 example# 21
-alexa , hows todays stock market ?
+alexa , hows todays stock market ? COL_START url COL_END COL_START Index COL_END COL_START Index_link COL_END COL_START increase COL_END COL_START increase_link COL_END COL_START value COL_END COL_START value_link COL_END COL_START absolute_increase COL_END COL_START absolute_increase_link COL_END
 
 SELECT "index", "increase" FROM Table_1 ;
 SELECT "index", "increase" FROM Table_1;
@@ -198,7 +198,7 @@ SELECT "index", "increase" FROM stock_market_today ;
 --------------------------------------------------
 --------------------------------------------------
 example# 22
-Alexa , What did the dow jones close at today ?
+Alexa , What did the dow jones close at today ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%close%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%close%";
@@ -207,16 +207,7 @@ SELECT "Value" FROM DOW_JONES_INDU_AVERAGE_NDX_-_Quote_Details WHERE "Key" LIKE 
 --------------------------------------------------
 --------------------------------------------------
 example# 23
-What are alternative sites to mturk ?
-
-SELECT "Website_name" FROM Table_1 LIMIT 3;
-SELECT "Website_name" FROM Table_1 LIMIT 3;
-Top_10_Amazon_Mechanical_Turk_Alternatives
-SELECT "Website_name" FROM Top_10_Amazon_Mechanical_Turk_Alternatives LIMIT 3;
---------------------------------------------------
---------------------------------------------------
-example# 24
-Alexa , are platypus poisonous ?
+Alexa , are platypus poisonous ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%poison%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%poison%";
@@ -224,8 +215,8 @@ Duck-billed_Platypus
 SELECT "Value" FROM Duck-billed_Platypus WHERE "Key" LIKE "%%poison%";
 --------------------------------------------------
 --------------------------------------------------
-example# 25
-Alexa , why is nutritional yeast important
+example# 24
+Alexa , why is nutritional yeast important COL_START Reason to feel good COL_END COL_START Details COL_END
 
 SELECT "Reason_to_feel_good" FROM Table_1;
 SELECT "Reason_to_feel_good" FROM Table_1;
@@ -233,8 +224,8 @@ SELECT "Reason_to_feel_good" FROM Table_1;
 SELECT "Reason_to_feel_good" FROM 7_reasons_to_feel_good_about_your_nutritional_yeast_addiction;
 --------------------------------------------------
 --------------------------------------------------
-example# 26
-Alexa , what is the best Judas Priest album ?
+example# 25
+Alexa , what is the best Judas Priest album ? COL_START url COL_END COL_START Album COL_END COL_START Description COL_END
 
 SELECT "Album" FROM Table_1 ORDER BY "Album" ASC LIMIT 1;
 SELECT "Album" FROM Table_1 ORDER BY "Album" ASC LIMIT 1;
@@ -242,8 +233,8 @@ Judas_Priest_Albums
 SELECT "Album" FROM Judas_Priest_Albums ORDER BY "Album" ASC LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 27
-Alexa , does Swagbucks work ?
+example# 26
+Alexa , does Swagbucks work ? COL_START url COL_END COL_START key COL_END COL_START value COL_END
 
 SELECT "value" FROM Table_1 WHERE "key" LIKE "%%VERDICT%";
 SELECT "value" FROM Table_1 WHERE "key" LIKE "%%VERDICT%";
@@ -251,8 +242,8 @@ Swagbucks
 SELECT "value" FROM Swagbucks WHERE "key" LIKE "%%VERDICT%";
 --------------------------------------------------
 --------------------------------------------------
-example# 28
-Where is the Willimantic Waste paper company ?
+example# 27
+Where is the Willimantic Waste paper company ? COL_START Name COL_END COL_START Description COL_END COL_START Address COL_END COL_START City COL_END COL_START Phone COL_END
 
 SELECT "Address", "City" FROM Table_1 WHERE "Name" LIKE "%%Willimantic%";
 SELECT "Address", "City" FROM Table_1 WHERE "Name" LIKE "%%Willimantic%";
@@ -260,8 +251,8 @@ WilliWaste
 SELECT "Address", "City" FROM WilliWaste WHERE "Name" LIKE "%%Willimantic%";
 --------------------------------------------------
 --------------------------------------------------
-example# 29
-What is the kelly green hex code ?
+example# 28
+What is the kelly green hex code ? COL_START url COL_END COL_START Color_Model COL_END COL_START Color_Value COL_END
 
 SELECT "Color_Value" FROM Table_1 WHERE "Color_Model" LIKE "%%HEX%";
 SELECT "Color_Value" FROM Table_1 WHERE "Color_Model" LIKE "%%HEX%";
@@ -269,35 +260,35 @@ Kelly_Green_Color
 SELECT "Color_Value" FROM Kelly_Green_Color WHERE "Color_Model" LIKE "%%HEX%";
 --------------------------------------------------
 --------------------------------------------------
-example# 30
-What are the AR points for The Last Kids on Earth
+example# 29
+What are the AR points for The Last Kids on Earth COL_START Key COL_END COL_START Value COL_END
 
-SELECT "Value" FROM Table_1 WHERE "KEY" LIKE "%%AR_points%";
-SELECT "Value" FROM Table_1 WHERE "KEY" LIKE "%%AR_points%";
+SELECT "Value" FROM Table_1 WHERE "KEY" LIKE "%%AR points%";
+SELECT "Value" FROM Table_1 WHERE "KEY" LIKE "%%AR points%";
 The_Last_Kids_on_Earth
-SELECT "Value" FROM The_Last_Kids_on_Earth WHERE "KEY" LIKE "%%AR_points%";
+SELECT "Value" FROM The_Last_Kids_on_Earth WHERE "KEY" LIKE "%%AR points%";
+--------------------------------------------------
+--------------------------------------------------
+example# 30
+What are the AR points for The Last Kids on Earth and the Zombie Parade COL_START Key COL_END COL_START Value COL_END
+
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%AR Points%";
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%AR Points%";
+The_Last_Kids_on_Earth_and_the_Zombie_Parade
+SELECT "Value" FROM The_Last_Kids_on_Earth_and_the_Zombie_Parade WHERE "Key" LIKE "%%AR Points%";
 --------------------------------------------------
 --------------------------------------------------
 example# 31
-What are the AR points for The Last Kids on Earth and the Zombie Parade
+What are the AR points for The Last Kids on Earth and the Nightmare Kings COL_START Key COL_END COL_START Value COL_END
 
-SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%AR_Points%";
-SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%AR_Points%";
-The_Last_Kids_on_Earth_and_the_Zombie_Parade
-SELECT "Value" FROM The_Last_Kids_on_Earth_and_the_Zombie_Parade WHERE "Key" LIKE "%%AR_Points%";
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%AR Points%";
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%AR Points%";
+The_Last_Kids_on_Earth_and_the_Nightmare_Kings
+SELECT "Value" FROM The_Last_Kids_on_Earth_and_the_Nightmare_Kings WHERE "Key" LIKE "%%AR Points%";
 --------------------------------------------------
 --------------------------------------------------
 example# 32
-What are the AR points for The Last Kids on Earth and the Nightmare Kings
-
-SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%AR_Points%";
-SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%AR_Points%";
-The_Last_Kids_on_Earth_and_the_Nightmare_Kings
-SELECT "Value" FROM The_Last_Kids_on_Earth_and_the_Nightmare_Kings WHERE "Key" LIKE "%%AR_Points%";
---------------------------------------------------
---------------------------------------------------
-example# 33
-Alexa , what is the closest star after the sun ?
+Alexa , what is the closest star after the sun ? COL_START url COL_END COL_START 1 COL_END COL_START 2 COL_END COL_START 2_link COL_END COL_START 3 COL_END COL_START 4 COL_END COL_START 4_link COL_END COL_START 5 COL_END COL_START 6 COL_END COL_START 7 COL_END COL_START 8 COL_END
 
 SELECT "Common_Name" FROM Table_1 ORDER BY "Distance" DESC LIMIT 2;
 SELECT "Common_Name" FROM Table_1 ORDER BY "Distance" DESC LIMIT 2;
@@ -305,8 +296,8 @@ The_Closest_star_to_the_Earth
 SELECT "Common_Name" FROM The_Closest_star_to_the_Earth ORDER BY "Distance" DESC LIMIT 2;
 --------------------------------------------------
 --------------------------------------------------
-example# 34
-Who is the richest person in the world ?
+example# 33
+Who is the richest person in the world ? COL_START url COL_END COL_START Name COL_END COL_START Net_Worth COL_END COL_START Age COL_END COL_START Citizenship COL_END COL_START Industry COL_END COL_START Source_of_Wealth COL_END
 
 SELECT "Name" FROM Table_1 ORDER BY "Net_Worth" DESC LIMIT 1;
 SELECT "Name" FROM Table_1 ORDER BY "Net_Worth" DESC LIMIT 1;
@@ -314,17 +305,17 @@ SELECT "Name" FROM Table_1 ORDER BY "Net_Worth" DESC LIMIT 1;
 SELECT "Name" FROM 50_Richest_People_in_the_World ORDER BY "Net_Worth" DESC LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 35
-Alexa , when is the next season of The Handmaid 's Tale to start ?
+example# 34
+Alexa , when is the next season of The Handmaid 's Tale to start ? COL_START url COL_END COL_START title COL_END COL_START content COL_END
 
-SELECT "content" FROM Table_1 WHERE "title" LIKE "%%Release_Date%";
-SELECT "content" FROM Table_1 WHERE "title" LIKE "%%Release_Date%";
+SELECT "content" FROM Table_1 WHERE "title" LIKE "%%Release Date%";
+SELECT "content" FROM Table_1 WHERE "title" LIKE "%%Release Date%";
 Handmaids_Tale_Season_2
-SELECT "content" FROM Handmaids_Tale_Season_2 WHERE "title" LIKE "%%Release_Date%";
+SELECT "content" FROM Handmaids_Tale_Season_2 WHERE "title" LIKE "%%Release Date%";
 --------------------------------------------------
 --------------------------------------------------
-example# 36
-What is a labor camp ?
+example# 35
+What is a labor camp ? COL_START Number COL_END COL_START Part of Speech COL_END COL_START Definition COL_END
 
 SELECT "Definition" FROM Table_1 WHERE "Number" LIKE "%%1%";
 SELECT "Definition" FROM Table_1 WHERE "Number" LIKE "%%1%";
@@ -332,8 +323,8 @@ Labor_Camp_Definitions
 SELECT "Definition" FROM Labor_Camp_Definitions WHERE "Number" LIKE "%%1%";
 --------------------------------------------------
 --------------------------------------------------
-example# 37
-Alexa , what is the biggest dinosaur ever discovered ?
+example# 36
+Alexa , what is the biggest dinosaur ever discovered ? COL_START url COL_END COL_START Name COL_END COL_START Nickname COL_END COL_START Height COL_END COL_START Length COL_END COL_START Weight COL_END
 
 SELECT "Name" FROM Table_1 ORDER BY "Weight" DESC;
 SELECT "Name" FROM Table_1 ORDER BY "Weight" DESC;
@@ -341,17 +332,17 @@ Dinosaur_Stats
 SELECT "Name" FROM Dinosaur_Stats ORDER BY "Weight" DESC;
 --------------------------------------------------
 --------------------------------------------------
-example# 38
-Why are my ears always popping ?
+example# 37
+Why are my ears always popping ? COL_START Questions COL_END COL_START Answers COL_END
 
-SELECT "Answers" FROM Table_1 WHERE "Questions" LIKE "%%Why_do_ears_pop%";
-SELECT "Answers" FROM Table_1 WHERE "Questions" LIKE "%%Why_do_ears_pop%";
+SELECT "Answers" FROM Table_1 WHERE "Questions" LIKE "%%Why do ears pop%";
+SELECT "Answers" FROM Table_1 WHERE "Questions" LIKE "%%Why do ears pop%";
 Ears_and_Altitude
-SELECT "Answers" FROM Ears_and_Altitude WHERE "Questions" LIKE "%%Why_do_ears_pop%";
+SELECT "Answers" FROM Ears_and_Altitude WHERE "Questions" LIKE "%%Why do ears pop%";
 --------------------------------------------------
 --------------------------------------------------
-example# 39
-What is washington wizards record ?
+example# 38
+What is washington wizards record ? COL_START url COL_END COL_START Team COL_END COL_START W COL_END COL_START L COL_END COL_START Pct COL_END COL_START Gb COL_END COL_START Strk COL_END
 
 SELECT "W", "L" FROM Table_1 WHERE "Team" LIKE "%%Washington%";
 SELECT "W", "L" FROM Table_1 WHERE "Team" LIKE "%%Washington%";
@@ -359,8 +350,8 @@ NBA_Southeast_Standings
 SELECT "W", "L" FROM NBA_Southeast_Standings WHERE "Team" LIKE "%%Washington%";
 --------------------------------------------------
 --------------------------------------------------
-example# 40
-Alexa , what are tamales ?
+example# 39
+Alexa , what are tamales ? COL_START url COL_END COL_START Term COL_END COL_START Definition COL_END
 
 SELECT "Definition" FROM Table_1 WHERE "Term" LIKE "%%tamale%";
 SELECT "Definition" FROM Table_1 WHERE "Term" LIKE "%%tamale%";
@@ -368,8 +359,8 @@ Mexican_Food_Glossary
 SELECT "Definition" FROM Mexican_Food_Glossary WHERE "Term" LIKE "%%tamale%";
 --------------------------------------------------
 --------------------------------------------------
-example# 41
-Alexa , how do I lose weight ?
+example# 40
+Alexa , how do I lose weight ? COL_START url COL_END COL_START way COL_END COL_START number COL_END COL_START comment COL_END
 
 SELECT "ways" FROM Table_1;
 SELECT "ways" FROM Table_1;
@@ -377,8 +368,8 @@ lose_weight
 SELECT "ways" FROM lose_weight;
 --------------------------------------------------
 --------------------------------------------------
-example# 42
-Alexa what is the best deep conditioner for color-treated hair ?
+example# 41
+Alexa what is the best deep conditioner for color-treated hair ? COL_START url COL_END COL_START Title COL_END COL_START Description COL_END COL_START Brand COL_END COL_START Price COL_END
 
 SELECT "Title" FROM Table_1 LIMIT 1;
 SELECT "Title" FROM Table_1 LIMIT 1;
@@ -386,8 +377,8 @@ Deep_Conditioners
 SELECT "Title" FROM Deep_Conditioners LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 43
-Alexa , what great apes are at the Jacksonville Zoo ?
+example# 42
+Alexa , what great apes are at the Jacksonville Zoo ? COL_START url COL_END COL_START Great_apes COL_END COL_START Great_apes_link COL_END
 
 SELECT "Great_apes" FROM Table_1;
 SELECT "Great_apes" FROM Table_1;
@@ -395,17 +386,17 @@ Jacksonville_Zoo
 SELECT "Great_apes" FROM Jacksonville_Zoo;
 --------------------------------------------------
 --------------------------------------------------
-example# 44
-Where can I snorkel with moorish idol ?
+example# 43
+Where can I snorkel with moorish idol ? COL_START Question COL_END COL_START Answer COL_END
 
-SELECT "Answer" FROM Table_1 WHERE "Question" LIKE "%%where%moorish_idol%";
-SELECT "Answer" FROM Table_1 WHERE "Question" LIKE "%%where%moorish_idol%";
+SELECT "Answer" FROM Table_1 WHERE "Question" LIKE "%%where%moorish idol%";
+SELECT "Answer" FROM Table_1 WHERE "Question" LIKE "%%where%moorish idol%";
 Moorish_Idols
-SELECT "Answer" FROM Moorish_Idols WHERE "Question" LIKE "%%where%moorish_idol%";
+SELECT "Answer" FROM Moorish_Idols WHERE "Question" LIKE "%%where%moorish idol%";
 --------------------------------------------------
 --------------------------------------------------
-example# 45
-Alexa , what can you make with Ramen noodles ?
+example# 44
+Alexa , what can you make with Ramen noodles ? COL_START url COL_END COL_START Noodle_Recipe COL_END COL_START Description COL_END COL_START Description_Link COL_END COL_START Description_Link_link COL_END
 
 SELECT "Noodle_Recipe" FROM Table_1 LIMIT 3;
 SELECT "Noodle_Recipe" FROM Table_1 LIMIT 3;
@@ -413,8 +404,8 @@ Ramen_Recipes
 SELECT "Noodle_Recipe" FROM Ramen_Recipes LIMIT 3;
 --------------------------------------------------
 --------------------------------------------------
-example# 46
-How to save money in switzerland ?
+example# 45
+How to save money in switzerland ? COL_START Save money COL_END COL_START Details COL_END
 
 SELECT "Save_money" FROM Table_1;
 SELECT "Save_money" FROM Table_1;
@@ -422,8 +413,8 @@ SELECT "Save_money" FROM Table_1;
 SELECT "Save_money" FROM 6_ways_to_save_money_in_Switzerland;
 --------------------------------------------------
 --------------------------------------------------
-example# 47
-What is the address for the orlando office of sng labs ?
+example# 46
+What is the address for the orlando office of sng labs ? COL_START City COL_END COL_START Address COL_END
 
 SELECT "Address" FROM Table_1 WHERE "City" LIKE "%%Orlando%";
 SELECT "Address" FROM Table_1 WHERE "City" LIKE "%%Orlando%";
@@ -431,8 +422,8 @@ SNG_LABS_Locations
 SELECT "Address" FROM SNG_LABS_Locations WHERE "City" LIKE "%%Orlando%";
 --------------------------------------------------
 --------------------------------------------------
-example# 48
-How long do dogs live ?
+example# 47
+How long do dogs live ? COL_START url COL_END COL_START Animal COL_END COL_START Life_Expectancy COL_END
 
 SELECT "Life_Expectancy" FROM Table_1 WHERE "Animal" = "Dog";
 SELECT "Life_Expectancy" FROM Table_1 WHERE "Animal" = "Dog";
@@ -440,8 +431,8 @@ The_Life_Span_of_Animals
 SELECT "Life_Expectancy" FROM The_Life_Span_of_Animals WHERE "Animal" = "Dog";
 --------------------------------------------------
 --------------------------------------------------
-example# 49
-Alexa , when is taylor swift coming to dallas ?
+example# 48
+Alexa , when is taylor swift coming to dallas ? COL_START url COL_END COL_START Date COL_END COL_START Market COL_END COL_START Building COL_END
 
 SELECT "Date", "Market" FROM Table_1 WHERE "Market" LIKE "%%TX%";
 SELECT "Date", "Market" FROM Table_1 WHERE "Market" LIKE "%%TX%";
@@ -449,8 +440,8 @@ Taylor_Swift
 SELECT "Date", "Market" FROM Taylor_Swift WHERE "Market" LIKE "%%TX%";
 --------------------------------------------------
 --------------------------------------------------
-example# 50
-Alexa , when did groundhog day start ?
+example# 49
+Alexa , when did groundhog day start ? COL_START url COL_END COL_START Year COL_END COL_START Result COL_END
 
 SELECT "Year" FROM Table_1 ORDER BY "Year" ASC LIMIT 1;
 SELECT "Year" FROM Table_1 ORDER BY "Year" ASC LIMIT 1;
@@ -458,8 +449,8 @@ Groundhog_Day_Results
 SELECT "Year" FROM Groundhog_Day_Results ORDER BY "Year" ASC LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 51
-Alexa did the groundhog see its shadow today ?
+example# 50
+Alexa did the groundhog see its shadow today ? COL_START url COL_END COL_START Year COL_END COL_START Shadow COL_END
 
 SELECT "Shadow" FROM Table_1 WHERE "Year" LIKE "%%2018%";
 SELECT "Shadow" FROM Table_1 WHERE "Year" LIKE "%%2018%";
@@ -467,8 +458,8 @@ Groundhog_Day
 SELECT "Shadow" FROM Groundhog_Day WHERE "Year" LIKE "%%2018%";
 --------------------------------------------------
 --------------------------------------------------
-example# 52
-What is the capital of Louisiana ?
+example# 51
+What is the capital of Louisiana ? COL_START url COL_END COL_START State COL_END COL_START Capital COL_END COL_START Nickname COL_END
 
 SELECT "Capital" FROM Table_1 WHERE "State" LIKE "%%Louisiana%";
 SELECT "Capital" FROM Table_1 WHERE "State" LIKE "%%Louisiana%";
@@ -476,8 +467,8 @@ State_Capitals_and_Nicknames
 SELECT "Capital" FROM State_Capitals_and_Nicknames WHERE "State" LIKE "%%Louisiana%";
 --------------------------------------------------
 --------------------------------------------------
-example# 53
-Alexa , why do I feel more tired if I sleep longer ?
+example# 52
+Alexa , why do I feel more tired if I sleep longer ? COL_START url COL_END COL_START New_column COL_END
 
 SELECT * FROM Table_1;
 SELECT * FROM Table_1;
@@ -485,8 +476,8 @@ sleep
 SELECT * FROM sleep;
 --------------------------------------------------
 --------------------------------------------------
-example# 54
-What is the phone number for tricounty ford ?
+example# 53
+What is the phone number for tricounty ford ? COL_START url COL_END COL_START Agent COL_END COL_START Phone_number COL_END
 
 SELECT "Phone_number" FROM Table_1;
 SELECT "Phone_number" FROM Table_1;
@@ -494,8 +485,8 @@ Tricounty_Ford
 SELECT "Phone_number" FROM Tricounty_Ford;
 --------------------------------------------------
 --------------------------------------------------
-example# 55
-What is the best cities to visit in Germany ?
+example# 54
+What is the best cities to visit in Germany ? COL_START Cities COL_END COL_START Snippet COL_END
 
 SELECT "Cities" FROM Table_1 ORDER BY "Cities" LIMIT 3;
 SELECT "Cities" FROM Table_1 ORDER BY "Cities" LIMIT 3;
@@ -503,8 +494,8 @@ SELECT "Cities" FROM Table_1 ORDER BY "Cities" LIMIT 3;
 SELECT "Cities" FROM 10_german_cites_you_need_to_visit ORDER BY "Cities" LIMIT 3;
 --------------------------------------------------
 --------------------------------------------------
-example# 56
-What time is The Flash on ?
+example# 55
+What time is The Flash on ? COL_START url COL_END COL_START time COL_END COL_START show COL_END
 
 SELECT "time" FROM Table_1 WHERE "show" LIKE "%%Flash%" ;
 SELECT "time" FROM Table_1 WHERE "show" LIKE "%%Flash%";
@@ -512,8 +503,8 @@ cw_shows
 SELECT "time" FROM cw_shows WHERE "show" LIKE "%%Flash%" ;
 --------------------------------------------------
 --------------------------------------------------
-example# 57
-What is the quickest way to get rid of a cold ?
+example# 56
+What is the quickest way to get rid of a cold ? COL_START url COL_END COL_START Ways COL_END
 
 SELECT "Ways" FROM Table_1;
 SELECT "Ways" FROM Table_1;
@@ -521,17 +512,17 @@ Ways_Table
 SELECT "Ways" FROM Ways_Table;
 --------------------------------------------------
 --------------------------------------------------
-example# 58
-What is the street address of the Beltsville Agricultural Research Center ?
+example# 57
+What is the street address of the Beltsville Agricultural Research Center ? COL_START Property COL_END COL_START Value COL_END
 
-SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Street_Address%";
-SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Street_Address%";
+SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Street Address%";
+SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Street Address%";
 BELTSVILLE_AGRICULTURAL_RESEARCH_CENTER
-SELECT "Value" FROM BELTSVILLE_AGRICULTURAL_RESEARCH_CENTER WHERE "Property" LIKE "%%Street_Address%";
+SELECT "Value" FROM BELTSVILLE_AGRICULTURAL_RESEARCH_CENTER WHERE "Property" LIKE "%%Street Address%";
 --------------------------------------------------
 --------------------------------------------------
-example# 59
-what does gop stand for
+example# 58
+what does gop stand for COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%abbreviation%" ;
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%abbreviation%";
@@ -539,8 +530,8 @@ GOP
 SELECT "Value" FROM GOP WHERE "Key" LIKE "%%abbreviation%" ;
 --------------------------------------------------
 --------------------------------------------------
-example# 60
-Alexa , what 's the definition of verbiage ?
+example# 59
+Alexa , what 's the definition of verbiage ? COL_START Number COL_END COL_START Part of Speech COL_END COL_START Definition COL_END COL_START Example COL_END
 
 SELECT "Definition" FROM Table_1;
 SELECT "Definition" FROM Table_1;
@@ -548,8 +539,8 @@ Verbiage
 SELECT "Definition" FROM Verbiage;
 --------------------------------------------------
 --------------------------------------------------
-example# 61
-Alexa , where is Area 51 ?
+example# 60
+Alexa , where is Area 51 ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Location%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Location%";
@@ -557,26 +548,26 @@ Area_51_-_Homey_Airport
 SELECT "Value" FROM Area_51_-_Homey_Airport WHERE "Key" LIKE "%%Location%";
 --------------------------------------------------
 --------------------------------------------------
-example# 62
-What is Asking Alexandrias last album called ?
+example# 61
+What is Asking Alexandrias last album called ? COL_START url COL_END COL_START Released COL_END COL_START Label COL_END COL_START Format COL_END COL_START Title COL_END COL_START Chart_Positions_UK COL_END COL_START Chart_Positions_AUS COL_END COL_START Chart_Positions_AUT COL_END COL_START Chart_Positions_BEL COL_END COL_START Chart_Positions_CAN COL_END COL_START Chart_Positions_US COL_END COL_START Sales COL_END
 
 SELECT "Title" FROM Table_1 ORDER BY "Released" DESC LIMIT 1;
 SELECT "Title" FROM Table_1 ORDER BY "Released" DESC LIMIT 1;
 Table_1
 SELECT "Title" FROM Table_1 ORDER BY "Released" DESC LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 62
+Alexa , what was the name of Mike Farrell 's character on M*A*S*H ? COL_START url COL_END COL_START Character COL_END COL_START Actor COL_END COL_START Actor_link COL_END COL_START Rank1 COL_END COL_START Rank2 COL_END COL_START Rank2_link COL_END COL_START Role1 COL_END COL_START Role2 COL_END COL_START Role2_link COL_END COL_START Appearances COL_END
+
+SELECT "Character" FROM Table_1 WHERE "Actor" LIKE "%%Mike Farrell%" LIMIT 1;
+SELECT "Character" FROM Table_1 WHERE "Actor" LIKE "%%Mike Farrell%" LIMIT 1;
+MikeFarrellTable
+SELECT "Character" FROM MikeFarrellTable WHERE "Actor" LIKE "%%Mike Farrell%" LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
 example# 63
-Alexa , what was the name of Mike Farrell 's character on M*A*S*H ?
-
-SELECT "Character" FROM Table_1 WHERE "Actor" LIKE "%%Mike_Farrell%" LIMIT 1;
-SELECT "Character" FROM Table_1 WHERE "Actor" LIKE "%%Mike_Farrell%" LIMIT 1;
-MikeFarrellTable
-SELECT "Character" FROM MikeFarrellTable WHERE "Actor" LIKE "%%Mike_Farrell%" LIMIT 1;
---------------------------------------------------
---------------------------------------------------
-example# 64
-alexa what is the name of the lead singer in metallica ?
+alexa what is the name of the lead singer in metallica ? COL_START url COL_END COL_START Artists COL_END COL_START Artists_link COL_END
 
 SELECT "Artists" FROM Table_1 LIMIT 1;
 SELECT "Artists" FROM Table_1 LIMIT 1;
@@ -584,8 +575,8 @@ Table_1
 SELECT "Artists" FROM Table_1 LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 65
-Alexa , how old are the pyramids ?
+example# 64
+Alexa , how old are the pyramids ? COL_START Name COL_END COL_START Date of Construction COL_END COL_START Builders COL_END COL_START Date of Destruction COL_END COL_START Cause of Destruction COL_END COL_START Modern Location COL_END
 
 SELECT "Date_of_Construction" FROM Table_1 WHERE "Name" LIKE "%%Great_Pyramid_of_Giza%";
 SELECT "Date_of_Construction" FROM Table_1 WHERE "Name" LIKE "%%Great_Pyramid_of_Giza%";
@@ -593,8 +584,8 @@ Wonders
 SELECT "Date_of_Construction" FROM Wonders WHERE "Name" LIKE "%%Great_Pyramid_of_Giza%";
 --------------------------------------------------
 --------------------------------------------------
-example# 66
-Alexa , what time is The Four on ?
+example# 65
+Alexa , what time is The Four on ? COL_START Season COL_END COL_START Timeslot ( ET ) COL_END COL_START Episodes COL_END COL_START First Aired : Date COL_END COL_START First Aired : Viewers ( millions ) COL_END COL_START Last Aired : Date COL_END COL_START Last Aired : Viewers ( millions ) COL_END COL_START TV Season COL_END COL_START Rank COL_END COL_START Average Viewers ( millions ) COL_END COL_START 18-49 Rating ( Average ) COL_END
 
 SELECT "Timeslot_(ET)" FROM Table_1 WHERE "Season" LIKE "%%1%";
 SELECT "Timeslot_(ET)" FROM Table_1 WHERE "Season" LIKE "%%1%";
@@ -602,26 +593,26 @@ The_Four_Ratings
 SELECT "Timeslot_(ET)" FROM The_Four_Ratings WHERE "Season" LIKE "%%1%";
 --------------------------------------------------
 --------------------------------------------------
-example# 67
-what are the best classic wow addons
+example# 66
+what are the best classic wow addons COL_START url COL_END COL_START Addons COL_END COL_START Addons_link COL_END
 
 SELECT "Addons" FROM Table_1;
 SELECT "Addons" FROM Table_1;
 Table_1
 SELECT "Addons" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 67
+Where can I buy a Cricut ? COL_START Where To Buy The Cricut Maker COL_END
+
+SELECT "Where_To_Buy_The_Cricut_Maker" FROM Table_1;
+SELECT "Where_To_Buy_The_Cricut_Maker" FROM Table_1;
+Table_1
+SELECT "Where_To_Buy_The_Cricut_Maker" FROM Table_1;
 --------------------------------------------------
 --------------------------------------------------
 example# 68
-Where can I buy a Cricut ?
-
-SELECT "Where_To_Buy_The_Cricut_Maker" FROM Table_1;
-SELECT "Where_To_Buy_The_Cricut_Maker" FROM Table_1;
-Table_1
-SELECT "Where_To_Buy_The_Cricut_Maker" FROM Table_1;
---------------------------------------------------
---------------------------------------------------
-example# 69
-What time does Best Buy close ?
+What time does Best Buy close ? COL_START Weekday COL_END COL_START Date COL_END COL_START Open COL_END COL_START Close COL_END
 
 SELECT "Close" FROM Table_1 WHERE "Weekday" LIKE "%%THU%";
 SELECT "Close" FROM Table_1 WHERE "Weekday" LIKE "%%THU%";
@@ -629,8 +620,8 @@ Store_Hours
 SELECT "Close" FROM Store_Hours WHERE "Weekday" LIKE "%%THU%";
 --------------------------------------------------
 --------------------------------------------------
-example# 70
-Alexa , how do I write a skills resume ?
+example# 69
+Alexa , how do I write a skills resume ? COL_START url COL_END COL_START skills COL_END
 
 SELECT "skills" FROM Table_1;
 SELECT "skills" FROM Table_1;
@@ -638,8 +629,8 @@ Table_1
 SELECT "skills" FROM Table_1;
 --------------------------------------------------
 --------------------------------------------------
-example# 71
-Alexa , how many pounds are in a stone ?
+example# 70
+Alexa , how many pounds are in a stone ? COL_START url COL_END COL_START Stone COL_END COL_START Pound COL_END
 
 SELECT "Pound" FROM Table_1 WHERE "Stone" LIKE "%%1%" LIMIT 1;
 SELECT "Pound" FROM Table_1 WHERE "Stone" LIKE "%%1%" LIMIT 1;
@@ -647,8 +638,8 @@ Pound_To_Stone_Table
 SELECT "Pound" FROM Pound_To_Stone_Table WHERE "Stone" LIKE "%%1%" LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 72
-What are nazca lines ?
+example# 71
+What are nazca lines ? COL_START Location COL_END COL_START Attraction COL_END COL_START Description COL_END
 
 SELECT "Description" FROM Table_1 WHERE "Attraction" LIKE "%%Nazca_Lines%";
 SELECT "Description" FROM Table_1 WHERE "Attraction" LIKE "%%Nazca_Lines%";
@@ -656,53 +647,53 @@ Unusual_Attractions_in_Nazca
 SELECT "Description" FROM Unusual_Attractions_in_Nazca WHERE "Attraction" LIKE "%%Nazca_Lines%";
 --------------------------------------------------
 --------------------------------------------------
-example# 73
-alexa why my baby wakes up crying ?
+example# 72
+alexa why my baby wakes up crying ? COL_START url COL_END COL_START Reasons COL_END
 
 SELECT "Reasons" FROM Table_1;
 SELECT "Reasons" FROM Table_1;
 Table_1
 SELECT "Reasons" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 73
+holidays 2018 COL_START url COL_END COL_START Date COL_END COL_START Holiday COL_END COL_START Holiday_link COL_END COL_START Day COL_END
+
+SELECT "Holiday", "Date" FROM Table_1;
+SELECT "Holiday", "Date" FROM Table_1;
+Table_1
+SELECT "Holiday", "Date" FROM Table_1;
 --------------------------------------------------
 --------------------------------------------------
 example# 74
-holidays 2018
+What are the Cubot HAFURY UMAX smartphone specs ? COL_START url COL_END COL_START Property COL_END COL_START Specifications COL_END
 
-SELECT "Holiday", "Date" FROM Table_1;
-SELECT "Holiday", "Date" FROM Table_1;
+SELECT "Property", "Specifications" FROM Table_1;
+SELECT "Property", "Specifications" FROM Table_1;
 Table_1
-SELECT "Holiday", "Date" FROM Table_1;
+SELECT "Property", "Specifications" FROM Table_1;
 --------------------------------------------------
 --------------------------------------------------
 example# 75
-What are the Cubot HAFURY UMAX smartphone specs ?
+How much do tooth implants cost COL_START url COL_END COL_START Type COL_END COL_START Cost COL_END
 
-SELECT "Property", "Specifications" FROM Table_1;
-SELECT "Property", "Specifications" FROM Table_1;
+SELECT "Cost" FROM Table_1 LIMIT 1;
+SELECT "Cost" FROM Table_1 LIMIT 1;
 Table_1
-SELECT "Property", "Specifications" FROM Table_1;
+SELECT "Cost" FROM Table_1 LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
 example# 76
-How much do tooth implants cost
+Google , what are some creative jobs for marketing majors ? COL_START url COL_END COL_START CreativeJobs COL_END COL_START Description COL_END
 
-SELECT "Cost" FROM Table_1 LIMIT 1;
-SELECT "Cost" FROM Table_1 LIMIT 1;
+SELECT "CreativeJobs" FROM Table_1;
+SELECT "CreativeJobs" FROM Table_1;
 Table_1
-SELECT "Cost" FROM Table_1 LIMIT 1;
+SELECT "CreativeJobs" FROM Table_1;
 --------------------------------------------------
 --------------------------------------------------
 example# 77
-Google , what are some creative jobs for marketing majors ?
-
-SELECT "CreativeJobs" FROM Table_1;
-SELECT "CreativeJobs" FROM Table_1;
-Table_1
-SELECT "CreativeJobs" FROM Table_1;
---------------------------------------------------
---------------------------------------------------
-example# 78
-Google , what jobs can you get with an English degree ?
+Google , what jobs can you get with an English degree ? COL_START Job COL_END COL_START Average Salary COL_END COL_START Details COL_END
 
 SELECT "Job" FROM Table_1;
 SELECT "Job" FROM Table_1;
@@ -710,26 +701,26 @@ Best_Jobs_for_English_Majors
 SELECT "Job" FROM Best_Jobs_for_English_Majors;
 --------------------------------------------------
 --------------------------------------------------
-example# 79
-Alexa , I need to find a new car insurance
+example# 78
+Alexa , I need to find a new car insurance COL_START url COL_END COL_START Insurance COL_END
 
 SELECT "Insurance" FROM Table_1 LIMIT 1;
 SELECT "Insurance" FROM Table_1 LIMIT 1;
 Table_1
 SELECT "Insurance" FROM Table_1 LIMIT 1;
+--------------------------------------------------
+--------------------------------------------------
+example# 79
+What kind of ratings did the book `` Why Buddhism is True '' get ? COL_START url COL_END COL_START Image COL_END COL_START Image_link COL_END COL_START Name COL_END COL_START Rating COL_END COL_START Rating_Count COL_END COL_START Author COL_END COL_START Author_link COL_END COL_START Author_Url COL_END COL_START Author_Url_link COL_END COL_START Book_Format COL_END COL_START In_Language COL_END COL_START Isbn COL_END COL_START Number_Of_Pages COL_END
+
+SELECT "Rating" FROM Table_1 LIMIT 1;
+SELECT "Rating" FROM Table_1 LIMIT 1;
+Table_1
+SELECT "Rating" FROM Table_1 LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
 example# 80
-What kind of ratings did the book `` Why Buddhism is True '' get ?
-
-SELECT "Rating" FROM Table_1 LIMIT 1;
-SELECT "Rating" FROM Table_1 LIMIT 1;
-Table_1
-SELECT "Rating" FROM Table_1 LIMIT 1;
---------------------------------------------------
---------------------------------------------------
-example# 81
-Alexa , how old is the earth ?
+Alexa , how old is the earth ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Age%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Age%";
@@ -737,8 +728,8 @@ Earth
 SELECT "Value" FROM Earth WHERE "Key" LIKE "%%Age%";
 --------------------------------------------------
 --------------------------------------------------
-example# 82
-best time to buy a car
+example# 81
+best time to buy a car COL_START Day_of_Week COL_END COL_START Average Savings COL_END
 
 SELECT "Day_of_Week" FROM Table_1 ORDER BY "Average_Savings" DESC LIMIT 1;
 SELECT "Day_of_Week" FROM Table_1 ORDER BY "Average_Savings" DESC LIMIT 1;
@@ -746,8 +737,8 @@ Average_Car_Savings
 SELECT "Day_of_Week" FROM Average_Car_Savings ORDER BY "Average_Savings" DESC LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 83
-Alexa , how many apple shares are outstanding ?
+example# 82
+Alexa , how many apple shares are outstanding ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Shares_Outstanding%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Shares_Outstanding%";
@@ -755,8 +746,8 @@ Apple_Inc._Stock_Report
 SELECT "Value" FROM Apple_Inc._Stock_Report WHERE "Key" LIKE "%%Shares_Outstanding%";
 --------------------------------------------------
 --------------------------------------------------
-example# 84
-Alexa , how many microsoft shares are outstanding ?
+example# 83
+Alexa , how many microsoft shares are outstanding ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Shares_Outstanding%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Shares_Outstanding%";
@@ -764,8 +755,8 @@ Microsoft_Corporation_Stock_Report
 SELECT "Value" FROM Microsoft_Corporation_Stock_Report WHERE "Key" LIKE "%%Shares_Outstanding%";
 --------------------------------------------------
 --------------------------------------------------
-example# 85
-Alexa , What does the Bible say about tattoos ?
+example# 84
+Alexa , What does the Bible say about tattoos ? COL_START url COL_END COL_START Bible_Reference COL_END COL_START Bible_Reference_link COL_END COL_START Version_/_Votes COL_END COL_START Verse COL_END
 
 SELECT "Bible_Reference" FROM Table_1 LIMIT 1;
 SELECT "Bible_Reference" FROM Table_1 LIMIT 1;
@@ -773,8 +764,8 @@ Table_1
 SELECT "Bible_Reference" FROM Table_1 LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 86
-alexa what are the best laptops ?
+example# 85
+alexa what are the best laptops ? COL_START Feature COL_END COL_START 1 COL_END COL_START 2 COL_END COL_START 3 COL_END COL_START 4 COL_END COL_START 5 COL_END COL_START 6 COL_END COL_START 7 COL_END COL_START 8 COL_END COL_START 9 COL_END COL_START 10 COL_END
 
 SELECT * FROM Table_1 WHERE "Feature" LIKE "%%Product%";
 SELECT * FROM Table_1 WHERE "Feature" LIKE "%%Product%";
@@ -782,8 +773,8 @@ The_Best_Laptops_of_2018
 SELECT * FROM The_Best_Laptops_of_2018 WHERE "Feature" LIKE "%%Product%";
 --------------------------------------------------
 --------------------------------------------------
-example# 87
-What is a synonym for hardworking ?
+example# 86
+What is a synonym for hardworking ? COL_START url COL_END COL_START Word COL_END COL_START Word_link COL_END COL_START Part_of_Speech COL_END COL_START Definition COL_END
 
 SELECT "Word" FROM Table_1 LIMIT 1;
 SELECT "Word" FROM Table_1 LIMIT 1;
@@ -791,8 +782,8 @@ Table_1
 SELECT "Word" FROM Table_1 LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 88
-Can i get rid of the smell in a metal water bottle ?
+example# 87
+Can i get rid of the smell in a metal water bottle ? COL_START url COL_END COL_START Steps COL_END
 
 SELECT "Steps" FROM Table_1;
 SELECT "Steps" FROM Table_1;
@@ -800,17 +791,17 @@ Steps_Table
 SELECT "Steps" FROM Steps_Table;
 --------------------------------------------------
 --------------------------------------------------
-example# 89
-What is the treatment for Epstein-Barr virus ?
+example# 88
+What is the treatment for Epstein-Barr virus ? COL_START Property COL_END COL_START Value COL_END
 
-SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%What_is_the_treatment_for_Epstein-Barr_virus?%";
-SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%What_is_the_treatment_for_Epstein-Barr_virus?%";
+SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%What is the treatment for Epstein-Barr virus?%";
+SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%What is the treatment for Epstein-Barr virus?%";
 Questions_and_Answers
-SELECT "Value" FROM Questions_and_Answers WHERE "Property" LIKE "%%What_is_the_treatment_for_Epstein-Barr_virus?%";
+SELECT "Value" FROM Questions_and_Answers WHERE "Property" LIKE "%%What is the treatment for Epstein-Barr virus?%";
 --------------------------------------------------
 --------------------------------------------------
-example# 90
-How long will it take to get to Mars ?
+example# 89
+How long will it take to get to Mars ? COL_START url COL_END COL_START Time_Taken COL_END
 
 SELECT "Time_Taken" FROM Table_1 LIMIT 1;
 SELECT "Time_Taken" FROM Table_1 LIMIT 1;
@@ -818,17 +809,17 @@ MarsTable
 SELECT "Time_Taken" FROM MarsTable LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 91
-How many square feet are in an acre ?
+example# 90
+How many square feet are in an acre ? COL_START url COL_END COL_START Acre COL_END
 
-SELECT "Acre" FROM Table_1 WHERE "Acre" LIKE "%%square_feet%" LIMIT 1;
-SELECT "Acre" FROM Table_1 WHERE "Acre" LIKE "%%square_feet%" LIMIT 1;
+SELECT "Acre" FROM Table_1 WHERE "Acre" LIKE "%%square feet%" LIMIT 1;
+SELECT "Acre" FROM Table_1 WHERE "Acre" LIKE "%%square feet%" LIMIT 1;
 AcreTable
-SELECT "Acre" FROM AcreTable WHERE "Acre" LIKE "%%square_feet%" LIMIT 1;
+SELECT "Acre" FROM AcreTable WHERE "Acre" LIKE "%%square feet%" LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 92
-Are there any chemical free laundry detergent ?
+example# 91
+Are there any chemical free laundry detergent ? COL_START url COL_END COL_START Brands COL_END COL_START Brands_link COL_END
 
 SELECT "Brands" FROM Table_1;
 SELECT "Brands" FROM Table_1;
@@ -836,26 +827,26 @@ Detergent_Table
 SELECT "Brands" FROM Detergent_Table;
 --------------------------------------------------
 --------------------------------------------------
-example# 93
-what are the newest netflix series
+example# 92
+what are the newest netflix series COL_START url COL_END COL_START Titles COL_END
 
 SELECT "Titles" FROM Table_1;
 SELECT "Titles" FROM Table_1;
 Table_1
 SELECT "Titles" FROM Table_1;
+--------------------------------------------------
+--------------------------------------------------
+example# 93
+How much are flat screen TVs at Walmart ? COL_START url COL_END COL_START Flat_TV_Screen COL_END COL_START Image COL_END COL_START Image_alt COL_END COL_START Image_link COL_END COL_START Discounted_Price COL_END COL_START Original_Price COL_END COL_START discount COL_END COL_START Product COL_END COL_START Product_link COL_END COL_START Rating COL_END COL_START Stars_Reviews COL_END COL_START Shipping_Details COL_END COL_START Product_Details COL_END
+
+SELECT "discounted_price" FROM Table_1 LIMIT 1;
+SELECT "discounted_price" FROM Table_1 LIMIT 1;
+Table_1
+SELECT "discounted_price" FROM Table_1 LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
 example# 94
-How much are flat screen TVs at Walmart ?
-
-SELECT "discounted_price" FROM Table_1 LIMIT 1;
-SELECT "discounted_price" FROM Table_1 LIMIT 1;
-Table_1
-SELECT "discounted_price" FROM Table_1 LIMIT 1;
---------------------------------------------------
---------------------------------------------------
-example# 95
-Alexa , what are the symptoms of depression ?
+Alexa , what are the symptoms of depression ? COL_START url COL_END COL_START Symptom COL_END COL_START Description_of_Symptom COL_END
 
 SELECT "Symptom" FROM Table_1;
 SELECT "Symptom" FROM Table_1;
@@ -863,8 +854,8 @@ Symptoms_of_Depression
 SELECT "Symptom" FROM Symptoms_of_Depression;
 --------------------------------------------------
 --------------------------------------------------
-example# 96
-Where is Bellingham ?
+example# 95
+Where is Bellingham ? COL_START url COL_END COL_START Country COL_END COL_START State COL_END
 
 SELECT "Country", "State" FROM Table_1 LIMIT 1;
 SELECT "Country", "State" FROM Table_1 LIMIT 1;
@@ -872,8 +863,8 @@ LocationTable
 SELECT "Country", "State" FROM LocationTable LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 97
-Alexa , what is the current price of Bitcoin ?
+example# 96
+Alexa , what is the current price of Bitcoin ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Last_price%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Last_price%";
@@ -881,8 +872,8 @@ Bitcoin
 SELECT "Value" FROM Bitcoin WHERE "Key" LIKE "%%Last_price%";
 --------------------------------------------------
 --------------------------------------------------
-example# 98
-When does Squashbusters gym close ?
+example# 97
+When does Squashbusters gym close ? COL_START Day COL_END COL_START Open Time COL_END COL_START Close Time COL_END
 
 SELECT "Close_Time" FROM Table_1 WHERE "Day" LIKE "%%Mon%";
 SELECT "Close_Time" FROM Table_1 WHERE "Day" LIKE "%%Mon%";
@@ -890,8 +881,8 @@ SquashBusters_Hours
 SELECT "Close_Time" FROM SquashBusters_Hours WHERE "Day" LIKE "%%Mon%";
 --------------------------------------------------
 --------------------------------------------------
-example# 99
-What 's the difference between a Siberian Husky and a Malamute ?
+example# 98
+What 's the difference between a Siberian Husky and a Malamute ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%differences%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%differences%";
@@ -899,8 +890,8 @@ Siberian_Husky_vs_Malamute
 SELECT "Value" FROM Siberian_Husky_vs_Malamute WHERE "Key" LIKE "%%differences%";
 --------------------------------------------------
 --------------------------------------------------
-example# 100
-what is the name of Ted Leo 's new album called ?
+example# 99
+what is the name of Ted Leo 's new album called ? COL_START url COL_END COL_START Year COL_END COL_START Title COL_END COL_START Title_link COL_END COL_START Label COL_END
 
 SELECT "Title" FROM Table_1 ORDER BY "year" LIMIT 1;
 SELECT "Title" FROM Table_1 ORDER BY "year" LIMIT 1;
@@ -908,8 +899,8 @@ TedLeo
 SELECT "Title" FROM TedLeo ORDER BY "year" LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 101
-What should I buy my wife for our 5th anniversary ?
+example# 100
+What should I buy my wife for our 5th anniversary ? COL_START url COL_END COL_START Year COL_END COL_START Gift COL_END
 
 SELECT "Gift" FROM Table_1 WHERE "Year" LIKE "%%5%";
 SELECT "Gift" FROM Table_1 WHERE "Year" LIKE "%%5%";
@@ -917,26 +908,26 @@ Anniversary_Gifts_By_Year
 SELECT "Gift" FROM Anniversary_Gifts_By_Year WHERE "Year" LIKE "%%5%";
 --------------------------------------------------
 --------------------------------------------------
-example# 102
-How big do horned nerite snails get ?
+example# 101
+How big do horned nerite snails get ? COL_START url COL_END COL_START Info COL_END COL_START Description COL_END
 
-SELECT "Description" FROM Table_1 WHERE "Info" LIKE "%%Max_Size%";
-SELECT "Description" FROM Table_1 WHERE "Info" LIKE "%%Max_Size%";
+SELECT "Description" FROM Table_1 WHERE "Info" LIKE "%%Max Size%";
+SELECT "Description" FROM Table_1 WHERE "Info" LIKE "%%Max Size%";
 Horned_Nerite_Snail
-SELECT "Description" FROM Horned_Nerite_Snail WHERE "Info" LIKE "%%Max_Size%";
+SELECT "Description" FROM Horned_Nerite_Snail WHERE "Info" LIKE "%%Max Size%";
+--------------------------------------------------
+--------------------------------------------------
+example# 102
+How do you eat freeze dried food ? COL_START Food_Type COL_END COL_START Basic_Instructions COL_END
+
+SELECT "Basic_Instructions" FROM Table_1 WHERE "Food_Type" LIKE "%%Freeze-Dried Food%";
+SELECT "Basic_Instructions" FROM Table_1 WHERE "Food_Type" LIKE "%%Freeze-Dried Food%";
+Freeze-dried_vs._Dehydrated_Food
+SELECT "Basic_Instructions" FROM Freeze-dried_vs._Dehydrated_Food WHERE "Food_Type" LIKE "%%Freeze-Dried Food%";
 --------------------------------------------------
 --------------------------------------------------
 example# 103
-How do you eat freeze dried food ?
-
-SELECT "Basic_Instructions" FROM Table_1 WHERE "Food_Type" LIKE "%%Freeze-Dried_Food%";
-SELECT "Basic_Instructions" FROM Table_1 WHERE "Food_Type" LIKE "%%Freeze-Dried_Food%";
-Freeze-dried_vs._Dehydrated_Food
-SELECT "Basic_Instructions" FROM Freeze-dried_vs._Dehydrated_Food WHERE "Food_Type" LIKE "%%Freeze-Dried_Food%";
---------------------------------------------------
---------------------------------------------------
-example# 104
-Google , what is the best computer desk on the market ?
+Google , what is the best computer desk on the market ? COL_START url COL_END COL_START Brand COL_END COL_START Brand_link COL_END COL_START Desk COL_END COL_START Desk_link COL_END COL_START Bottom_line COL_END COL_START Bottom_line_link COL_END COL_START Pros COL_END COL_START Pros_link COL_END COL_START Cons COL_END COL_START Cons_link COL_END
 
 SELECT "Brand", "Desk" FROM Table_1 LIMIT 1;
 SELECT "Brand", "Desk" FROM Table_1 LIMIT 1;
@@ -944,8 +935,8 @@ Best_Computer_Desks
 SELECT "Brand", "Desk" FROM Best_Computer_Desks LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 105
-Alexa , what is the largest lego set ?
+example# 104
+Alexa , what is the largest lego set ? COL_START url COL_END COL_START Image COL_END COL_START Image_alt COL_END COL_START Image_link COL_END COL_START Name COL_END COL_START Number COL_END COL_START Number_link COL_END COL_START Theme COL_END COL_START Theme_link COL_END COL_START Sub_Theme COL_END COL_START Sub_Theme_link COL_END COL_START Year COL_END COL_START Year_link COL_END COL_START Pieces COL_END
 
 SELECT "Name" FROM Table_1 ORDER BY "Pieces" DESC LIMIT 1;
 SELECT "Name" FROM Table_1 ORDER BY "Pieces" DESC LIMIT 1;
@@ -953,17 +944,8 @@ Largest_Lego_Sets
 SELECT "Name" FROM Largest_Lego_Sets ORDER BY "Pieces" DESC LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 106
-What is the fastest internet available in my area ?
-
-SELECT "Provider" FROM Table_1 ORDER BY "Fastest_Speed" LIMIT 1;
-SELECT "Provider" FROM Table_1 ORDER BY "Fastest_Speed" LIMIT 1;
-Internet_providers_in_Pittsburgh,_Pennsylvania
-SELECT "Provider" FROM Internet_providers_in_Pittsburgh,_Pennsylvania ORDER BY "Fastest_Speed" LIMIT 1;
---------------------------------------------------
---------------------------------------------------
-example# 107
-Alexa , what is the best mid size sedan on the market ?
+example# 105
+Alexa , what is the best mid size sedan on the market ? COL_START url COL_END COL_START Ranking COL_END COL_START Car COL_END COL_START Car_link COL_END COL_START Review_snippet COL_END COL_START Score COL_END COL_START Msrp COL_END COL_START Mpg COL_END
 
 SELECT "Car" FROM Table_1 WHERE "Ranking" LIKE "%%1%";
 SELECT "Car" FROM Table_1 WHERE "Ranking" LIKE "%%1%";
@@ -971,8 +953,8 @@ Best_Midsize_Cars
 SELECT "Car" FROM Best_Midsize_Cars WHERE "Ranking" LIKE "%%1%";
 --------------------------------------------------
 --------------------------------------------------
-example# 108
-Alexa , what 's the cost for a new Nissan Rav4 ?
+example# 106
+Alexa , what 's the cost for a new Nissan Rav4 ? COL_START url COL_END COL_START Model COL_END COL_START Model_link COL_END COL_START Drive_Train COL_END COL_START Mpg COL_END COL_START Msrp COL_END
 
 SELECT MIN(Msrp), MAX(Msrp) FROM Table_1 ;
 SELECT "MIN" ( "Msrp" ), MAX ( "Msrp" ) FROM Table_1;
@@ -980,8 +962,8 @@ rav4
 SELECT MIN(Msrp), MAX(Msrp) FROM rav4 ;
 --------------------------------------------------
 --------------------------------------------------
-example# 109
-Alex , what are the benefits of flaxseed
+example# 107
+Alex , what are the benefits of flaxseed COL_START url COL_END COL_START BenefitsOfFlex COL_END
 
 SELECT * FROM Table_1 LIMIT 3;
 SELECT * FROM Table_1 LIMIT 3;
@@ -989,8 +971,8 @@ FlexSeeds
 SELECT * FROM FlexSeeds LIMIT 3;
 --------------------------------------------------
 --------------------------------------------------
-example# 110
-Alexa , show me president Trump 's approval rating
+example# 108
+Alexa , show me president Trump 's approval rating COL_START url COL_END COL_START Poll COL_END COL_START Poll_link COL_END COL_START Date COL_END COL_START Sample COL_END COL_START Approve COL_END COL_START Disapprove COL_END COL_START Spread COL_END
 
 SELECT "Approve" FROM Table_1 WHERE "Poll" LIKE "%%Average%";
 SELECT "Approve" FROM Table_1 WHERE "Poll" LIKE "%%Average%";
@@ -998,8 +980,8 @@ President_Trump_Job_Approval
 SELECT "Approve" FROM President_Trump_Job_Approval WHERE "Poll" LIKE "%%Average%";
 --------------------------------------------------
 --------------------------------------------------
-example# 111
-how much does amazon prime cost ?
+example# 109
+how much does amazon prime cost ? COL_START url COL_END COL_START Amazon_Store COL_END COL_START Amazon_Store_link COL_END COL_START Country COL_END COL_START Monthly_Price COL_END COL_START Annual_Price COL_END
 
 SELECT "Annual_Price" FROM Table_1 WHERE "Country" LIKE "%%United_States%";
 SELECT "Annual_Price" FROM Table_1 WHERE "Country" LIKE "%%United_States%";
@@ -1007,8 +989,8 @@ Amazon_Prime_Rates
 SELECT "Annual_Price" FROM Amazon_Prime_Rates WHERE "Country" LIKE "%%United_States%";
 --------------------------------------------------
 --------------------------------------------------
-example# 112
-Is Jefe a Jewish name ?
+example# 110
+Is Jefe a Jewish name ? COL_START Word COL_END COL_START Part of Speech COL_END COL_START Definition COL_END COL_START Origin COL_END COL_START Pronunciation COL_END
 
 SELECT "Origin" FROM Table_1 WHERE "Word" LIKE "%%jefe%";
 SELECT "Origin" FROM Table_1 WHERE "Word" LIKE "%%jefe%";
@@ -1016,17 +998,17 @@ Definition_of_Jefe
 SELECT "Origin" FROM Definition_of_Jefe WHERE "Word" LIKE "%%jefe%";
 --------------------------------------------------
 --------------------------------------------------
-example# 113
-Alexa , What movie won best picture in 2011 ?
+example# 111
+Alexa , What movie won best picture in 2011 ? COL_START Key COL_END COL_START Value COL_END
 
-SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Best_Picture%";
-SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Best_Picture%";
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Best Picture%";
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Best Picture%";
 83rd_Academy_Awards
-SELECT "Value" FROM 83rd_Academy_Awards WHERE "Key" LIKE "%%Best_Picture%";
+SELECT "Value" FROM 83rd_Academy_Awards WHERE "Key" LIKE "%%Best Picture%";
 --------------------------------------------------
 --------------------------------------------------
-example# 114
-Alexa , when is Oscars 2018 ?
+example# 112
+Alexa , when is Oscars 2018 ? COL_START url COL_END COL_START keys COL_END COL_START values COL_END
 
 SELECT "values" FROM Table_1 WHERE "keys" LIKE "%%Date%";
 SELECT "values" FROM Table_1 WHERE "keys" LIKE "%%Date%";
@@ -1034,8 +1016,8 @@ Academy_Award
 SELECT "values" FROM Academy_Award WHERE "keys" LIKE "%%Date%";
 --------------------------------------------------
 --------------------------------------------------
-example# 115
-Alexa , who produced the album Albert Einstein by Prodigy ?
+example# 113
+Alexa , who produced the album Albert Einstein by Prodigy ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Producer%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Producer%";
@@ -1043,8 +1025,8 @@ Albert_Einstein
 SELECT "Value" FROM Albert_Einstein WHERE "Key" LIKE "%%Producer%";
 --------------------------------------------------
 --------------------------------------------------
-example# 116
-When does season 6 of Arrow start ?
+example# 114
+When does season 6 of Arrow start ? COL_START url COL_END COL_START Season COL_END COL_START Season_link COL_END COL_START First_Aired COL_END COL_START Last_Aired COL_END COL_START Rank COL_END COL_START Average_viewers_ ( in_millions ) COL_END
 
 SELECT "First_Aired" FROM Table_1 WHERE "Season" = 6;
 SELECT "First_Aired" FROM Table_1 WHERE "Season" = 6;
@@ -1052,8 +1034,8 @@ Table_1
 SELECT "First_Aired" FROM Table_1 WHERE "Season" = 6;
 --------------------------------------------------
 --------------------------------------------------
-example# 117
-Alexa , what is the population of Bordeaux , France ?
+example# 115
+Alexa , what is the population of Bordeaux , France ? COL_START url COL_END COL_START keys COL_END COL_START values COL_END
 
 SELECT "values" FROM Table_1 WHERE "keys" LIKE "%%Population%";
 SELECT "values" FROM Table_1 WHERE "keys" LIKE "%%Population%";
@@ -1061,8 +1043,8 @@ Bordeaux
 SELECT "values" FROM Bordeaux WHERE "keys" LIKE "%%Population%";
 --------------------------------------------------
 --------------------------------------------------
-example# 118
-Siri , what are some books by Bukowski ?
+example# 116
+Siri , what are some books by Bukowski ? COL_START url COL_END COL_START Book COL_END COL_START Book_link COL_END COL_START Year COL_END COL_START ISBN COL_END
 
 SELECT "Book" FROM Table_1;
 SELECT "Book" FROM Table_1;
@@ -1070,8 +1052,8 @@ Table_1
 SELECT "Book" FROM Table_1;
 --------------------------------------------------
 --------------------------------------------------
-example# 119
-Siri , where is Coomera ?
+example# 117
+Siri , where is Coomera ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%LGA%" OR "Key" LIKE "%%Location%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%LGA%" OR "Key" LIKE "%%Location%";
@@ -1079,8 +1061,8 @@ Coomera
 SELECT "Value" FROM Coomera WHERE "Key" LIKE "%%LGA%" OR "Key" LIKE "%%Location%";
 --------------------------------------------------
 --------------------------------------------------
-example# 120
-What was the last movie that Daniel Day Lewis acted in ?
+example# 118
+What was the last movie that Daniel Day Lewis acted in ? COL_START url COL_END COL_START Year COL_END COL_START Title COL_END COL_START Role COL_END COL_START Director COL_END COL_START Notes COL_END
 
 SELECT "Title" FROM Table_1 ORDER BY "Year" DESC LIMIT 1;
 SELECT "Title" FROM Table_1 ORDER BY "Year" DESC LIMIT 1;
@@ -1088,8 +1070,8 @@ Daniel_Day_Lewis_Filmography
 SELECT "Title" FROM Daniel_Day_Lewis_Filmography ORDER BY "Year" DESC LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 121
-Alexa , what year did Jimi Hendrix die ?
+example# 119
+Alexa , what year did Jimi Hendrix die ? COL_START url COL_END COL_START keys COL_END COL_START values COL_END
 
 SELECT "values" FROM Table_1 WHERE "keys" LIKE "%%Date%";
 SELECT "values" FROM Table_1 WHERE "keys" LIKE "%%Date%";
@@ -1097,8 +1079,8 @@ Death_of_Jimi_Hendrix
 SELECT "values" FROM Death_of_Jimi_Hendrix WHERE "keys" LIKE "%%Date%";
 --------------------------------------------------
 --------------------------------------------------
-example# 122
-When is the next presidential election ?
+example# 120
+When is the next presidential election ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%2020_date%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%2020_date%";
@@ -1106,8 +1088,8 @@ National_Election_Day
 SELECT "Value" FROM National_Election_Day WHERE "Key" LIKE "%%2020_date%";
 --------------------------------------------------
 --------------------------------------------------
-example# 123
-When is E3 2018 ?
+example# 121
+When is E3 2018 ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Begins%" OR "Key" LIKE "%%Ends%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Begins%" OR "Key" LIKE "%%Ends%";
@@ -1115,8 +1097,8 @@ E3_2018
 SELECT "Value" FROM E3_2018 WHERE "Key" LIKE "%%Begins%" OR "Key" LIKE "%%Ends%";
 --------------------------------------------------
 --------------------------------------------------
-example# 124
-Who is Gail Sheehy ?
+example# 122
+Who is Gail Sheehy ? COL_START url COL_END COL_START key COL_END COL_START value COL_END
 
 SELECT "value" FROM Table_1 WHERE "key" LIKE "%%Occupation%";
 SELECT "value" FROM Table_1 WHERE "key" LIKE "%%Occupation%";
@@ -1124,8 +1106,8 @@ Gail_Sheehy
 SELECT "value" FROM Gail_Sheehy WHERE "key" LIKE "%%Occupation%";
 --------------------------------------------------
 --------------------------------------------------
-example# 125
-Siri , what continent is scotland a part of ?
+example# 123
+Siri , what continent is scotland a part of ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Continent%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Continent%";
@@ -1133,26 +1115,17 @@ Geography_of_Scotland
 SELECT "Value" FROM Geography_of_Scotland WHERE "Key" LIKE "%%Continent%";
 --------------------------------------------------
 --------------------------------------------------
-example# 126
-what year did Gosford Park come out ?
+example# 124
+what year did Gosford Park come out ? COL_START key COL_END COL_START Value COL_END
 
-SELECT "Value" FROM Table_1 WHERE "key" LIKE "%%Release_date%";
-SELECT "Value" FROM Table_1 WHERE "key" LIKE "%%Release_date%";
+SELECT "Value" FROM Table_1 WHERE "key" LIKE "%%Release date%";
+SELECT "Value" FROM Table_1 WHERE "key" LIKE "%%Release date%";
 Gosford_Park
-SELECT "Value" FROM Gosford_Park WHERE "key" LIKE "%%Release_date%";
+SELECT "Value" FROM Gosford_Park WHERE "key" LIKE "%%Release date%";
 --------------------------------------------------
 --------------------------------------------------
-example# 127
-Who has the most Grammys ?
-
-SELECT "Person" FROM Table_1 WHERE "Number_of_Awards" = ( SELECT MAX ( "Number_of_Awards") FROM Table_1 );
-SELECT "Person" FROM Table_1 WHERE "Number_of_Awards" = ( SELECT "MAX" ( "Number_of_Awards" ) FROM Table_1 );
-Table_1
-SELECT "Person" FROM Table_1 WHERE "Number_of_Awards" = ( SELECT MAX ( "Number_of_Awards") FROM Table_1 );
---------------------------------------------------
---------------------------------------------------
-example# 128
-Alexa , what is the name of the last Harry Potter movie ?
+example# 125
+Alexa , what is the name of the last Harry Potter movie ? COL_START url COL_END COL_START Motion_picture COL_END COL_START Release_date COL_END COL_START UK COL_END COL_START USA_ & _Canada COL_END COL_START Other_countries COL_END COL_START Worldwide COL_END COL_START Budget COL_END
 
 SELECT "Motion_picture" FROM Table_1 WHERE "Release_date" LIKE "%%2011%";
 SELECT "Motion_picture" FROM Table_1 WHERE "Release_date" LIKE "%%2011%";
@@ -1160,17 +1133,17 @@ Harry_Potter_Movies
 SELECT "Motion_picture" FROM Harry_Potter_Movies WHERE "Release_date" LIKE "%%2011%";
 --------------------------------------------------
 --------------------------------------------------
-example# 129
-Alexa , what are the key ingredients in Hummus ?
+example# 126
+Alexa , what are the key ingredients in Hummus ? COL_START url COL_END COL_START keys COL_END COL_START values COL_END COL_START values_link COL_END
 
-SELECT "values" FROM Table_1 WHERE "keys" LIKE "%%Main_ingredients%";
-SELECT "values" FROM Table_1 WHERE "keys" LIKE "%%Main_ingredients%";
+SELECT "values" FROM Table_1 WHERE "keys" LIKE "%%Main ingredients%";
+SELECT "values" FROM Table_1 WHERE "keys" LIKE "%%Main ingredients%";
 Hummus
-SELECT "values" FROM Hummus WHERE "keys" LIKE "%%Main_ingredients%";
+SELECT "values" FROM Hummus WHERE "keys" LIKE "%%Main ingredients%";
 --------------------------------------------------
 --------------------------------------------------
-example# 130
-Alexa , how old is Jane Fonda ?
+example# 127
+Alexa , how old is Jane Fonda ? COL_START url COL_END COL_START Property COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Born%";
 SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Born%";
@@ -1178,8 +1151,8 @@ Jane_Fonda_Info
 SELECT "Value" FROM Jane_Fonda_Info WHERE "Property" LIKE "%%Born%";
 --------------------------------------------------
 --------------------------------------------------
-example# 131
-How many movies has Johnny Depp been part of ?
+example# 128
+How many movies has Johnny Depp been part of ? COL_START url COL_END COL_START Year COL_END COL_START Title COL_END COL_START Role COL_END COL_START Notes COL_END
 
 SELECT COUNT(Title) FROM Table_1;
 SELECT COUNT ( "Title" ) FROM Table_1;
@@ -1187,8 +1160,8 @@ Johnny_Depp_Movies
 SELECT COUNT(Title) FROM Johnny_Depp_Movies;
 --------------------------------------------------
 --------------------------------------------------
-example# 132
-Alexa , who is Jordan Petterson ?
+example# 129
+Alexa , who is Jordan Petterson ? COL_START url COL_END COL_START 1 COL_END COL_START 3 COL_END
 
 SELECT * FROM Table_1;
 SELECT * FROM Table_1;
@@ -1196,8 +1169,8 @@ Jordan
 SELECT * FROM Jordan;
 --------------------------------------------------
 --------------------------------------------------
-example# 133
-Alexa , what year was Julia Roberts born ?
+example# 130
+Alexa , what year was Julia Roberts born ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "value" FROM Table_1 WHERE "Key" LIKE "%%Born%";
 SELECT "value" FROM Table_1 WHERE "Key" LIKE "%%Born%";
@@ -1205,8 +1178,8 @@ Julia_Roberts
 SELECT "value" FROM Julia_Roberts WHERE "Key" LIKE "%%Born%";
 --------------------------------------------------
 --------------------------------------------------
-example# 134
-What is the new album by justin timberlake album called ?
+example# 131
+What is the new album by justin timberlake album called ? COL_START url COL_END COL_START Title COL_END COL_START Release_Date COL_END COL_START Label COL_END COL_START Formats COL_END COL_START Sales COL_END
 
 SELECT "Title", MAX(Release_Date) FROM Table_1;
 SELECT "Title", MAX ( "Release_Date" ) FROM Table_1;
@@ -1214,8 +1187,8 @@ Justin_Timberlake_Albums
 SELECT "Title", MAX(Release_Date) FROM Justin_Timberlake_Albums;
 --------------------------------------------------
 --------------------------------------------------
-example# 135
-How old is Justin Timberlake ?
+example# 132
+How old is Justin Timberlake ? COL_START url COL_END COL_START Property COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Born%";
 SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Born%";
@@ -1223,8 +1196,8 @@ Justin_Timberlake_Info
 SELECT "Value" FROM Justin_Timberlake_Info WHERE "Property" LIKE "%%Born%";
 --------------------------------------------------
 --------------------------------------------------
-example# 136
-Alexa , when was the moon landing ?
+example# 133
+Alexa , when was the moon landing ? COL_START url COL_END COL_START # COL_END COL_START Name COL_END COL_START Born_ ( age ) COL_END COL_START Died_ ( age ) COL_END COL_START Age_at_first_step COL_END COL_START Mission COL_END COL_START Lunar_EVA_dates COL_END COL_START Service COL_END COL_START Alma_Mater COL_END
 
 SELECT "Lunar_EVA_dates" FROM Table_1 WHERE "#" LIKE "%%1%";
 SELECT "Lunar_EVA_dates" FROM Table_1 WHERE "#" LIKE "%%1%";
@@ -1232,8 +1205,8 @@ Appollo_Astronauts_who_walked_on_the_Moon
 SELECT "Lunar_EVA_dates" FROM Appollo_Astronauts_who_walked_on_the_Moon WHERE "#" LIKE "%%1%";
 --------------------------------------------------
 --------------------------------------------------
-example# 137
-Alexa , what song was number one the longest ?
+example# 134
+Alexa , what song was number one the longest ? COL_START Number of Weeks COL_END COL_START Artist ( s ) COL_END COL_START Song COL_END COL_START Years COL_END
 
 SELECT "Song", "Artist(s)" FROM Table_1 ORDER BY "Number_of_Weeks" DESC LIMIT 1;
 SELECT "Song", "Artist(s)" FROM Table_1 ORDER BY "Number_of_Weeks" DESC LIMIT 1;
@@ -1241,8 +1214,8 @@ Most_Weeks_at_Number_One_Billboard_Hot_100
 SELECT "Song", "Artist(s)" FROM Most_Weeks_at_Number_One_Billboard_Hot_100 ORDER BY "Number_of_Weeks" DESC LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 138
-Alexa , what is a bitcoin ?
+example# 135
+Alexa , what is a bitcoin ? COL_START url COL_END COL_START Release_1 COL_END COL_START Status COL_END COL_START Currency COL_END COL_START Currency_link COL_END COL_START Description COL_END
 
 SELECT "Description" FROM Table_1 WHERE "currency" = "Bitcoin";
 SELECT "Description" FROM Table_1 WHERE "currency" = "Bitcoin";
@@ -1250,8 +1223,8 @@ Cryptocurrencies
 SELECT "Description" FROM Cryptocurrencies WHERE "currency" = "Bitcoin";
 --------------------------------------------------
 --------------------------------------------------
-example# 139
-Alexa , what is the largest diamond in the world
+example# 136
+Alexa , what is the largest diamond in the world COL_START url COL_END COL_START Name COL_END COL_START Name_link COL_END COL_START Uncut_Weight_ ( carat ) COL_END COL_START Cut_Weight_ ( carat ) COL_END COL_START Color COL_END COL_START Country/Region_of_Origin COL_END COL_START Description COL_END COL_START Image COL_END
 
 SELECT "Name" FROM Table_1 ORDER BY "Uncut_Weight_(carat)" DESC LIMIT 1;
 SELECT "Name" FROM Table_1 ORDER BY "Uncut_Weight_(carat)" DESC LIMIT 1;
@@ -1259,8 +1232,8 @@ Diamonds
 SELECT "Name" FROM Diamonds ORDER BY "Uncut_Weight_(carat)" DESC LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 140
-Alexa , what presidents were impeached ?
+example# 137
+Alexa , what presidents were impeached ? COL_START url COL_END COL_START Name COL_END COL_START Name_link COL_END COL_START Country COL_END COL_START Country_link COL_END COL_START Date COL_END COL_START Result COL_END
 
 SELECT "Name", "Country" FROM Table_1;
 SELECT "Name", "Country" FROM Table_1;
@@ -1268,8 +1241,8 @@ Successfully_impeached_Presidents
 SELECT "Name", "Country" FROM Successfully_impeached_Presidents;
 --------------------------------------------------
 --------------------------------------------------
-example# 141
-which is the most common language in the world
+example# 138
+which is the most common language in the world COL_START url COL_END COL_START Rank COL_END COL_START Language COL_END COL_START Native_Speakers_In_Millions COL_END COL_START Fraction COL_END
 
 SELECT "Language" FROM Table_1 WHERE "Rank" = 1;
 SELECT "Language" FROM Table_1 WHERE "Rank" = 1;
@@ -1277,8 +1250,8 @@ Native_Speaker_Ranking
 SELECT "Language" FROM Native_Speaker_Ranking WHERE "Rank" = 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 142
-Alexa , where is the Mall of America located ?
+example# 139
+Alexa , where is the Mall of America located ? COL_START url COL_END COL_START Rank COL_END COL_START Mall_Name COL_END COL_START Mall_Name_link COL_END COL_START Location COL_END COL_START Location_link COL_END COL_START Metro_Area COL_END COL_START Metro_Area_link COL_END COL_START Retail_Space_ ( sq._ft_/_m^s ) COL_END COL_START Stores COL_END COL_START Anchor_Stores/Entertainment_Venues COL_END COL_START Year_Opened COL_END COL_START Ownership COL_END
 
 SELECT "Location" FROM Table_1 WHERE "Mall_Name" LIKE "%%Mall_of_America%";
 SELECT "Location" FROM Table_1 WHERE "Mall_Name" LIKE "%%Mall_of_America%";
@@ -1286,8 +1259,8 @@ Largest_Shopping_Malls_in_America
 SELECT "Location" FROM Largest_Shopping_Malls_in_America WHERE "Mall_Name" LIKE "%%Mall_of_America%";
 --------------------------------------------------
 --------------------------------------------------
-example# 143
-What is the capital of Portugal ?
+example# 140
+What is the capital of Portugal ? COL_START url COL_END COL_START Capital_City COL_END COL_START Country COL_END COL_START Notes COL_END
 
 SELECT "Capital_City" FROM Table_1 WHERE "Country" LIKE "%%Portugal%";
 SELECT "Capital_City" FROM Table_1 WHERE "Country" LIKE "%%Portugal%";
@@ -1295,8 +1268,8 @@ National_Capitals
 SELECT "Capital_City" FROM National_Capitals WHERE "Country" LIKE "%%Portugal%";
 --------------------------------------------------
 --------------------------------------------------
-example# 144
-Who is the 34thpresident of the United states of America ?
+example# 141
+Who is the 34thpresident of the United states of America ? COL_START url COL_END COL_START Number COL_END COL_START Number_link COL_END COL_START Presidency COL_END COL_START Name COL_END COL_START Prior_office COL_END COL_START Party COL_END COL_START Term COL_END COL_START Vice_President COL_END
 
 SELECT "Name" FROM Table_1 WHERE "Number" LIKE "%%34%";
 SELECT "Name" FROM Table_1 WHERE "Number" LIKE "%%34%";
@@ -1304,8 +1277,8 @@ US_President
 SELECT "Name" FROM US_President WHERE "Number" LIKE "%%34%";
 --------------------------------------------------
 --------------------------------------------------
-example# 145
-which is the current president of United States ?
+example# 142
+which is the current president of United States ? COL_START url COL_END COL_START Presidency COL_END COL_START President COL_END COL_START Prior_Office COL_END COL_START Party COL_END COL_START Term COL_END COL_START Vice_President COL_END
 
 SELECT "President" FROM Table_1 WHERE "Presidency" LIKE "%%Incumbent%";
 SELECT "President" FROM Table_1 WHERE "Presidency" LIKE "%%Incumbent%";
@@ -1313,8 +1286,8 @@ US_Presidents
 SELECT "President" FROM US_Presidents WHERE "Presidency" LIKE "%%Incumbent%";
 --------------------------------------------------
 --------------------------------------------------
-example# 146
-When is the next star wars film released ?
+example# 143
+When is the next star wars film released ? COL_START url COL_END COL_START Film_Title COL_END COL_START Release_Date COL_END COL_START Director COL_END COL_START Screenwriter COL_END COL_START Story_By COL_END COL_START Producer COL_END COL_START Initial_Distributor COL_END
 
 SELECT MIN(Release_Date) FROM Table_1 WHERE "Release_Date" > CURRENT_DATE;
 SELECT "MIN" ( "Release_Date" ) FROM Table_1 WHERE "Release_Date" > "CURRENT_DATE";
@@ -1322,17 +1295,17 @@ Star_Wars_Films
 SELECT MIN(Release_Date) FROM Star_Wars_Films WHERE "Release_Date" > CURRENT_DATE;
 --------------------------------------------------
 --------------------------------------------------
-example# 147
-Alexa , who is the actress that plays Sheldon 's mother ?
+example# 144
+Alexa , who is the actress that plays Sheldon 's mother ? COL_START url COL_END COL_START Character COL_END COL_START Portrayed_by COL_END COL_START Seasons COL_END
 
-SELECT "Portrayed_by" FROM Table_1 WHERE "Character" LIKE "%%Mary_Cooper%";
-SELECT "Portrayed_by" FROM Table_1 WHERE "Character" LIKE "%%Mary_Cooper%";
+SELECT "Portrayed_by" FROM Table_1 WHERE "Character" LIKE "%%Mary Cooper%";
+SELECT "Portrayed_by" FROM Table_1 WHERE "Character" LIKE "%%Mary Cooper%";
 Character_Appearances
-SELECT "Portrayed_by" FROM Character_Appearances WHERE "Character" LIKE "%%Mary_Cooper%";
+SELECT "Portrayed_by" FROM Character_Appearances WHERE "Character" LIKE "%%Mary Cooper%";
 --------------------------------------------------
 --------------------------------------------------
-example# 148
-where is located the first public school of United States ?
+example# 145
+where is located the first public school of United States ? COL_START url COL_END COL_START School_Name COL_END COL_START Creation_Year COL_END COL_START Location COL_END
 
 SELECT "Location", MIN(Creation_Year) FROM Table_1;
 SELECT "Location", MIN ( "Creation_Year" ) FROM Table_1;
@@ -1340,8 +1313,8 @@ US_Public_Schools
 SELECT "Location", MIN(Creation_Year) FROM US_Public_Schools;
 --------------------------------------------------
 --------------------------------------------------
-example# 149
-Alexa , which is the welathiest state ?
+example# 146
+Alexa , which is the welathiest state ? COL_START url COL_END COL_START Rank COL_END COL_START State COL_END COL_START State_link COL_END COL_START 2015 COL_END COL_START 2014 COL_END COL_START 2013 COL_END COL_START 2012 COL_END COL_START 2011 COL_END
 
 SELECT "State", "2015" FROM Table_1 ORDER BY "2015" DESC LIMIT 1;
 SELECT "State", "2015" FROM Table_1 ORDER BY "2015" DESC LIMIT 1;
@@ -1349,8 +1322,8 @@ States_Ranked_by_Median_Household_Income
 SELECT "State", "2015" FROM States_Ranked_by_Median_Household_Income ORDER BY "2015" DESC LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 150
-Alexa , where is Meek Mill from ?
+example# 147
+Alexa , where is Meek Mill from ? COL_START url COL_END COL_START Property COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Born%";
 SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Born%";
@@ -1358,8 +1331,8 @@ Meek_Mill_Info
 SELECT "Value" FROM Meek_Mill_Info WHERE "Property" LIKE "%%Born%";
 --------------------------------------------------
 --------------------------------------------------
-example# 151
-Alexa , what is the Meredith Corporation ?
+example# 148
+Alexa , what is the Meredith Corporation ? COL_START url COL_END COL_START keys COL_END COL_START keys_link COL_END COL_START values COL_END COL_START values_link COL_END
 
 SELECT "values" FROM Table_1 WHERE "keys" LIKE "%%Industry%" OR "keys" LIKE "%%Products%";
 SELECT "values" FROM Table_1 WHERE "keys" LIKE "%%Industry%" OR "keys" LIKE "%%Products%";
@@ -1367,8 +1340,8 @@ Meredith_Corporation
 SELECT "values" FROM Meredith_Corporation WHERE "keys" LIKE "%%Industry%" OR "keys" LIKE "%%Products%";
 --------------------------------------------------
 --------------------------------------------------
-example# 152
-Alexa , Who painted the Mona Lisa ?
+example# 149
+Alexa , Who painted the Mona Lisa ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Artist%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Artist%";
@@ -1376,17 +1349,17 @@ Mona_Lisa
 SELECT "Value" FROM Mona_Lisa WHERE "Key" LIKE "%%Artist%";
 --------------------------------------------------
 --------------------------------------------------
-example# 153
-OK Google , Who is the queen of england ?
+example# 150
+OK Google , Who is the queen of england ? COL_START url COL_END COL_START Flag_image COL_END COL_START Flag_image_alt COL_END COL_START Flag_image_link COL_END COL_START State COL_END COL_START State_link COL_END COL_START Type COL_END COL_START Type_link COL_END COL_START Succession COL_END COL_START Succession_link COL_END COL_START Dynasty COL_END COL_START Dynasty_link COL_END COL_START Title COL_END COL_START Title_link COL_END COL_START Image COL_END COL_START Image_alt COL_END COL_START Image_link COL_END COL_START Incumbent COL_END COL_START Incumbent_link COL_END COL_START Born COL_END COL_START Age COL_END COL_START Reigns_since COL_END COL_START First_in_line COL_END
 
-SELECT "Incumbent" FROM Table_1 WHERE "State" LIKE "%%United_Kingdom%";
-SELECT "Incumbent" FROM Table_1 WHERE "State" LIKE "%%United_Kingdom%";
+SELECT "Incumbent" FROM Table_1 WHERE "State" LIKE "%%United Kingdom%";
+SELECT "Incumbent" FROM Table_1 WHERE "State" LIKE "%%United Kingdom%";
 Table_of_monarchies_in_Europe
-SELECT "Incumbent" FROM Table_of_monarchies_in_Europe WHERE "State" LIKE "%%United_Kingdom%";
+SELECT "Incumbent" FROM Table_of_monarchies_in_Europe WHERE "State" LIKE "%%United Kingdom%";
 --------------------------------------------------
 --------------------------------------------------
-example# 154
-Google , who shot John Lennon
+example# 151
+Google , who shot John Lennon COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Perpetrator%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Perpetrator%";
@@ -1394,17 +1367,17 @@ Murder_of_John_Lennon
 SELECT "Value" FROM Murder_of_John_Lennon WHERE "Key" LIKE "%%Perpetrator%";
 --------------------------------------------------
 --------------------------------------------------
-example# 155
-Alexa , who is the director of the National Institute of Allergy and Infectious Diseases ?
+example# 152
+Alexa , who is the director of the National Institute of Allergy and Infectious Diseases ? COL_START url COL_END COL_START key COL_END COL_START value COL_END
 
-SELECT "value" FROM Table_1 WHERE "key" LIKE "%%Institute_executive%";
-SELECT "value" FROM Table_1 WHERE "key" LIKE "%%Institute_executive%";
+SELECT "value" FROM Table_1 WHERE "key" LIKE "%%Institute executive%";
+SELECT "value" FROM Table_1 WHERE "key" LIKE "%%Institute executive%";
 National_Institute_of_Allergy_and_Infectious_Diseases
-SELECT "value" FROM National_Institute_of_Allergy_and_Infectious_Diseases WHERE "key" LIKE "%%Institute_executive%";
+SELECT "value" FROM National_Institute_of_Allergy_and_Infectious_Diseases WHERE "key" LIKE "%%Institute executive%";
 --------------------------------------------------
 --------------------------------------------------
-example# 156
-How many states have signed onto the 270 compact
+example# 153
+How many states have signed onto the 270 compact COL_START url COL_END COL_START State COL_END COL_START State_link COL_END COL_START EVs COL_END COL_START Session COL_END COL_START Bill COL_END COL_START Lower_house COL_END COL_START Upper_house COL_END COL_START Executive COL_END COL_START Outcome COL_END
 
 SELECT COUNT ( State ) FROM Table_1 WHERE "Outome" = "Law";
 SELECT COUNT ( "State" ) FROM Table_1 WHERE "Outome" = "Law";
@@ -1412,8 +1385,8 @@ National_Popular_Vote_-_Bills_receiving_floor_votes_in_previous_sessions
 SELECT COUNT ( State ) FROM National_Popular_Vote_-_Bills_receiving_floor_votes_in_previous_sessions WHERE "Outome" = "Law";
 --------------------------------------------------
 --------------------------------------------------
-example# 157
-Alexa , which state has the largest obesity rate
+example# 154
+Alexa , which state has the largest obesity rate COL_START url COL_END COL_START State/District/Territory COL_END COL_START State/District/Territory_link COL_END COL_START Obese_Adults_ ( mid_2000s ) COL_END COL_START Obese_Adults_ ( 2016 ) COL_END COL_START Overweight_ ( including_obese ) _Adults_ ( mid_2000s ) COL_END COL_START Obese_Children_and_Adolescents_ ( mid_2000s ) COL_END COL_START Obesity_Rank COL_END
 
 SELECT "State/District/Territory" FROM Table_1 ORDER BY "Obesity_Rank" ASC LIMIT 1;
 SELECT "State/District/Territory" FROM Table_1 ORDER BY "Obesity_Rank" ASC LIMIT 1;
@@ -1421,8 +1394,8 @@ Obesity_in_the_US
 SELECT "State/District/Territory" FROM Obesity_in_the_US ORDER BY "Obesity_Rank" ASC LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 158
-when paul walker dead ?
+example# 155
+when paul walker dead ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Died%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Died%";
@@ -1430,8 +1403,8 @@ Paul_Walker
 SELECT "Value" FROM Paul_Walker WHERE "Key" LIKE "%%Died%";
 --------------------------------------------------
 --------------------------------------------------
-example# 159
-how old is pink the singer ?
+example# 156
+how old is pink the singer ? COL_START url COL_END COL_START Property COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Born%";
 SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Born%";
@@ -1439,8 +1412,8 @@ Pink_Information
 SELECT "Value" FROM Pink_Information WHERE "Property" LIKE "%%Born%";
 --------------------------------------------------
 --------------------------------------------------
-example# 160
-What is Pioneer Day ?
+example# 157
+What is Pioneer Day ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Significance%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Significance%";
@@ -1448,8 +1421,8 @@ Pioneer_Day
 SELECT "Value" FROM Pioneer_Day WHERE "Key" LIKE "%%Significance%";
 --------------------------------------------------
 --------------------------------------------------
-example# 161
-What is the order of the new Planet of The Apes Movies ?
+example# 158
+What is the order of the new Planet of The Apes Movies ? COL_START url COL_END COL_START Film_Name COL_END COL_START Rotten_1 COL_END COL_START Rotten_2 COL_END COL_START Rotten_2_link COL_END COL_START Metacritic COL_END
 
 SELECT * FROM Table_1;
 SELECT * FROM Table_1;
@@ -1457,8 +1430,8 @@ PlanetOfTheApes
 SELECT * FROM PlanetOfTheApes;
 --------------------------------------------------
 --------------------------------------------------
-example# 162
-Where was Capt Sir Richard Francis Burton born
+example# 159
+Where was Capt Sir Richard Francis Burton born COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Born%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Born%";
@@ -1466,8 +1439,8 @@ Sir_Richard_Francis_Burton
 SELECT "Value" FROM Sir_Richard_Francis_Burton WHERE "Key" LIKE "%%Born%";
 --------------------------------------------------
 --------------------------------------------------
-example# 163
-Alexa , who won the last episode of RuPaul 's Drag Race All-Stars ?
+example# 160
+Alexa , who won the last episode of RuPaul 's Drag Race All-Stars ? COL_START url COL_END COL_START Contestant COL_END COL_START Episode_1 COL_END COL_START Episode_2 COL_END COL_START Episode_3 COL_END COL_START Episode_4 COL_END COL_START Episode_5 COL_END COL_START Episode_6 COL_END COL_START Episode_7 COL_END COL_START Episode_8 COL_END
 
 SELECT "Contestant" FROM Table_1 WHERE "Episode_8" LIKE "%%Winner%";
 SELECT "Contestant" FROM Table_1 WHERE "Episode_8" LIKE "%%Winner%";
@@ -1475,26 +1448,26 @@ RuPaul_Drag_Race
 SELECT "Contestant" FROM RuPaul_Drag_Race WHERE "Episode_8" LIKE "%%Winner%";
 --------------------------------------------------
 --------------------------------------------------
-example# 164
-Alexa , what is the main ingredient in spam ?
+example# 161
+Alexa , what is the main ingredient in spam ? COL_START url COL_END COL_START Property COL_END COL_START Value COL_END
 
-SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Main_ingredient%";
-SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Main_ingredient%";
+SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Main ingredient%";
+SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Main ingredient%";
 Spam_Food
-SELECT "Value" FROM Spam_Food WHERE "Property" LIKE "%%Main_ingredient%";
+SELECT "Value" FROM Spam_Food WHERE "Property" LIKE "%%Main ingredient%";
 --------------------------------------------------
 --------------------------------------------------
-example# 165
-Alexa , what year did the first ever Spiderman movie come out ?
+example# 162
+Alexa , what year did the first ever Spiderman movie come out ? COL_START url COL_END COL_START Property COL_END COL_START Value COL_END
 
-SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Release_date%";
-SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Release_date%";
+SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Release date%";
+SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Release date%";
 Spiderman_Movie
-SELECT "Value" FROM Spiderman_Movie WHERE "Property" LIKE "%%Release_date%";
+SELECT "Value" FROM Spiderman_Movie WHERE "Property" LIKE "%%Release date%";
 --------------------------------------------------
 --------------------------------------------------
-example# 166
-Alexa , who is the commander in chief of the military ?
+example# 163
+Alexa , who is the commander in chief of the military ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%commander%in%chief%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%commander%in%chief%";
@@ -1502,8 +1475,8 @@ United_States_Armed_Forces
 SELECT "Value" FROM United_States_Armed_Forces WHERE "Key" LIKE "%%commander%in%chief%";
 --------------------------------------------------
 --------------------------------------------------
-example# 167
-How old is the sun ?
+example# 164
+How old is the sun ? COL_START url COL_END COL_START Property COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Age%";
 SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Age%";
@@ -1511,17 +1484,8 @@ Sun_Stats
 SELECT "Value" FROM Sun_Stats WHERE "Property" LIKE "%%Age%";
 --------------------------------------------------
 --------------------------------------------------
-example# 168
-Alexa , where is the Super Bowl being played this year ?
-
-SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Stadium%";
-SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Stadium%";
-Super_Bowl_LII
-SELECT "Value" FROM Super_Bowl_LII WHERE "Key" LIKE "%%Stadium%";
---------------------------------------------------
---------------------------------------------------
-example# 169
-Alexa , who wrote the book Art of War ?
+example# 165
+Alexa , who wrote the book Art of War ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Author%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Author%";
@@ -1529,8 +1493,8 @@ The_art_of_War
 SELECT "Value" FROM The_art_of_War WHERE "Key" LIKE "%%Author%";
 --------------------------------------------------
 --------------------------------------------------
-example# 170
-What season is The Flash on currently ?
+example# 166
+What season is The Flash on currently ? COL_START url COL_END COL_START Season COL_END COL_START Season_link COL_END COL_START First_Aired COL_END COL_START Last_Aired COL_END COL_START Rank COL_END COL_START Average_Viewership_ ( in_millions ) COL_END
 
 SELECT MAX(Season) FROM Table_1;
 SELECT "MAX" ( "Season" ) FROM Table_1;
@@ -1538,8 +1502,8 @@ Table_1
 SELECT MAX(Season) FROM Table_1;
 --------------------------------------------------
 --------------------------------------------------
-example# 171
-Who played the lead role in the shawshank redemption ?
+example# 167
+Who played the lead role in the shawshank redemption ? COL_START url COL_END COL_START Actor COL_END COL_START Actor_link COL_END COL_START Character COL_END
 
 SELECT "Actor", "Character" FROM Table_1 LIMIT 1;
 SELECT "Actor", "Character" FROM Table_1 LIMIT 1;
@@ -1547,8 +1511,8 @@ Shawshank_Redemption_Cast
 SELECT "Actor", "Character" FROM Shawshank_Redemption_Cast LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 172
-Where is ticonderoga
+example# 168
+Where is ticonderoga COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%State%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%State%";
@@ -1556,17 +1520,17 @@ Tincondegora,_New_York
 SELECT "Value" FROM Tincondegora,_New_York WHERE "Key" LIKE "%%State%";
 --------------------------------------------------
 --------------------------------------------------
-example# 173
-Alexa , president of the senate ?
+example# 169
+Alexa , president of the senate ? COL_START Leadership COL_END COL_START Name COL_END COL_START Since COL_END
 
-SELECT "Name" FROM Table_1 WHERE "Leadership" LIKE "%%President_of_the_Senate%";
-SELECT "Name" FROM Table_1 WHERE "Leadership" LIKE "%%President_of_the_Senate%";
+SELECT "Name" FROM Table_1 WHERE "Leadership" LIKE "%%President of the Senate%";
+SELECT "Name" FROM Table_1 WHERE "Leadership" LIKE "%%President of the Senate%";
 United_States_Senate
-SELECT "Name" FROM United_States_Senate WHERE "Leadership" LIKE "%%President_of_the_Senate%";
+SELECT "Name" FROM United_States_Senate WHERE "Leadership" LIKE "%%President of the Senate%";
 --------------------------------------------------
 --------------------------------------------------
-example# 174
-Alexa , where is the University of Georgia located ?
+example# 170
+Alexa , where is the University of Georgia located ? COL_START url COL_END COL_START key COL_END COL_START value COL_END
 
 SELECT "value" FROM Table_1 WHERE "key" LIKE "%%Location%";
 SELECT "value" FROM Table_1 WHERE "key" LIKE "%%Location%";
@@ -1574,8 +1538,8 @@ University_of_Georgia
 SELECT "value" FROM University_of_Georgia WHERE "key" LIKE "%%Location%";
 --------------------------------------------------
 --------------------------------------------------
-example# 175
-Alexa , when does season 3 of UnReal premiere on Lifetime ?
+example# 171
+Alexa , when does season 3 of UnReal premiere on Lifetime ? COL_START Season COL_END COL_START Episodes COL_END COL_START First Aired COL_END COL_START Last Aired COL_END
 
 SELECT "First_Aired" FROM Table_1 WHERE "Season" LIKE "%%3%";
 SELECT "First_Aired" FROM Table_1 WHERE "Season" LIKE "%%3%";
@@ -1583,8 +1547,8 @@ UnReal
 SELECT "First_Aired" FROM UnReal WHERE "Season" LIKE "%%3%";
 --------------------------------------------------
 --------------------------------------------------
-example# 176
-Who is Valerie Plame ?
+example# 172
+Who is Valerie Plame ? COL_START url COL_END COL_START key COL_END COL_START value COL_END
 
 SELECT "value" FROM Table_1 WHERE "key" LIKE "%%Occupation%";
 SELECT "value" FROM Table_1 WHERE "key" LIKE "%%Occupation%";
@@ -1592,8 +1556,8 @@ Valerie_Plame
 SELECT "value" FROM Valerie_Plame WHERE "key" LIKE "%%Occupation%";
 --------------------------------------------------
 --------------------------------------------------
-example# 177
-Alexa , who was the designer for Vetements ?
+example# 173
+Alexa , who was the designer for Vetements ? COL_START url COL_END COL_START key COL_END COL_START value COL_END
 
 SELECT "value" FROM Table_1 WHERE "key" LIKE "%%Founder%";
 SELECT "value" FROM Table_1 WHERE "key" LIKE "%%Founder%";
@@ -1601,8 +1565,8 @@ Vetements
 SELECT "value" FROM Vetements WHERE "key" LIKE "%%Founder%";
 --------------------------------------------------
 --------------------------------------------------
-example# 178
-Alexa , When did Whitney Houston die ?
+example# 174
+Alexa , When did Whitney Houston die ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Died%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Died%";
@@ -1610,8 +1574,8 @@ Whitney_Houston
 SELECT "Value" FROM Whitney_Houston WHERE "Key" LIKE "%%Died%";
 --------------------------------------------------
 --------------------------------------------------
-example# 179
-How old is Whoopi Goldberg ?
+example# 175
+How old is Whoopi Goldberg ? COL_START url COL_END COL_START Personalattributes COL_END COL_START value COL_END
 
 SELECT * FROM Table_1 WHERE "PersonalAttributes" = "Born";
 SELECT * FROM Table_1 WHERE "PersonalAttributes" = "Born";
@@ -1619,8 +1583,8 @@ Whoopi
 SELECT * FROM Whoopi WHERE "PersonalAttributes" = "Born";
 --------------------------------------------------
 --------------------------------------------------
-example# 180
-Alexa , how is the stock exchange for Bitcoin ?
+example# 176
+Alexa , how is the stock exchange for Bitcoin ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Open%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Open%";
@@ -1628,8 +1592,8 @@ Bitcoin
 SELECT "Value" FROM Bitcoin WHERE "Key" LIKE "%%Open%";
 --------------------------------------------------
 --------------------------------------------------
-example# 181
-What times are barbell club classes at Fit Factory Nashville ?
+example# 177
+What times are barbell club classes at Fit Factory Nashville ? COL_START url COL_END COL_START Schedule COL_END COL_START Time COL_END
 
 SELECT * FROM Table_1;
 SELECT * FROM Table_1;
@@ -1637,8 +1601,8 @@ FitFactory
 SELECT * FROM FitFactory;
 --------------------------------------------------
 --------------------------------------------------
-example# 182
-What is the housing forecast for 2018 ?
+example# 178
+What is the housing forecast for 2018 ? COL_START Housing Indicator COL_END COL_START 2018 Forecast COL_END
 
 SELECT * FROM Table_1;
 SELECT * FROM Table_1;
@@ -1646,8 +1610,8 @@ Outlook_on_the_Housing_Market
 SELECT * FROM Outlook_on_the_Housing_Market;
 --------------------------------------------------
 --------------------------------------------------
-example# 183
-How do I whiten clothes without bleach
+example# 179
+How do I whiten clothes without bleach COL_START url COL_END COL_START Step COL_END COL_START Description COL_END
 
 SELECT "Step" FROM Table_1 LIMIT 3;
 SELECT "Step" FROM Table_1 LIMIT 3;
@@ -1655,8 +1619,8 @@ WAYS_TO_WHITEN_CLOTHES_WITHOUT_BLEACH
 SELECT "Step" FROM WAYS_TO_WHITEN_CLOTHES_WITHOUT_BLEACH LIMIT 3;
 --------------------------------------------------
 --------------------------------------------------
-example# 184
-Alexa , which cell phones are compatible with MHL adaptors ?
+example# 180
+Alexa , which cell phones are compatible with MHL adaptors ? COL_START url COL_END COL_START Brand COL_END COL_START Model COL_END
 
 SELECT "Model" FROM Table_1 LIMIT 3;
 SELECT "Model" FROM Table_1 LIMIT 3;
@@ -1664,8 +1628,8 @@ MHL
 SELECT "Model" FROM MHL LIMIT 3;
 --------------------------------------------------
 --------------------------------------------------
-example# 185
-Alexa , where does Princess Kate get her dresses ?
+example# 181
+Alexa , where does Princess Kate get her dresses ? COL_START url COL_END COL_START keys COL_END COL_START values COL_END
 
 SELECT "values" FROM Table_1 WHERE "keys" LIKE "%%STORES%";
 SELECT "values" FROM Table_1 WHERE "keys" LIKE "%%STORES%";
@@ -1673,8 +1637,8 @@ Kate_Middleton_Style
 SELECT "values" FROM Kate_Middleton_Style WHERE "keys" LIKE "%%STORES%";
 --------------------------------------------------
 --------------------------------------------------
-example# 186
-Alexa , what are some animal encounters for birthday parties ?
+example# 182
+Alexa , what are some animal encounters for birthday parties ? COL_START url COL_END COL_START Name COL_END COL_START Phone_Number COL_END COL_START Description COL_END
 
 SELECT "Name" FROM Table_1;
 SELECT "Name" FROM Table_1;
@@ -1682,8 +1646,8 @@ Animal_Encounter_Business
 SELECT "Name" FROM Animal_Encounter_Business;
 --------------------------------------------------
 --------------------------------------------------
-example# 187
-Alexa , what are some birthday party packages at the long island aquarium ?
+example# 183
+Alexa , what are some birthday party packages at the long island aquarium ? COL_START url COL_END COL_START Parties COL_END COL_START Parties_link COL_END COL_START Image COL_END COL_START Image_alt COL_END COL_START Image_link COL_END
 
 SELECT "Parties" FROM Table_1;
 SELECT "Parties" FROM Table_1;
@@ -1691,8 +1655,8 @@ LongIslandVenues
 SELECT "Parties" FROM LongIslandVenues;
 --------------------------------------------------
 --------------------------------------------------
-example# 188
-Alexa , what is hypertension ?
+example# 184
+Alexa , what is hypertension ? COL_START url COL_END COL_START Term COL_END COL_START Definition COL_END
 
 SELECT "Definition" FROM Table_1 WHERE "Term" LIKE "%%Hypertension%";
 SELECT "Definition" FROM Table_1 WHERE "Term" LIKE "%%Hypertension%";
@@ -1700,8 +1664,8 @@ Hypertension_Glossary
 SELECT "Definition" FROM Hypertension_Glossary WHERE "Term" LIKE "%%Hypertension%";
 --------------------------------------------------
 --------------------------------------------------
-example# 189
-what types of dinner ?
+example# 185
+what types of dinner ? COL_START url COL_END COL_START DinnerImage COL_END COL_START DinnerImage_alt COL_END COL_START DinnerImage_link COL_END COL_START Dinner COL_END COL_START Description COL_END COL_START Description_link COL_END
 
 SELECT COUNT(*) FROM Table_1;
 SELECT COUNT ( * ) FROM Table_1;
@@ -1709,17 +1673,17 @@ TypesOfDinner
 SELECT COUNT(*) FROM TypesOfDinner;
 --------------------------------------------------
 --------------------------------------------------
-example# 190
-Alexa , when is Maroon 5 coming to San Antonio for a concert ?
+example# 186
+Alexa , when is Maroon 5 coming to San Antonio for a concert ? COL_START url COL_END COL_START Date COL_END COL_START Date_link COL_END COL_START Location COL_END COL_START Location_link COL_END COL_START City COL_END COL_START City_link COL_END
 
-SELECT "Date" FROM Table_1 WHERE "City" LIKE "%%San_Antonio%";
-SELECT "Date" FROM Table_1 WHERE "City" LIKE "%%San_Antonio%";
+SELECT "Date" FROM Table_1 WHERE "City" LIKE "%%San Antonio%";
+SELECT "Date" FROM Table_1 WHERE "City" LIKE "%%San Antonio%";
 Maroon_5
-SELECT "Date" FROM Maroon_5 WHERE "City" LIKE "%%San_Antonio%";
+SELECT "Date" FROM Maroon_5 WHERE "City" LIKE "%%San Antonio%";
 --------------------------------------------------
 --------------------------------------------------
-example# 191
-How do you download Twitch videos ?
+example# 187
+How do you download Twitch videos ? COL_START step COL_END
 
 SELECT "id", "step" FROM Table_1 ;
 SELECT "id", "step" FROM Table_1;
@@ -1727,8 +1691,8 @@ download_twitch_videos
 SELECT "id", "step" FROM download_twitch_videos ;
 --------------------------------------------------
 --------------------------------------------------
-example# 192
-Alexa , how do manatees mate ?
+example# 188
+Alexa , how do manatees mate ? COL_START url COL_END COL_START Title COL_END COL_START Description COL_END
 
 SELECT "Description" FROM Table_1 WHERE "Title" LIKE "%%Mating%";
 SELECT "Description" FROM Table_1 WHERE "Title" LIKE "%%Mating%";
@@ -1736,8 +1700,8 @@ Manatee
 SELECT "Description" FROM Manatee WHERE "Title" LIKE "%%Mating%";
 --------------------------------------------------
 --------------------------------------------------
-example# 193
-Alexa , What year did the Civil War start ?
+example# 189
+Alexa , What year did the Civil War start ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Date%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Date%";
@@ -1745,8 +1709,8 @@ American_Civil_War
 SELECT "Value" FROM American_Civil_War WHERE "Key" LIKE "%%Date%";
 --------------------------------------------------
 --------------------------------------------------
-example# 194
-Alexa , what is the capital of Canada ?
+example# 190
+Alexa , what is the capital of Canada ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Capital%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Capital%";
@@ -1754,35 +1718,35 @@ Canada
 SELECT "Value" FROM Canada WHERE "Key" LIKE "%%Capital%";
 --------------------------------------------------
 --------------------------------------------------
-example# 195
-Alexa , what is the best ergonomic mouse ?
+example# 191
+Alexa , what is the best ergonomic mouse ? COL_START url COL_END COL_START keys COL_END COL_START mouses COL_END COL_START mouses_link COL_END COL_START short_explanation COL_END COL_START short_explanation_link COL_END COL_START description COL_END COL_START price COL_END COL_START price_link COL_END
 
-SELECT "mouses" FROM Table_1 WHERE "keys" LIKE "%%Our_pick%";
-SELECT "mouses" FROM Table_1 WHERE "keys" LIKE "%%Our_pick%";
+SELECT "mouses" FROM Table_1 WHERE "keys" LIKE "%%Our pick%";
+SELECT "mouses" FROM Table_1 WHERE "keys" LIKE "%%Our pick%";
 Best_Ergonomic_Mouse
-SELECT "mouses" FROM Best_Ergonomic_Mouse WHERE "keys" LIKE "%%Our_pick%";
+SELECT "mouses" FROM Best_Ergonomic_Mouse WHERE "keys" LIKE "%%Our pick%";
 --------------------------------------------------
 --------------------------------------------------
-example# 196
-Alexa , what is the best ergonomic keyboard ?
+example# 192
+Alexa , what is the best ergonomic keyboard ? COL_START url COL_END COL_START keys COL_END COL_START keyboards COL_END COL_START short_explanation COL_END COL_START short_explanation_link COL_END COL_START description COL_END COL_START price COL_END COL_START price_link COL_END
 
-SELECT "keyboards" FROM Table_1 WHERE "keys" LIKE "%%Our_pick%";
-SELECT "keyboards" FROM Table_1 WHERE "keys" LIKE "%%Our_pick%";
+SELECT "keyboards" FROM Table_1 WHERE "keys" LIKE "%%Our pick%";
+SELECT "keyboards" FROM Table_1 WHERE "keys" LIKE "%%Our pick%";
 Best_Ergonomic_Keyboard
-SELECT "keyboards" FROM Best_Ergonomic_Keyboard WHERE "keys" LIKE "%%Our_pick%";
+SELECT "keyboards" FROM Best_Ergonomic_Keyboard WHERE "keys" LIKE "%%Our pick%";
 --------------------------------------------------
 --------------------------------------------------
-example# 197
-What is the fertility rate in iran ?
+example# 193
+What is the fertility rate in iran ? COL_START url COL_END COL_START Key COL_END COL_START Key_link COL_END COL_START Value COL_END
 
-SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Fertility_rate%";
-SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Fertility_rate%";
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Fertility rate%";
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Fertility rate%";
 Iran_-_Health
-SELECT "Value" FROM Iran_-_Health WHERE "Key" LIKE "%%Fertility_rate%";
+SELECT "Value" FROM Iran_-_Health WHERE "Key" LIKE "%%Fertility rate%";
 --------------------------------------------------
 --------------------------------------------------
-example# 198
-What is there to do in Dallas ?
+example# 194
+What is there to do in Dallas ? COL_START url COL_END COL_START Attraction COL_END COL_START Attraction_link COL_END COL_START Ranking COL_END COL_START Information COL_END
 
 SELECT "Attraction" FROM Table_1 LIMIT 3;
 SELECT "Attraction" FROM Table_1 LIMIT 3;
@@ -1790,8 +1754,8 @@ Best_Things_To_Do_in_Dallas
 SELECT "Attraction" FROM Best_Things_To_Do_in_Dallas LIMIT 3;
 --------------------------------------------------
 --------------------------------------------------
-example# 199
-What is the best cities in France to visit ?
+example# 195
+What is the best cities in France to visit ? COL_START Cities COL_END COL_START Ranking COL_END COL_START Why go COL_END
 
 SELECT "Cities" FROM Table_1 ORDER BY "Ranking" LIMIT 3;
 SELECT "Cities" FROM Table_1 ORDER BY "Ranking" LIMIT 3;
@@ -1799,8 +1763,8 @@ Best_places_to_visit_in_France
 SELECT "Cities" FROM Best_places_to_visit_in_France ORDER BY "Ranking" LIMIT 3;
 --------------------------------------------------
 --------------------------------------------------
-example# 200
-what is the tax rate on short term capital gains for 2017 ?
+example# 196
+what is the tax rate on short term capital gains for 2017 ? COL_START Category COL_END COL_START Description COL_END
 
 SELECT "Description" FROM Table_1 WHERE "Category" LIKE "%%short%term%capital%gains%";
 SELECT "Description" FROM Table_1 WHERE "Category" LIKE "%%short%term%capital%gains%";
@@ -1808,8 +1772,8 @@ Capital_Gains_Tax
 SELECT "Description" FROM Capital_Gains_Tax WHERE "Category" LIKE "%%short%term%capital%gains%";
 --------------------------------------------------
 --------------------------------------------------
-example# 201
-Alexa , what IRA contributions will lower my taxes ?
+example# 197
+Alexa , what IRA contributions will lower my taxes ? COL_START url COL_END COL_START Steps_to_lower_taxes COL_END COL_START Description COL_END
 
 SELECT "Steps_to_lower_taxes" FROM Table_1 WHERE "Description" LIKE "%%contributions%" AND "Description" LIKE "%%IRA%";
 SELECT "Steps_to_lower_taxes" FROM Table_1 WHERE "Description" LIKE "%%contributions%" AND "Description" LIKE "%%IRA%";
@@ -1817,17 +1781,17 @@ Tax_Tips
 SELECT "Steps_to_lower_taxes" FROM Tax_Tips WHERE "Description" LIKE "%%contributions%" AND "Description" LIKE "%%IRA%";
 --------------------------------------------------
 --------------------------------------------------
-example# 202
-Is there a unicode character for the fi ligature
+example# 198
+Is there a unicode character for the fi ligature COL_START url COL_END COL_START Unicode_code_point COL_END COL_START character COL_END COL_START UTF-8_encoding_ ( hex ) COL_END COL_START Unicode_character_name COL_END COL_START Unicode_1.0_character_name_ ( depecrated ) COL_END
 
-SELECT "Unicode_code_point", "character" FROM Table_1 WHERE "Unicode_character_name" LIKE "%%LIGATURE_FI%";
-SELECT "Unicode_code_point", "character" FROM Table_1 WHERE "Unicode_character_name" LIKE "%%LIGATURE_FI%";
+SELECT "Unicode_code_point", "character" FROM Table_1 WHERE "Unicode_character_name" LIKE "%%LIGATURE FI%";
+SELECT "Unicode_code_point", "character" FROM Table_1 WHERE "Unicode_character_name" LIKE "%%LIGATURE FI%";
 Fi_Unicode_Search_Result
-SELECT "Unicode_code_point", "character" FROM Fi_Unicode_Search_Result WHERE "Unicode_character_name" LIKE "%%LIGATURE_FI%";
+SELECT "Unicode_code_point", "character" FROM Fi_Unicode_Search_Result WHERE "Unicode_character_name" LIKE "%%LIGATURE FI%";
 --------------------------------------------------
 --------------------------------------------------
-example# 203
-What is the weather in Ingleside , Il
+example# 199
+What is the weather in Ingleside , Il COL_START url COL_END COL_START Day COL_END COL_START Date COL_END COL_START Description COL_END COL_START High COL_END COL_START Low COL_END COL_START Precip COL_END COL_START Wind COL_END COL_START Humidity COL_END
 
 SELECT "Hight", "Low" FROM Table_1 WHERE "Day" LIKE "%%Tonight%";
 SELECT "Hight", "Low" FROM Table_1 WHERE "Day" LIKE "%%Tonight%";
@@ -1835,8 +1799,8 @@ Ingleside_Il_Weather
 SELECT "Hight", "Low" FROM Ingleside_Il_Weather WHERE "Day" LIKE "%%Tonight%";
 --------------------------------------------------
 --------------------------------------------------
-example# 204
-Siri , what is the capital of California ?
+example# 200
+Siri , what is the capital of California ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Capital%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Capital%";
@@ -1844,8 +1808,8 @@ California
 SELECT "Value" FROM California WHERE "Key" LIKE "%%Capital%";
 --------------------------------------------------
 --------------------------------------------------
-example# 205
-what type of leukemia is most common in kids ?
+example# 201
+what type of leukemia is most common in kids ? COL_START url COL_END COL_START Type_ ( Abbreviation ) COL_END COL_START Full_Name COL_END COL_START Percent_of_Total_Leukemias COL_END COL_START New_column COL_END
 
 SELECT "Full_Name" FROM Table_1 ORDER BY "Percent_of_Total_Leukemias" DESC LIMIT 1;
 SELECT "Full_Name" FROM Table_1 ORDER BY "Percent_of_Total_Leukemias" DESC LIMIT 1;
@@ -1853,8 +1817,8 @@ Types_of_Leukemia_in_Kids
 SELECT "Full_Name" FROM Types_of_Leukemia_in_Kids ORDER BY "Percent_of_Total_Leukemias" DESC LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 206
-Hey google , whats the weather like in the morning tomorrow ?
+example# 202
+Hey google , whats the weather like in the morning tomorrow ? COL_START hour COL_END COL_START forecast COL_END COL_START temp_C COL_END COL_START real_feel_C COL_END COL_START wind COL_END COL_START rain COL_END
 
 SELECT * FROM Table_1 WHERE "hour" LIKE "%%am%";
 SELECT * FROM Table_1 WHERE "hour" LIKE "%%am%";
@@ -1862,8 +1826,8 @@ weather_tomorrow
 SELECT * FROM weather_tomorrow WHERE "hour" LIKE "%%am%";
 --------------------------------------------------
 --------------------------------------------------
-example# 207
-Alexa , where is the biggest volcano ?
+example# 203
+Alexa , where is the biggest volcano ? COL_START url COL_END COL_START Highest COL_END COL_START Highest_link COL_END COL_START Feet_Ft COL_END COL_START Metre_Sm COL_END COL_START Last_Eruption COL_END COL_START Location_And COL_END
 
 SELECT "Highest" FROM Table_1 ORDER BY "Feet" DESC LIMIT 1;
 SELECT "Highest" FROM Table_1 ORDER BY "Feet" DESC LIMIT 1;
@@ -1871,8 +1835,8 @@ Volcanoes
 SELECT "Highest" FROM Volcanoes ORDER BY "Feet" DESC LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 208
-Where is the 217 area code ?
+example# 204
+Where is the 217 area code ? COL_START url COL_END COL_START State COL_END COL_START State_link COL_END COL_START Area_code COL_END
 
 SELECT "State" FROM Table_1 WHERE "Area_code" LIKE "%%217%";
 SELECT "State" FROM Table_1 WHERE "Area_code" LIKE "%%217%";
@@ -1880,8 +1844,8 @@ United_States_Area_Codes
 SELECT "State" FROM United_States_Area_Codes WHERE "Area_code" LIKE "%%217%";
 --------------------------------------------------
 --------------------------------------------------
-example# 209
-What is in carrot cake ?
+example# 205
+What is in carrot cake ? COL_START url COL_END COL_START Ingredients COL_END
 
 SELECT "Ingredients" FROM Table_1;
 SELECT "Ingredients" FROM Table_1;
@@ -1889,8 +1853,8 @@ Carrot_Cake_Ingredients
 SELECT "Ingredients" FROM Carrot_Cake_Ingredients;
 --------------------------------------------------
 --------------------------------------------------
-example# 210
-What 's a good pad thai recipe ?
+example# 206
+What 's a good pad thai recipe ? COL_START url COL_END COL_START Grid_Card_Image COL_END COL_START Grid_Card_Image_alt COL_END COL_START Grid_Card_Image_link COL_END COL_START Recipe_Name COL_END COL_START Recipe_Name_link COL_END COL_START Recipe COL_END COL_START Recipe_link COL_END
 
 SELECT * FROM Table_1 LIMIT 5;
 SELECT * FROM Table_1 LIMIT 5;
@@ -1898,17 +1862,8 @@ ThaiFood
 SELECT * FROM ThaiFood LIMIT 5;
 --------------------------------------------------
 --------------------------------------------------
-example# 211
-Alex , when does spring start this year ?
-
-SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%spring%";
-SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%spring%";
-Seasons_of_2018
-SELECT "Value" FROM Seasons_of_2018 WHERE "Key" LIKE "%%spring%";
---------------------------------------------------
---------------------------------------------------
-example# 212
-Alexa , how much is Judy Moody and the Bucket List ?
+example# 207
+Alexa , how much is Judy Moody and the Bucket List ? COL_START Support COL_END COL_START Price COL_END
 
 SELECT "Support", "Price" FROM Table_1;
 SELECT "Support", "Price" FROM Table_1;
@@ -1916,8 +1871,8 @@ Judy_Moody_and_the_Bucket_List
 SELECT "Support", "Price" FROM Judy_Moody_and_the_Bucket_List;
 --------------------------------------------------
 --------------------------------------------------
-example# 213
-What is the best eczema cream ?
+example# 208
+What is the best eczema cream ? COL_START url COL_END COL_START Picture COL_END COL_START Picture_alt COL_END COL_START Picture_link COL_END COL_START Product COL_END COL_START Product_link COL_END COL_START Seller COL_END COL_START Seller_link COL_END COL_START Price COL_END COL_START Review COL_END COL_START Reviewer COL_END COL_START Reviewer_link COL_END COL_START Full_review COL_END COL_START Rating COL_END COL_START Rating_link COL_END
 
 SELECT "Product" FROM Table_1 LIMIT 1;
 SELECT "Product" FROM Table_1 LIMIT 1;
@@ -1925,8 +1880,8 @@ Best_Eczema_Cream
 SELECT "Product" FROM Best_Eczema_Cream LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 214
-Alexa , is there a passively cooled GTX 1060 ?
+example# 209
+Alexa , is there a passively cooled GTX 1060 ? COL_START url COL_END COL_START Product_Image COL_END COL_START Product_Image_alt COL_END COL_START Product_Image_link COL_END COL_START Regular_Price COL_END COL_START Product_Name COL_END COL_START Product_Name_link COL_END COL_START Cooling_Capacity COL_END COL_START Noise COL_END COL_START NVIDIA COL_END COL_START AMD COL_END
 
 SELECT Count ( "Product_Name" ) FROM Table_1 WHERE "NVIDIA" LIKE "%%GTX%" AND "NVIDIA" LIKE "%%1060%";
 SELECT Count ( "Product_Name" ) FROM Table_1 WHERE "NVIDIA" LIKE "%%GTX%" AND "NVIDIA" LIKE "%%1060%";
@@ -1934,8 +1889,8 @@ Graphics_Card_Cooler
 SELECT Count ( "Product_Name" ) FROM Graphics_Card_Cooler WHERE "NVIDIA" LIKE "%%GTX%" AND "NVIDIA" LIKE "%%1060%";
 --------------------------------------------------
 --------------------------------------------------
-example# 215
-how many yards in a meter ?
+example# 210
+how many yards in a meter ? COL_START url COL_END COL_START Meter COL_END COL_START Yard COL_END
 
 SELECT "yard" FROM Table_1 WHERE "meter" LIKE "%%1%";
 SELECT "yard" FROM Table_1 WHERE "meter" LIKE "%%1%";
@@ -1943,8 +1898,8 @@ Meters_to_Yard
 SELECT "yard" FROM Meters_to_Yard WHERE "meter" LIKE "%%1%";
 --------------------------------------------------
 --------------------------------------------------
-example# 216
-Alexa , how long do I cook a roast ?
+example# 211
+Alexa , how long do I cook a roast ? COL_START url COL_END COL_START Weight COL_END COL_START Roasting_Time COL_END COL_START Temperature COL_END COL_START Standard_Time COL_END
 
 SELECT "StandardTime", "Temperature" FROM Table_1 LIMIT 1;
 SELECT "StandardTime", "Temperature" FROM Table_1 LIMIT 1;
@@ -1952,8 +1907,8 @@ cookingRoost
 SELECT "StandardTime", "Temperature" FROM cookingRoost LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 217
-Alexa , what was the number 1 song in Billboard Top 100 song for 2017 ?
+example# 212
+Alexa , what was the number 1 song in Billboard Top 100 song for 2017 ? COL_START url COL_END COL_START Rank COL_END COL_START Image COL_END COL_START Image_alt COL_END COL_START Song_title COL_END COL_START Artist COL_END
 
 SELECT "Song_title" FROM Table_1 ORDER BY "Rank" ASC LIMIT 1;
 SELECT "Song_title" FROM Table_1 ORDER BY "Rank" ASC LIMIT 1;
@@ -1961,17 +1916,17 @@ Billboard
 SELECT "Song_title" FROM Billboard ORDER BY "Rank" ASC LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 218
-where was Rihanna born ?
+example# 213
+where was Rihanna born ? COL_START Key COL_END COL_START Value COL_END
 
-SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Place_of_birth%";
-SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Place_of_birth%";
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Place of birth%";
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Place of birth%";
 Rihanna_-_Quick_Facts
-SELECT "Value" FROM Rihanna_-_Quick_Facts WHERE "Key" LIKE "%%Place_of_birth%";
+SELECT "Value" FROM Rihanna_-_Quick_Facts WHERE "Key" LIKE "%%Place of birth%";
 --------------------------------------------------
 --------------------------------------------------
-example# 219
-Alexa , how many books are in the Bible ?
+example# 214
+Alexa , how many books are in the Bible ? COL_START url COL_END COL_START Order COL_END COL_START Book_Title ( s ) COL_END COL_START Book_Title ( s ) _link COL_END COL_START Chapters COL_END COL_START Verses COL_END
 
 SELECT COUNT ( "Book_Title(s)" ) FROM Table_1;
 SELECT COUNT ( "Book_Title(s)" ) FROM Table_1;
@@ -1979,8 +1934,8 @@ Bible
 SELECT COUNT ( "Book_Title(s)" ) FROM Bible;
 --------------------------------------------------
 --------------------------------------------------
-example# 220
-What is the superbowl being televised on channel in new england
+example# 215
+What is the superbowl being televised on channel in new england COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "KEY" LIKE "%%TV%";
 SELECT "Value" FROM Table_1 WHERE "KEY" LIKE "%%TV%";
@@ -1988,8 +1943,8 @@ How_to_Watch_Super_Bowl_LII
 SELECT "Value" FROM How_to_Watch_Super_Bowl_LII WHERE "KEY" LIKE "%%TV%";
 --------------------------------------------------
 --------------------------------------------------
-example# 221
-What time does the super bowl start ?
+example# 216
+What time does the super bowl start ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%time%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%time%";
@@ -1997,8 +1952,8 @@ Superbowl_2018
 SELECT "Value" FROM Superbowl_2018 WHERE "Key" LIKE "%%time%";
 --------------------------------------------------
 --------------------------------------------------
-example# 222
-Alexa , how much is an HP Stream laptop ?
+example# 217
+Alexa , how much is an HP Stream laptop ? COL_START url COL_END COL_START Property COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Price%";
 SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Price%";
@@ -2006,8 +1961,8 @@ HP_Stream_Info
 SELECT "Value" FROM HP_Stream_Info WHERE "Property" LIKE "%%Price%";
 --------------------------------------------------
 --------------------------------------------------
-example# 223
-Alexa , what is the current Bitcoin price ?
+example# 218
+Alexa , what is the current Bitcoin price ? COL_START url COL_END COL_START Currency COL_END COL_START Price COL_END
 
 SELECT "Price" FROM Table_1 WHERE "Currency" = "Bitcoin";
 SELECT "Price" FROM Table_1 WHERE "Currency" = "Bitcoin";
@@ -2015,8 +1970,8 @@ Cryptocurrency_Price
 SELECT "Price" FROM Cryptocurrency_Price WHERE "Currency" = "Bitcoin";
 --------------------------------------------------
 --------------------------------------------------
-example# 224
-what is the most fuel efficient mid size suv ?
+example# 219
+what is the most fuel efficient mid size suv ? COL_START url COL_END COL_START Car_model COL_END COL_START Car_model_link COL_END COL_START Overall_mpg COL_END COL_START City_mpg COL_END COL_START Highway_mpg COL_END
 
 SELECT "Car_model" FROM Table_1 ORDER BY "Overall_mpg" DESC LIMIT 1;
 SELECT "Car_model" FROM Table_1 ORDER BY "Overall_mpg" DESC LIMIT 1;
@@ -2024,8 +1979,8 @@ Fuel_Efficient_SUV
 SELECT "Car_model" FROM Fuel_Efficient_SUV ORDER BY "Overall_mpg" DESC LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 225
-what do you get for free on your birthday
+example# 220
+what do you get for free on your birthday COL_START url COL_END COL_START Store COL_END COL_START Offer COL_END COL_START Details COL_END
 
 SELECT "Store", "Offer" FROM Table_1 LIMIT 3;
 SELECT "Store", "Offer" FROM Table_1 LIMIT 3;
@@ -2033,8 +1988,8 @@ The_101_Best_Birthday_Freebies_in_2018:_Get_Free_Stuff_Just_for_Showing_Up!
 SELECT "Store", "Offer" FROM The_101_Best_Birthday_Freebies_in_2018:_Get_Free_Stuff_Just_for_Showing_Up! LIMIT 3;
 --------------------------------------------------
 --------------------------------------------------
-example# 226
-How do I make antipasto salad ?
+example# 221
+How do I make antipasto salad ? COL_START directions COL_END
 
 SELECT "directions" FROM Table_1 ;
 SELECT "directions" FROM Table_1;
@@ -2042,17 +1997,17 @@ make_antipasto_salad
 SELECT "directions" FROM make_antipasto_salad ;
 --------------------------------------------------
 --------------------------------------------------
-example# 227
-Alexa , when does Disney on Ice perform in San Antonio ?
+example# 222
+Alexa , when does Disney on Ice perform in San Antonio ? COL_START url COL_END COL_START Date COL_END COL_START Show COL_END COL_START Show_link COL_END COL_START Location COL_END COL_START City COL_END COL_START State COL_END
 
-SELECT "Date" FROM Table_1 WHERE "City" LIKE "%%San_Antonio%";
-SELECT "Date" FROM Table_1 WHERE "City" LIKE "%%San_Antonio%";
+SELECT "Date" FROM Table_1 WHERE "City" LIKE "%%San Antonio%";
+SELECT "Date" FROM Table_1 WHERE "City" LIKE "%%San Antonio%";
 Disney_on_Ice
-SELECT "Date" FROM Disney_on_Ice WHERE "City" LIKE "%%San_Antonio%";
+SELECT "Date" FROM Disney_on_Ice WHERE "City" LIKE "%%San Antonio%";
 --------------------------------------------------
 --------------------------------------------------
-example# 228
-Google , How far is Yuma AZ ?
+example# 223
+Google , How far is Yuma AZ ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Distance%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Distance%";
@@ -2060,8 +2015,8 @@ Pittsburgh,_PA_to_Yuma,_AZ
 SELECT "Value" FROM Pittsburgh,_PA_to_Yuma,_AZ WHERE "Key" LIKE "%%Distance%";
 --------------------------------------------------
 --------------------------------------------------
-example# 229
-Alexa , what is the distance between England and the US ?
+example# 224
+Alexa , what is the distance between England and the US ? COL_START url COL_END COL_START Country COL_END COL_START Country_link COL_END COL_START Distance_ ( km ) COL_END COL_START Distance_ ( mi ) COL_END
 
 SELECT "Distance_(mi)" FROM Table_1 WHERE "Country" LIKE "%%United_Kingdom%";
 SELECT "Distance_(mi)" FROM Table_1 WHERE "Country" LIKE "%%United_Kingdom%";
@@ -2069,8 +2024,8 @@ Distance_from_United_States_to_Other_Countries
 SELECT "Distance_(mi)" FROM Distance_from_United_States_to_Other_Countries WHERE "Country" LIKE "%%United_Kingdom%";
 --------------------------------------------------
 --------------------------------------------------
-example# 230
-How do you establish jurisdiction for divorce in Georgia ?
+example# 225
+How do you establish jurisdiction for divorce in Georgia ? COL_START url COL_END COL_START State COL_END COL_START Residency COL_END
 
 SELECT "Residency" FROM Table_1 WHERE "State" LIKE "%%Georgia%";
 SELECT "Residency" FROM Table_1 WHERE "State" LIKE "%%Georgia%";
@@ -2078,8 +2033,8 @@ Divorce_Residency_Requirements
 SELECT "Residency" FROM Divorce_Residency_Requirements WHERE "State" LIKE "%%Georgia%";
 --------------------------------------------------
 --------------------------------------------------
-example# 231
-how do I sell plasma in broward county
+example# 226
+how do I sell plasma in broward county COL_START Center COL_END COL_START Address COL_END COL_START Phone Number COL_END
 
 SELECT DISTINCT ( Center ) FROM Table_1;
 SELECT "DISTINCT" ( "Center" ) FROM Table_1;
@@ -2087,8 +2042,8 @@ Donating_Plasma_in_Broward_County
 SELECT DISTINCT ( Center ) FROM Donating_Plasma_in_Broward_County;
 --------------------------------------------------
 --------------------------------------------------
-example# 232
-What does Levocetriizine look like ?
+example# 227
+What does Levocetriizine look like ? COL_START url COL_END COL_START drug COL_END COL_START drug_link COL_END COL_START strength COL_END COL_START pill_imprint COL_END COL_START color COL_END COL_START shape COL_END
 
 SELECT "name", "shape", "color" FROM Table_1 ;
 SELECT "name", "shape", "color" FROM Table_1;
@@ -2096,8 +2051,8 @@ levocetirizine
 SELECT "name", "shape", "color" FROM levocetirizine ;
 --------------------------------------------------
 --------------------------------------------------
-example# 233
-What does predisone look like ?
+example# 228
+What does predisone look like ? COL_START url COL_END COL_START name COL_END COL_START drug COL_END COL_START strength COL_END COL_START pill_imprint COL_END COL_START color COL_END COL_START shape COL_END
 
 SELECT "name", "shape", "color" FROM Table_1 ;
 SELECT "name", "shape", "color" FROM Table_1;
@@ -2105,8 +2060,8 @@ prednisone
 SELECT "name", "shape", "color" FROM prednisone ;
 --------------------------------------------------
 --------------------------------------------------
-example# 234
-Alexa , when is the movie `` The Post '' coming to DVD ?
+example# 229
+Alexa , when is the movie `` The Post '' coming to DVD ? COL_START url COL_END COL_START Format COL_END COL_START UPC COL_END COL_START Release_Date COL_END COL_START Amazon_Price COL_END COL_START Best_Buy_Price COL_END
 
 SELECT "Release_Date" FROM Table_1 WHERE "Format" LIKE "%%DVD%";
 SELECT "Release_Date" FROM Table_1 WHERE "Format" LIKE "%%DVD%";
@@ -2114,8 +2069,8 @@ The_Post_Release
 SELECT "Release_Date" FROM The_Post_Release WHERE "Format" LIKE "%%DVD%";
 --------------------------------------------------
 --------------------------------------------------
-example# 235
-How many vitamins do you need a day ?
+example# 230
+How many vitamins do you need a day ? COL_START Nutriment COL_END COL_START Daily requirements COL_END
 
 SELECT "Nutriment", "Daily_requirements" FROM Table_1 WHERE "Nutriment" LIKE "%%Vitamin%";
 SELECT "Nutriment", "Daily_requirements" FROM Table_1 WHERE "Nutriment" LIKE "%%Vitamin%";
@@ -2123,17 +2078,17 @@ Daily_nutriment_requirements_calculator
 SELECT "Nutriment", "Daily_requirements" FROM Daily_nutriment_requirements_calculator WHERE "Nutriment" LIKE "%%Vitamin%";
 --------------------------------------------------
 --------------------------------------------------
-example# 236
-Alexa , what 's the value of a Ditting KFA903 ?
+example# 231
+Alexa , what 's the value of a Ditting KFA903 ? COL_START Key COL_END COL_START Value COL_END
 
-SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Winning_Bid%";
-SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Winning_Bid%";
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Winning Bid%";
+SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Winning Bid%";
 Ditting_KFA903
-SELECT "Value" FROM Ditting_KFA903 WHERE "Key" LIKE "%%Winning_Bid%";
+SELECT "Value" FROM Ditting_KFA903 WHERE "Key" LIKE "%%Winning Bid%";
 --------------------------------------------------
 --------------------------------------------------
-example# 237
-What is a parent plus loan ?
+example# 232
+What is a parent plus loan ? COL_START url COL_END COL_START Attributes COL_END COL_START Parent_Plus_loan COL_END COL_START Private_loan COL_END
 
 SELECT "attributes", "parentplus" FROM Table_1;
 SELECT "attributes", "parentplus" FROM Table_1;
@@ -2141,8 +2096,8 @@ ParentPlus
 SELECT "attributes", "parentplus" FROM ParentPlus;
 --------------------------------------------------
 --------------------------------------------------
-example# 238
-Alexa what are examples of body language ?
+example# 233
+Alexa what are examples of body language ? COL_START url COL_END COL_START Gesture COL_END COL_START Explanation COL_END
 
 SELECT "gesture" FROM Table_1 LIMIT 5;
 SELECT "gesture" FROM Table_1 LIMIT 5;
@@ -2150,17 +2105,8 @@ BodyLanguage
 SELECT "gesture" FROM BodyLanguage LIMIT 5;
 --------------------------------------------------
 --------------------------------------------------
-example# 239
-Alexa , where is a good place to buy suites ?
-
-SELECT "Store_Name", "Website" FROM Table_1 ORDER BY "Ranking" ASC LIMIT 3;
-SELECT "Store_Name", "Website" FROM Table_1 ORDER BY "Ranking" ASC LIMIT 3;
-Top_10_sites_to_order_custom_made_suits_online
-SELECT "Store_Name", "Website" FROM Top_10_sites_to_order_custom_made_suits_online ORDER BY "Ranking" ASC LIMIT 3;
---------------------------------------------------
---------------------------------------------------
-example# 240
-Siri , how old is Tony Hawk ?
+example# 234
+Siri , how old is Tony Hawk ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Age%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Age%";
@@ -2168,8 +2114,8 @@ Tony_Hawk
 SELECT "Value" FROM Tony_Hawk WHERE "Key" LIKE "%%Age%";
 --------------------------------------------------
 --------------------------------------------------
-example# 241
-Does a loan from my 401k count as taxable income ?
+example# 235
+Does a loan from my 401k count as taxable income ? COL_START url COL_END COL_START info COL_END COL_START Personal_Loan COL_END COL_START 401kloan COL_END
 
 SELECT "401kloan" FROM Table_1 WHERE "info" LIKE "%%Tax%";
 SELECT "401kloan" FROM Table_1 WHERE "info" LIKE "%%Tax%";
@@ -2177,8 +2123,8 @@ loans
 SELECT "401kloan" FROM loans WHERE "info" LIKE "%%Tax%";
 --------------------------------------------------
 --------------------------------------------------
-example# 242
-How long do you cook steak for ?
+example# 236
+How long do you cook steak for ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "KEY" LIKE "%%cook%";
 SELECT "Value" FROM Table_1 WHERE "KEY" LIKE "%%cook%";
@@ -2186,8 +2132,8 @@ Steak
 SELECT "Value" FROM Steak WHERE "KEY" LIKE "%%cook%";
 --------------------------------------------------
 --------------------------------------------------
-example# 243
-What temperature is chicken done ?
+example# 237
+What temperature is chicken done ? COL_START url COL_END COL_START Category COL_END COL_START food COL_END COL_START temperature COL_END COL_START resting_time COL_END
 
 SELECT "temperature" FROM Table_1 WHERE "food" LIKE "%%chicken%" ;
 SELECT "temperature" FROM Table_1 WHERE "food" LIKE "%%chicken%";
@@ -2195,8 +2141,8 @@ food_safety
 SELECT "temperature" FROM food_safety WHERE "food" LIKE "%%chicken%" ;
 --------------------------------------------------
 --------------------------------------------------
-example# 244
-How much is a GTX 1080 ?
+example# 238
+How much is a GTX 1080 ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "KEY" LIKE "%%Price%";
 SELECT "Value" FROM Table_1 WHERE "KEY" LIKE "%%Price%";
@@ -2204,17 +2150,17 @@ NVIDIA_GEFORCE_GTX_1080
 SELECT "Value" FROM NVIDIA_GEFORCE_GTX_1080 WHERE "KEY" LIKE "%%Price%";
 --------------------------------------------------
 --------------------------------------------------
-example# 245
-How much does Gamestop trade persona 5 in for ?
+example# 239
+How much does Gamestop trade persona 5 in for ? COL_START Value COL_END COL_START Elite Pro Member COL_END COL_START Pro Member COL_END COL_START Regular COL_END
 
-SELECT "Regular" FROM Table_1 WHERE "Value" LIKE "%%Cash_Value%";
-SELECT "Regular" FROM Table_1 WHERE "Value" LIKE "%%Cash_Value%";
+SELECT "Regular" FROM Table_1 WHERE "Value" LIKE "%%Cash Value%";
+SELECT "Regular" FROM Table_1 WHERE "Value" LIKE "%%Cash Value%";
 Persona_5
-SELECT "Regular" FROM Persona_5 WHERE "Value" LIKE "%%Cash_Value%";
+SELECT "Regular" FROM Persona_5 WHERE "Value" LIKE "%%Cash Value%";
 --------------------------------------------------
 --------------------------------------------------
-example# 246
-When will battle for azeroth be released ?
+example# 240
+When will battle for azeroth be released ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%release%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%release%";
@@ -2222,8 +2168,8 @@ World_of_Warcraft:_Battle_for_Azeroth
 SELECT "Value" FROM World_of_Warcraft:_Battle_for_Azeroth WHERE "Key" LIKE "%%release%";
 --------------------------------------------------
 --------------------------------------------------
-example# 247
-Alexa , when does the new Black Panther movie premiere in Los Angeles , California ?
+example# 241
+Alexa , when does the new Black Panther movie premiere in Los Angeles , California ? COL_START Black_Panther_ COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Release%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Release%";
@@ -2231,8 +2177,8 @@ Black_Panther
 SELECT "Value" FROM Black_Panther WHERE "Key" LIKE "%%Release%";
 --------------------------------------------------
 --------------------------------------------------
-example# 248
-How long do cats live ?
+example# 242
+How long do cats live ? COL_START url COL_END COL_START Property COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Lifespan%";
 SELECT "Value" FROM Table_1 WHERE "Property" LIKE "%%Lifespan%";
@@ -2240,8 +2186,8 @@ Cat_Info
 SELECT "Value" FROM Cat_Info WHERE "Property" LIKE "%%Lifespan%";
 --------------------------------------------------
 --------------------------------------------------
-example# 249
-What is the nearest comic book store ?
+example# 243
+What is the nearest comic book store ? COL_START Store Name COL_END COL_START Stars COL_END COL_START Address COL_END COL_START Status ( Open/Close ) COL_END
 
 SELECT "Store_Name" FROM Table_1;
 SELECT "Store_Name" FROM Table_1;
@@ -2249,8 +2195,8 @@ Comics_Book_Stores_-_Pittsburgh
 SELECT "Store_Name" FROM Comics_Book_Stores_-_Pittsburgh;
 --------------------------------------------------
 --------------------------------------------------
-example# 250
-Alexa , how long does it take to get from New York to Philly ?
+example# 244
+Alexa , how long does it take to get from New York to Philly ? COL_START Type COL_END COL_START Airline COL_END COL_START Duration COL_END COL_START Price COL_END
 
 SELECT "Duration" FROM Table_1 ORDER BY "Duration" ASC LIMIT 1;
 SELECT "Duration" FROM Table_1 ORDER BY "Duration" ASC LIMIT 1;
@@ -2258,8 +2204,8 @@ Flights_from_New_York_City_to_Philadelphia
 SELECT "Duration" FROM Flights_from_New_York_City_to_Philadelphia ORDER BY "Duration" ASC LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 251
-Alexa , how much does a 2016 ford fusion SE cost ?
+example# 245
+Alexa , how much does a 2016 ford fusion SE cost ? COL_START Configuration COL_END COL_START Price COL_END
 
 SELECT "Price" FROM Table_1 WHERE "Configuration" LIKE "%%SE%";
 SELECT "Price" FROM Table_1 WHERE "Configuration" LIKE "%%SE%";
@@ -2267,8 +2213,8 @@ SELECT "Price" FROM Table_1 WHERE "Configuration" LIKE "%%SE%";
 SELECT "Price" FROM 2019_Ford_Fusion WHERE "Configuration" LIKE "%%SE%";
 --------------------------------------------------
 --------------------------------------------------
-example# 252
-Who is the founder of Google ?
+example# 246
+Who is the founder of Google ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Founders%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Founders%";
@@ -2276,8 +2222,8 @@ Google
 SELECT "Value" FROM Google WHERE "Key" LIKE "%%Founders%";
 --------------------------------------------------
 --------------------------------------------------
-example# 253
-How deep is the Mariana trench
+example# 247
+How deep is the Mariana trench COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Elevation%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Elevation%";
@@ -2285,8 +2231,8 @@ Marina_Trench
 SELECT "Value" FROM Marina_Trench WHERE "Key" LIKE "%%Elevation%";
 --------------------------------------------------
 --------------------------------------------------
-example# 254
-find vet hospitals in marion indiana
+example# 248
+find vet hospitals in marion indiana COL_START Name COL_END COL_START Rating and type COL_END COL_START Address and phone number COL_END COL_START Open/closed COL_END
 
 SELECT "Name" FROM Table_1;
 SELECT "Name" FROM Table_1;
@@ -2294,8 +2240,8 @@ marion_indiana_veterinarian
 SELECT "Name" FROM marion_indiana_veterinarian;
 --------------------------------------------------
 --------------------------------------------------
-example# 255
-Alexa , where is the Ultra Music Festival held ?
+example# 249
+Alexa , where is the Ultra Music Festival held ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Location%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Location%";
@@ -2303,17 +2249,17 @@ Ultra_Music_Festival
 SELECT "Value" FROM Ultra_Music_Festival WHERE "Key" LIKE "%%Location%";
 --------------------------------------------------
 --------------------------------------------------
-example# 256
-Alexa , where can I but Fallout ?
+example# 250
+Alexa , where can I but Fallout ? COL_START url COL_END COL_START Product COL_END COL_START Product_link COL_END COL_START Price COL_END COL_START Store COL_END COL_START Reviews COL_END COL_START Reviews_link COL_END COL_START Description COL_END
 
-SELECT "Store" FROM Table_1 WHERE "Product" LIKE "%%Fallout_4%" LIMIT 1;
-SELECT "Store" FROM Table_1 WHERE "Product" LIKE "%%Fallout_4%" LIMIT 1;
+SELECT "Store" FROM Table_1 WHERE "Product" LIKE "%%Fallout 4%" LIMIT 1;
+SELECT "Store" FROM Table_1 WHERE "Product" LIKE "%%Fallout 4%" LIMIT 1;
 Fallout_Search_Result
-SELECT "Store" FROM Fallout_Search_Result WHERE "Product" LIKE "%%Fallout_4%" LIMIT 1;
+SELECT "Store" FROM Fallout_Search_Result WHERE "Product" LIKE "%%Fallout 4%" LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 257
-What dairy-free flavors does Halo Top Ice Cream have ?
+example# 251
+What dairy-free flavors does Halo Top Ice Cream have ? COL_START url COL_END COL_START Flavor COL_END COL_START Nutrition_Facts COL_END COL_START Nutrition_Facts_alt COL_END COL_START Ingredients COL_END
 
 SELECT "Flavors" FROM Table_1;
 SELECT "Flavors" FROM Table_1;
@@ -2321,8 +2267,8 @@ Table_1
 SELECT "Flavors" FROM Table_1;
 --------------------------------------------------
 --------------------------------------------------
-example# 258
-What is a maternity support for ?
+example# 252
+What is a maternity support for ? COL_START reason COL_END COL_START details COL_END
 
 SELECT "reason" FROM Table_1 ;
 SELECT "reason" FROM Table_1;
@@ -2330,8 +2276,8 @@ pregnancy_belt
 SELECT "reason" FROM pregnancy_belt ;
 --------------------------------------------------
 --------------------------------------------------
-example# 259
-What are the benefits of avocado
+example# 253
+What are the benefits of avocado COL_START url COL_END COL_START benefits COL_END
 
 SELECT "benefits" FROM Table_1 ;
 SELECT "benefits" FROM Table_1;
@@ -2339,8 +2285,8 @@ avocado
 SELECT "benefits" FROM avocado ;
 --------------------------------------------------
 --------------------------------------------------
-example# 260
-Astma and oatmeal
+example# 254
+Astma and oatmeal COL_START url COL_END COL_START benefits COL_END
 
 SELECT * FROM Table_1 WHERE "benefits" LIKE "%%asthma%" ;
 SELECT * FROM Table_1 WHERE "benefits" LIKE "%%asthma%";
@@ -2348,8 +2294,8 @@ oatmeal
 SELECT * FROM oatmeal WHERE "benefits" LIKE "%%asthma%" ;
 --------------------------------------------------
 --------------------------------------------------
-example# 261
-Which foods have salicylates in them ?
+example# 255
+Which foods have salicylates in them ? COL_START Type of food COL_END COL_START Details COL_END
 
 SELECT "Type_of_food" FROM Table_1;
 SELECT "Type_of_food" FROM Table_1;
@@ -2357,8 +2303,8 @@ Foods_highest_in_salicylates
 SELECT "Type_of_food" FROM Foods_highest_in_salicylates;
 --------------------------------------------------
 --------------------------------------------------
-example# 262
-How to make an extra 200 a month
+example# 256
+How to make an extra 200 a month COL_START Way COL_END COL_START Description COL_END
 
 SELECT "Way" FROM Table_1 LIMIT 5;
 SELECT "Way" FROM Table_1 LIMIT 5;
@@ -2366,8 +2312,8 @@ SELECT "Way" FROM Table_1 LIMIT 5;
 SELECT "Way" FROM 101_Ways_to_Make_an_Extra_$500_a_Month_While_Keeping_Your_Full_Time_Job LIMIT 5;
 --------------------------------------------------
 --------------------------------------------------
-example# 263
-Alexa , what is Jack White 's real name ?
+example# 257
+Alexa , what is Jack White 's real name ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%birth%name%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%birth%name%";
@@ -2375,8 +2321,8 @@ Jack_White
 SELECT "Value" FROM Jack_White WHERE "Key" LIKE "%%birth%name%";
 --------------------------------------------------
 --------------------------------------------------
-example# 264
-Alexa , when was Groundhog Day released ?
+example# 258
+Alexa , when was Groundhog Day released ? COL_START url COL_END COL_START Country COL_END COL_START Release_date COL_END COL_START Notes COL_END
 
 SELECT "Release_date" FROM Table_1 WHERE "Country" LIKE "%%USA%";
 SELECT "Release_date" FROM Table_1 WHERE "Country" LIKE "%%USA%";
@@ -2384,8 +2330,8 @@ Groundhog_Day_Release_Info
 SELECT "Release_date" FROM Groundhog_Day_Release_Info WHERE "Country" LIKE "%%USA%";
 --------------------------------------------------
 --------------------------------------------------
-example# 265
-Who is the prime minister of the United Kingdom ?
+example# 259
+Who is the prime minister of the United Kingdom ? COL_START url COL_END COL_START Name COL_END COL_START Party COL_END COL_START Term COL_END
 
 SELECT "Name" FROM Table_1 ORDER BY "Term" DESC;
 SELECT "Name" FROM Table_1 ORDER BY "Term" DESC;
@@ -2393,8 +2339,8 @@ British_Prime_Ministers
 SELECT "Name" FROM British_Prime_Ministers ORDER BY "Term" DESC;
 --------------------------------------------------
 --------------------------------------------------
-example# 266
-how gst helps in india ?
+example# 260
+how gst helps in india ? COL_START Impact on COL_END COL_START Details COL_END
 
 SELECT "Impact_on" FROM Table_1 LIMIT 3;
 SELECT "Impact_on" FROM Table_1 LIMIT 3;
@@ -2402,17 +2348,17 @@ The_impact_of_GST_(goods_and_services_Tax)_in_India
 SELECT "Impact_on" FROM The_impact_of_GST_(goods_and_services_Tax)_in_India LIMIT 3;
 --------------------------------------------------
 --------------------------------------------------
-example# 267
-Alexa what is the price of jio 4G Net pack 3Gb per day month Pack ?
+example# 261
+Alexa what is the price of jio 4G Net pack 3Gb per day month Pack ? COL_START url COL_END COL_START Plan_Heading COL_END COL_START price COL_END COL_START data COL_END COL_START validity COL_END
 
-SELECT "price" FROM Table_1 WHERE "plan_heading" LIKE "%%3_GB/DAY%" ;
-SELECT "price" FROM Table_1 WHERE "plan_heading" LIKE "%%3_GB/DAY%";
+SELECT "price" FROM Table_1 WHERE "plan_heading" LIKE "%%3 GB/DAY%" ;
+SELECT "price" FROM Table_1 WHERE "plan_heading" LIKE "%%3 GB/DAY%";
 jio
-SELECT "price" FROM jio WHERE "plan_heading" LIKE "%%3_GB/DAY%" ;
+SELECT "price" FROM jio WHERE "plan_heading" LIKE "%%3 GB/DAY%" ;
 --------------------------------------------------
 --------------------------------------------------
-example# 268
-Alexa , what types of Hawaiian sweet rolls are there ?
+example# 262
+Alexa , what types of Hawaiian sweet rolls are there ? COL_START url COL_END COL_START Type COL_END COL_START Description COL_END
 
 SELECT "Type" FROM Table_1;
 SELECT "Type" FROM Table_1;
@@ -2420,8 +2366,8 @@ Table_1
 SELECT "Type" FROM Table_1;
 --------------------------------------------------
 --------------------------------------------------
-example# 269
-What does the Tremont from lamps plus look like ?
+example# 263
+What does the Tremont from lamps plus look like ? COL_START details COL_END
 
 SELECT * FROM Table_1 ;
 SELECT * FROM Table_1;
@@ -2429,8 +2375,8 @@ tremont_lamp
 SELECT * FROM tremont_lamp ;
 --------------------------------------------------
 --------------------------------------------------
-example# 270
-Which artists sound like kiiara ?
+example# 264
+Which artists sound like kiiara ? COL_START url COL_END COL_START artist COL_END COL_START artist_link COL_END COL_START bio COL_END
 
 SELECT "artist" FROM Table_1 ;
 SELECT "artist" FROM Table_1;
@@ -2438,8 +2384,8 @@ kiiara_similar_artists
 SELECT "artist" FROM kiiara_similar_artists ;
 --------------------------------------------------
 --------------------------------------------------
-example# 271
-Alexa , what musical performer are coming to Las Vegas ?
+example# 265
+Alexa , what musical performer are coming to Las Vegas ? COL_START url COL_END COL_START Previously_lowest_Price COL_END COL_START Lowest_Price COL_END COL_START Title COL_END COL_START Type COL_END COL_START Rating COL_END COL_START Review_number_and_links COL_END COL_START Location COL_END
 
 SELECT "Title" FROM Table_1 LIMIT 10;
 SELECT "Title" FROM Table_1 LIMIT 10;
@@ -2447,8 +2393,8 @@ Las_Vegas_Shows
 SELECT "Title" FROM Las_Vegas_Shows LIMIT 10;
 --------------------------------------------------
 --------------------------------------------------
-example# 272
-Alexa , what is a substitute for eggs in brownies ?
+example# 266
+Alexa , what is a substitute for eggs in brownies ? COL_START url COL_END COL_START Substitute COL_END COL_START Description COL_END
 
 SELECT "Substitute" FROM Table_1;
 SELECT "Substitute" FROM Table_1;
@@ -2456,8 +2402,8 @@ Table_1
 SELECT "Substitute" FROM Table_1;
 --------------------------------------------------
 --------------------------------------------------
-example# 273
-Alexa , where can I find a high interest checking account ?
+example# 267
+Alexa , where can I find a high interest checking account ? COL_START Institution COL_END COL_START APY COL_END COL_START Minimum Balance Amount COL_END
 
 SELECT "Institution" FROM Table_1 ORDER BY "APY" DESC LIMIT 3;
 SELECT "Institution" FROM Table_1 ORDER BY "APY" DESC LIMIT 3;
@@ -2465,8 +2411,8 @@ Best_High_Yield_Checking_Accounts
 SELECT "Institution" FROM Best_High_Yield_Checking_Accounts ORDER BY "APY" DESC LIMIT 3;
 --------------------------------------------------
 --------------------------------------------------
-example# 274
-What is the top cause of death ?
+example# 268
+What is the top cause of death ? COL_START Cause COL_END COL_START Number of deaths COL_END COL_START Date COL_END COL_START Age-adjusted rate COL_END COL_START Percentage of total deaths COL_END
 
 SELECT * FROM Table_1 ORDER BY "Number_of_deaths" LIMIT 1;
 SELECT * FROM Table_1 ORDER BY "Number_of_deaths" LIMIT 1;
@@ -2474,8 +2420,8 @@ The_top_10_leading_causes_of_death_in_the_United_States
 SELECT * FROM The_top_10_leading_causes_of_death_in_the_United_States ORDER BY "Number_of_deaths" LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 275
-What is Bitcoin ?
+example# 269
+What is Bitcoin ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%definition%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%definition%";
@@ -2483,8 +2429,8 @@ Bitcoin
 SELECT "Value" FROM Bitcoin WHERE "Key" LIKE "%%definition%";
 --------------------------------------------------
 --------------------------------------------------
-example# 276
-What is a block chain ?
+example# 270
+What is a block chain ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Definition%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Definition%";
@@ -2492,8 +2438,8 @@ Blockchain
 SELECT "Value" FROM Blockchain WHERE "Key" LIKE "%%Definition%";
 --------------------------------------------------
 --------------------------------------------------
-example# 277
-What is a c-section ?
+example# 271
+What is a c-section ? COL_START key COL_END COL_START value COL_END
 
 SELECT * FROM Table_1 WHERE "key" LIKE "%%Definition%" ;
 SELECT * FROM Table_1 WHERE "key" LIKE "%%Definition%";
@@ -2501,8 +2447,8 @@ cesarean_section
 SELECT * FROM cesarean_section WHERE "key" LIKE "%%Definition%" ;
 --------------------------------------------------
 --------------------------------------------------
-example# 278
-Siri , what is shiplap ?
+example# 272
+Siri , what is shiplap ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%definition%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%definition%";
@@ -2510,8 +2456,8 @@ shiplap
 SELECT "Value" FROM shiplap WHERE "Key" LIKE "%%definition%";
 --------------------------------------------------
 --------------------------------------------------
-example# 279
-Alexa , what does socioeconomic mean ?
+example# 273
+Alexa , what does socioeconomic mean ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%definition%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%definition%";
@@ -2519,8 +2465,8 @@ Socioeconomic
 SELECT "Value" FROM Socioeconomic WHERE "Key" LIKE "%%definition%";
 --------------------------------------------------
 --------------------------------------------------
-example# 280
-Alexa , what is the different between mold and mildew ?
+example# 274
+Alexa , what is the different between mold and mildew ? COL_START url COL_END COL_START Key COL_END COL_START Mold COL_END COL_START Mildew COL_END
 
 SELECT * FROM Table_1 ;
 SELECT * FROM Table_1;
@@ -2528,8 +2474,8 @@ mold_mildew
 SELECT * FROM mold_mildew ;
 --------------------------------------------------
 --------------------------------------------------
-example# 281
-Alexa , who plays Pennywise on the 1990 version ?
+example# 275
+Alexa , who plays Pennywise on the 1990 version ? COL_START Actor COL_END COL_START played COL_END
 
 SELECT "Actor" FROM Table_1 WHERE "played" LIKE "%%Pennywise%";
 SELECT "Actor" FROM Table_1 WHERE "played" LIKE "%%Pennywise%";
@@ -2537,8 +2483,8 @@ Cast_It_movie
 SELECT "Actor" FROM Cast_It_movie WHERE "played" LIKE "%%Pennywise%";
 --------------------------------------------------
 --------------------------------------------------
-example# 282
-Were there any mistakes in Moana ?
+example# 276
+Were there any mistakes in Moana ? COL_START url COL_END COL_START Mistake_type COL_END COL_START Mistake_type_link COL_END COL_START Description COL_END
 
 SELECT COUNT ( "Mistake_type" ) FROM Table_1;
 SELECT COUNT ( "Mistake_type" ) FROM Table_1;
@@ -2546,8 +2492,8 @@ Moana_Movie_Mistakes
 SELECT COUNT ( "Mistake_type" ) FROM Moana_Movie_Mistakes;
 --------------------------------------------------
 --------------------------------------------------
-example# 283
-when can i get masters on amazon turk
+example# 277
+when can i get masters on amazon turk COL_START Question COL_END COL_START Answer COL_END
 
 SELECT "Answer" FROM Table_1 WHERE "Question" LIKE "%%how%receive%masters%";
 SELECT "Answer" FROM Table_1 WHERE "Question" LIKE "%%how%receive%masters%";
@@ -2555,17 +2501,8 @@ MTurk_Master_Worker
 SELECT "Answer" FROM MTurk_Master_Worker WHERE "Question" LIKE "%%how%receive%masters%";
 --------------------------------------------------
 --------------------------------------------------
-example# 284
-How much does a double bass cost ?
-
-SELECT "Product" FROM Table_1 WHERE "New_Price" = ( SELECT MIN ( "New_Price") FROM Table_1 );
-SELECT "Product" FROM Table_1 WHERE "New_Price" = ( SELECT "MIN" ( "New_Price" ) FROM Table_1 );
-Table_1
-SELECT "Product" FROM Table_1 WHERE "New_Price" = ( SELECT MIN ( "New_Price") FROM Table_1 );
---------------------------------------------------
---------------------------------------------------
-example# 285
-where do I buy a cheap laptop
+example# 278
+where do I buy a cheap laptop COL_START Question COL_END COL_START Answer COL_END
 
 SELECT "Answer" FROM Table_1 WHERE "Question" LIKE "%%where%buy%";
 SELECT "Answer" FROM Table_1 WHERE "Question" LIKE "%%where%buy%";
@@ -2573,17 +2510,17 @@ Cheap_Laptops
 SELECT "Answer" FROM Cheap_Laptops WHERE "Question" LIKE "%%where%buy%";
 --------------------------------------------------
 --------------------------------------------------
-example# 286
-How much does Straight Talk cell phone service cost ?
+example# 279
+How much does Straight Talk cell phone service cost ? COL_START url COL_END COL_START network COL_END COL_START 1GB_or_less COL_END COL_START 2-4GB COL_END COL_START 5-7GB COL_END COL_START 8-10GB COL_END COL_START Unlimited COL_END
 
-SELECT * FROM Table_1 WHERE "network" LIKE "%%Straight_Talk%";
-SELECT * FROM Table_1 WHERE "network" LIKE "%%Straight_Talk%";
+SELECT * FROM Table_1 WHERE "network" LIKE "%%Straight Talk%";
+SELECT * FROM Table_1 WHERE "network" LIKE "%%Straight Talk%";
 phone_networks
-SELECT * FROM phone_networks WHERE "network" LIKE "%%Straight_Talk%";
+SELECT * FROM phone_networks WHERE "network" LIKE "%%Straight Talk%";
 --------------------------------------------------
 --------------------------------------------------
-example# 287
-Alexa , what is the cost for a lift ticket at Timberline Lodge ?
+example# 280
+Alexa , what is the cost for a lift ticket at Timberline Lodge ? COL_START url COL_END COL_START Day COL_END COL_START Child_7-14 COL_END COL_START Junior_15-17 COL_END COL_START Adult_18-64 COL_END
 
 SELECT "Day", "Adult_18-64" FROM Table_1;
 SELECT "Day", "Adult_18-64" FROM Table_1;
@@ -2591,8 +2528,8 @@ timberline_lodge_lift
 SELECT "Day", "Adult_18-64" FROM timberline_lodge_lift;
 --------------------------------------------------
 --------------------------------------------------
-example# 288
-Best web hosting sites
+example# 281
+Best web hosting sites COL_START url COL_END COL_START Title COL_END COL_START Logo COL_END COL_START Logo_alt COL_END
 
 SELECT "Title" FROM Table_1;
 SELECT "Title" FROM Table_1;
@@ -2600,8 +2537,8 @@ Table_1
 SELECT "Title" FROM Table_1;
 --------------------------------------------------
 --------------------------------------------------
-example# 289
-How much does Gamestop trade persona 5 in for ?
+example# 282
+How much does Gamestop trade persona 5 in for ? COL_START url COL_END COL_START Breed_Name COL_END COL_START Origin COL_END COL_START Description COL_END COL_START Picture COL_END COL_START Picture_alt COL_END COL_START Size COL_END
 
 SELECT COUNT ( "Breed_Name" ) FROM Table_1;
 SELECT COUNT ( "Breed_Name" ) FROM Table_1;
@@ -2609,8 +2546,8 @@ Dog_Breeds
 SELECT COUNT ( "Breed_Name" ) FROM Dog_Breeds;
 --------------------------------------------------
 --------------------------------------------------
-example# 290
-Alexa , what is the top tourist attraction to visit in Texas ?
+example# 283
+Alexa , what is the top tourist attraction to visit in Texas ? COL_START url COL_END COL_START Rank COL_END COL_START Attraction COL_END COL_START Description COL_END
 
 SELECT "Attraction" FROM Table_1 ORDER BY "Rank" ASC LIMIT 1;
 SELECT "Attraction" FROM Table_1 ORDER BY "Rank" ASC LIMIT 1;
@@ -2618,8 +2555,8 @@ Texas_Attractions
 SELECT "Attraction" FROM Texas_Attractions ORDER BY "Rank" ASC LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 291
-How do I know when baby is ready to be potty trained ?
+example# 284
+How do I know when baby is ready to be potty trained ? COL_START url COL_END COL_START signs COL_END
 
 SELECT "signs" FROM Table_1 ;
 SELECT "signs" FROM Table_1;
@@ -2627,8 +2564,8 @@ baby_potty_train
 SELECT "signs" FROM baby_potty_train ;
 --------------------------------------------------
 --------------------------------------------------
-example# 292
-Alexa , who is the lead singer of Rush ?
+example# 285
+Alexa , who is the lead singer of Rush ? COL_START url COL_END COL_START Lead_Singer COL_END COL_START Lead_Singer_link COL_END COL_START Band COL_END
 
 SELECT "lead_singer" FROM Table_1 WHERE "Band" = "Rush";
 SELECT "lead_singer" FROM Table_1 WHERE "Band" = "Rush";
@@ -2636,8 +2573,8 @@ BandLeadSingers
 SELECT "lead_singer" FROM BandLeadSingers WHERE "Band" = "Rush";
 --------------------------------------------------
 --------------------------------------------------
-example# 293
-Alexa , what is the funniest Family Guy season ?
+example# 286
+Alexa , what is the funniest Family Guy season ? COL_START url COL_END COL_START Rank COL_END COL_START Votes COL_END COL_START Season COL_END
 
 SELECT "Season" FROM Table_1 WHERE "RANK" = "1";
 SELECT "Season" FROM Table_1 WHERE "RANK" = "1";
@@ -2645,8 +2582,8 @@ Family_Guy_Ranking
 SELECT "Season" FROM Family_Guy_Ranking WHERE "RANK" = "1";
 --------------------------------------------------
 --------------------------------------------------
-example# 294
-What does / mean in math
+example# 287
+What does / mean in math COL_START url COL_END COL_START Symbol COL_END COL_START Symbol_Name COL_END COL_START Meaning_/_Definition COL_END COL_START Example COL_END
 
 SELECT "Meaning_/_Definition" FROM Table_1 WHERE "Symbol" = "/";
 SELECT "Meaning_/_Definition" FROM Table_1 WHERE "Symbol" = "/";
@@ -2654,8 +2591,8 @@ Basic_Math_Symbols
 SELECT "Meaning_/_Definition" FROM Basic_Math_Symbols WHERE "Symbol" = "/";
 --------------------------------------------------
 --------------------------------------------------
-example# 295
-promotion code for British airline ?
+example# 288
+promotion code for British airline ? COL_START Coupon COL_END COL_START Sale COL_END COL_START Description COL_END COL_START Uses COL_END
 
 SELECT "Coupon" FROM Table_1;
 SELECT "Coupon" FROM Table_1;
@@ -2663,8 +2600,8 @@ British_Airways_Coupons
 SELECT "Coupon" FROM British_Airways_Coupons;
 --------------------------------------------------
 --------------------------------------------------
-example# 296
-Alexa , what does my daughter 's cough mean ?
+example# 289
+Alexa , what does my daughter 's cough mean ? COL_START Reason COL_END COL_START Explanation Snippet COL_END
 
 SELECT "Reason" FROM Table_1 ORDER BY "Reason" LIMIT 3;
 SELECT "Reason" FROM Table_1 ORDER BY "Reason" LIMIT 3;
@@ -2672,8 +2609,8 @@ SELECT "Reason" FROM Table_1 ORDER BY "Reason" LIMIT 3;
 SELECT "Reason" FROM 8_causes_of_Chronic_Cough_in_Kids ORDER BY "Reason" LIMIT 3;
 --------------------------------------------------
 --------------------------------------------------
-example# 297
-Who will be in the 2018 super bowl
+example# 290
+Who will be in the 2018 super bowl COL_START url COL_END COL_START Season COL_END COL_START Team_one COL_END COL_START Scores COL_END COL_START Team_two COL_END
 
 SELECT "Team_one", "Team_two" FROM Table_1 WHERE "Season" LIKE "%%52%";
 SELECT "Team_one", "Team_two" FROM Table_1 WHERE "Season" LIKE "%%52%";
@@ -2681,8 +2618,8 @@ Super_Bowl
 SELECT "Team_one", "Team_two" FROM Super_Bowl WHERE "Season" LIKE "%%52%";
 --------------------------------------------------
 --------------------------------------------------
-example# 298
-Who is playing in 2018 Super Bowl ?
+example# 291
+Who is playing in 2018 Super Bowl ? COL_START url COL_END COL_START Number COL_END COL_START Team_1 COL_END COL_START Score COL_END COL_START Team_2 COL_END COL_START Location COL_END
 
 SELECT MAX(Number), "Team_1", "Team_2" FROM Table_1;
 SELECT "MAX" ( "Number" ), "Team_1", "Team_2" FROM Table_1;
@@ -2690,8 +2627,8 @@ Super_Bowl_Results
 SELECT MAX(Number), "Team_1", "Team_2" FROM Super_Bowl_Results;
 --------------------------------------------------
 --------------------------------------------------
-example# 299
-Alexa , where is the shoe station located in Pensacola ?
+example# 292
+Alexa , where is the shoe station located in Pensacola ? COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Address%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Address%";
@@ -2699,8 +2636,8 @@ Shoe_Station,_Pensacola
 SELECT "Value" FROM Shoe_Station,_Pensacola WHERE "Key" LIKE "%%Address%";
 --------------------------------------------------
 --------------------------------------------------
-example# 300
-What Super Bowl did Tom Brady perform the best in .
+example# 293
+What Super Bowl did Tom Brady perform the best in . COL_START superbowl COL_END COL_START stats COL_END COL_START description COL_END
 
 SELECT "superbowl" FROM Table_1 WHERE "superbowl" LIKE "%%1.%" ;
 SELECT "superbowl" FROM Table_1 WHERE "superbowl" LIKE "%%1.%";
@@ -2708,8 +2645,8 @@ brady
 SELECT "superbowl" FROM brady WHERE "superbowl" LIKE "%%1.%" ;
 --------------------------------------------------
 --------------------------------------------------
-example# 301
-How much does Spirit Airlines charge for bags ?
+example# 294
+How much does Spirit Airlines charge for bags ? COL_START url COL_END COL_START Size COL_END COL_START Price_Per_Bag COL_END
 
 SELECT "Price_Per_Bag" FROM Table_1;
 SELECT "Price_Per_Bag" FROM Table_1;
@@ -2717,8 +2654,8 @@ Spirit_Airlines_Baggage_Fees
 SELECT "Price_Per_Bag" FROM Spirit_Airlines_Baggage_Fees;
 --------------------------------------------------
 --------------------------------------------------
-example# 302
-How much is an iPhone 8 ?
+example# 295
+How much is an iPhone 8 ? COL_START url COL_END COL_START Seller COL_END COL_START Seller_alt COL_END COL_START Seller_link COL_END COL_START Cost COL_END
 
 SELECT * FROM Table_1;
 SELECT * FROM Table_1;
@@ -2726,17 +2663,8 @@ Iphone8
 SELECT * FROM Iphone8;
 --------------------------------------------------
 --------------------------------------------------
-example# 303
-What is the highest grossing movie of 2017 ?
-
-SELECT "Movie" FROM Table_1 WHERE "2017_Gross" = ( SELECT MAX ( "2017_Gross") FROM Table_1 );
-SELECT "Movie" FROM Table_1 WHERE "2017_Gross" = ( SELECT "MAX" ( "2017_Gross" ) FROM Table_1 );
-Table_1
-SELECT "Movie" FROM Table_1 WHERE "2017_Gross" = ( SELECT MAX ( "2017_Gross") FROM Table_1 );
---------------------------------------------------
---------------------------------------------------
-example# 304
-Alexa , is there latex in baby diapers ?
+example# 296
+Alexa , is there latex in baby diapers ? COL_START url COL_END COL_START brand COL_END COL_START brand_link COL_END COL_START Chlorine_Free COL_END COL_START Average_Cost COL_END COL_START Biodegradable COL_END COL_START Ecofreindly COL_END COL_START Fragrance_free COL_END COL_START latex_free COL_END COL_START sodium_polyacrylate COL_END COL_START Wetness_indicator COL_END COL_START Made_In COL_END COL_START Additional_features COL_END
 
 SELECT "brand", "latex_free" FROM Table_1 ;
 SELECT "brand", "latex_free" FROM Table_1;
@@ -2744,8 +2672,8 @@ diapers
 SELECT "brand", "latex_free" FROM diapers ;
 --------------------------------------------------
 --------------------------------------------------
-example# 305
-How do I make paneer ?
+example# 297
+How do I make paneer ? COL_START steps COL_END
 
 SELECT "steps" FROM Table_1 ;
 SELECT "steps" FROM Table_1;
@@ -2753,8 +2681,8 @@ make_paneer
 SELECT "steps" FROM make_paneer ;
 --------------------------------------------------
 --------------------------------------------------
-example# 306
-What is the best of songs out there ?
+example# 298
+What is the best of songs out there ? COL_START Ranking COL_END COL_START Song COL_END
 
 SELECT "Song" FROM Table_1 WHERE "Ranking" = 1;
 SELECT "Song" FROM Table_1 WHERE "Ranking" = 1;
@@ -2762,8 +2690,8 @@ Best_Songs_of_All_Time
 SELECT "Song" FROM Best_Songs_of_All_Time WHERE "Ranking" = 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 307
-Why is marijuana illegal ?
+example# 299
+Why is marijuana illegal ? COL_START url COL_END COL_START Reason COL_END COL_START Explanation COL_END
 
 SELECT "Reason" FROM Table_1;
 SELECT "Reason" FROM Table_1;
@@ -2771,8 +2699,8 @@ Table_1
 SELECT "Reason" FROM Table_1;
 --------------------------------------------------
 --------------------------------------------------
-example# 308
-Alexa , what day is easter on this year ?
+example# 300
+Alexa , what day is easter on this year ? COL_START url COL_END COL_START Weekday COL_END COL_START Date COL_END COL_START Year COL_END COL_START Name COL_END COL_START Holiday_Type COL_END
 
 SELECT "Date" FROM Table_1 WHERE "Year" LIKE "%%2018%";
 SELECT "Date" FROM Table_1 WHERE "Year" LIKE "%%2018%";
@@ -2780,8 +2708,8 @@ Easter_Info
 SELECT "Date" FROM Easter_Info WHERE "Year" LIKE "%%2018%";
 --------------------------------------------------
 --------------------------------------------------
-example# 309
-When are taxes due ?
+example# 301
+When are taxes due ? COL_START url COL_END COL_START Weekday COL_END COL_START Date COL_END COL_START Year COL_END
 
 SELECT "Date" FROM Table_1 WHERE "Year" LIKE "%%2018%";
 SELECT "Date" FROM Table_1 WHERE "Year" LIKE "%%2018%";
@@ -2789,8 +2717,8 @@ US_Tax_Day
 SELECT "Date" FROM US_Tax_Day WHERE "Year" LIKE "%%2018%";
 --------------------------------------------------
 --------------------------------------------------
-example# 310
-Alexa , what time is it in Iran right now ?
+example# 302
+Alexa , what time is it in Iran right now ? COL_START Offset COL_END COL_START Time Zone Abbreviation COL_END COL_START Time Zone Name COL_END COL_START Example City COL_END COL_START Current Time COL_END
 
 SELECT "Current_Time" FROM Table_1;
 SELECT "Current_Time" FROM Table_1;
@@ -2798,8 +2726,8 @@ Time_Zone_Currently_Being_Used_in_Iran
 SELECT "Current_Time" FROM Time_Zone_Currently_Being_Used_in_Iran;
 --------------------------------------------------
 --------------------------------------------------
-example# 311
-Alexa : What 's the best homemade carpet cleaning solution ?
+example# 303
+Alexa : What 's the best homemade carpet cleaning solution ? COL_START Recipe Name COL_END COL_START Recipes COL_END COL_START Snippet COL_END
 
 SELECT * FROM Table_1 LIMIT 3;
 SELECT * FROM Table_1 LIMIT 3;
@@ -2807,8 +2735,8 @@ SELECT * FROM Table_1 LIMIT 3;
 SELECT * FROM 7_DIY_Homemade_Carpet_Shampoo_Recipes LIMIT 3;
 --------------------------------------------------
 --------------------------------------------------
-example# 312
-Alexa , what does USB stand for ?
+example# 304
+Alexa , what does USB stand for ? COL_START url COL_END COL_START Abbreviation COL_END COL_START Full_Name COL_END
 
 SELECT "Full-nane" FROM Table_1 WHERE "Abbreviation" = "USB";
 SELECT "Full-nane" FROM Table_1 WHERE "Abbreviation" = "USB";
@@ -2816,8 +2744,8 @@ Computer_Science:_Abbreviations
 SELECT "Full-nane" FROM Computer_Science:_Abbreviations WHERE "Abbreviation" = "USB";
 --------------------------------------------------
 --------------------------------------------------
-example# 313
-Alexa , when does the new Shadow of the Colossus come out ?
+example# 305
+Alexa , when does the new Shadow of the Colossus come out ? COL_START url COL_END COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Release_Date%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Release_Date%";
@@ -2825,17 +2753,8 @@ Shadow_of_Colossus_PS4_Remake_Essential_Information
 SELECT "Value" FROM Shadow_of_Colossus_PS4_Remake_Essential_Information WHERE "Key" LIKE "%%Release_Date%";
 --------------------------------------------------
 --------------------------------------------------
-example# 314
-Alexa , what time does the Super Bowl start
-
-SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%time%";
-SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%time%";
-How_to_watch_Super_Bowl_52
-SELECT "Value" FROM How_to_watch_Super_Bowl_52 WHERE "Key" LIKE "%%time%";
---------------------------------------------------
---------------------------------------------------
-example# 315
-Alexa , name me a horror movie that recently came out .
+example# 306
+Alexa , name me a horror movie that recently came out . COL_START Movie title COL_END COL_START Snippet COL_END
 
 SELECT "Movie_Title" FROM Table_1 LIMIT 3;
 SELECT "Movie_Title" FROM Table_1 LIMIT 3;
@@ -2843,8 +2762,8 @@ The_Best_Horror_Films_of_2017_(So_Far)
 SELECT "Movie_Title" FROM The_Best_Horror_Films_of_2017_(So_Far) LIMIT 3;
 --------------------------------------------------
 --------------------------------------------------
-example# 316
-Alexa : Are vitamins on sale at Walgreens this week ?
+example# 307
+Alexa : Are vitamins on sale at Walgreens this week ? COL_START url COL_END COL_START Product_Name COL_END COL_START Deal COL_END COL_START Type COL_END COL_START Description COL_END
 
 SELECT * FROM Table_1 LIMIT 3;
 SELECT * FROM Table_1 LIMIT 3;
@@ -2852,8 +2771,8 @@ Vitamins_and_Supplements_-_Weekly_Deals
 SELECT * FROM Vitamins_and_Supplements_-_Weekly_Deals LIMIT 3;
 --------------------------------------------------
 --------------------------------------------------
-example# 317
-How does sleep deprivation affect you ?
+example# 308
+How does sleep deprivation affect you ? COL_START Name COL_END COL_START Description COL_END
 
 SELECT "Name" FROM Table_1;
 SELECT "Name" FROM Table_1;
@@ -2861,8 +2780,8 @@ sleep_deprivation_consequences
 SELECT "Name" FROM sleep_deprivation_consequences;
 --------------------------------------------------
 --------------------------------------------------
-example# 318
-Alexa , what is the tallest building in the world ?
+example# 309
+Alexa , what is the tallest building in the world ? COL_START url COL_END COL_START Rank COL_END COL_START Building COL_END COL_START Location COL_END COL_START Height_in_Feet COL_END COL_START Height_in_Meters COL_END COL_START Year_Completed COL_END
 
 SELECT "Building" FROM Table_1 WHERE "Rank" LIKE "%%1%";
 SELECT "Building" FROM Table_1 WHERE "Rank" LIKE "%%1%";
@@ -2870,8 +2789,8 @@ The_Tallest_Buildings_in_the_World
 SELECT "Building" FROM The_Tallest_Buildings_in_the_World WHERE "Rank" LIKE "%%1%";
 --------------------------------------------------
 --------------------------------------------------
-example# 319
-How much is a bitcoin worth
+example# 310
+How much is a bitcoin worth COL_START Key COL_END COL_START Value COL_END
 
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Last_price%";
 SELECT "Value" FROM Table_1 WHERE "Key" LIKE "%%Last_price%";
@@ -2879,8 +2798,8 @@ Bitcoin
 SELECT "Value" FROM Bitcoin WHERE "Key" LIKE "%%Last_price%";
 --------------------------------------------------
 --------------------------------------------------
-example# 320
-What food delivery services are near me ?
+example# 311
+What food delivery services are near me ? COL_START url COL_END COL_START Image COL_END COL_START Image_alt COL_END COL_START Image_link COL_END COL_START Search_Result COL_END COL_START Name COL_END COL_START Name_link COL_END COL_START Review_Count COL_END COL_START Service_provided COL_END COL_START Service_provided_link COL_END COL_START Tag_Deal COL_END COL_START Neighborhood COL_END COL_START Address COL_END COL_START Phone_Number COL_END COL_START Snippet COL_END COL_START Read_More COL_END COL_START Read_More_link COL_END
 
 SELECT "Name" FROM Table_1;
 SELECT "Name" FROM Table_1;
@@ -2888,8 +2807,8 @@ The_Best_10_Food_Delivery_Services_in_Pittsburgh,_PA
 SELECT "Name" FROM The_Best_10_Food_Delivery_Services_in_Pittsburgh,_PA;
 --------------------------------------------------
 --------------------------------------------------
-example# 321
-Alexa , where can I get the best cuban food in Gainesville ?
+example# 312
+Alexa , where can I get the best cuban food in Gainesville ? COL_START url COL_END COL_START Analytics_Image COL_END COL_START Analytics_Image_alt COL_END COL_START Analytics_Image_link COL_END COL_START Index COL_END COL_START Restaurant COL_END COL_START Restaurant_link COL_END COL_START Review_Count COL_END COL_START Price COL_END COL_START Category_List_Text COL_END COL_START Category_List_Link COL_END COL_START Category_List_Link_link COL_END COL_START Search_Result COL_END COL_START Secondary_1 COL_END COL_START Secondary_2 COL_END COL_START Phone_Number COL_END COL_START Photo_Box_Image COL_END COL_START Photo_Box_Image_alt COL_END COL_START Photo_Box_Image_link COL_END COL_START Snippet_1 COL_END COL_START Snippet_2 COL_END COL_START Snippet_3 COL_END
 
 SELECT "Restaurant" FROM Table_1 ORDER BY "Index" ASC LIMIT 1;
 SELECT "Restaurant" FROM Table_1 ORDER BY "Index" ASC LIMIT 1;
@@ -2897,8 +2816,8 @@ Best_Cuban_Food_in_Gainesville_Yelp
 SELECT "Restaurant" FROM Best_Cuban_Food_in_Gainesville_Yelp ORDER BY "Index" ASC LIMIT 1;
 --------------------------------------------------
 --------------------------------------------------
-example# 322
-Alexa , what are the vegan pizza spots in St. Charles ?
+example# 313
+Alexa , what are the vegan pizza spots in St. Charles ? COL_START url COL_END COL_START Rank COL_END COL_START Name COL_END COL_START Review_Count COL_END COL_START Price COL_END COL_START Category_List_Text COL_END COL_START Neighborhood COL_END COL_START Address_1 COL_END COL_START Address_2 COL_END COL_START Phone_Number COL_END COL_START Snippet COL_END
 
 SELECT "Name" FROM Table_1 WHERE "Category_List_Text" LIKE "%%Vegetarian%" AND "Snippet" LIKE "%%Pizza%";
 SELECT "Name" FROM Table_1 WHERE "Category_List_Text" LIKE "%%Vegetarian%" AND "Snippet" LIKE "%%Pizza%";

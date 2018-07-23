@@ -220,13 +220,18 @@ def preprocess_sql_dataset(annot_file, code_file, table_name_file):
 
     return examples
 
-def parse_sql_dataset():
+def parse_sql_dataset(with_col=False):
     MAX_QUERY_LENGTH = 70 # FIXME: figure out the best config!
     WORD_FREQ_CUT_OFF = 2
 
-    annot_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/new_sql_generation.in'
-    code_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/new_sql_generation.out'
-    table_name_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/sql.table'
+    if not with_col:
+        annot_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/fixed_data/new_sql_generation.in'
+        code_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/fixed_data/new_sql_generation.out'
+        table_name_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/fixed_data/sql.table'
+    else:
+        annot_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/fixed_data/col_sql_generation.in'
+        code_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/fixed_data/col_sql_generation.out'
+        table_name_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/fixed_data/col_sql.table'
 
     #annot_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/just_two.in'
     #code_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/just_two.out'
@@ -419,12 +424,15 @@ def parse_sql_dataset():
     dev_data.init_data_matrices()
     test_data.init_data_matrices()
 
-    serialize_to_file((train_data, dev_data, test_data),
-                      '/Users/shayati/Documents/summer_2018/sql_to_ast/data/sql_dataset.bin')
+    if with_col:
+        bin_file_name = '/Users/shayati/Documents/summer_2018/sql_to_ast/data/col_sql_dataset.bin'
+    else:
+        bin_file_name = '/Users/shayati/Documents/summer_2018/sql_to_ast/data/sql_dataset.bin'
+    serialize_to_file((train_data, dev_data, test_data), bin_file_name)
                       # 'data/django.cleaned.dataset.freq5.par_info.refact.space_only.unary_closure.freq{UNARY_CUTOFF_FREQ}.order_by_ulink_len.bin'.format(UNARY_CUTOFF_FREQ=UNARY_CUTOFF_FREQ))
 
     return train_data, dev_data, test_data
 
 if __name__ == '__main__':
     #init_logging('sql_dataset.log')
-    parse_sql_dataset()
+    parse_sql_dataset(with_col=True)

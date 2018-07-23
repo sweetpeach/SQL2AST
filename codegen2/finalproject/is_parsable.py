@@ -45,6 +45,7 @@ def read_sql_dataset(sql_input_file, nl_input_file, table_in, sql_out, nl_out, t
 	print("Num of non-parsable queries: {}".format(failure))
 
 if __name__ == '__main__':
+	'''
 	path = "/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/"
 	sql_path = path + "new_sql_query.txt"
 	nl_path = path + "new_nl_question.txt"
@@ -52,6 +53,14 @@ if __name__ == '__main__':
 	new_nl = path + "new_sql_generation.in"
 	new_sql = path + "new_sql_generation.out"
 	new_table = path + "sql.table"
+	'''
+	path = "/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/fixed_data/"
+	sql_path = path + "col_sql_query.txt"
+	nl_path = path + "col_nl_question.txt"
+	table_path = path + "col_table.txt"
+	new_nl = path + "col_sql_generation.in"
+	new_sql = path + "col_sql_generation.out"
+	new_table = path + "col_sql.table"
 	read_sql_dataset(sql_path, nl_path, table_path, new_sql, new_nl, new_table)
 
 #parse_tree, rule_list = sql_parser.parse('SELECT  AVG("price_1", "+", 0.01*"price_2") FROM air_fryers;', get_rules=True)

@@ -27,7 +27,7 @@ def preprocess_sql(input_sql):
 	line = line.replace('" is "', '" = "')
 	return line
 
-def read_and_write_dataset(input_path, nl_output_file, sql_output_file, table_file, init_id_file, do_print=False, remove_duplicate=True, preprocess=False):
+def read_and_write_dataset(input_path, nl_output_file, sql_output_file, table_file, init_id_file, do_print=False, remove_duplicate=True, preprocess=False, with_column=False):
 	with open(input_path) as input_file:
 		data = json.load(input_file)
 
@@ -49,6 +49,7 @@ def read_and_write_dataset(input_path, nl_output_file, sql_output_file, table_fi
 			print(instance['for_QA_parser'])
 			sql_query = instance['for_QA_parser']['query'].strip()
 			table_name = instance['for_QA_parser']['table_name'].strip()
+			column_names = instance['for_QA_parser']['column_names']
 		
 			if sql_query[len(sql_query)-1] != ";":
 				sql_query += ";"
@@ -79,7 +80,13 @@ def read_and_write_dataset(input_path, nl_output_file, sql_output_file, table_fi
 					sql_dict[sql_key] = nl_question
 					nl_dict[nl_question] = sql_query
 
-				nl_writer.write(nl_question+"\n")
+				if with_column:
+					col_names = " COL_END COL_START ".join(str(x) for x in column_names)
+					print("col_names: " + str(column_names))
+					print(col_names)
+					nl_writer.write(nl_question + " COL_START " + col_names + " COL_END\n")
+				else:
+					nl_writer.write(nl_question + "\n")
 				sql_writer.write(sql_query+"\n")
 				table_writer.write(table_name+"\n")
 				init_id_writer.write(str(index) + "\n")
@@ -102,12 +109,12 @@ def read_and_write_dataset(input_path, nl_output_file, sql_output_file, table_fi
 	print("#Instances: {}".format(len(nl_dict)))
 
 if __name__ == '__main__':
-	input_path = "/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/questions_queries.json"
-	nl_path = "/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/new_nl_question.txt"
-	sql_path = "/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/new_sql_query.txt"
-	table_path = "/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/new_table.txt"
-	id_path = "/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/new_initial_id.txt"
-	read_and_write_dataset(input_path, nl_path, sql_path, table_path, id_path, do_print=True, preprocess=True)
+	input_path = "/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/fixed_data/questions_queries_with_column_names.json"
+	nl_path = "/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/col_nl_question.txt"
+	sql_path = "/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/col_sql_query.txt"
+	table_path = "/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/col_table.txt"
+	id_path = "/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/col_initial_id.txt"
+	read_and_write_dataset(input_path, nl_path, sql_path, table_path, id_path, do_print=True, preprocess=True, with_column=True)
 
 	'''
 	sql = 'SELECT  "hehe" FROM X WHERE  "Property"  LIKE "%%people%HIV%" ORDER BY  "ASC";'
