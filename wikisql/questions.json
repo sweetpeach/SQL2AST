@@ -1,0 +1,9 @@
+{"phase": 1, "table_id": "1-10015132-11", "question": "What position does the player who played for butler cc (ks) play?", "sql": {"sel": 3, "conds": [[5, 0, "Butler CC (KS)"]], "agg": 0}}
+{"phase": 1, "table_id": "1-10015132-11", "question": "How many schools did player number 3 play at?", "sql": {"sel": 5, "conds": [[1, 0, "3"]], "agg": 3}}
+{"phase": 1, "table_id": "1-10015132-11", "question": "What school did player number 21 play for?", "sql": {"sel": 5, "conds": [[1, 0, "21"]], "agg": 0}}
+{"phase": 1, "table_id": "1-10015132-11", "question": "Who is the player that wears number 42?", "sql": {"sel": 0, "conds": [[1, 0, "42"]], "agg": 0}}
+{"phase": 1, "table_id": "1-10015132-11", "question": "What player played guard for toronto in 1996-97?", "sql": {"sel": 0, "conds": [[3, 0, "Guard"], [4, 0, "1996-97"]], "agg": 0}}
+{"phase": 1, "table_id": "1-10015132-9", "question": "Who are all of the players on the Westchester High School club team?", "sql": {"sel": 0, "conds": [[5, 0, "Westchester High School"]], "agg": 0}}
+{"phase": 1, "table_id": "1-10015132-9", "question": "What school/club team is Amir Johnson on?", "sql": {"sel": 5, "conds": [[0, 0, "Amir Johnson"]], "agg": 0}}
+{"phase": 1, "table_id": "1-10015132-9", "question": "What are the total amount of numbers on the Toronto team in 2005-06?", "sql": {"sel": 1, "conds": [[4, 0, "2005-06"]], "agg": 3}}
+{"phase": 1, "table_id": "1-10295819-2", "question": "Name the minimum tiesplayed for 6 years", "sql": {"sel": 5, "conds": [[4, 0, 6]], "agg": 2}}
