@@ -9,6 +9,7 @@ import re
 from sql_parse import parse_sql, source_from_parse_tree, get_sql_grammar
 from nn.utils.io_utils import serialize_to_file, deserialize_from_file
 from nn.utils.generic_utils import init_logging
+import time
 
 from dataset import gen_vocab, DataSet, DataEntry, Action, APPLY_RULE, GEN_TOKEN, COPY_TOKEN, GEN_COPY_TOKEN, Vocab
 from lang.py.parse import parse, parse_tree_to_python_ast, canonicalize_code, parse_raw, \
@@ -32,22 +33,7 @@ def standardize_example(nl_input, sql_query):
 
     match_count = 1
     preprocessed_sql_query = sql_query
-    '''
-    match = QUOTED_STRING_RE.search(preprocessed_sql_query)
-    while match:
-        str_repr = 'STR%d' % str_count
-        str_literal = match.group(0)
-        str_string = match.group(2)
 
-        match_count += 1
-
-        preprocessed_sql_query = QUOTED_STRING_RE.sub(str_repr, preprocessed_sql_query, 1)
-        str_map[str_repr] = str_literal
-
-        str_count += 1
-        match = QUOTED_STRING_RE.search(preprocessed_sql_query)
-
-    '''
     #sanity check
     tree = parse_sql(preprocessed_sql_query)
     output_sql = source_from_parse_tree(tree)
@@ -80,11 +66,14 @@ def preprocess_sql_dataset(annot_file, code_file, table_name_file, wikisql):
     if wikisql:
         file_writer = open('wikisql_dataset.examples.txt', 'w')
         for idx, (annot, code) in enumerate(zip(open(annot_file), open(code_file))):
+            if idx % 100 == 0:
+                print(idx)
             annot = annot.strip()
             code = code.strip()
-
-            nl_tokens, sql_query, preprocessed_sql, str_map = standardize_example(annot, code)
-            example = {'id': idx, 'query_tokens': nl_tokens, 'code': preprocessed_sql}#, 'str_map': str_map}
+            nl_tokens = nltk.word_tokenize(annot)
+            #nl_tokens, sql_query, preprocessed_sql, str_map = standardize_example(annot, code)
+            sql_query = code
+            example = {'id': idx, 'query_tokens': nl_tokens, 'code': sql_query}#, 'str_map': str_map}
             examples.append(example)
 
             file_writer.write('-' * 50 + '\n')
@@ -92,12 +81,11 @@ def preprocess_sql_dataset(annot_file, code_file, table_name_file, wikisql):
             file_writer.write(' '.join(nl_tokens) + '\n')
             file_writer.write('\n')
             file_writer.write(sql_query + '\n')
-            file_writer.write(preprocessed_sql + '\n')
-            file_writer.write(table_name + '\n')
-            file_writer.write(raw_code + '\n')
             file_writer.write('-' * 50 + '\n')
 
             idx += 1
+            if idx == 2001:
+                break
     else:
         file_writer = open('sql_dataset.examples.txt', 'w')
         for idx, (annot, code, table_name) in enumerate(zip(open(annot_file), open(code_file), open(table_name_file))):
@@ -127,11 +115,12 @@ def preprocess_sql_dataset(annot_file, code_file, table_name_file, wikisql):
 
     return examples
 
-def parse_sql_dataset(dataset, with_col=False):
+def parse_sql_dataset(dataset, final_dataset_name, with_col=False):
     MAX_QUERY_LENGTH = 70 # FIXME: figure out the best config!
     WORD_FREQ_CUT_OFF = 2
 
-    if dataset = "wikisql":
+    if dataset == "wikisql":
+        print("--- CREATE WIKISQL DATASET WITH COLUMN NAMES ---")
         annot_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/wikisql_data/nl_question'
         code_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/wikisql_data/sql_query'
         table_name_file = ''
@@ -141,6 +130,7 @@ def parse_sql_dataset(dataset, with_col=False):
             code_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/fixed_data/new_sql_generation.out'
             table_name_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/fixed_data/sql.table'
         else:
+            print("--- CREATE SQL DATASET WITH COLUMN NAMES ---")
             annot_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/fixed_data/col_sql_generation.in'
             code_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/fixed_data/col_sql_generation.out'
             table_name_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/fixed_data/col_sql.table'
@@ -149,29 +139,43 @@ def parse_sql_dataset(dataset, with_col=False):
     #code_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/just_two.out'
     #table_name_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/just_two.table'
 
-    data = preprocess_sql_dataset(annot_file, code_file, table_name_file, wikisql=True)
+    if dataset == "wikisql":
+        data = preprocess_sql_dataset(annot_file, code_file, table_name_file, wikisql=True)
+    else:
+        data = preprocess_sql_dataset(annot_file, code_file, table_name_file, wikisql=False)
     #query = 'SELECT "Battle", "huhu" FROM Table_1;'
     #print(standardize_example("Where can I buy stamps?", query))
 
     #from dataset import canonicalize_example
     #print(canonicalize_example('hehe hihi huhuhu "this is a string" "another string"', "a=1"))
 
-    
+    counter_parse = 0
+    start_parse = time.time()
     for example in data:
+        if counter_parse % 100 == 0:
+            print("counter_parse " + str(counter_parse))
         example['parse_tree'] = parse_sql(str(example['code']))
-    
+        counter_parse += 1
+    end_parse = time.time()
+    parse_time = end_parse - start_parse
+    print("Finish making parse tree takes: " + str(parse_time) + " secs")
     parse_trees = [example['parse_tree'] for example in data]
-
+    print("pass")
     grammar = get_sql_grammar(parse_trees)
 
     # write grammar
-    if dataset = "wikisql":
+    start_grammar = time.time()
+    if dataset == "wikisql":
         grammar_file = "wikisql.grammar.txt"
     else:
         grammar_file = "sql.grammar.txt"
     with open(grammar_file, 'w') as f:
         for rule in grammar:
+            #print("writing grammar")
             f.write(rule.__repr__() + '\n')
+    end_grammar = time.time()
+    grammar_time = end_grammar - start_grammar
+    print("Finish writing grammar: " + str(grammar_time) + " secs")
 
     # # build grammar ...
     # from lang.py.py_dataset import extract_grammar
@@ -201,7 +205,8 @@ def parse_sql_dataset(dataset, with_col=False):
         query_tokens = entry['query_tokens']
         code = entry['code']
         parse_tree = entry['parse_tree']
-
+        if idx % 100 == 0:
+            print(idx)
         for node in parse_tree.get_leaves():
             #print(node)
             if grammar.is_sql_lextoken(node):
@@ -306,19 +311,33 @@ def parse_sql_dataset(dataset, with_col=False):
             empty_actions_count += 1
             continue
 
+        if dataset == "wikisql":
+            entry_raw_code = None
+        else:
+            entry_raw_code = entry['raw_code']
+
         example = DataEntry(idx, query_tokens, parse_tree, code, actions,
-                            {'raw_code': entry['raw_code'], 'str_map': None})
+                            {'raw_code': entry_raw_code, 'str_map': None})
 
         if can_fully_gen:
             can_fully_gen_num += 1
 
         # train, valid, test
-        if dataset = "wikisql":
+        if dataset == "wikisql":
+            '''
             if 0 <= idx < 50900:
                 train_data.add(example)
             elif 50900 <= idx < 58200:
                 dev_data.add(example)
             else:
+                test_data.add(example)
+            '''
+            if 0 <= idx < 1000:
+                print("adding train data")
+                train_data.add(example)
+            elif 1000 <= idx < 1500:
+                dev_data.add(example)
+            elif 1500 <= idx < 2000:
                 test_data.add(example)
         else:
             if 0 <= idx < 200:
@@ -348,8 +367,9 @@ def parse_sql_dataset(dataset, with_col=False):
     dev_data.init_data_matrices()
     test_data.init_data_matrices()
 
-    if dataset = "wikisql":
-        bin_file_name = '/Users/shayati/Documents/summer_2018/sql_to_ast/data/wikisql_dataset.bin' #wikisql is always with column name
+    if dataset == "wikisql":
+        #bin_file_name = '/Users/shayati/Documents/summer_2018/sql_to_ast/data/wikisql_dataset.bin' #wikisql is always with column name
+        bin_file_name = final_dataset_name
     else:
         if with_col:
             bin_file_name = '/Users/shayati/Documents/summer_2018/sql_to_ast/data/col_sql_dataset.bin'
@@ -362,5 +382,11 @@ def parse_sql_dataset(dataset, with_col=False):
 
 if __name__ == '__main__':
     #init_logging('sql_dataset.log')
+    start = time.time()
     dataset = "wikisql"
-    parse_sql_dataset(dataset, with_col=True)
+    #dataset = "sql"
+    final_dataset_name = '/Users/shayati/Documents/summer_2018/sql_to_ast/data/temp_wikisql_dataset.bin'
+    parse_sql_dataset(dataset, final_dataset_name, with_col=True)
+    end = time.time()
+    running_time = end - start
+    print("Running time is " + str(running_time) + " seconds")
