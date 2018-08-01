@@ -15,120 +15,6 @@ from lang.py.parse import parse, parse_tree_to_python_ast, canonicalize_code, pa
     de_canonicalize_code, tokenize_code, tokenize_code_adv, de_canonicalize_code_for_seq2seq
 from lang.py.unaryclosure import get_top_unary_closures, apply_unary_closures
 
-'''
-def extract_grammar(code_file, prefix='py'):
-    line_num = 0
-    parse_trees = []
-    for line in open(code_file):
-        code = line.strip()
-        parse_tree = parse(code)
-
-        # leaves = parse_tree.get_leaves()
-        # for leaf in leaves:
-        #     if not is_terminal_type(leaf.type):
-        #         print parse_tree
-
-        # parse_tree = add_root(parse_tree)
-
-        parse_trees.append(parse_tree)
-
-        # sanity check
-        ast_tree = parse_tree_to_python_ast(parse_tree)
-        ref_ast_tree = ast.parse(canonicalize_code(code)).body[0]
-        source1 = astor.to_source(ast_tree)
-        source2 = astor.to_source(ref_ast_tree)
-
-        assert source1 == source2
-
-        # check rules
-        # rule_list = parse_tree.get_rule_list(include_leaf=True)
-        # for rule in rule_list:
-        #     if rule.parent.type == int and rule.children[0].type == int:
-        #         # rule.parent.type == str and rule.children[0].type == str:
-        #         pass
-
-        # ast_tree = tree_to_ast(parse_tree)
-        # print astor.to_source(ast_tree)
-            # print parse_tree
-        # except Exception as e:
-        #     error_num += 1
-        #     #pass
-        #     #print e
-
-        line_num += 1
-
-    print 'total line of code: %d' % line_num
-
-    grammar = get_grammar(parse_trees)
-
-    with open(prefix + '.grammar.txt', 'w') as f:
-        for rule in grammar:
-            str = rule.__repr__()
-            f.write(str + '\n')
-
-    with open(prefix + '.parse_trees.txt', 'w') as f:
-        for tree in parse_trees:
-            f.write(tree.__repr__() + '\n')
-
-    return grammar, parse_trees
-
-
-def rule_vs_node_stat():
-    line_num = 0
-    parse_trees = []
-    code_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/hearthstone/all_hs.out' # 'all.code'
-    node_nums = rule_nums = 0.
-    for line in open(code_file):
-        code = line.replace('§', '\n').strip()
-        parse_tree = parse(code)
-        node_nums += len(list(parse_tree.nodes))
-        rules, _ = parse_tree.get_productions()
-        rule_nums += len(rules)
-        parse_trees.append(parse_tree)
-
-        line_num += 1
-
-    print 'avg. nums of nodes: %f' % (node_nums / line_num)
-    print 'avg. nums of rules: %f' % (rule_nums / line_num)
-
-
-def process_heart_stone_dataset():
-    data_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/hearthstone/all_hs.out'
-    parse_trees = []
-    rule_num = 0.
-    example_num = 0
-    for line in open(data_file):
-        code = line.replace('§', '\n').strip()
-        parse_tree = parse(code)
-        # sanity check
-        pred_ast = parse_tree_to_python_ast(parse_tree)
-        pred_code = astor.to_source(pred_ast)
-        ref_ast = ast.parse(code)
-        ref_code = astor.to_source(ref_ast)
-
-        if pred_code != ref_code:
-            raise RuntimeError('code mismatch!')
-
-        rules, _ = parse_tree.get_productions(include_value_node=False)
-        rule_num += len(rules)
-        example_num += 1
-
-        parse_trees.append(parse_tree)
-
-    grammar = get_grammar(parse_trees)
-
-    with open('hs.grammar.txt', 'w') as f:
-        for rule in grammar:
-            str = rule.__repr__()
-            f.write(str + '\n')
-
-    with open('hs.parse_trees.txt', 'w') as f:
-        for tree in parse_trees:
-            f.write(tree.__repr__() + '\n')
-
-
-    print 'avg. nums of rules: %f' % (rule_num / example_num)
-'''
 QUOTED_STRING_RE = re.compile(r"(?P<quote>['\"])(?P<string>.*?)(?<!\\)(?P=quote)")
 
 def standardize_example(nl_input, sql_query):
@@ -188,56 +74,82 @@ def standardize_example(nl_input, sql_query):
     return nl_tokens, gold_sql, output_sql, str_map
 
 
-def preprocess_sql_dataset(annot_file, code_file, table_name_file):
-    file_writer = open('sql_dataset.examples.txt', 'w')
+def preprocess_sql_dataset(annot_file, code_file, table_name_file, wikisql):
     examples = []
-
     err_num = 0
-    for idx, (annot, code, table_name) in enumerate(zip(open(annot_file), open(code_file), open(table_name_file))):
-        annot = annot.strip()
-        code = code.strip()
-        table_name = table_name.strip()
+    if wikisql:
+        file_writer = open('wikisql_dataset.examples.txt', 'w')
+        for idx, (annot, code) in enumerate(zip(open(annot_file), open(code_file))):
+            annot = annot.strip()
+            code = code.strip()
 
-        nl_tokens, sql_query, preprocessed_sql, str_map = standardize_example(annot, code)
-        raw_code = sql_query.replace("Table_1", table_name)
-        example = {'id': idx, 'query_tokens': nl_tokens, 'code': preprocessed_sql,
-                   'table_name': table_name, 'raw_code': raw_code}#, 'str_map': str_map}
-        examples.append(example)
+            nl_tokens, sql_query, preprocessed_sql, str_map = standardize_example(annot, code)
+            example = {'id': idx, 'query_tokens': nl_tokens, 'code': preprocessed_sql}#, 'str_map': str_map}
+            examples.append(example)
 
-        file_writer.write('-' * 50 + '\n')
-        file_writer.write('example# %d\n' % idx)
-        file_writer.write(' '.join(nl_tokens) + '\n')
-        file_writer.write('\n')
-        file_writer.write(sql_query + '\n')
-        file_writer.write(preprocessed_sql + '\n')
-        file_writer.write(table_name + '\n')
-        file_writer.write(raw_code + '\n')
-        file_writer.write('-' * 50 + '\n')
+            file_writer.write('-' * 50 + '\n')
+            file_writer.write('example# %d\n' % idx)
+            file_writer.write(' '.join(nl_tokens) + '\n')
+            file_writer.write('\n')
+            file_writer.write(sql_query + '\n')
+            file_writer.write(preprocessed_sql + '\n')
+            file_writer.write(table_name + '\n')
+            file_writer.write(raw_code + '\n')
+            file_writer.write('-' * 50 + '\n')
 
-        idx += 1
+            idx += 1
+    else:
+        file_writer = open('sql_dataset.examples.txt', 'w')
+        for idx, (annot, code, table_name) in enumerate(zip(open(annot_file), open(code_file), open(table_name_file))):
+            annot = annot.strip()
+            code = code.strip()
+            table_name = table_name.strip()
 
-    file_writer.close()
+            nl_tokens, sql_query, preprocessed_sql, str_map = standardize_example(annot, code)
+            raw_code = sql_query.replace("Table_1", table_name)
+            example = {'id': idx, 'query_tokens': nl_tokens, 'code': preprocessed_sql,
+                       'table_name': table_name, 'raw_code': raw_code}#, 'str_map': str_map}
+            examples.append(example)
+
+            file_writer.write('-' * 50 + '\n')
+            file_writer.write('example# %d\n' % idx)
+            file_writer.write(' '.join(nl_tokens) + '\n')
+            file_writer.write('\n')
+            file_writer.write(sql_query + '\n')
+            file_writer.write(preprocessed_sql + '\n')
+            file_writer.write(table_name + '\n')
+            file_writer.write(raw_code + '\n')
+            file_writer.write('-' * 50 + '\n')
+
+            idx += 1
+
+        file_writer.close()
 
     return examples
 
-def parse_sql_dataset(with_col=False):
+def parse_sql_dataset(dataset, with_col=False):
     MAX_QUERY_LENGTH = 70 # FIXME: figure out the best config!
     WORD_FREQ_CUT_OFF = 2
 
-    if not with_col:
-        annot_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/fixed_data/new_sql_generation.in'
-        code_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/fixed_data/new_sql_generation.out'
-        table_name_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/fixed_data/sql.table'
+    if dataset = "wikisql":
+        annot_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/wikisql_data/nl_question'
+        code_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/wikisql_data/sql_query'
+        table_name_file = ''
     else:
-        annot_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/fixed_data/col_sql_generation.in'
-        code_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/fixed_data/col_sql_generation.out'
-        table_name_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/fixed_data/col_sql.table'
+        if not with_col:
+            annot_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/fixed_data/new_sql_generation.in'
+            code_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/fixed_data/new_sql_generation.out'
+            table_name_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/fixed_data/sql.table'
+        else:
+            annot_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/fixed_data/col_sql_generation.in'
+            code_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/fixed_data/col_sql_generation.out'
+            table_name_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/fixed_data/col_sql.table'
 
     #annot_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/just_two.in'
     #code_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/just_two.out'
     #table_name_file = '/Users/shayati/Documents/summer_2018/sql_to_ast/sql_data/just_two.table'
 
-    data = preprocess_sql_dataset(annot_file, code_file, table_name_file)
+    data = preprocess_sql_dataset(annot_file, code_file, table_name_file, wikisql=True)
     #query = 'SELECT "Battle", "huhu" FROM Table_1;'
     #print(standardize_example("Where can I buy stamps?", query))
 
@@ -253,7 +165,11 @@ def parse_sql_dataset(with_col=False):
     grammar = get_sql_grammar(parse_trees)
 
     # write grammar
-    with open('sql.grammar.txt', 'w') as f:
+    if dataset = "wikisql":
+        grammar_file = "wikisql.grammar.txt"
+    else:
+        grammar_file = "sql.grammar.txt"
+    with open(grammar_file, 'w') as f:
         for rule in grammar:
             f.write(rule.__repr__() + '\n')
 
@@ -397,12 +313,20 @@ def parse_sql_dataset(with_col=False):
             can_fully_gen_num += 1
 
         # train, valid, test
-        if 0 <= idx < 200:
-            train_data.add(example)
-        elif 200 <= idx < 250:
-            dev_data.add(example)
+        if dataset = "wikisql":
+            if 0 <= idx < 50900:
+                train_data.add(example)
+            elif 50900 <= idx < 58200:
+                dev_data.add(example)
+            else:
+                test_data.add(example)
         else:
-            test_data.add(example)
+            if 0 <= idx < 200:
+                train_data.add(example)
+            elif 200 <= idx < 250:
+                dev_data.add(example)
+            else:
+                test_data.add(example)
 
         all_examples.append(example)
 
@@ -424,10 +348,13 @@ def parse_sql_dataset(with_col=False):
     dev_data.init_data_matrices()
     test_data.init_data_matrices()
 
-    if with_col:
-        bin_file_name = '/Users/shayati/Documents/summer_2018/sql_to_ast/data/col_sql_dataset.bin'
+    if dataset = "wikisql":
+        bin_file_name = '/Users/shayati/Documents/summer_2018/sql_to_ast/data/wikisql_dataset.bin' #wikisql is always with column name
     else:
-        bin_file_name = '/Users/shayati/Documents/summer_2018/sql_to_ast/data/sql_dataset.bin'
+        if with_col:
+            bin_file_name = '/Users/shayati/Documents/summer_2018/sql_to_ast/data/col_sql_dataset.bin'
+        else:
+            bin_file_name = '/Users/shayati/Documents/summer_2018/sql_to_ast/data/sql_dataset.bin'
     serialize_to_file((train_data, dev_data, test_data), bin_file_name)
                       # 'data/django.cleaned.dataset.freq5.par_info.refact.space_only.unary_closure.freq{UNARY_CUTOFF_FREQ}.order_by_ulink_len.bin'.format(UNARY_CUTOFF_FREQ=UNARY_CUTOFF_FREQ))
 
@@ -435,4 +362,5 @@ def parse_sql_dataset(with_col=False):
 
 if __name__ == '__main__':
     #init_logging('sql_dataset.log')
-    parse_sql_dataset(with_col=True)
+    dataset = "wikisql"
+    parse_sql_dataset(dataset, with_col=True)
