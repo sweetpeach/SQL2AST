@@ -16,6 +16,7 @@ from lang.grammar import Grammar
 import pprint
 import json
 import yaml
+from tqdm import tqdm
 
 def sql_rules_to_tree(query, rule_file_path): #don't need this function anymore
     with open(rule_file_path, 'r') as input_file:
@@ -27,9 +28,11 @@ def sql_rules_to_tree(query, rule_file_path): #don't need this function anymore
     
     return tree
 
-def sql_to_parse_tree(rule_list, debug=False):
+def sql_to_parse_tree(rule_list, doPrint, debug=False):
     queue = []
     level = 0
+    if doPrint:
+        print("sql to parse tree")
     for rule_idx in range(len(rule_list)):
     #while rule_list:
         current_level = rule_list.pop()
@@ -44,15 +47,6 @@ def sql_to_parse_tree(rule_list, debug=False):
 
             if child[0:8] == "LexToken":
                 temp = child[9:len(child)-1].split(",")
-                '''
-                first_child_node = ASTNode(temp[0])
-
-                node_type = type(temp[1])
-                node_value = temp[1]
-                second_child_node = ASTNode(node_type=node_type, value=node_value)
-                first_child_node.add_child(second_child_node)
-                list_of_children.append(first_child_node)
-                '''
                 child_node = ASTNode(node_type=temp[0], value=temp[1])
                 list_of_children.append(child_node)
             else:
@@ -102,6 +96,7 @@ def sql_to_parse_tree(rule_list, debug=False):
         #print("root: " + str(root))
         #pointer
     #print root
+    queue = []
     tree = add_root(root)
     return tree
 
@@ -157,12 +152,13 @@ def get_sql_grammar(parse_trees):
     # rule_num_dist = defaultdict(int)
 
     for parse_tree in parse_trees:
+        #print("parse tree")
         parse_tree_rules, rule_parents = parse_tree.get_productions()
         for rule in parse_tree_rules:
             rules.add(rule)
 
     rules = list(sorted(rules, key=lambda x: x.__repr__()))
-    print "rules: " + str(rules)
+    #print "rules: " + str(rules)
     grammar = SQLGrammar(rules)
 
     logging.info('num. rules: %d', len(rules))
@@ -170,7 +166,7 @@ def get_sql_grammar(parse_trees):
     return grammar
 
 
-def parse_sql(query):
+def parse_sql(query, doPrint):
     """
     parse an SQL code into a tree structure
     code -> AST tree -> AST tree to internal tree structure
@@ -182,10 +178,35 @@ def parse_sql(query):
     #pprint.pprint([parse_tree])
     
     #tree = sql_rules_to_tree(query, result_file)
-    tree = sql_to_parse_tree(rule_list)
+    tree = sql_to_parse_tree(rule_list, doPrint)
     return tree
 
+def count_lines(fname):
+    with open(fname) as f:
+        return sum(1 for line in f)
+
+def read_dataset_and_parse(input_path):
+    sql_parser = SQLParser()
+    counter = 0
+    with open(input_path) as input_file:
+        for query in tqdm(input_file, total=count_lines(input_path)):
+            #tree = parse_sql(query, False)
+            parse_tree, rule_list = sql_parser.parse(query, get_rules=True)
+            sql_to_parse_tree(rule_list, False)
+            counter += 1
+
+    '''
+    for i in tqdm(range(1000000)):
+        j = 10
+        while j < 100000000:
+            j = j * 2
+    '''
+
+
 if __name__ == '__main__':
+    sql_dataset_file = "/Users/shayati/Documents/summer_2018/sql_to_ast/wikisql_data/wikisql_dev.query"
+    read_dataset_and_parse(sql_dataset_file)
+    '''
     from nn.utils.generic_utils import init_logging
     init_logging('misc.log')
     
@@ -205,6 +226,9 @@ if __name__ == '__main__':
     sql_query = source_from_parse_tree(tree)
     print("---------- => QUERY <= ----------")
     print(sql_query)
+    '''
+
+
     '''
     rule_list, rule_parents = tree.get_productions(include_value_node=True)
     for rule_count, rule in enumerate(rule_list):
