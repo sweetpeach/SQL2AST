@@ -150,8 +150,8 @@ def source_from_parse_tree(tree):
 def get_sql_grammar(parse_trees):
     rules = set()
     # rule_num_dist = defaultdict(int)
-
-    for parse_tree in parse_trees:
+    for parse_tree in tqdm(parse_trees, total=len(parse_trees)):
+    #for parse_tree in parse_trees:
         #print("parse tree")
         parse_tree_rules, rule_parents = parse_tree.get_productions()
         for rule in parse_tree_rules:
