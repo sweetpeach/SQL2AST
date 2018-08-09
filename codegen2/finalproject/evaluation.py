@@ -64,12 +64,13 @@ def evaluate_decode_results(dataset, decode_results, verbose=True):
     from lang.py.parse import tokenize_code, de_canonicalize_code
     # tokenize_code = tokenize_for_bleu_eval
     import ast
-    from sql_parse import parse_sql, source_from_parse_tree
+    from sql_parse import parse_sql, source_from_parse_tree, sql_to_parse_tree
+    from lang.sqlp.parser import SQLParser
     print "DATASET COUNT"
     print dataset.count
     print len(decode_results)
     assert dataset.count == len(decode_results)
-
+    sql_parser = SQLParser()
     f = f_decode = None
     if verbose:
         f = open(dataset.name + '.exact_match', 'w')
@@ -105,7 +106,9 @@ def evaluate_decode_results(dataset, decode_results, verbose=True):
         ref_code = example.code
         if config.data_type == 'sql':
             #print("---- SQL ----")
-            gold_ast = parse_sql(ref_code)
+            parse_tree, gold_rule_list = sql_parser.parse(ref_code, get_rules=True)
+            #gold_ast = parse_sql(ref_code)
+            gold_ast = sql_to_parse_tree(gold_rule_list)
             #print("gold ast: " + str(gold_ast))
             gold_source = source_from_parse_tree(gold_ast).strip()
             #print("gold source: " + str(gold_source))
