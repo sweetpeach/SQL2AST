@@ -3,7 +3,7 @@ device="cpu"
 
 # sql dataset
 echo "training wikisql dataset"
-dataset="wikisql_dataset.bin"
+dataset="wikisql_12k_dataset.bin"
 commandline="-batch_size 10 -max_epoch 50 -valid_per_batch 4000 -save_per_batch 4000 -decode_max_time_step 750 -optimizer adadelta -rule_embed_dim 128 -node_embed_dim 64 -valid_metric bleu -no_retrieval"
 datatype="sql"
 
