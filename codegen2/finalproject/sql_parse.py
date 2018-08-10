@@ -15,9 +15,10 @@ from lang.sqlp.sqlplex import _lextokens
 from lang.grammar import Grammar
 import pprint
 import json
-import yaml
+#import yaml
 from tqdm import tqdm
 
+'''
 def sql_rules_to_tree(query, rule_file_path): #don't need this function anymore
     with open(rule_file_path, 'r') as input_file:
         rule_list = yaml.safe_load(input_file)
@@ -27,7 +28,7 @@ def sql_rules_to_tree(query, rule_file_path): #don't need this function anymore
     tree = sql_ast_to_parse_tree(rule_list)
     
     return tree
-
+'''
 def sql_to_parse_tree(rule_list, doPrint=False, debug=False):
     queue = []
     level = 0
