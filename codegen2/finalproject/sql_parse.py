@@ -28,7 +28,7 @@ def sql_rules_to_tree(query, rule_file_path): #don't need this function anymore
     
     return tree
 
-def sql_to_parse_tree(rule_list, doPrint, debug=False):
+def sql_to_parse_tree(rule_list, doPrint=False, debug=False):
     queue = []
     level = 0
     if doPrint:
@@ -166,7 +166,7 @@ def get_sql_grammar(parse_trees):
     return grammar
 
 
-def parse_sql(query, doPrint):
+def parse_sql(query, doPrint=False):
     """
     parse an SQL code into a tree structure
     code -> AST tree -> AST tree to internal tree structure
